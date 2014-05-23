@@ -64,8 +64,8 @@
         	</feature> 
         </config-file>
       
- <source-file src="src/android/com/telerik/Biz2creditApp/FtpClient.java" 
-        target-dir="src/com/telerik/Biz2creditApp" />
+ <source-file src="src/android/com/telerik/Biz2CreditApp/FtpClient.java" 
+        target-dir="src/com/telerik/Biz2CreditApp" />
 		
 
 
