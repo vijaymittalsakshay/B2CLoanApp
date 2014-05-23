@@ -1,4 +1,4 @@
-package com.telerik.Biz2Credit;
+package com.telerik.Biz2CreditApp;
 
 import java.io.File;
 import java.io.FileOutputStream;
