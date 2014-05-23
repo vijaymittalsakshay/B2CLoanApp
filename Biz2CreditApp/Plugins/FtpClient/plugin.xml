@@ -1,0 +1,73 @@
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.telerik.Biz2Credit.FtpClient"
+    version="0.5.1">
+
+    <name>Canvas 2 Image</name>
+
+    <engines>
+        <engine name="cordova" version=">=3.2.0" />
+    </engines>
+
+    <license>MIT</license>
+
+    <js-module src="www/FtpClient.js" name="FtpClient">
+        <clobbers target="window.ftpclient" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+       <config-file target="config.xml" parent="/*">
+           <feature name="FtpClient">
+               <param name="ios-package" value="FtpClient"/>
+               <param name="onload" value="true" />
+           </feature>
+       </config-file>
+
+       <header-file src="src/ios/FtpClient.h" />
+
+       <source-file src="src/ios/FtpClient.m"
+           compiler-flags="-fno-objc-arc" />
+
+ 
+ <!-- NMSSH framework -->
+        <framework src="src/ios/NMSSH.framework" custom="true" />
+                
+        <!-- System frameworks -->
+        <framework src="libz.dylib" />
+     <framework src="Foundation.framework" weak="true" />
+   </platform>
+
+    <!-- android -->
+    <platform name="android">
+		
+		<source-file src="src/android/Libs/ftp4j-1.7.2.jar" target-dir="Libs" />
+		
+
+    	<asset src="www/FtpClient.js" target="FtpClient.js" />
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+        	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+        <!-- <activity android:name="com.telerik.Biz2Credit.FtpClient"
+        android:label="@string/app_name">
+        	<intent-filter>
+        	</intent-filter>
+        </activity> -->
+        </config-file>
+
+        <config-file target="config.xml" parent="widget/plugins">
+        	<feature name="FtpClient">
+
+        		<!--<plugin name="Canvas2ImagePlugin" value="com.telerik.Biz2Credit.Canvas2ImagePlugin" /> -->
+        		<param name="android-package" value="com.telerik.Biz2Credit.FtpClient"/>
+        	</feature> 
+        </config-file>
+      
+ <source-file src="src/android/com/telerik/Biz2credit/FtpClient.java" 
+        target-dir="src/com/telerik/Biz2credit" />
+		
+
+
+    </platform>
+</plugin>
