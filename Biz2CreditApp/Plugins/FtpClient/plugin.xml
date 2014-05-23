@@ -31,7 +31,7 @@
 
  
  <!-- NMSSH framework -->
-        <framework src="src/ios/NMSSH.framework" custom="true" />
+        <framework src="src/ios/frameworks/NMSSH.framework" custom="true" />
                 
         <!-- System frameworks -->
         <framework src="libz.dylib" />
