@@ -9,17 +9,21 @@
 
 
 #import <Cordova/CDVPlugin.h>
-#import  <NMSSH/NMSSH.h>
+//#import "WhiteRaccoon.h"
+#import "BRRequestDownload.h"
+#import "BRRequestDelete.h"
+#import "BRRequest+_UserData.h"
 
 
-@interface FtpClient : CDVPlugin<NMSSHSessionDelegate>
+
+@interface FtpClient : CDVPlugin<BRRequestDelegate>
 {
-    NSString* callback;
-    NSString* disconnectcallback;
+	NSString* callback;
+    BRRequestDownload *downloadFile;
+    NSMutableData *downloadData;
+    NSMutableData *uploadData;
     NSString *savedfileName;
-    NMSFTP *nmsft;
-    bool isDisconnected;
-    NMSSHSession *session1;
+    CDVInvokedUrlCommand* recievedCommand;
 }
 
 @property (nonatomic, copy) NSString* callback;
