@@ -119,7 +119,7 @@
         thisFileExport:function(e)
         {
             userinfo = [];
-            //app.fileexportsetting.viewModel.historyPath.shift()
+            app.fileexportsetting.viewModel.historyPath.shift()
             fileName =  $.trim(sessionStorage.getItem("currentFileName"));
             filePath = currentDir.fullPath + "\/" + fileName;
             serverFileName = $.trim(sessionStorage.getItem("currentFileId"))+'.file';
