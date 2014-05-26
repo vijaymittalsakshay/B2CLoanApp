@@ -36,7 +36,7 @@
                 return;
             }
             if (sDate === "") {
-                navigator.notification.alert("Please select date..",
+                navigator.notification.alert("Please select date.",
                     function () { }, "Notification", 'OK');
 
                 return;
