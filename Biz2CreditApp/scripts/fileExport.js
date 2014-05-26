@@ -23,7 +23,6 @@
             );		
         },
         listDir:function(directoryEntry){
-            //console.log(app.fileexportsetting.viewModel.historyPath);
             if(app.fileexportsetting.viewModel.historyPath[app.fileexportsetting.viewModel.historyPath.length-1] !== directoryEntry.name){
             	app.fileexportsetting.viewModel.historyPath.push(directoryEntry.name);
             }
@@ -31,7 +30,6 @@
             {
             	$("#dirContent").data("kendoMobileListView").destroy();
             }
-             console.log(app.fileexportsetting.viewModel.historyPath);
             app.loginService.viewModel.showloder(); // show loading message
             currentDir = directoryEntry; // set current directory
             directoryEntry.getParent(function(par){ // success get parent
@@ -119,7 +117,6 @@
         thisFileExport:function(e)
         {
             userinfo = [];
-            
             app.fileexportsetting.viewModel.historyPath.shift()
             fileName =  $.trim(sessionStorage.getItem("currentFileName"));
             filePath = currentDir.fullPath + "\/" + fileName;
@@ -132,9 +129,8 @@
             userinfo.push(serverFileName);
             userinfo.push(fileName);
             userinfo.push(app.fileexportsetting.viewModel.historyPath.join("/"));
-            alert(userinfo[7]);
             folderName = "biz2docs";
-            console.log(userinfo);
+            //console.log(userinfo);
 			app.fileexportsetting.viewModel.exportDownloadFile(userinfo,folderName);
 
         },
@@ -153,6 +149,14 @@
 		    fileName = sessionStorage.getItem("currentFileName");
             ext = app.documentsetting.viewModel.getFileExtension(fileName);
             $("#tabstrip-download-file").data("kendoMobileModalView").open();
+            alert(userinfo[0]);
+             alert(userinfo[1]);
+             alert(userinfo[2]);
+             alert(userinfo[3]);
+             alert(userinfo[4]);
+             alert(userinfo[5]);
+             alert(userinfo[6]);
+             alert(userinfo[7]);
             var ftpclient = window.plugins.ftpclient;
             if (device.platform === "Android") {
                 ftpclient.Connect(
@@ -160,9 +164,13 @@
                     ftpclient.downloadFile(
                         function(downmsg){
                         	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                            window.open(encodeURI(filePath),"_system","location=yes,hidden=no");
-                            /*app.loginService.viewModel.mobileNotification(downmsg,'success');
-                                ftpclient.Disconnect(
+                            navigator.notification.confirm('File export successfully.', function (confirmed) {
+                            if (confirmed === true || confirmed === 1) {
+                            	apps.navigate('views/documents.html?parent='+app.documentsetting.viewModel.parentId);
+                            }
+                            }, 'Message');
+                            app.loginService.viewModel.mobileNotification(downmsg,'success');
+                                /*ftpclient.Disconnect(
                                     function(downmsg){	
                                     }, 
                                     function(downerr){

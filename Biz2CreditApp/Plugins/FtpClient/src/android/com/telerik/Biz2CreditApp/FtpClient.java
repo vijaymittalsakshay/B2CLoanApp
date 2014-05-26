@@ -77,6 +77,7 @@ public class FtpClient extends CordovaPlugin {
             file_name=data.optString(6);
 			file_path=data.optString(7);
 
+
             if(action.equalsIgnoreCase(ACTION_CONNECT)){
                Handler h=new Handler();
                h.postDelayed(new Runnable() {
