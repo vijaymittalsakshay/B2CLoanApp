@@ -150,8 +150,10 @@
         showloder:function()
         {	apps.showLoading();
              setTimeout(function(){
+                 
                  apps.hideLoading();
-             }, 10000);
+                 alert("Could not connect to server.Please try again");
+             }, 30000);
         },
         hideloder:function()
         {
@@ -183,7 +185,7 @@
             var staticNotification = $("#staticNotification").kendoNotification({
                 
            	 appendTo: "#appendto",
-            	autoHideAfter: 3000,
+            	autoHideAfter: 1000,
                 animation: false,
                 templates: [
                 {
