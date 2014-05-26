@@ -161,7 +161,7 @@
                             if (confirmed === true || confirmed === 1) {
                             	apps.navigate('views/documents.html?parent='+app.documentsetting.viewModel.parentId);
                             }
-                            }, 'Message','OK');
+                            }, 'Notification','OK');
                             app.loginService.viewModel.mobileNotification(downmsg,'success');
                                 /*ftpclient.Disconnect(
                                     function(downmsg){	

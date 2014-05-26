@@ -452,6 +452,7 @@
             that.set("renameFolderName",$.trim(sessionStorage.getItem("currentFName")));
             $("#tabstrip-rename-folder .new-folder-field").val(that.get("renameFolderName"));
             $("#tabstrip-rename-folder").data("kendoMobileModalView").open();
+             $("#new-folder-form input").select();
         },
         thisFolderRenameCancle:function(e)
         {
@@ -512,8 +513,8 @@
                     }
                     else if(data['0']['results']['faultcode'] === 0)
                     {
-                        msg =data['0']['results']['faultmsg'];
-                        app.loginService.viewModel.mobileNotification(msg,'info');  
+                        //msg =data['0']['results']['faultmsg'];
+                        //app.loginService.viewModel.mobileNotification(msg,'info');  
                     }
                     else
                     {
@@ -535,7 +536,8 @@
             var fileNameWithoutExt= sessionStorage.getItem("currentFileName").substr(0, sessionStorage.getItem("currentFileName").lastIndexOf('.'));
             that.set("renameFileName",fileNameWithoutExt);
             $("#tabstrip-rename-file .new-folder-field").val(that.get("renameFileName"));
-            $("#tabstrip-rename-file").data("kendoMobileModalView").open(); 
+            $("#tabstrip-rename-file").data("kendoMobileModalView").open();
+            $("#new-folder-form input").select();
         },
         
         thisFileRenameCancle:function(e)
@@ -607,8 +609,8 @@
                     }
                     else if(data['0']['results']['faultcode'] === 0)
                     {
-                        msg =data['0']['results']['faultmsg'];
-                        app.loginService.viewModel.mobileNotification(msg,'info');  
+                        //msg =data['0']['results']['faultmsg'];
+                        //app.loginService.viewModel.mobileNotification(msg,'info');  
                     }
                     else
                     {
