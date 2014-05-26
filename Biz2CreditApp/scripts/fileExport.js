@@ -8,6 +8,7 @@
         exportInnerPage:false,
         filedocumentShow:function(e)
         {
+            app.fileexportsetting.viewModel.historyPath=[];
             app.fileexportsetting.viewModel.getFileSystem();
         },
         getFileSystem:function()
