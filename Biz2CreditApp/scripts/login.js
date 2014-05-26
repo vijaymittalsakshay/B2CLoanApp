@@ -183,7 +183,7 @@
             var staticNotification = $("#staticNotification").kendoNotification({
                 
            	 appendTo: "#appendto",
-            	autoHideAfter: 2000,
+            	autoHideAfter: 3000,
                 animation: false,
                 templates: [
                 {

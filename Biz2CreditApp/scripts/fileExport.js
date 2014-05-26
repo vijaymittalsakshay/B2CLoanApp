@@ -156,19 +156,15 @@
                     ftpclient.downloadFile(
                         function(downmsg){
                         	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                            navigator.notification.confirm('File exported successfully.', function (confirmed) {
-                            if (confirmed === true || confirmed === 1) {
-                            	apps.navigate('views/documents.html?parent='+app.documentsetting.viewModel.parentId);
-                            }
-                            }, 'Message');
-                            app.loginService.viewModel.mobileNotification(downmsg,'success');
+                            window.open(encodeURI(filePath),"_system","location=yes,hidden=no");
+                            /*app.loginService.viewModel.mobileNotification(downmsg,'success');
                                 ftpclient.Disconnect(
                                     function(downmsg){	
                                     }, 
                                     function(downerr){
                                     }, 
                                     userinfo
-                                );
+                                );*/
                         }, 
                         function(downerr){
                         	$("#tabstrip-download-file").data("kendoMobileModalView").close();
