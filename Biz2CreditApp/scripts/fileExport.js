@@ -150,14 +150,6 @@
 		    fileName = sessionStorage.getItem("currentFileName");
             ext = app.documentsetting.viewModel.getFileExtension(fileName);
             $("#tabstrip-download-file").data("kendoMobileModalView").open();
-            alert(userinfo[0]);
-             alert(userinfo[1]);
-             alert(userinfo[2]);
-             alert(userinfo[3]);
-             alert(userinfo[4]);
-             alert(userinfo[5]);
-             alert(userinfo[6]);
-             alert(userinfo[7]);
             var ftpclient = window.plugins.ftpclient;
             if (device.platform === "Android") {
                 ftpclient.Connect(
