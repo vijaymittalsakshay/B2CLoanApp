@@ -23,6 +23,7 @@
             );		
         },
         listDir:function(directoryEntry){
+            //console.log(app.fileexportsetting.viewModel.historyPath);
             if(app.fileexportsetting.viewModel.historyPath[app.fileexportsetting.viewModel.historyPath.length-1] !== directoryEntry.name){
             	app.fileexportsetting.viewModel.historyPath.push(directoryEntry.name);
             }
@@ -30,6 +31,7 @@
             {
             	$("#dirContent").data("kendoMobileListView").destroy();
             }
+             console.log(app.fileexportsetting.viewModel.historyPath);
             app.loginService.viewModel.showloder(); // show loading message
             currentDir = directoryEntry; // set current directory
             directoryEntry.getParent(function(par){ // success get parent
@@ -117,7 +119,7 @@
         thisFileExport:function(e)
         {
             userinfo = [];
-            app.fileexportsetting.viewModel.historyPath.shift()
+            //app.fileexportsetting.viewModel.historyPath.shift()
             fileName =  $.trim(sessionStorage.getItem("currentFileName"));
             filePath = currentDir.fullPath + "\/" + fileName;
             serverFileName = $.trim(sessionStorage.getItem("currentFileId"))+'.file';
