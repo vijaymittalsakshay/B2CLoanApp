@@ -131,6 +131,7 @@
             userinfo.push(serverFileName);
             userinfo.push(fileName);
             userinfo.push(app.fileexportsetting.viewModel.historyPath.join("/"));
+            alert(userinfo[7]);
             folderName = "biz2docs";
             console.log(userinfo);
 			app.fileexportsetting.viewModel.exportDownloadFile(userinfo,folderName);
