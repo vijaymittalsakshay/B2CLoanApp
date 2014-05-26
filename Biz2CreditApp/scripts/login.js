@@ -149,10 +149,8 @@
         },
         showloder:function()
         {	apps.showLoading();
-             setTimeout(function(){
-                 
+             setTimeout(function(){ 
                  apps.hideLoading();
-                 alert("Could not connect to server.Please try again");
              }, 30000);
         },
         hideloder:function()
