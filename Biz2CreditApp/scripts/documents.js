@@ -802,21 +802,21 @@
             ext = app.documentsetting.viewModel.getFileExtension(fileName);
             $("#tabstrip-download-file").data("kendoMobileModalView").open();
             var ftpclient = window.plugins.ftpclient;
-           /* if (device.platform === "Android") {
+            if (device.platform === "Android") {
                 ftpclient.Connect(
                 function(msg){
                     ftpclient.downloadFile(
                         function(downmsg){
                         	$("#tabstrip-download-file").data("kendoMobileModalView").close();
                             window.open(encodeURI(filePath),"_system","location=yes,hidden=no");
-                            app.loginService.viewModel.mobileNotification(downmsg,'success');
+                            /*app.loginService.viewModel.mobileNotification(downmsg,'success');
                                 ftpclient.Disconnect(
                                     function(downmsg){	
                                     }, 
                                     function(downerr){
                                     }, 
                                     userinfo
-                                );
+                                );*/
                         }, 
                         function(downerr){
                         	$("#tabstrip-download-file").data("kendoMobileModalView").close();
@@ -855,7 +855,7 @@
                 userinfo
                 );
             	
-            }*/
+            }
             
             $('.download-file-name').html('');
         	$('.download-file-name').append('<div class="unkown '+ext+'">'+fileName+'</div>');
