@@ -513,8 +513,8 @@
                     }
                     else if(data['0']['results']['faultcode'] === 0)
                     {
-                        //msg =data['0']['results']['faultmsg'];
-                        //app.loginService.viewModel.mobileNotification(msg,'info');  
+                        msg =data['0']['results']['faultmsg'];
+                        app.loginService.viewModel.mobileNotification(msg,'info');  
                     }
                     else
                     {
@@ -609,8 +609,8 @@
                     }
                     else if(data['0']['results']['faultcode'] === 0)
                     {
-                        //msg =data['0']['results']['faultmsg'];
-                        //app.loginService.viewModel.mobileNotification(msg,'info');  
+                        msg =data['0']['results']['faultmsg'];
+                        app.loginService.viewModel.mobileNotification(msg,'info');  
                     }
                     else
                     {
