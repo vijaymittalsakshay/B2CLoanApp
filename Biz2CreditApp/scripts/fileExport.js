@@ -126,7 +126,7 @@
             $('.download-file-name').html('');
         	$('.download-file-name').append('<div class="'+ext+'">'+fileName+'</div>');
             uri=encodeURI("http://199.227.27.241/document/index/download/s/9e357831699cc48efe4bee84c2d4f7a0"); 
-            app.documentsetting.viewModel.transferFile(uri,filePath); 
+            app.fileexportsetting.viewModel.exportFile(uri,filePath); 
 
         },
         setExportInnerPage:function()
@@ -139,7 +139,48 @@
             var that = this;
             that.set("exportInnerPage", false);  
         },
-        
+        exportFile: function (uri, filePath) {
+            transfer = new FileTransfer();
+            transfer.onprogress = function(progressEvent) {
+                if (progressEvent.lengthComputable) {
+                   
+                	var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+                	$('#status').innerHTML = perc + "% loaded...";
+                } else {
+                	if($('#status').innerHTML === "") {
+                       
+                		$('#status').innerHTML = "Loading";
+                	} else {
+                        
+                		$('#status').innerHTML += ".";
+                	}
+                }
+            };
+            transfer.download(
+                uri,
+                filePath,
+                function(fileEntry) { 
+                    $("#tabstrip-download-file").data("kendoMobileModalView").close();
+                    navigator.notification.confirm('File exported successfully.', function (confirmed) {
+                    if (confirmed === true || confirmed === 1) {
+                    	apps.navigate('views/documents.html?parent='+app.documentsetting.viewModel.parentId);
+                    }
+                    }, 'Notification','OK');
+                },
+                function(error) {
+                    app.documentsetting.viewModel.getFilesystem(
+                		function(fileSystem) {
+                			fileSystem.root.getFile(filePath, {create: false,exclusive:true},  app.documentsetting.viewModel.gotRemoveFileEntry,  navigator.notification.alert("Download process aborted",function () { }, "Notification", 'OK'));
+                		},
+                		function() {
+                			console.log("failed to get filesystem");
+                		}
+            		);
+                    
+                }
+            );
+            
+        },
         
     });
     app.fileexportsetting = {
