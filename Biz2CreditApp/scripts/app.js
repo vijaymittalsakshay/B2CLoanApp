@@ -33,6 +33,8 @@
 
     var onDeviceReady = function() {
         navigator.splashscreen.hide();
+        StatusBar.overlaysWebView(false);
+        StatusBar.backgroundColorByName('#99cc00');
         document.addEventListener('backbutton', onBackKeyDown, false);
         window.connectionInfo = new ConnectionApp();
 		window.connectionInfo.checkConnection();
