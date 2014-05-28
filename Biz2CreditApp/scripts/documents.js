@@ -800,62 +800,9 @@
         {
             fileName = sessionStorage.getItem("currentFileName");
             ext = app.documentsetting.viewModel.getFileExtension(fileName);
+            uri=encodeURI("http://199.227.27.241/document/index/download/s/9e357831699cc48efe4bee84c2d4f7a0"); 
             $("#tabstrip-download-file").data("kendoMobileModalView").open();
-            var ftpclient = window.plugins.ftpclient;
-            if (device.platform === "Android") {
-                ftpclient.Connect(
-                function(msg){
-                    ftpclient.downloadFile(
-                        function(downmsg){
-                        	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                            window.open(encodeURI(filePath),"_system","location=yes,hidden=no");
-                            /*app.loginService.viewModel.mobileNotification(downmsg,'success');
-                                ftpclient.Disconnect(
-                                    function(downmsg){	
-                                    }, 
-                                    function(downerr){
-                                    }, 
-                                    userinfo
-                                );*/
-                        }, 
-                        function(downerr){
-                        	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                        	navigator.notification.alert(downerr);
-                            ftpclient.Disconnect(
-                                    function(downmsg){	
-                                    }, 
-                                    function(downerr){
-                                    }, 
-                                    userinfo
-                                );
-
-                        }, 
-                        userinfo
-                    );
-                }, 
-                function(err){
-                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                	navigator.notification.alert("Connection to Server Failed");
-
-                }, 
-                userinfo
-                );
-            }
-            else {
-                ftpclient.downloadFile(
-                function(downmsg){
-                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                    window.open(encodeURI(filePath),"_blank","location=yes,hidden=no");
-                }, 
-                function(downerr){
-                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                	navigator.notification.alert(downerr);
-
-                }, 
-                userinfo
-                );
-            	
-            }
+            app.documentsetting.viewModel.transferFile(uri,filePath);
             
             $('.download-file-name').html('');
         	$('.download-file-name').append('<div class="unkown '+ext+'">'+fileName+'</div>');
@@ -895,7 +842,7 @@
                 function(error) {
                     app.documentsetting.viewModel.getFilesystem(
                 		function(fileSystem) {
-                			fileSystem.root.getFile(filePath, {create: false,exclusive:true},  app.documentsetting.viewModel.gotRemoveFileEntry, alert("Download error code" + error.target));
+                			fileSystem.root.getFile(filePath, {create: false,exclusive:true},  app.documentsetting.viewModel.gotRemoveFileEntry,  navigator.notification.alert("Download process aborted",function () { }, "Notification", 'OK'));
                 		},
                 		function() {
                 			console.log("failed to get filesystem");
@@ -917,7 +864,7 @@
         transferFileAbort:function()
         {
            
-            var disFtpclient = window.plugins.ftpclient;
+           /* var disFtpclient = window.plugins.ftpclient;
             disFtpclient.Disconnect(
                 function(downmsg){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
@@ -929,7 +876,8 @@
                     
                 }, 
                 userinfo
-                );
+                );*/
+            transfer.abort();
             	
         },
         getFileExtension:function(filename)
@@ -942,13 +890,14 @@
            
            $("#tabstrip-download-file").data("kendoMobileModalView").close();
            //app.documentsetting.viewModel.transferFileAbort();
-            navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
+          /*  navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
 				if (confirmed === true || confirmed === 1) {
                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
             	   app.documentsetting.viewModel.transferFileAbort();
             	}
                 
-        	}, 'exit', 'Ok,Cancel');
+        	}, 'exit', 'Ok,Cancel');*/
+            app.documentsetting.viewModel.transferFileAbort();
 
         },
         onSettingPage:function()

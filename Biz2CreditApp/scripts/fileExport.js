@@ -117,22 +117,16 @@
         
         thisFileExport:function(e)
         {
-            userinfo = [];
-            app.fileexportsetting.viewModel.historyPath.shift()
+           
+            app.fileexportsetting.viewModel.historyPath.shift();
             fileName =  $.trim(sessionStorage.getItem("currentFileName"));
             filePath = currentDir.fullPath + "\/" + fileName;
-            serverFileName = $.trim(sessionStorage.getItem("currentFileId"))+'.file';
-            userinfo.push(localStorage.getItem("ftpHost"));
-            userinfo.push(localStorage.getItem("ftpPassword"));
-            userinfo.push(localStorage.getItem("ftpPath"));
-            userinfo.push(localStorage.getItem("ftpRelativePath"));
-            userinfo.push(localStorage.getItem("ftpUserName"));
-            userinfo.push(serverFileName);
-            userinfo.push(fileName);
-            userinfo.push(app.fileexportsetting.viewModel.historyPath.join("/"));
-            folderName = "biz2docs";
-            //console.log(userinfo);
-			app.fileexportsetting.viewModel.exportDownloadFile(userinfo,folderName);
+            ext = app.documentsetting.viewModel.getFileExtension(fileName);
+            $("#tabstrip-download-file").data("kendoMobileModalView").open();
+            $('.download-file-name').html('');
+        	$('.download-file-name').append('<div class="'+ext+'">'+fileName+'</div>');
+            uri=encodeURI("http://199.227.27.241/document/index/download/s/9e357831699cc48efe4bee84c2d4f7a0"); 
+            app.documentsetting.viewModel.transferFile(uri,filePath); 
 
         },
         setExportInnerPage:function()
@@ -145,59 +139,7 @@
             var that = this;
             that.set("exportInnerPage", false);  
         },
-        exportDownloadFile:function(userinfo,folderName)
-        {
-		    fileName = sessionStorage.getItem("currentFileName");
-            ext = app.documentsetting.viewModel.getFileExtension(fileName);
-            $("#tabstrip-download-file").data("kendoMobileModalView").open();
-            var ftpclient = window.plugins.ftpclient;
-            if (device.platform === "Android") {
-                ftpclient.Connect(
-                function(msg){
-                    ftpclient.downloadFile(
-                        function(downmsg){
-                        	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                            navigator.notification.confirm('File exported successfully.', function (confirmed) {
-                            if (confirmed === true || confirmed === 1) {
-                            	apps.navigate('views/documents.html?parent='+app.documentsetting.viewModel.parentId);
-                            }
-                            }, 'Notification','OK');
-                            app.loginService.viewModel.mobileNotification(downmsg,'success');
-                                /*ftpclient.Disconnect(
-                                    function(downmsg){	
-                                    }, 
-                                    function(downerr){
-                                    }, 
-                                    userinfo
-                                );*/
-                        }, 
-                        function(downerr){
-                        	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                        	navigator.notification.alert(downerr);
-                            ftpclient.Disconnect(
-                                    function(downmsg){	
-                                    }, 
-                                    function(downerr){
-                                    }, 
-                                    userinfo
-                                );
-
-                        }, 
-                        userinfo
-                    );
-                }, 
-                function(err){
-                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                	navigator.notification.alert("Connection to Server Failed");
-
-                }, 
-                userinfo
-                );
-            }
-            $('.download-file-name').html('');
-        	$('.download-file-name').append('<div class="'+ext+'">'+fileName+'</div>');
-           
-        },
+        
         
     });
     app.fileexportsetting = {

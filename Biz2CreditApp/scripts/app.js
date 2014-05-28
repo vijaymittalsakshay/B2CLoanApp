@@ -3,23 +3,22 @@
     
     // Handle device back button tap
     var onBackKeyDown = function(e) {
-        
-      if(apps.view()['element']['0']['id']==='tabstrip-login'|| apps.view()['element']['0']['id']==='tabstrip-home'){
-        e.preventDefault();
-        navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
-			if (confirmed === true || confirmed === 1) {
-               navigator.app.exitApp();
+        if(apps.view()['element']['0']['id']==='tabstrip-login'|| apps.view()['element']['0']['id']==='tabstrip-home'){
+            e.preventDefault();
+            navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
+            if (confirmed === true || confirmed === 1) {
+            	navigator.app.exitApp();
             }
-                
-        }, 'exit', 'Ok,Cancel');
-          }
+
+            }, 'exit', 'Ok,Cancel');
+        }
         else if(apps.view()['element']['0']['id']==='tabstrip-docs' && app.documentsetting.viewModel.showfilter === true)
         {
-             app.documentsetting.viewModel.set("showfilter", false);
+        	app.documentsetting.viewModel.set("showfilter", false);
         }
         else if(apps.view()['element']['0']['id']==='tabstrip-docs' || apps.view()['element']['0']['id']==='tabstrip-movedocs' || apps.view()['element']['0']['id']==='tabstrip-file-export')
         {
-            e.preventDefault();
+        	e.preventDefault();
         }
         else
         { 
