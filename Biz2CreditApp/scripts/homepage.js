@@ -137,7 +137,7 @@
                         dButtonText = "Complete Application";
                         dButtonLink ="#tabstrip-mess-two";
                     }
-                if(matchstatus===0 && matches>=1) {alert('fi');
+                if(matchstatus===0 && matches>=1) {
                      dHeader= userName+', you have '+matches+' pre-qualified loan matches.';
                      dDescription='Please review your matches and select your preferred financing option(s)';
                      dButtonText = "Select a Loan Product";

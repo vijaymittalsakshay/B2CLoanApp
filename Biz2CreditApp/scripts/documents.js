@@ -779,7 +779,7 @@
             			}
             		},
             		function() {
-            			alert("Failed to get filesystem");
+            			navigator.notification.alert("Failed to get filesystem");
             		}
             		);
            

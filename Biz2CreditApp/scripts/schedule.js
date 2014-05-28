@@ -90,7 +90,7 @@
             var data = that.data();
                 console.log(data);
             app.loginService.viewModel.hideloder();  
-        	alert(data[0]['results']['faultmsg']);  
+        	navigator.notification.alert(data[0]['results']['faultmsg']);  
            });
         },
         ScheduleCloseModalView:function()
