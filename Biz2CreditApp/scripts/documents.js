@@ -214,19 +214,8 @@
                                 sessionStorage.currentFileId = e.touch.currentTarget.id;
                                 sessionStorage.currentFileName = e.touch.currentTarget.innerText;
                                 fileName = $.trim(e.touch.currentTarget.innerText);
-                                serverFileName = $.trim(sessionStorage.currentFileId)+'.file';
-                                userinfo = [];
-                                
-                                userinfo.push(localStorage.getItem("ftpHost"));
-                                userinfo.push(localStorage.getItem("ftpPassword"));
-                                userinfo.push(localStorage.getItem("ftpPath"));
-                                userinfo.push(localStorage.getItem("ftpRelativePath"));
-                                userinfo.push(localStorage.getItem("ftpUserName"));
-                                userinfo.push(serverFileName);
-                                userinfo.push(fileName);
-                                userinfo.push("biz2docs");
                                 folderName = "biz2docs";
-                                app.documentsetting.viewModel.downloadFile(userinfo,folderName);
+                                app.documentsetting.viewModel.downloadFile(fileName,folderName);
                                 }
                         }
                 	}, 
@@ -754,7 +743,7 @@
         getFolder: function (fileSystem, folderName, success, fail) {
         	fileSystem.root.getDirectory(folderName, {create: true, exclusive: false}, success, fail)
         },
-        downloadFile:function(userinfo,folderName)
+        downloadFile:function(fileName,folderName)
         {
 		    filePath = "";
 
@@ -863,22 +852,7 @@
         },
         transferFileAbort:function()
         {
-           
-           /* var disFtpclient = window.plugins.ftpclient;
-            disFtpclient.Disconnect(
-                function(downmsg){
-                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                    //navigator.notification.alert(downmsg);
-                }, 
-                function(downerr){
-                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                  // navigator.notification.alert(downerr);
-                    
-                }, 
-                userinfo
-                );*/
-            transfer.abort();
-            	
+            transfer.abort();  	
         },
         getFileExtension:function(filename)
         {
@@ -889,15 +863,7 @@
         {
            
            $("#tabstrip-download-file").data("kendoMobileModalView").close();
-           //app.documentsetting.viewModel.transferFileAbort();
-          /*  navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
-				if (confirmed === true || confirmed === 1) {
-               	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-            	   app.documentsetting.viewModel.transferFileAbort();
-            	}
-                
-        	}, 'exit', 'Ok,Cancel');*/
-            app.documentsetting.viewModel.transferFileAbort();
+           app.documentsetting.viewModel.transferFileAbort();
 
         },
         onSettingPage:function()
