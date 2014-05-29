@@ -170,6 +170,7 @@
         setDocuments: function(data)
         { 
             var that = this;
+            console.log(data);
             that.set("documents", data['0']); 
             if(typeof $(".list-edit-listview").data("kendoMobileListView") !=='undefined')
             {
