@@ -285,6 +285,7 @@
         {
             var that = this;
             $(".km-filter-reset").trigger("click");
+            $("#tabstrip-docs").find(".km-scroll-container").css("-webkit-transform", "translate3d(0px, 0px, 0px)");
             if(app.documentsetting.viewModel.showfilter === true)
             {
                 that.set("showfilter", false);
