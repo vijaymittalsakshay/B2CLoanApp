@@ -104,8 +104,9 @@
    
     });
     $(window).on('orientationchange', function () {
-      app.homesetting.viewModel.closeParentPopover();
       $("#tabstrip-home").find(".km-scroll-container").css("-webkit-transform", "");
+      app.homesetting.viewModel.closeParentPopover();
+      
     });
     app.scheduleService = {
         viewModel: new ScheduleViewModel()	
