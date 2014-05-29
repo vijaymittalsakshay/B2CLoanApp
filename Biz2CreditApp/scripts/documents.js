@@ -884,10 +884,10 @@
                 file,
                 url,
                 function(downmsg){
-                    navigator.notification.alert(downmsg);
+                    //navigator.notification.alert(downmsg);
                 }, 
                 function(downerr){
-                    navigator.notification.alert(downerr);
+                    //navigator.notification.alert(downerr);
                 }
             );
         }

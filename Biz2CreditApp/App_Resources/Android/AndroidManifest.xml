@@ -19,7 +19,7 @@
                                  android:hardwareAccelerated="$AndroidHardwareAcceleration$">
                 <activity android:label="Biz2Credit" 
                     android:name=".TelerikCallbackActivity"
-                    android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
+                    android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|navigation"
                     android:launchMode="standard"
                                     android:theme="@android:style/Theme.Black.NoTitleBar" >
                         <intent-filter>
