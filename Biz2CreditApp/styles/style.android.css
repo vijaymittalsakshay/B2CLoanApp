@@ -353,7 +353,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #tabstrip-download-file .download-file-name .unkown {padding:15% 0 0;background-image: url(images/unknown.png); background-repeat:no-repeat; background-size:10%; background-position:center 7px;}
 #blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:7.3%;display: block;padding:2.3% 11% 3% 9%;color: #fff;font-size: 1.7em;}
 /*********Android css***************/
-#tabstrip-files-events.modal-mess-Popup {height:40%;}
+#tabstrip-files-events.modal-mess-Popup {height:45%;}
 .btngr {padding:22px 8px;font-size: 1.5em;}
 .docs-header .km-widget .docs-docu {width:76%; padding:1.5% 0 0 ;font-size: 1.2em;}
 .docs-header .km-widget .docs-back {background-position: 10px 8px;width: 7.5%;height:80px;background-size:87%;}
@@ -426,7 +426,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #tabstrip-Setting .docs-docu {padding: 2% 0 0;font-size: 1.2em;}
 #tabstrip-Setting .Setting-ac, #tabstrip-Setting ul#settingpage li{padding:3% 0 2% 10%;background-size: 5%;background-position: 22px 10px;}
 #blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:9%;display: block;padding:3% 11% 4%;color: #fff;font-size: 1.5em;}
-#tabstrip-files-events.modal-mess-Popup {height:51%;}
+#tabstrip-files-events.modal-mess-Popup {height:58%;}
 }
 @media (min-width:0px) and (max-width:1000px) { 
 #tabstrip-files-events.modal-mess-Popup {height:24%;}
@@ -530,7 +530,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .matches-view li .row2 p a { font-size:0.9em;}
 .km-popup-wrapper {width: 220px !important;height: 220px !important;}
 /*******Android css************/
-#tabstrip-files-events.modal-mess-Popup {height:30%;}
+#tabstrip-files-events.modal-mess-Popup {height:34%;}
 .schedulePopup {height:34%;}
 .docs-header .km-widget .docs-docu { width:63%; font-size:1em; padding:1.2% 0 0;}
 .modal-mess-one, .modal-mess-Popup {padding:0; width:98%; margin:0 0 0 1.3%; height:25%;}
