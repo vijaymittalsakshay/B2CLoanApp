@@ -285,7 +285,7 @@
         {
             var that = this;
             $(".km-filter-reset").trigger("click");
-            $("#tabstrip-docs").find(".km-scroll-container").css("-webkit-transform", "translate3d(0px, 0px, 0px)");
+            
             if(app.documentsetting.viewModel.showfilter === true)
             {
                 that.set("showfilter", false);
@@ -792,7 +792,7 @@
             ext = app.documentsetting.viewModel.getFileExtension(fileName);
             uri=encodeURI("http://199.227.27.241/document/index/download/s/9e357831699cc48efe4bee84c2d4f7a0"); 
             $("#tabstrip-download-file").data("kendoMobileModalView").open();
-            app.documentsetting.viewModel.transferFile(uri,filePath);
+            //app.documentsetting.viewModel.transferFile(uri,filePath);
             
             $('.download-file-name').html('');
         	$('.download-file-name').append('<div class="unkown '+ext+'">'+fileName+'</div>');
@@ -870,6 +870,26 @@
         onSettingPage:function()
         {
              app.loginService.viewModel.onSettingPage();
+        },
+        shareVia:function(e)
+        {
+            closeModalView(e);
+            var socialsharing =window.plugins.socialsharing;
+            var message ='Test message';
+            var subject = 'Test Subject';
+            var file = null;
+            var url = 'www.google.com';
+            socialsharing.share(message,
+                subject,
+                file,
+                url,
+                function(downmsg){
+                    navigator.notification.alert(downmsg);
+                }, 
+                function(downerr){
+                    navigator.notification.alert(downerr);
+                }
+            );
         }
        
         
