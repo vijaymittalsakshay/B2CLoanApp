@@ -291,7 +291,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) { margin:0 10%; text-align:left;}  
  
 #tabstrip-files-events.modal-mess-Popup {height:80%;}
-.notify { background-color:#000;opacity:0.8;border-radius:3px; width:200px; color:#fff; font-size:1em; margin:0 auto; padding:1.5% 2%; text-align:center;}
+.notify { background-color:#000;opacity:0.8;border-radius:3px; width:100%; color:#fff; font-size:1em; margin:0 auto; padding:1.5% 2%; text-align:center;}
 .docs-header .km-widget .docs-back {margin-top:0rem!important;margin-bottom:0rem !important;}
 .docs-header .km-widget #docs-filter { margin:0;}
 /***********16-05-14****************/
