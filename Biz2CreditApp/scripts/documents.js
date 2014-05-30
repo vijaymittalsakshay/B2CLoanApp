@@ -28,7 +28,6 @@
                 if(typeof $(".list-edit-listview").data("kendoMobileListView") !=='undefined')
                 {
                 	$(".list-edit-listview").data("kendoMobileListView").destroy();
-                    //$(".list-edit-listview").unwrap();
                 }
                 if(typeof e.view.params.parent !== "undefined" && e.view.params.parent !== "0")
                 {
@@ -170,12 +169,10 @@
         setDocuments: function(data)
         { 
             var that = this;
-            console.log(data);
             that.set("documents", data['0']); 
             if(typeof $(".list-edit-listview").data("kendoMobileListView") !=='undefined')
             {
             	$(".list-edit-listview").data("kendoMobileListView").destroy();
-            	//$(".list-edit-listview").unwrap();
             }
             $(".list-edit-listview").kendoMobileListView({
                 dataSource: app.documentsetting.viewModel.documents,
@@ -213,11 +210,12 @@
                             if(!hold)
                     		{
                                 sessionStorage.currentFileId = e.touch.currentTarget.id;
+                                sessionStorage.downloadLink = $.trim(e.touch.currentTarget.className);
                                 sessionStorage.currentFileName = e.touch.currentTarget.innerText;
                                 fileName = $.trim(e.touch.currentTarget.innerText);
                                 folderName = "biz2docs";
                                 app.documentsetting.viewModel.downloadFile(fileName,folderName);
-                                }
+                            }
                         }
                 	}, 
                 	touchstart: function (e) {
@@ -790,10 +788,11 @@
         fileDoesNotExist:function(fileError)
         {
             fileName = sessionStorage.getItem("currentFileName");
+            downloadLink = sessionStorage.getItem("downloadLink");
             ext = app.documentsetting.viewModel.getFileExtension(fileName);
-            uri=encodeURI("http://199.227.27.241/document/index/download/s/9e357831699cc48efe4bee84c2d4f7a0"); 
+            uri=encodeURI(downloadLink); 
             $("#tabstrip-download-file").data("kendoMobileModalView").open();
-            //app.documentsetting.viewModel.transferFile(uri,filePath);
+            app.documentsetting.viewModel.transferFile(uri,filePath);
             
             $('.download-file-name').html('');
         	$('.download-file-name').append('<div class="unkown '+ext+'">'+fileName+'</div>');
@@ -879,7 +878,7 @@
             var message ='Test message';
             var subject = 'Test Subject';
             var file = null;
-            var url = 'www.google.com';
+            var url = sessionStorage.getItem("downloadLink");
             socialsharing.share(message,
                 subject,
                 file,
@@ -893,7 +892,6 @@
             );
         }
        
-        
     });
     app.documentsetting = {
         

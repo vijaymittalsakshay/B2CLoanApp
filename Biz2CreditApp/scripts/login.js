@@ -15,7 +15,6 @@
             username = that.get("username").trim(),
             password = that.get("password").trim();
             
-            
             if (username === "") {
                 navigator.notification.alert("Please enter your username",
                     function () { }, "Notification", 'OK');
@@ -85,13 +84,6 @@
         setUserLogin: function (userinfo) {
             var that = this;
             that.hideloder();
-            
-            localStorage.setItem("ftpHost",userinfo['ftpHost']);
-            localStorage.setItem("ftpPassword",Base64.decode(userinfo['ftpPassword']));
-            localStorage.setItem("ftpPath",userinfo['ftpPath']);
-            localStorage.setItem("ftpRelativePath",userinfo['ftpRelativePath']);
-            localStorage.setItem("ftpUserName",userinfo['ftpUserName']);
-            
             localStorage.setItem("isLoggedIn",true);
             localStorage.setItem("userFName",userinfo['userFName']);
             localStorage.setItem("userLName",userinfo['userLName']);
@@ -112,11 +104,6 @@
             localStorage.removeItem("userID");
             localStorage.removeItem("userEmail");
             localStorage.removeItem("userMobile");
-            localStorage.removeItem("ftpHost");
-            localStorage.removeItem("ftpPassword");
-            localStorage.removeItem("ftpPath");
-            localStorage.removeItem("ftpRelativePath");
-            localStorage.removeItem("ftpUserName");
             localStorage.removeItem("isLoggedIn");
             localStorage.removeItem("userMobile");
             that.set("email", "");
@@ -128,8 +115,7 @@
             
         },
         navigateHome: function()
-        {  
-             
+        {   
              apps.navigate("#tabstrip-home");
              kendo.history.navigate("#tabstrip-home");
         },
@@ -183,7 +169,7 @@
             var staticNotification = $("#staticNotification").kendoNotification({
                 
            	 appendTo: "#appendto",
-            	autoHideAfter: 10000000,
+            	autoHideAfter: 10000,
                 animation: false,
                 templates: [
                 {
