@@ -209,7 +209,6 @@
                         {
                             if(!hold)
                     		{
-                                console.log(e);
                                 sessionStorage.currentFileId = e.touch.currentTarget.id;
                                 sessionStorage.downloadLink = $.trim(e.touch.currentTarget.className);
                                 sessionStorage.currentFileName = e.touch.currentTarget.innerText;
