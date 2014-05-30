@@ -209,6 +209,7 @@
                         {
                             if(!hold)
                     		{
+                                console.log(e);
                                 sessionStorage.currentFileId = e.touch.currentTarget.id;
                                 sessionStorage.downloadLink = $.trim(e.touch.currentTarget.className);
                                 sessionStorage.currentFileName = e.touch.currentTarget.innerText;
@@ -231,6 +232,7 @@
                         {
                             sessionStorage.currentFId = e.touch.currentTarget.id;
                         	sessionStorage.currentFName = e.touch.currentTarget.innerText;
+                            
                             if(e.touch.initialTouch.innerText !== "Shared Files" && e.touch.initialTouch.innerText !== "Shared Folders")
                             {
                                 
@@ -252,6 +254,7 @@
                         {
                                 sessionStorage.currentFileId = e.touch.currentTarget.id;
                                 sessionStorage.currentFileName = e.touch.currentTarget.innerText;
+                                sessionStorage.downloadLink = $.trim(e.touch.currentTarget.className);
                                 if (device.platform === "Android") {
                             		$("#tabstrip-files-events").data("kendoMobileModalView").open();
                                 	$("#tabstrip-files-events").find(".km-scroll-container").css("-webkit-transform", "");
@@ -880,7 +883,6 @@
             var file = null;
             var url = sessionStorage.getItem("downloadLink");
             //var url = '<a href="'+urltext+'">'+urltext+'</a>';
-            alert(url);
             socialsharing.share(message,
                 subject,
                 file,
