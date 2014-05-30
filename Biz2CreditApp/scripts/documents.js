@@ -875,8 +875,8 @@
         {
             closeModalView(e);
             var socialsharing =window.plugins.socialsharing;
-            var message ='Test message';
-            var subject = 'Test Subject';
+            var message ='Share Link:';
+            var subject = 'Biz2Credit';
             var file = null;
             var url = sessionStorage.getItem("downloadLink");
             socialsharing.share(message,
