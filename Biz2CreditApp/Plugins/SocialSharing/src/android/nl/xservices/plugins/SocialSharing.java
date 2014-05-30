@@ -133,6 +133,7 @@ public class SocialSharing extends CordovaPlugin {
             }
           }
           if (!"".equals(message) && !"null".equalsIgnoreCase(message)) {
+			sendIntent.setType("text/plain");
             sendIntent.putExtra(android.content.Intent.EXTRA_TEXT, message);
           }
 
