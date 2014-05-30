@@ -123,9 +123,10 @@
             filePath = currentDir.fullPath + "\/" + fileName;
             ext = app.documentsetting.viewModel.getFileExtension(fileName);
             $("#tabstrip-download-file").data("kendoMobileModalView").open();
+            downloadLink = sessionStorage.getItem("downloadLink");
             $('.download-file-name').html('');
         	$('.download-file-name').append('<div class="'+ext+'">'+fileName+'</div>');
-            uri=encodeURI("http://199.227.27.241/document/index/download/s/9e357831699cc48efe4bee84c2d4f7a0"); 
+            uri=encodeURI(downloadLink); 
             app.fileexportsetting.viewModel.exportFile(uri,filePath); 
 
         },
