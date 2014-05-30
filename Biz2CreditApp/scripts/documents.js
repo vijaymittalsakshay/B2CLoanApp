@@ -881,7 +881,7 @@
             var url = sessionStorage.getItem("downloadLink");
             //var url = '<a href="'+urltext+'">'+urltext+'</a>';
             alert(url);
-           /* socialsharing.share(message,
+            socialsharing.share(message,
                 subject,
                 file,
                 url,
@@ -891,7 +891,7 @@
                 function(downerr){
                     //navigator.notification.alert(downerr);
                 }
-            );*/
+            );
         }
        
     });
