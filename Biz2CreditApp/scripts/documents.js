@@ -879,7 +879,7 @@
             var subject = 'Biz2Credit';
             var file = null;
             var urltext = sessionStorage.getItem("downloadLink");
-            var url = urltext.replaceWith('<a href="' + urltext + '">'+urltext+'</a>')
+            var url = '<a href="'+urltext+'">'+urltext+'</a>';
             socialsharing.share(message,
                 subject,
                 file,
