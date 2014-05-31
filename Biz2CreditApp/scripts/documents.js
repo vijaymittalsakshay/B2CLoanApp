@@ -443,7 +443,6 @@
             that.set("renameFolderName",$.trim(sessionStorage.getItem("currentFName")));
             $("#tabstrip-rename-folder .new-folder-field").val(that.get("renameFolderName"));
             $("#tabstrip-rename-folder").data("kendoMobileModalView").open();
-             $("#new-folder-form input").select();
         },
         thisFolderRenameCancle:function(e)
         {
@@ -528,7 +527,6 @@
             that.set("renameFileName",fileNameWithoutExt);
             $("#tabstrip-rename-file .new-folder-field").val(that.get("renameFileName"));
             $("#tabstrip-rename-file").data("kendoMobileModalView").open();
-            $("#new-folder-form input").select();
         },
         
         thisFileRenameCancle:function(e)
