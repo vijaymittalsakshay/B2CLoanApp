@@ -246,7 +246,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #blackBlk .desbrdIcon {padding: 2%;}
 .matches-view li .row3 a.appy, .matches-view li .row3 a {background-size: 20%;padding: 1.5em 0em 0.5em;font-size: 0.8em;}
 .matches-view li .row3 a.pending{background-size: 20%;}
-.modal-mess-one, .modal-mess-Popup {height: 77%;}
+.modal-mess-one, .modal-mess-Popup {height:91%;}
 .km-popup-wrapper {height: 152px !important;}
 #blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:10%;display: block;padding:3% 13% 3%;color: #fff;font-size: 1.2em;}
 }
@@ -303,6 +303,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 #tabstrip-Setting .docs-back {width: 15%;background-size: 90%; height:40px;background-position: 5px 5px;}
 .matches-view li .row3 a.pending {padding: 1.5em 0em 0.5em;font-size:0.8em; line-height:15px;}
 .documentClick .km-view-title a span{ padding-top:13px; font-size:1.2em; float:left;}  
+.modal-mess-one, .modal-mess-Popup {height: 45%;}
 }
 
 @media (min-width:0px) and (max-width:320px) { 
@@ -313,7 +314,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 #tabstrip-Setting .Setting-ac {padding: 4% 0 4% 18%;background-size: 8.5%;background-position: 20px 7px;}
  #tabstrip-Setting ul#settingpage li {padding: 4% 0 4% 18%;background-size: 8.5%;background-position: 20px 7px;}
 #tabstrip-Setting .docs-back {width:18%;background-size:90%; height:50px;background-position: 5px 5px; background-position:left 7px;}
-.modal-mess-one, .modal-mess-Popup {height: 45%;}
+.modal-mess-one, .modal-mess-Popup {height:61%;}
 #blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:42px;display: block;padding: 15px 17%;color: #fff;font-size: 1.2em;background-position: left 4px;}
+.schedulePopup {height: 68%;}
 }
 
