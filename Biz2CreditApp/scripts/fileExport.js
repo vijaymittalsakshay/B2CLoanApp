@@ -97,9 +97,20 @@
                 template: $("#docs-export-template").html(),
                 }).kendoTouch({ 
                 	filter: ">li",
+                    dragstart:function()
+                    {
+                       drag = true; 
+                    },
+                    dragend:function()
+                    {
+                        drag = false; 
+                    },
                   	tap: function (e) { 
+                       if(!drag)
+                       {
 						app.fileexportsetting.viewModel.setExportInnerPage();
 						app.fileexportsetting.viewModel.getActiveItem(e.touch.initialTouch.innerText);
+                       }
                 	},
                 
             });
