@@ -182,41 +182,52 @@
                 operator: "startswith",
                 },
                 }).kendoTouch({ 
-                	filter: ">li",
+                	filter: "li",
+                    dragstart:function()
+                    {
+                       drag = true; 
+                    },
+                    dragend:function()
+                    {
+                        drag = false; 
+                    },
                   	tap: function (e) { 
-                      // e.touch.currentTarget.className='km-state-active';  
-                       if(e.touch.initialTouch.dataset.id === "folder")
-                        { 
-                            //hold = false;
-                    		if(!hold)
-                    		{
-                                if(e.touch.currentTarget.id !== "0")
-                                {  
-                                	app.documentsetting.viewModel.setInnerPage();
-                                	app.documentsetting.viewModel.setParentId(e.touch.currentTarget.id);
-                                }
-                                else
-                                {
-                                	app.movedocumentsetting.viewModel.setMainPage();
-                                	app.movedocumentsetting.viewModel.setParentId(0);
-                                } 
-                            	docsBackHistory.push(e.touch.currentTarget.id);
-                            	app.documentsetting.viewModel.refreshView();
-                                
-                   		 }
-                        }
-                        else if(e.touch.initialTouch.dataset.id === "files")
-                        {
-                            if(!hold)
-                    		{
-                                sessionStorage.currentFileId = e.touch.currentTarget.id;
-                                sessionStorage.downloadLink = $.trim(e.touch.currentTarget.className);
-                                sessionStorage.currentFileName = e.touch.currentTarget.innerText;
-                                fileName = $.trim(e.touch.currentTarget.innerText);
-                                folderName = "biz2docs";
-                                app.documentsetting.viewModel.downloadFile(fileName,folderName);
+                      // e.touch.currentTarget.className='km-state-active';
+                       if(!drag)
+                       {
+                           if(e.touch.initialTouch.dataset.id === "folder")
+                            { 
+                                //hold = false;
+                        		if(!hold)
+                        		{
+                                    if(e.touch.currentTarget.id !== "0")
+                                    {  
+                                    	app.documentsetting.viewModel.setInnerPage();
+                                    	app.documentsetting.viewModel.setParentId(e.touch.currentTarget.id);
+                                    }
+                                    else
+                                    {
+                                    	app.movedocumentsetting.viewModel.setMainPage();
+                                    	app.movedocumentsetting.viewModel.setParentId(0);
+                                    } 
+                                	docsBackHistory.push(e.touch.currentTarget.id);
+                                	app.documentsetting.viewModel.refreshView();
+                                    
+                       		 }
                             }
-                        }
+                            else if(e.touch.initialTouch.dataset.id === "files")
+                            {
+                                if(!hold)
+                        		{
+                                    sessionStorage.currentFileId = e.touch.currentTarget.id;
+                                    sessionStorage.downloadLink = $.trim(e.touch.currentTarget.className);
+                                    sessionStorage.currentFileName = e.touch.currentTarget.innerText;
+                                    fileName = $.trim(e.touch.currentTarget.innerText);
+                                    folderName = "biz2docs";
+                                    app.documentsetting.viewModel.downloadFile(fileName,folderName);
+                                }
+                            }
+                       }
                 	}, 
                 	touchstart: function (e) {
                 		hold = false;
@@ -225,7 +236,8 @@
                 	hold: function (e) {
                         hold = true;
                         
-                        
+                       if(!drag)
+                       {
                         navigator.notification.vibrate(20);
 						if(e.touch.initialTouch.dataset.id === "folder")
                         {
@@ -274,7 +286,8 @@
                                 }
                                 
                         }
-                		e.touch.currentTarget.className='';
+                		e.touch.currentTarget.className=''
+                           }
                 	}                    
             });
             $("#tabstrip-docs").find(".km-scroll-container").css("-webkit-transform", "");
