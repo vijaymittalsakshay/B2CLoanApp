@@ -135,11 +135,6 @@
         },
         showloder:function()
         {	apps.showLoading();
-             setTimeout(function(){ 
-                 apps.hideLoading();
-                 navigator.notification.alert("Server not responding properly.Please check your internet connection.",
-                    function () { }, "Notification", 'OK');
-             }, 60000);
         },
         hideloder:function()
         {
