@@ -224,9 +224,6 @@
                	 },
                 	hold: function (e) {
                         hold = true;
-                        
-                       if(!drag)
-                       {
                         navigator.notification.vibrate(20);
 						if(e.touch.initialTouch.dataset.id === "folder")
                         {
@@ -276,7 +273,6 @@
                                 
                         }
                 		e.touch.currentTarget.className=''
-                           }
                 	}                    
             });
             $("#tabstrip-docs").find(".km-scroll-container").css("-webkit-transform", "");
