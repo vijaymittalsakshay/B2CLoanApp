@@ -183,19 +183,9 @@
                 },
                 }).kendoTouch({ 
                 	filter: "li",
-                    dragstart:function()
-                    {
-                       drag = true; 
-                    },
-                    dragend:function()
-                    {
-                        drag = false; 
-                    },
                   	tap: function (e) { 
                       // e.touch.currentTarget.className='km-state-active';
-                       if(!drag)
-                       {
-                           if(e.touch.initialTouch.dataset.id === "folder")
+							 if(e.touch.initialTouch.dataset.id === "folder")
                             { 
                                 //hold = false;
                         		if(!hold)
@@ -227,7 +217,6 @@
                                     app.documentsetting.viewModel.downloadFile(fileName,folderName);
                                 }
                             }
-                       }
                 	}, 
                 	touchstart: function (e) {
                 		hold = false;

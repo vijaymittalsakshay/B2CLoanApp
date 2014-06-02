@@ -160,17 +160,8 @@
                 template: $("#docsmove-template").html(),
                 }).kendoTouch({ 
                 	filter: ">li",
-                     dragstart:function()
-                    {
-                       drag = true; 
-                    },
-                    dragend:function()
-                    {
-                        drag = false; 
-                    },
                 	tap: function (e) {
-                        if(!drag)
-                       {
+
                         if(e.touch.initialTouch.dataset.id === "folder")
                         {
                             if(e.touch.currentTarget.id !== "0")
@@ -186,7 +177,7 @@
                             backHistory.push(e.touch.currentTarget.id);
                             app.movedocumentsetting.viewModel.moveRefreshView();  
                         }
-                       }
+
                         
                 	},          	                  
             }); 
