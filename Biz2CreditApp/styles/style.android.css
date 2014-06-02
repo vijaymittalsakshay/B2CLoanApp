@@ -1,3 +1,5 @@
+
+.docs-header .km-widget .docs-popup{ background-size:100%;}
 @media (min-width:0px) and (max-width:1280px) {
 .logLogo {margin:6% auto 5%;height:100px;background-size:95%;}
 .loginSection ul li label input[type=text]:not(.k-input), .loginSection ul li label input[type=password]{padding:0.8em !important; font-size:1em !important;}
@@ -15,7 +17,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 .documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-size: 5%;background-position: 28px 5px; padding:25px 10%;}
 .docs-header .km-widget .docs-docu {width:76%;padding: 2% 0 0;font-size: 1.2em;}
 .docs-header .km-widget .docs-search{ width:6%; background-position:center 0; background-size:80%; margin:1.2% 0 0;}
-.docs-header .km-widget .refresh-com { width:7%; background-position:center 0; background-size:60%; margin:1.5% 0 0;}
+.docs-header .km-widget .refresh-com { width:7%; background-position:7px 0; background-size:60%; margin:1.1% 0 0;}
 .docs-header .km-widget .refresh-loading { width:8%; background-position:center 0; background-size:50%; margin:1.9% 0 0;}
 .inner-docs-back {padding: 1em .7em;}
 .schedulePopup {height: 46%;padding: 8px 3% 0 3.3%;}
@@ -124,9 +126,10 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 .documentContent .km-listview-wrapper ul li span{ padding:12px 10px 12px 13%;}
 .documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-size:6.5%; background-position:16px 5px;}
 .docs-header .km-widget .docs-search{ width:6%; margin:0 2%;background-position: center 11px;}
-.docs-header .km-widget .refresh-com {width:7%;background-position: center 10px;background-size:65%;}
+.docs-header .km-widget .refresh-com {width:8%;background-position: 2px 4px;background-size:67%; margin:0.3em 0 0;}
+.docs-header .km-widget .refresh-loading {width: 8%;}
 /*.km-flat .km-header .km-navbar { padding: 0 1% 1%;}*/
-.docs-header .km-widget .docs-docu{ width:64%; padding:1% 0 0 ; font-size:1em;}
+.docs-header .km-widget .docs-docu{ width:64%; padding:1.7% 0 0 ; font-size:1em;}
 .docs-header .km-widget .docs-back{background-position: left 73%;background-size:95%; width:10%; height:65px;}
 .docs-header .km-widget #docs-filter .km-filter-wrap { background-position:center 35px;}
 .logLogo { margin:35% auto 20%;}
@@ -151,8 +154,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 .documentContent .km-listview-wrapper ul li .Folder {background-size: 9.5%;}
 .documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-size:7%;background-position: 28px 5px; padding:15px 14%;}
 .docs-header .km-widget .docs-search {width: 7%;margin: 1% 0.5% 0 2%;background-position: center 4px;}
-.docs-header .km-widget .refresh-com {width: 9%;background-position: center 6px;}
-.docs-header .km-widget .refresh-loading {background-position: center 10px;}
+.docs-header .km-widget .refresh-com {width:11%;background-position: center 6px;}
+.docs-header .km-widget .refresh-loading {background-position: center 10px; width:11%;}
 .modal-mess-one, .modal-mess-Popup {height:25%;}
 #tabstrip-files-events.modal-mess-Popup {height: 28%;}
 .schedulePopup {height: 35%;}
@@ -165,6 +168,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #tabstrip-Setting .Setting-ac, #tabstrip-Setting ul#settingpage li{padding: 4% 0 4% 12%;background-size: 7%;background-position: 22px 10px;}
 #tabstrip-download-file.modal-mess-Popup {height: 23%;}
 .matches-logo {background-size: 20%;}
+
 
 }
 @media (min-width:0px) and (max-width:640px) { 
@@ -211,7 +215,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .documentContent ul.export li span {padding:12px 10px 12px 15%;background-size: 12%;}
 .documentContent ul.export li .folder {background-image: url(images/folder.png); background-repeat:no-repeat;background-position:5px 7px;}   
 .documentClick .km-view-title a span{ padding-top:13px; font-size:1.3em;}    
-.docs-header .km-widget .docs-search {width: 7%;margin: 1% 0.5% 0 2%;background-size:100%;background-position: center 2px;}
+.docs-header .km-widget .docs-search {width: 7%;margin: 1% 0% 0 2%;background-size:100%;background-position: center 2px;}
 .docs-header .km-widget #docs-filter {margin: 0.2em 0 0;}
 .km-ios .km-list > li, .km-flat .km-list > li {font-size: 1em;}
 .modal-mess-four{height:52%;}
@@ -360,7 +364,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .btngr{ padding:7px 8px; font-size:1.1em;}
 .matches-view li .row3 a.appy, .matches-view li .row3 a {background-size: 20%;padding:2.5em 0em 0.5em;font-size: 0.8em;}
 .km-flat .km-popup.popupBox {height: 100%!important;}
-.folder-events .km-scroll-container ul li {padding:2px;}
+.folder-events .km-scroll-container ul li {padding: 2px;}
 }
 
 @media (min-width:0px) and (max-width:370px) { 
@@ -419,7 +423,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 .matches-view li .row3 a.appy, .matches-view li .row3 a {background-size: 20%;padding: 1.4em 0em 0.5em;font-size: 0.8em;}
 #tabstrip-Setting .Setting-ac {padding: 4% 0 4% 16%;background-size: 8.5%;background-position: 20px 7px;}
 #tabstrip-Setting ul#settingpage li {padding: 4% 0 4% 16%;background-size: 8.5%;background-position: 20px 7px;}
-.folder-events .km-scroll-container ul li {padding:5px;}
+.folder-events .km-scroll-container ul li {padding: 2px;}
 }
 
 @media (min-width:0px) and (max-width:320px) { 

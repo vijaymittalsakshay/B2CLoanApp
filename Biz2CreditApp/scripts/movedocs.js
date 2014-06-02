@@ -72,7 +72,7 @@
         					});
                             if(sharedFiles !== '' && sharedFolders !=='')
                             {
-                            	docsArray.unshift(sharedFiles,sharedFolders);
+                            	//docsArray.unshift(sharedFiles,sharedFolders);
                             }
                         }
                     	return [docsArray];
