@@ -39,12 +39,13 @@
                 else
                 {
                     docsBackHistory=[];
+                    shareBackHistory=[];
                     docsBackHistory.push(0);
                     parentId = 0;
                     app.documentsetting.viewModel.setMainPage();
                     app.documentsetting.viewModel.setParentId(0);
                 } 
-                parentName = $.trim(sessionStorage.getItem("currentFName"));
+                parentName = shareBackHistory[shareBackHistory.length-1];
                 if(parentName==='Shared Files' || parentName==='Shared Folders' || parentName==='subSharedFolder')
                 {
                     
@@ -54,7 +55,7 @@
                         url: "https://www.biz2services.com/mobapp/api/folder/",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                        data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId,parentName:$.trim(sessionStorage.getItem("currentDicName")} // search for tweets that contain "html5"
+                        data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId,parentName:parentName} // search for tweets that contain "html5"
                     }
                     },
                     schema: {
@@ -176,7 +177,7 @@
                 }
                 var that = this;
                 that.set("showrefreshLoading", true);
-           	 parentName = $.trim(sessionStorage.getItem("currentFName"));
+           	 parentName = shareBackHistory[shareBackHistory.length-1];
                 if(parentName==='Shared Files' || parentName==='Shared Folders' || parentName==='subSharedFolder')
                 {
                     
@@ -186,7 +187,7 @@
                         url: "https://www.biz2services.com/mobapp/api/folder/",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                        data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId,parentName:$.trim(sessionStorage.getItem("currentDicName"))} // search for tweets that contain "html5"
+                        data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId,parentName:parentName} // search for tweets that contain "html5"
                     }
                     },
                     schema: {
@@ -264,7 +265,7 @@
                 dataSource.fetch(function(){
                     var data = dataSource.view(); 
                     app.documentsetting.viewModel.setDocuments(data);
-                    console.log(data);
+                    
                     app.documentsetting.viewModel.hideRefreshLoading();
                     
                 }); 
@@ -292,28 +293,21 @@
 							 if(e.touch.initialTouch.dataset.id === "folder")
                             { 
                                 sessionStorage.currentFId = e.touch.currentTarget.id;
-                                if($.trim(e.touch.currentTarget.innerText) ==='Shared Files')
-                                {
-                                    sessionStorage.currentDicName ='Shared Files';
-                                    sessionStorage.currentFName = e.touch.currentTarget.innerText;
+                        		sessionStorage.currentFName = e.touch.currentTarget.innerText;
+                                if($.trim(e.touch.currentTarget.innerText)==='Shared Files'){
+                                    shareBackHistory.push($.trim(e.touch.currentTarget.innerText));
+                                    
                                 }
-                                else if($.trim(e.touch.currentTarget.innerText) ==='Shared Folders')
+                                else if($.trim(e.touch.currentTarget.innerText)==='Shared Folders')
                                 {
-                                    sessionStorage.currentDicName ='Shared Folders';
-                                    sessionStorage.currentFName = e.touch.currentTarget.innerText;
+                                    shareBackHistory.push($.trim(e.touch.currentTarget.innerText));
+                                    
+                                    
                                 }
-                                else if($.trim(sessionStorage.currentDicName) ==='Shared Folders' || $.trim(sessionStorage.currentDicName) ==='subSharedFolder')
+                                else if(shareBackHistory[shareBackHistory.length-1] ==='Shared Folders' || shareBackHistory[shareBackHistory.length-1] ==='subSharedFolder')
                                 {
-                                    sessionStorage.currentDicName ='subSharedFolder';
-                                    sessionStorage.currentFName = e.touch.currentTarget.innerText;
+                                    shareBackHistory.push('subSharedFolder');
                                 }
-                                else
-                                {
-                                    sessionStorage.currentDicName ='';
-                                    sessionStorage.currentFName = e.touch.currentTarget.innerText;
-                                }
-                        		
-                               
                                 //hold = false;
                         		if(!hold)
                         		{
@@ -841,8 +835,7 @@
         gobackDocsPage:function()
         {
             var that = this;
-            sessionStorage.currentFId = "";
-            sessionStorage.currentFName = "";
+            shareBackHistory.pop();
             if(!that.get("showrefreshLoading")){
                 if(app.documentsetting.viewModel.parentId !== "0")
                 {
