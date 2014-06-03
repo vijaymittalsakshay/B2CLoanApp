@@ -353,9 +353,17 @@
                             
                             if(e.touch.initialTouch.innerText !== "Shared Files" && e.touch.initialTouch.innerText !== "Shared Folders")
                             {
-                                
-                    			$("#tabstrip-folder-events").data("kendoMobileModalView").open();
-                                $("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
+                                if(shareBackHistory[0]==='Shared Folders')
+                                {
+                                    $("#tabstrip-share-folder-events").data("kendoMobileModalView").open();
+                                	$("#tabstrip-share-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
+                                }
+                                else
+                                {
+                                    $("#tabstrip-folder-events").data("kendoMobileModalView").open();
+                                	$("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
+                                }
+                    			
                     			$('.folderName').html('');
                     			if(e.touch.currentTarget.innerText.length >= 20)
                                 {
@@ -374,13 +382,39 @@
                                 sessionStorage.currentFileName = e.touch.currentTarget.innerText;
                                 sessionStorage.downloadLink = $.trim(e.touch.currentTarget.className);
                                 if (device.platform === "Android") {
-                            		$("#tabstrip-files-events").data("kendoMobileModalView").open();
-                                	$("#tabstrip-files-events").find(".km-scroll-container").css("-webkit-transform", "");
+                                    if(shareBackHistory[0]==='Shared Files'){
+                                        $("#tabstrip-share-files-file-events").data("kendoMobileModalView").open();
+                                		$("#tabstrip-share-files-file-events").find(".km-scroll-container").css("-webkit-transform", "");  
+                                    }
+                                    else if(shareBackHistory[0]==='Shared Folders')
+                                    {
+                                        $("#tabstrip-share-folders-file-events").data("kendoMobileModalView").open();
+                                		$("#tabstrip-share-folders-file-events").find(".km-scroll-container").css("-webkit-transform", "");  
+                                    }
+                                    else
+                                    {
+                                    	$("#tabstrip-files-events").data("kendoMobileModalView").open();
+                                		$("#tabstrip-files-events").find(".km-scroll-container").css("-webkit-transform", "");  
+                                    }
+                            		
                                 }
                             	else
                             	{
-                                    $("#tabstrip-files-events-ios").data("kendoMobileModalView").open();
-                                	$("#tabstrip-files-events-ios").find(".km-scroll-container").css("-webkit-transform", "");
+                                    if(shareBackHistory[0]==='Shared Files'){
+                                    	$("#tabstrip-share-files-file-events-ios").data("kendoMobileModalView").open();
+                                		$("#tabstrip-share-files-file-events-ios").find(".km-scroll-container").css("-webkit-transform", "");
+                                    }
+                                    else if(shareBackHistory[0]==='Shared Folders')
+                                    {
+                                        $("#tabstrip-share-folders-file-events-ios").data("kendoMobileModalView").open();
+                                		$("#tabstrip-share-folders-file-events-ios").find(".km-scroll-container").css("-webkit-transform", "");  
+                                    }
+                                    else
+                                    {
+                                    	$("#tabstrip-files-events-ios").data("kendoMobileModalView").open();
+                                		$("#tabstrip-files-events-ios").find(".km-scroll-container").css("-webkit-transform", "");
+                                    }
+                                    
                                 }
                             	$('.folderName').html('');
                                 if(e.touch.currentTarget.innerText.length >= 20)
@@ -453,23 +487,48 @@
             }
             else
             {
-    		    var dataSource = new kendo.data.DataSource({
-                transport: {
+                parentName = shareBackHistory[shareBackHistory.length-1];
+                if(parentName==='Shared Folders' || parentName==='subSharedFolder')
+                {
+                    var dataSource = new kendo.data.DataSource({
+                    transport: {
+                    read: {
+                        url: "https://www.biz2services.com/mobapp/api/folder",
+                        type:"POST",
+                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                        data: {apiaction:"deletefolder",userID:localStorage.getItem("userID"),folderID:sessionStorage.getItem("currentFId"),parentName:parentName}  // search for tweets that contain "html5"
+                    }
+                    },    
+                    schema: {
+                    data: function(data)
+                    {   
+                    	return [data];
+                    }
+                    },
+
+                    });  
+                }
+                else
+                {
+                    var dataSource = new kendo.data.DataSource({
+                    transport: {
                     read: {
                         url: "https://www.biz2services.com/mobapp/api/folder",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                         data: {apiaction:"deletefolder",userID:localStorage.getItem("userID"),folderID:sessionStorage.getItem("currentFId")}  // search for tweets that contain "html5"
                     }
-                },    
-                schema: {
+                    },    
+                    schema: {
                     data: function(data)
                     {   
                     	return [data];
                     }
-                },
-         
-                });
+                    },
+
+                    });   
+                }
+    		    
                  
                 dataSource.fetch(function(){
                     var data = dataSource.data(); 
@@ -512,23 +571,49 @@
             }
             else
             {
-                var dataSource = new kendo.data.DataSource({
-                transport: {
+                parentName = shareBackHistory[shareBackHistory.length-1];
+                if(parentName==='Shared Files')
+                {
+                  
+                    var dataSource = new kendo.data.DataSource({
+                    transport: {
+                    read: {
+                        url: "https://www.biz2services.com/mobapp/api/file",
+                        type:"POST",
+                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                        data: {apiaction:"deletefile",userID:localStorage.getItem("userID"),fileID:sessionStorage.getItem("currentFileId"),parentName:parentName}  // search for tweets that contain "html5"
+                    }
+                    },    
+                    schema: {
+                    data: function(data)
+                    {   
+                    	return [data];
+                    }
+                    },
+
+                    }); 
+                }
+                else
+                {
+                    var dataSource = new kendo.data.DataSource({
+                    transport: {
                     read: {
                         url: "https://www.biz2services.com/mobapp/api/file",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                         data: {apiaction:"deletefile",userID:localStorage.getItem("userID"),fileID:sessionStorage.getItem("currentFileId")}  // search for tweets that contain "html5"
                     }
-                },    
-                schema: {
+                    },    
+                    schema: {
                     data: function(data)
                     {   
                     	return [data];
                     }
-                },
-         
-                });
+                    },
+
+                    });  
+                }
+                
                  
                 dataSource.fetch(function(){
                     var data = dataSource.data(); 
@@ -835,7 +920,6 @@
         gobackDocsPage:function()
         {
             var that = this;
-            shareBackHistory.pop();
             if(!that.get("showrefreshLoading")){
                 if(app.documentsetting.viewModel.parentId !== "0")
                 {
@@ -851,6 +935,7 @@
                 }
                 app.documentsetting.viewModel.setParentId(docsBackHistory[docsBackHistory.length-2]);
                 docsBackHistory.pop();
+                shareBackHistory.pop();
                 app.documentsetting.viewModel.refreshView();
             }
              

@@ -133,7 +133,7 @@
         					});
                             if(sharedFiles !== '' && sharedFolders !=='')
                             {
-                            	docsArray.unshift(sharedFiles,sharedFolders);
+                            	//docsArray.unshift(sharedFiles,sharedFolders);
                             }
                         }
                     	return [docsArray];
@@ -265,7 +265,30 @@
 
                     return;
                 }
-              	var dataSource = new kendo.data.DataSource({
+                parentName = shareBackHistory[shareBackHistory.length-1];
+                if(parentName==='Shared Files')
+                {
+                	var dataSource = new kendo.data.DataSource({
+                    transport: {
+                    		read: {
+                    		url: "https://www.biz2services.com/mobapp/api/file",
+                    		type:"POST",
+                    		dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    		data: {apiaction:"movefile",userID:localStorage.getItem("userID"),fileID:sessionStorage.getItem("currentFileId"),parentID:app.movedocumentsetting.viewModel.moveDocsId,parentName:parentName}  // search for tweets that contain "html5"
+                    }
+                    },    
+                    schema: {
+                    data: function(data)
+                    {   
+                    		return [data];
+                    }
+                    },
+
+                    }); 
+                }
+                else
+                {
+                    var dataSource = new kendo.data.DataSource({
                     transport: {
                     		read: {
                     		url: "https://www.biz2services.com/mobapp/api/file",
@@ -273,15 +296,17 @@
                     		dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                     		data: {apiaction:"movefile",userID:localStorage.getItem("userID"),fileID:sessionStorage.getItem("currentFileId"),parentID:app.movedocumentsetting.viewModel.moveDocsId}  // search for tweets that contain "html5"
                     }
-                },    
-                schema: {
+                    },    
+                    schema: {
                     data: function(data)
                     {   
                     		return [data];
                     }
-                },
+                    },
 
-                });    
+                    }); 
+                }
+              	   
             }
             
             dataSource.fetch(function(){
