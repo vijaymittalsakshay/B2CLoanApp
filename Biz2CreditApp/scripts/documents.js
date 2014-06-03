@@ -43,18 +43,21 @@
                     parentId = 0;
                     app.documentsetting.viewModel.setMainPage();
                     app.documentsetting.viewModel.setParentId(0);
-                }   
-
-           	 var dataSource = new kendo.data.DataSource({         
-                transport: {
+                } 
+                parentName = $.trim(sessionStorage.getItem("currentFName"));
+                if(parentName==='Shared Files' || parentName==='Shared Folders' || parentName==='subSharedFolder')
+                {
+                    
+                    var dataSource = new kendo.data.DataSource({         
+                    transport: {
                     read: {
                         url: "https://www.biz2services.com/mobapp/api/folder/",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                        data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId} // search for tweets that contain "html5"
+                        data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId,parentName:parentName} // search for tweets that contain "html5"
                     }
-                },
-                schema: {
+                    },
+                    schema: {
                     data: function(data)
                     {   var docsArray = [];
                         if(data['results']['faultcode']===1)
@@ -72,7 +75,7 @@
                                 else{
                                     docsArray.push(val);
                                 } 
-        					});
+                    		});
                             if(sharedFiles !== '' && sharedFolders !=='')
                             {
                             	docsArray.unshift(sharedFiles,sharedFolders);
@@ -80,16 +83,67 @@
                         }
                     	return [docsArray];
                     }
-                },
-                error: function (e) {
-                	apps.hideLoading();
-               	 navigator.notification.alert("Server not responding properly.Please check your internet connection.",
-               	 function () { }, "Notification", 'OK');
-                },
-            	});
+                    },
+                    error: function (e) {
+                    apps.hideLoading();
+                     navigator.notification.alert("Server not responding properly.Please check your internet connection.",
+                     function () { }, "Notification", 'OK');
+                    },
+                    });
+
+                }
+                else
+                {
+                    var dataSource = new kendo.data.DataSource({         
+                    transport: {
+                    read: {
+                        url: "https://www.biz2services.com/mobapp/api/folder/",
+                        type:"POST",
+                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                        data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId} // search for tweets that contain "html5"
+                    }
+                    },
+                    schema: {
+                    data: function(data)
+                    {   var docsArray = [];
+                        if(data['results']['faultcode']===1)
+                        {
+                            var sharedFiles ="";
+                            var sharedFolders ="";
+                            $.each( data['results']['DocLists'], function( i, val ) {
+
+                                if(data['results']['DocLists'][i]['name']==='Shared Files'){
+                                     sharedFiles =val;
+                                }
+                                else if(data['results']['DocLists'][i]['name']==='Shared Folders' ){
+                                     sharedFolders =val;
+                                }
+                                else{
+                                    docsArray.push(val);
+                                } 
+                    		});
+                            if(sharedFiles !== '' && sharedFolders !=='')
+                            {
+                            	docsArray.unshift(sharedFiles,sharedFolders);
+                            }
+                        }
+                    	return [docsArray];
+                    }
+                    },
+                    error: function (e) {
+                    apps.hideLoading();
+                     navigator.notification.alert("Server not responding properly.Please check your internet connection.",
+                     function () { }, "Notification", 'OK');
+                    },
+                    });
+
+                }
+                
+           	 
                 dataSource.fetch(function(){
                     var that = this;
                     var data = that.data();
+                    console.log(data);
                     app.documentsetting.viewModel.setDocuments(data); 
                 });
        	 }
@@ -122,26 +176,28 @@
                 }
                 var that = this;
                 that.set("showrefreshLoading", true);
-           	 var dataSource = new kendo.data.DataSource({
-                transport: {
+           	 parentName = $.trim(sessionStorage.getItem("currentFName"));
+                if(parentName==='Shared Files' || parentName==='Shared Folders' || parentName==='subSharedFolder')
+                {
+                    
+                    var dataSource = new kendo.data.DataSource({         
+                    transport: {
                     read: {
                         url: "https://www.biz2services.com/mobapp/api/folder/",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                        data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId}  // search for tweets that contain "html5"
+                        data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId,parentName:parentName} // search for tweets that contain "html5"
                     }
-                },    
-                schema: {
-                     data: function(data)
+                    },
+                    schema: {
+                    data: function(data)
                     {   var docsArray = [];
                         if(data['results']['faultcode']===1)
                         {
-                            
                             var sharedFiles ="";
                             var sharedFolders ="";
                             $.each( data['results']['DocLists'], function( i, val ) {
-                                
-                                
+
                                 if(data['results']['DocLists'][i]['name']==='Shared Files'){
                                      sharedFiles =val;
                                 }
@@ -151,21 +207,64 @@
                                 else{
                                     docsArray.push(val);
                                 } 
-        					});
+                    		});
                             if(sharedFiles !== '' && sharedFolders !=='')
                             {
                             	docsArray.unshift(sharedFiles,sharedFolders);
-                            }     
+                            }
                         }
                     	return [docsArray];
                     }
-                },
-         
-        		});
+                    },
+                    });
+
+                }
+                else
+                {
+                    var dataSource = new kendo.data.DataSource({         
+                    transport: {
+                    read: {
+                        url: "https://www.biz2services.com/mobapp/api/folder/",
+                        type:"POST",
+                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                        data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId} // search for tweets that contain "html5"
+                    }
+                    },
+                    schema: {
+                    data: function(data)
+                    {   var docsArray = [];
+                        if(data['results']['faultcode']===1)
+                        {
+                            var sharedFiles ="";
+                            var sharedFolders ="";
+                            $.each( data['results']['DocLists'], function( i, val ) {
+
+                                if(data['results']['DocLists'][i]['name']==='Shared Files'){
+                                     sharedFiles =val;
+                                }
+                                else if(data['results']['DocLists'][i]['name']==='Shared Folders' ){
+                                     sharedFolders =val;
+                                }
+                                else{
+                                    docsArray.push(val);
+                                } 
+                    		});
+                            if(sharedFiles !== '' && sharedFolders !=='')
+                            {
+                            	docsArray.unshift(sharedFiles,sharedFolders);
+                            }
+                        }
+                    	return [docsArray];
+                    }
+                    },
+                    });
+
+                }
                  
                 dataSource.fetch(function(){
                     var data = dataSource.view(); 
                     app.documentsetting.viewModel.setDocuments(data);
+                    console.log(data);
                     app.documentsetting.viewModel.hideRefreshLoading();
                     
                 }); 
@@ -192,6 +291,29 @@
                       // e.touch.currentTarget.className='km-state-active';
 							 if(e.touch.initialTouch.dataset.id === "folder")
                             { 
+                                sessionStorage.currentFId = e.touch.currentTarget.id;
+                                if($.trim(e.touch.currentTarget.innerText) ==='Shared Files')
+                                {
+                                    sessionStorage.currentDicName ='Shared Files';
+                                    sessionStorage.currentFName = e.touch.currentTarget.innerText;
+                                }
+                                if($.trim(e.touch.currentTarget.innerText) ==='Shared Folders')
+                                {
+                                    sessionStorage.currentDicName ='Shared Folders';
+                                    sessionStorage.currentFName = e.touch.currentTarget.innerText;
+                                }
+                                else if($.trim(sessionStorage.currentDicName) ==='Shared Folders' || $.trim(sessionStorage.currentDicName) ==='SubShare')
+                                {
+                                    sessionStorage.currentDicName ='SubShare';
+                                    sessionStorage.currentFName = e.touch.currentTarget.innerText;
+                                }
+                                else
+                                {
+                                    sessionStorage.currentDicName ='';
+                                    sessionStorage.currentFName = e.touch.currentTarget.innerText;
+                                }
+                        		
+                               
                                 //hold = false;
                         		if(!hold)
                         		{
@@ -719,6 +841,8 @@
         gobackDocsPage:function()
         {
             var that = this;
+            sessionStorage.currentFId = "";
+            sessionStorage.currentFName = "";
             if(!that.get("showrefreshLoading")){
                 if(app.documentsetting.viewModel.parentId !== "0")
                 {
