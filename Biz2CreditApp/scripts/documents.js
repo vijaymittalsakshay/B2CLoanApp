@@ -297,14 +297,14 @@
                                     sessionStorage.currentDicName ='Shared Files';
                                     sessionStorage.currentFName = e.touch.currentTarget.innerText;
                                 }
-                                if($.trim(e.touch.currentTarget.innerText) ==='Shared Folders')
+                                else if($.trim(e.touch.currentTarget.innerText) ==='Shared Folders')
                                 {
                                     sessionStorage.currentDicName ='Shared Folders';
                                     sessionStorage.currentFName = e.touch.currentTarget.innerText;
                                 }
-                                else if($.trim(sessionStorage.currentDicName) ==='Shared Folders' || $.trim(sessionStorage.currentDicName) ==='SubShare')
+                                else if($.trim(sessionStorage.currentDicName) ==='Shared Folders' || $.trim(sessionStorage.currentDicName) ==='subSharedFolder')
                                 {
-                                    sessionStorage.currentDicName ='SubShare';
+                                    sessionStorage.currentDicName ='subSharedFolder';
                                     sessionStorage.currentFName = e.touch.currentTarget.innerText;
                                 }
                                 else
