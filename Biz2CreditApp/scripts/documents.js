@@ -54,7 +54,7 @@
                         url: "https://www.biz2services.com/mobapp/api/folder/",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                        data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId,parentName:parentName} // search for tweets that contain "html5"
+                        data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId,parentName:$.trim(sessionStorage.getItem("currentDicName")} // search for tweets that contain "html5"
                     }
                     },
                     schema: {
@@ -186,7 +186,7 @@
                         url: "https://www.biz2services.com/mobapp/api/folder/",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                        data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId,parentName:parentName} // search for tweets that contain "html5"
+                        data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId,parentName:$.trim(sessionStorage.getItem("currentDicName"))} // search for tweets that contain "html5"
                     }
                     },
                     schema: {
