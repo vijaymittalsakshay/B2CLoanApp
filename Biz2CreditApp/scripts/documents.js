@@ -143,7 +143,6 @@
                 dataSource.fetch(function(){
                     var that = this;
                     var data = that.data();
-                    console.log(data);
                     app.documentsetting.viewModel.setDocuments(data); 
                 });
        	 }
@@ -263,7 +262,7 @@
                 dataSource.fetch(function(){
                     var data = dataSource.view(); 
                     app.documentsetting.viewModel.setDocuments(data);
-                    
+                    console.log(data);
                     app.documentsetting.viewModel.hideRefreshLoading();
                     
                 }); 
@@ -345,6 +344,7 @@
                 	hold: function (e) {
                         hold = true;
                         navigator.notification.vibrate(20);
+                        console.log(shareBackHistory);
 						if(e.touch.initialTouch.dataset.id === "folder")
                         {
                             sessionStorage.currentFId = e.touch.currentTarget.id;
@@ -352,10 +352,13 @@
                             
                             if(e.touch.initialTouch.innerText !== "Shared Files" && e.touch.initialTouch.innerText !== "Shared Folders")
                             {
-                                if(shareBackHistory[0]==='Shared Folders')
+                                if(shareBackHistory[shareBackHistory.length-1]==='Shared Folders')
                                 {
                                     $("#tabstrip-share-folder-events").data("kendoMobileModalView").open();
                                 	$("#tabstrip-share-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
+                                }
+                                else if(shareBackHistory[shareBackHistory.length-1]==='subSharedFolder')
+                                {
                                 }
                                 else
                                 {
@@ -837,11 +840,22 @@
             that.set("parentId", id);
         },
       
-        newFolderModal:function()
+        newFolderModal:function(e)
         { 
             var that = this;
             that.set("newFolderName", "");
-            $("#tabstrip-new-folder").data("kendoMobileModalView").open();  
+            app.homesetting.viewModel.closeParentPopover(e);
+            if(shareBackHistory[0]==='Shared Files' || shareBackHistory[0]==='Shared Folders')
+            {
+                navigator.notification.alert("This action can not be complete in share files/folders section.",
+                    function () { }, "Notification", 'OK');
+                
+            }
+            else
+            {
+                 $("#tabstrip-new-folder").data("kendoMobileModalView").open();    
+            }
+ 
         },
         newFolderCreate:function(e)
         {
