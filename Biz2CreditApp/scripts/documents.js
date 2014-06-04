@@ -262,7 +262,6 @@
                 dataSource.fetch(function(){
                     var data = dataSource.view(); 
                     app.documentsetting.viewModel.setDocuments(data);
-                    console.log(data);
                     app.documentsetting.viewModel.hideRefreshLoading();
                     
                 }); 
@@ -344,7 +343,6 @@
                 	hold: function (e) {
                         hold = true;
                         navigator.notification.vibrate(20);
-                        console.log(shareBackHistory);
 						if(e.touch.initialTouch.dataset.id === "folder")
                         {
                             sessionStorage.currentFId = e.touch.currentTarget.id;
@@ -950,7 +948,6 @@
                 app.documentsetting.viewModel.setParentId(docsBackHistory[docsBackHistory.length-2]);
                 docsBackHistory.pop();
                 shareBackHistory.pop();
-                console.log(shareBackHistory);
                 app.documentsetting.viewModel.refreshView();
             }
              
