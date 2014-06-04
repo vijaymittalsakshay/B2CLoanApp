@@ -48,7 +48,6 @@
                 parentName = shareBackHistory[shareBackHistory.length-1];
                 if(parentName==='Shared Files' || parentName==='Shared Folders' || parentName==='subSharedFolder')
                 {
-                    
                     var dataSource = new kendo.data.DataSource({         
                     transport: {
                     read: {
@@ -180,7 +179,6 @@
            	 parentName = shareBackHistory[shareBackHistory.length-1];
                 if(parentName==='Shared Files' || parentName==='Shared Folders' || parentName==='subSharedFolder')
                 {
-                    
                     var dataSource = new kendo.data.DataSource({         
                     transport: {
                     read: {
@@ -288,29 +286,30 @@
                 },
                 }).kendoTouch({ 
                 	filter: "li",
-                  	tap: function (e) { 
+                  	tap: function (e) {
                       // e.touch.currentTarget.className='km-state-active';
 							 if(e.touch.initialTouch.dataset.id === "folder")
                             { 
-                                sessionStorage.currentFId = e.touch.currentTarget.id;
-                        		sessionStorage.currentFName = e.touch.currentTarget.innerText;
-                                if($.trim(e.touch.currentTarget.innerText)==='Shared Files'){
-                                    shareBackHistory.push($.trim(e.touch.currentTarget.innerText));
-                                    
-                                }
-                                else if($.trim(e.touch.currentTarget.innerText)==='Shared Folders')
-                                {
-                                    shareBackHistory.push($.trim(e.touch.currentTarget.innerText));
-                                    
-                                    
-                                }
-                                else if(shareBackHistory[shareBackHistory.length-1] ==='Shared Folders' || shareBackHistory[shareBackHistory.length-1] ==='subSharedFolder')
-                                {
-                                    shareBackHistory.push('subSharedFolder');
-                                }
-                                //hold = false;
-                        		if(!hold)
+                                if(!hold)
                         		{
+                                    sessionStorage.currentFId = e.touch.currentTarget.id;
+                            		sessionStorage.currentFName = e.touch.currentTarget.innerText;
+                                    if($.trim(e.touch.currentTarget.innerText)==='Shared Files'){
+                                        shareBackHistory.push($.trim(e.touch.currentTarget.innerText));
+                                        
+                                    }
+                                    else if($.trim(e.touch.currentTarget.innerText)==='Shared Folders')
+                                    {
+                                        shareBackHistory.push($.trim(e.touch.currentTarget.innerText));
+                                        
+                                        
+                                    }
+                                    else if(shareBackHistory[shareBackHistory.length-1] ==='Shared Folders' || shareBackHistory[shareBackHistory.length-1] ==='subSharedFolder')
+                                    {
+                                        shareBackHistory.push('subSharedFolder');
+                                    }
+                                    //hold = false;
+                        		
                                     if(e.touch.currentTarget.id !== "0")
                                     {  
                                     	app.documentsetting.viewModel.setInnerPage();
@@ -919,6 +918,7 @@
         },
         gobackDocsPage:function()
         {
+            
             var that = this;
             if(!that.get("showrefreshLoading")){
                 if(app.documentsetting.viewModel.parentId !== "0")
@@ -936,6 +936,7 @@
                 app.documentsetting.viewModel.setParentId(docsBackHistory[docsBackHistory.length-2]);
                 docsBackHistory.pop();
                 shareBackHistory.pop();
+                console.log(shareBackHistory);
                 app.documentsetting.viewModel.refreshView();
             }
              
