@@ -166,39 +166,7 @@
             }
              app.homesetting.viewModel.closeParentPopover();
         },
-        mobileNotification:function(msg,status)
-        {
-            
-            var staticNotification = $("#staticNotification").kendoNotification({
-                
-           	 appendTo: "#appendto",
-            	autoHideAfter: 2000,
-                animation: false,
-                templates: [
-                {
-                	type: "warning",
-                	template: "<div class='notify'>#= msg #</div>"
-				},
-                {
-               
-                	type: "info",
-                	template: "<div class='notify'>#= msg #</div>"
-                },
-                {
-               
-                	type: "success",
-                	template: "<div class='notify'> #= msg #</div>"
-                },
-                {
-               
-                	type: "error",
-                	template: "<div class='notify'>#= msg #</div>"
-                }
-                ]
-            }).data("kendoNotification");
-           
-            staticNotification.show(msg, status); 
-        },
+        
         onSettingPage:function(e)
         {	apps.navigate('#tabstrip-Setting');
              app.homesetting.viewModel.closeParentPopover();
@@ -210,6 +178,18 @@
             var that = this;
             that.set("email", localStorage.getItem("userEmail"));
             that.set("name", localStorage.getItem("userFName")+' '+localStorage.getItem("userLName"));
+        },
+        mobileNotification:function(msg,status)
+            var toast =window.plugins.toast;
+            var message =msg;
+            toast.showLongBottom(message,
+                function(downmsg){
+                    //navigator.notification.alert(downmsg);
+                }, 
+                function(downerr){
+                    //navigator.notification.alert(downerr);
+                }
+            );
         }
         
     });
