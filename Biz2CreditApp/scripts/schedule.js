@@ -127,10 +127,14 @@ $(document).ready(function(){
         	}
         
         $(".k-weekend").each(function (){
-                    console.info(this);
-                    $(this).find("a").attr("disabled",true).removeClass("k-link").addClass("disabled-date");
+                    $(this).find("a").attr("disabled",true).removeClass("k-link").addClass("k-state-disabled");
                     $(this).removeClass("k-state-hover");
+            		$(this).addClass("k-state-disabled");
                   });
+        },
+       click:function(e)
+        {
+            alert("adsdadad");
         }
         
     }).data("kendoDatePicker");
