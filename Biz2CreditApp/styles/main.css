@@ -290,7 +290,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .movebuttonArea .moveButton {/* Safari 4-5, Chrome 1-9 */  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8dbc00), to(#9fcf0f));   /* Safari 5.1, Chrome 10+ */   background: -webkit-linear-gradient(top, #9fcf0f, #8dbc00);  /* Firefox 3.6+ */   background: -moz-linear-gradient(top, #9fcf0f, #8dbc00);   /* IE 10 */   background: -ms-linear-gradient(top, #9fcf0f, #8dbc00);   /* Opera 11.10+ */   background: -o-linear-gradient(top, #9fcf0f, #8dbc00); border-radius:3px;  border:1px solid #808080;  color:#000;  font-size:1.125em;  -moz-box-shadow: inset 0px 0px 1px #7a9e0e;-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;box-shadow: inset 0px 0px 1px #7a9e0e;    width:48.5%; padding:0.6em 0; margin:0 0 0 1px; border-radius:1px; z-index:1000; float:right;}
 .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) { margin:0 10%; text-align:left;}  
  
-#tabstrip-files-events.modal-mess-Popup {height:80%;}
+/*#tabstrip-files-events.modal-mess-Popup {height:80%;}*/
 .notify { background-color:#000;opacity:0.8;border-radius:3px; width:100%; color:#fff; font-size:1em; margin:0 auto; padding:1.5% 2%; text-align:center;}
 .docs-header .km-widget .docs-back {margin-top:0rem!important;margin-bottom:0rem !important;}
 .docs-header .km-widget #docs-filter { margin:0;}
