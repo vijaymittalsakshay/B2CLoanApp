@@ -125,9 +125,18 @@ $(document).ready(function(){
         		dp.value(todaysDate);
         		dp.min(todaysDate);
         	}
+        
+        $(".k-weekend").each(function (){
+                    console.info(this);
+                    $(this).find("a").attr("disabled",true).removeClass("k-link").addClass("disabled-date");
+                    $(this).removeClass("k-state-hover");
+                  });
         }
+        
     }).data("kendoDatePicker");
     $('#datepicker').attr('disabled','disabled');
+    $('td.k-weekend a').attr('disabled','disabled');
+    
     $("#timepicker").kendoTimePicker();
     $('#timepicker').attr('disabled','disabled');
     var listOfTimes = $("#timepicker_timeview");
