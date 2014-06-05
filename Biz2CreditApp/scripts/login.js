@@ -1,4 +1,4 @@
-(function (global) {
+(function (global,$) {
     var LoginViewModel,
         app = global.app = global.app || {};
 
@@ -180,6 +180,7 @@
             that.set("name", localStorage.getItem("userFName")+' '+localStorage.getItem("userLName"));
         },
         mobileNotification:function(msg,status)
+        {
             var toast =window.plugins.toast;
             var message =msg;
             toast.showLongBottom(message,
@@ -197,4 +198,4 @@
     app.loginService = {
         viewModel: new LoginViewModel()	
     };
-})(window);
+})(window,jQuery);
