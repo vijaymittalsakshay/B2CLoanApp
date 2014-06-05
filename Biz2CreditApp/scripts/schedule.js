@@ -127,9 +127,10 @@ $(document).ready(function(){
         	}
         
         $(".k-weekend").each(function (){
-                    $(this).find("a").attr("disabled",true).removeClass("k-link").addClass("k-state-disabled");
+                    $(this).find("a").attr("disabled",true).removeClass("k-link").addClass("k-state-disabled").removeAttr("href");
                     $(this).removeClass("k-state-hover");
             		$(this).addClass("k-state-disabled");
+            
                   });
         },
        click:function(e)
