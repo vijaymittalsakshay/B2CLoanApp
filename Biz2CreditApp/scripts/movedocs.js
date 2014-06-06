@@ -109,6 +109,14 @@
                 {
                 	$(".list-move-listview").data("kendoMobileListView").destroy();
                 }
+                if(app.movedocumentsetting.viewModel.moveDocsId === 0)
+                {
+                     $('.inner-docs-back').addClass("hidedocsback");
+                }
+                else
+                {
+                     $('.inner-docs-back').removeClass("hidedocsback");
+                }
            	 var dataSource = new kendo.data.DataSource({         
                 transport: {
                     read: {
