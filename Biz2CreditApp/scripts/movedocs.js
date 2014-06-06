@@ -30,8 +30,8 @@
                 {
                     moveParentId = e.view.params.parent;
                     app.movedocumentsetting.viewModel.setmoveDocsId(e.view.params.parent);
-                   $('.inner-docs-back').removeClass("hidedocsback");
-                    $('.inner-docs-back span').removeClass("hidedocsback");
+                   $('.inner-docs-back').addClass("hidedocsback");
+                    $('.inner-docs-back span').addClass("hidedocsback");
                 }
                 else
                 {   
@@ -118,9 +118,9 @@
                 }
                 else
                 {
-  
-                     $('.inner-docs-back').removeClass("hidedocsback");
-                    $('.inner-docs-back span').removeClass("hidedocsback");
+                    console.log('test');
+                     $('.inner-docs-back').addClass("hidedocsback");
+                    $('.inner-docs-back span').addClass("hidedocsback");
                 }
            	 var dataSource = new kendo.data.DataSource({         
                 transport: {
