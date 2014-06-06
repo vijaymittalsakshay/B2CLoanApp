@@ -43,13 +43,13 @@
                 if(app.movedocumentsetting.viewModel.moveDocsId === 0)
                 {
                     $('.inner-docs-back').addClass("hidedocsback");
-                    $('.inner-docs-back').addClass("hidedocsback");
+                    $('.inner-docs-back span').addClass("hidedocsback");
                     alert(app.movedocumentsetting.viewModel.moveDocsId);
                 }
                 else
                 {
                      $('.inner-docs-back').removeClass("hidedocsback");
-                     $('.inner-docs-back').removeClass("hidedocsback");
+                     $('.inner-docs-back span').removeClass("hidedocsback");
                     alert(app.movedocumentsetting.viewModel.moveDocsId);
                 }
 
@@ -122,13 +122,13 @@
                 if(app.movedocumentsetting.viewModel.moveDocsId === 0)
                 {
                      $('.inner-docs-back').addClass("hidedocsback");
-                    $('.inner-docs-back').addClass("hidedocsback");
+                    $('.inner-docs-back span').addClass("hidedocsback");
                     alert(app.movedocumentsetting.viewModel.moveDocsId);
                 }
                 else
                 {
                      $('.inner-docs-back').removeClass("hidedocsback");
-                     $('.inner-docs-back').removeClass("hidedocsback");
+                     $('.inner-docs-back span').removeClass("hidedocsback");
                     alert(app.movedocumentsetting.viewModel.moveDocsId);
                 }
            	 var dataSource = new kendo.data.DataSource({         
