@@ -312,4 +312,4 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 /*********29-05-14***********/
 .downloadClass {min-height:170px; width:100%;}
 .k-animation-container { min-height:220px;}
-.hidedocsback{visibility:hidden;display:none;height:0px !important}
+.hidedocsback{visibility:hidden;display:none;height:0px !important;text-indent:-9999px;font-size:0px;padding:0;margin:0;}
