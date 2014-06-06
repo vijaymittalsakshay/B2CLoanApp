@@ -43,7 +43,6 @@
 
     // Handle "deviceready" event
     document.addEventListener('deviceready', onDeviceReady, false);
-   /// alert(localStorage.getItem("isLoggedIn"));
     function ConnectionApp() {
 	}
  

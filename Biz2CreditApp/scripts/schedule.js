@@ -8,10 +8,7 @@
         sTime:'',
         closeModal:function()
         {
-            //var that = this,
-            $("#tabstrip-scall").data("kendoMobileModalView").close();
-            
-           
+            $("#tabstrip-scall").data("kendoMobileModalView").close();  
         },
         validateSchedule:function()
         {
@@ -59,7 +56,6 @@
                 else
                 {
                 	app.loginService.viewModel.showloder();
-                	// alert('Schedule call');
                 	that.setSchedule(phonenumber,sDate,sTime); 
                 }
             }
@@ -88,7 +84,6 @@
             dataSource.fetch(function(){
             var that = this;
             var data = that.data();
-                console.log(data);
             app.loginService.viewModel.hideloder();  
         	navigator.notification.alert(data[0]['results']['faultmsg']);  
            });
@@ -117,31 +112,23 @@ $(document).ready(function(){
     var todaysDate = new Date();
     var pastDate = new Date(2013, 1, 1);
     var dp = $("#datepicker").kendoDatePicker({
-    value: pastDate,
-    min: pastDate,
-    format: "MM-dd-yyyy",
-    open: function(e) {
-        if ( dp.min() === pastDate)  {
-        		dp.value(todaysDate);
-        		dp.min(todaysDate);
-        	}
-        
-        $(".k-weekend").each(function (){
-                    $(this).find("a").attr("disabled",true).removeClass("k-link").addClass("k-state-disabled").removeAttr("href");
-                    $(this).removeClass("k-state-hover");
-            		$(this).addClass("k-state-disabled");
-            
-                  });
-        },
-       click:function(e)
-        {
-            alert("adsdadad");
-        }
-        
+        value: pastDate,
+        min: pastDate,
+        format: "MM-dd-yyyy",
+        open: function(e) {
+            if ( dp.min() === pastDate)  {
+            	dp.value(todaysDate);
+            	dp.min(todaysDate);
+            }
+            $(".k-weekend").each(function (){
+            	$(this).find("a").attr("disabled",true).removeClass("k-link").addClass("k-state-disabled").removeAttr("href");
+            	$(this).removeClass("k-state-hover");
+            	$(this).addClass("k-state-disabled");
+            });
+        } 
     }).data("kendoDatePicker");
     $('#datepicker').attr('disabled','disabled');
     $('td.k-weekend a').attr('disabled','disabled');
-    
     $("#timepicker").kendoTimePicker();
     $('#timepicker').attr('disabled','disabled');
     var listOfTimes = $("#timepicker_timeview");

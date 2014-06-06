@@ -7,7 +7,6 @@
         moveDocsId:0,
         moveInnerPage:false,
         checkStatus:'',
-        
         movedocumentShow:function(e)
         { 
             if(!window.connectionInfo.checkConnection()){
@@ -341,7 +340,6 @@
             
             dataSource.fetch(function(){
                 var data = dataSource.data(); 
-                //console.log(data);
                 if(data['0']['results']['faultcode'] === 1)
                 {
                     msg =data['0']['results']['faultmsg'];

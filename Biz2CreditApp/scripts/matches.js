@@ -1,7 +1,7 @@
 (function (global,$) {
     
     var MatchespageViewModel,
-   app = global.app = global.app || {};
+    app = global.app = global.app || {};
     MatchespageViewModel = kendo.observable({
        Matches : [],
        getMatches: function () {
@@ -18,16 +18,19 @@
             schema: {
                 data: function(data)
                 {
-                    //console.log(data);
                     
                 	return [data['results']['data']['loan']['matchrows']];
                 }
-            }
+            },
+            error: function (e) {
+                	apps.hideLoading();
+                	navigator.notification.alert("Server not responding properly.Please check your internet connection.",
+                	function () { }, "Notification", 'OK');
+                },
         });
         dataSource.fetch(function(){
             var that = this;
             var data = that.data();
-           // console.log(data);
             MatchespageViewModel.setMatches(data);
          });
         	   

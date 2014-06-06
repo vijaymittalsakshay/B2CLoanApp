@@ -85,9 +85,9 @@
                     }
                     },
                     error: function (e) {
-                    apps.hideLoading();
-                     navigator.notification.alert("Server not responding properly.Please check your internet connection.",
-                     function () { }, "Notification", 'OK');
+                    	apps.hideLoading();
+                    	navigator.notification.alert("Server not responding properly.Please check your internet connection.",
+                    	function () { }, "Notification", 'OK');
                     },
                     });
 
@@ -131,15 +131,13 @@
                     }
                     },
                     error: function (e) {
-                    apps.hideLoading();
-                     navigator.notification.alert("Server not responding properly.Please check your internet connection.",
-                     function () { }, "Notification", 'OK');
+                    	apps.hideLoading();
+                    	navigator.notification.alert("Server not responding properly.Please check your internet connection.",
+                    	function () { }, "Notification", 'OK');
                     },
                     });
 
                 }
-                
-           	 
                 dataSource.fetch(function(){
                     var that = this;
                     var data = that.data();
@@ -263,7 +261,6 @@
                     var data = dataSource.view(); 
                     app.documentsetting.viewModel.setDocuments(data);
                     app.documentsetting.viewModel.hideRefreshLoading();
-                    
                 }); 
             }
         },
@@ -306,7 +303,6 @@
                                     {
                                         shareBackHistory.push('subSharedFolder');
                                     }
-                                    //hold = false;
                         		
                                     if(e.touch.currentTarget.id !== "0")
                                     {  
