@@ -347,7 +347,6 @@
                         {
                             sessionStorage.currentFId = e.touch.currentTarget.id;
                         	sessionStorage.currentFName = e.touch.currentTarget.innerText;
-                            
                             if(e.touch.initialTouch.innerText !== "Shared Files" && e.touch.initialTouch.innerText !== "Shared Folders")
                             {
                                 if(shareBackHistory[shareBackHistory.length-1]==='Shared Folders')
@@ -374,6 +373,11 @@
                                     $('.folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
                                 }
                     			$('.folderName').attr("id",e.touch.currentTarget.id)
+                            }
+                            else if(e.touch.initialTouch.innerText === "Shared Files" || e.touch.initialTouch.innerText === "Shared Folders")
+                            {
+                                navigator.notification.alert("No action allowed",
+                                function () { }, "Notification", 'OK');
                             }
                         }
                         else if(e.touch.initialTouch.dataset.id === "files")

@@ -78,6 +78,11 @@
                     	return [docsArray];
                     }
                 },
+                error: function (e) {
+                	apps.hideLoading();
+                	navigator.notification.alert("Server not responding properly.Please check your internet connection.",
+                	function () { }, "Notification", 'OK');
+                },
             	});
             	dataSource.fetch(function(){
                	 var that = this;
@@ -138,6 +143,11 @@
                         }
                     	return [docsArray];
                     }
+                },
+                error: function (e) {
+                	apps.hideLoading();
+                	navigator.notification.alert("Server not responding properly.Please check your internet connection.",
+                	function () { }, "Notification", 'OK');
                 },
                 });
                 dataSource.fetch(function(){
@@ -210,7 +220,7 @@
         },
         gobackMovePage:function()
         {
-
+alert('back call');
 			if(app.movedocumentsetting.viewModel.moveDocsId !== "0")
             {
             	app.movedocumentsetting.viewModel.setMoveInnerPage();

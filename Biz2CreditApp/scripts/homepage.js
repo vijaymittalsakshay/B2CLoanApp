@@ -162,14 +162,14 @@
                     }
                 else if(matchstatus === 1 && funded === 0)
                 {
-                     dHeader= userName+', the below submissions are still pending.';
+                     dHeader= userName+', Your submissions are still pending.';
                      dDescription= 'Please review these items and complete any remaining actions if necessary';
                      dButtonText = app.homesetting.viewModel.getLatestMatchStatus(matchrows);
                      dButtonLink ="views/matches.html";
                 }
                 if(matchstatus === 1 && funded === 1){
     			
-    				dHeader= userName+', the below submissions are still pending.';
+    				dHeader= userName+', Your submissions are still pending.';
     				dDescription= 'Please review these items and complete any remaining actions if necessary';
                 	dButtonText = app.homesetting.viewModel.getLatestMatchStatus(matchrows);
                 	dButtonLink ="views/matches.html";
