@@ -148,25 +148,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .btngr {background-color:#99cc00; padding:6px 8px; -webkit-border-radius: 3px; border-radius: 3px; min-width:262px; display:block;box-shadow: 3px 3px 0 0 #dfdddd; color:#000 !important; font-weight:normal; font-size:0.95em; font-family:arial; text-decoration:none; }
 .btngr:focus { background-color:#7da600;}
 /*************21-03-14*************/
-.schedulePopup { padding:8px 1.5% 0 2.3%; margin:0;  max-height:100%;}
-.schedulePopup h3 { font-size:1em; color:#99cc00; font-weight:normal; padding:15px 60px 15px 15px; margin:0 0 15px; border-bottom:2px solid #99cc00;}
-.schedulePopup .scheduleSection { padding:0 15px;}
-.schedulePopup .scheduleSection .phoneNumber {-webkit-box-shadow: 0 0 1px 1px #90bf02 inset;-moz-box-shadow: 0 0 1px 1px #90bf02 inset;box-shadow: 0 0 1px 1px #90bf02 inset;    color:#333;   width:100%;   font-size:1em;   position:inherit;   margin-top:0;   border:1px solid #dcdcdc;  border-radius:3px;   padding:0.9em 0.9em 0.9em 0.3em !important;}
-.schedulePopup .scheduleSection .km-listview-wrapper { padding:10px 0 0;}
-.schedulePopup .scheduleSection .scall-text { font-size:0.75em; padding:0; margin:10px 0 15px; text-align:center;}
-.schedulePopup .scheduleSection .km-listview-wrapper ul { margin:0; border:0;}
-.schedulePopup .scheduleSection .km-listview-wrapper ul li { border:0; padding:0; float:right; width:49%;}
-.schedulePopup .scheduleSection .km-listview-wrapper ul li:first-child { float:left;}
-.schedulePopup .scheduleSection .km-listview-wrapper ul li .k-picker-wrap {border-radius:0; border:0; padding:0;}
-.schedulePopup .scheduleSection .km-listview-wrapper ul li .k-picker-wrap .k-input {border-radius:0; height:auto; padding:0.6em 0 0.6em 10px;}
-.schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select { border:1px solid #d7d7d7;border-radius:1px;}
-.schedulePopup .scheduleSection .km-listview-wrapper ul li .k-widget {width:100%;}
-.schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select {background-image: url(images/icon_calender_date.png); background-repeat:no-repeat; background-size:10%; background-position:95% 12px;width:100%; background-color:transparent;}
-.schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select {background-image: url(images/icon_calender_time.png); background-repeat:no-repeat; background-size:10%; background-position:95% 13px;width:100%; background-color:transparent;}
-.schedulePopup .scheduleSection .buttonArea { text-align:left; padding-bottom:8px;}
-.schedulePopup .scheduleSection .buttonArea .km-button {width:49%;  /* Safari 4-5, Chrome 1-9 */ background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cbcbcb), to(#e7e7e7));    /* Safari 5.1, Chrome 10+ */   background: -webkit-linear-gradient(top, #e7e7e7, #cbcbcb);  /* Firefox 3.6+ */   background: -moz-linear-gradient(top, #e7e7e7, #cbcbcb);   /* IE 10 */   background: -ms-linear-gradient(top, #e7e7e7, #cbcbcb);   /* Opera 11.10+ */   background: -o-linear-gradient(top, #e7e7e7, #cbcbcb);  border-radius:3px;  border:1px solid #808080;color:#000; font-size:1.125em;  -moz-box-shadow: inset 0px 0px 1px #7a9e0e;-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;box-shadow: inset 0px 0px 1px #7a9e0e;   border-radius:1px;   padding:0.6em 0;   border:1px solid #808080;   z-index:1000;  margin:0;}
-.schedulePopup .scheduleSection .buttonArea .schedule-button {  /* Safari 4-5, Chrome 1-9 */  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8dbc00), to(#9fcf0f));   /* Safari 5.1, Chrome 10+ */   background: -webkit-linear-gradient(top, #9fcf0f, #8dbc00);  /* Firefox 3.6+ */   background: -moz-linear-gradient(top, #9fcf0f, #8dbc00);   /* IE 10 */   background: -ms-linear-gradient(top, #9fcf0f, #8dbc00);   /* Opera 11.10+ */   background: -o-linear-gradient(top, #9fcf0f, #8dbc00); border-radius:3px;  border:1px solid #808080;  color:#000;  font-size:1.125em;  -moz-box-shadow: inset 0px 0px 1px #7a9e0e;-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;box-shadow: inset 0px 0px 1px #7a9e0e;    width:49%; padding:0.6em 0; margin:0 0 0 1px; border-radius:1px; z-index:1000; float:right;}
-#tabstrip-home > .km-content { background-color:#000;}
+
 /*************21-03-14*************/
 /********25-03-14*************/
 .km-loadBlk { padding:0;}
