@@ -30,7 +30,7 @@
                 {
                     moveParentId = e.view.params.parent;
                     app.movedocumentsetting.viewModel.setmoveDocsId(e.view.params.parent);
-                    console.log(backHistory); 
+                    $('.inner-docs-back').show();
                 }
                 else
                 {   
@@ -38,6 +38,7 @@
                     backHistory.push(0);
                     moveParentId = 0;
                    // setMoveDocsId(0);
+                    $('.inner-docs-back').hide();
                     app.movedocumentsetting.viewModel.setMoveMainPage();
                     app.movedocumentsetting.viewModel.setMoveDocsId(0);
                 } 
