@@ -30,7 +30,8 @@
                 {
                     moveParentId = e.view.params.parent;
                     app.movedocumentsetting.viewModel.setmoveDocsId(e.view.params.parent);
-                    $('#inner-docs-back').html('<a class="inner-docs-back"   data-bind="click:gobackMovePage"><span>Documents</span></a>');
+                   $('#inner-docs-back').addClass("hidedocsback");
+                    $('.inner-docs-back span').addClass("hidedocsback");
                 }
                 else
                 {   
@@ -38,7 +39,8 @@
                     backHistory.push(0);
                     moveParentId = 0;
                    // setMoveDocsId(0);
-                    $('#inner-docs-back').html('');
+                    $('#inner-docs-back').addClass("hidedocsback");
+                    $('.inner-docs-back span').addClass("hidedocsback");
                     app.movedocumentsetting.viewModel.setMoveMainPage();
                     app.movedocumentsetting.viewModel.setMoveDocsId(0);
                 } 
@@ -111,11 +113,13 @@
                 }
                 if(app.movedocumentsetting.viewModel.moveDocsId === 0)
                 {
-                    $('#inner-docs-back').html('');
+                     $('.inner-docs-back').addClass("hidedocsback");
+                    $('.inner-docs-back span').addClass("hidedocsback");
                 }
                 else
                 {
-					$('#inner-docs-back').html('<a class="inner-docs-back"   data-bind="click:gobackMovePage"><span>Documents</span></a>');
+                     $('.inner-docs-back').removeClass("hidedocsback");
+                     $('.inner-docs-back span').removeClass("hidedocsback");
                 }
            	 var dataSource = new kendo.data.DataSource({         
                 transport: {
