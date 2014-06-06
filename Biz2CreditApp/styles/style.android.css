@@ -115,10 +115,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #tabstrip-Setting .docs-docu {padding: 2% 0 0;font-size: 1.2em;}
 #tabstrip-Setting .Setting-ac, #tabstrip-Setting ul#settingpage li{padding:3% 0 2% 10%;background-size: 5%;background-position: 22px 10px;}
 #blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:9%;display: block;padding:3% 11% 4%;color: #fff;font-size: 1.5em;}
-#tabstrip-files-events.modal-mess-Popup {}
-}
-@media (min-width:0px) and (max-width:1000px) { 
-#tabstrip-files-events.modal-mess-Popup {}
+.downloadClass {min-height:240px;}
 }
 @media (min-width:0px) and (max-width:800px) {
 .documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder { background-size:10%;}
@@ -148,6 +145,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 .folder-events .scheduleSection .buttonArea .km-button{padding:0.8em 0;}
 #tabstrip-download-file.modal-mess-Popup { padding: 0;width: 98%;margin: 0 0 0 1.3%;}
 #tabstrip-download-file.modal-mess-Popup {}
+.downloadClass {min-height:195px;}
 }
 @media (min-width:0px) and (max-width:768px) {
 .logLogo {margin: 34% auto 10%;}
@@ -200,6 +198,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #tabstrip-download-file.modal-mess-Popup {}
     #tabstrip-Setting .docs-docu {font-size:0.9em;padding: 1.2% 0 0;}
 #tabstrip-Setting .docs-back {width: 12%;background-position: 5px 7px;background-size:87%;}
+.downloadClass {min-height:190px;}
 }
 @media (min-width:0px) and (max-width:600px) { 
 #tabstrip-files-events.modal-mess-Popup {}
@@ -243,6 +242,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .logLogo {margin: 42% auto 15%;height:85px;background-size:60%;}
 .loginSection ul li label input[type=text]:not(.k-input), .loginSection ul li label input[type=password] {padding: 1em !important;font-size: 1em !important;}
 .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) input[type=submit] {padding: 0.8em !important;font-size: 1.2em !important;}
+.downloadClass {min-height:180px;}
 
 }
 @media (min-width:0px) and (max-width:599px) { 
@@ -277,7 +277,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .btngr {padding: 7px 8px;font-size: 1.1em;}
 .documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {padding: 11px 14%;background-size:8.5%;}
 .documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder {padding: 11px 14%;background-size:10%;}
-
+.downloadClass {min-height:170px; width:100%;}
 }
 @media (min-width:0px) and (max-width:580px) { 
 .logLogo {margin: 2% auto 1%;background-size: 50%;}
