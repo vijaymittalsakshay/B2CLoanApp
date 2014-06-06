@@ -118,8 +118,8 @@
                 }
                 else
                 {
-                     $('.inner-docs-back').removeClass("hidedocsback");
-                     $('.inner-docs-back span').removeClass("hidedocsback");
+                     $('#inner-docs-back').addClass("hidedocsback");
+                    $('.inner-docs-back span').addClass("hidedocsback");
                 }
            	 var dataSource = new kendo.data.DataSource({         
                 transport: {
