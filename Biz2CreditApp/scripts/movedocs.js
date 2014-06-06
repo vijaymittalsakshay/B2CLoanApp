@@ -241,7 +241,6 @@
         },
         gobackMovePage:function()
         {
-alert('back call');
 			if(app.movedocumentsetting.viewModel.moveDocsId !== "0")
             {
             	app.movedocumentsetting.viewModel.setMoveInnerPage();
