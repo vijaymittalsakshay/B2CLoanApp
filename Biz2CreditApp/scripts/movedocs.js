@@ -114,10 +114,12 @@
                 if(app.movedocumentsetting.viewModel.moveDocsId === 0)
                 {
                      $('.inner-docs-back').addClass("hidedocsback");
+                    $('.inner-docs-back span').addClass("hidedocsback");
                 }
                 else
                 {
                      $('.inner-docs-back').removeClass("hidedocsback");
+                     $('.inner-docs-back span').removeClass("hidedocsback");
                 }
            	 var dataSource = new kendo.data.DataSource({         
                 transport: {
