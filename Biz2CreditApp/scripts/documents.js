@@ -372,7 +372,7 @@
                             }
                             else if(e.touch.initialTouch.innerText === "Shared Files" || e.touch.initialTouch.innerText === "Shared Folders")
                             {
-                                navigator.notification.alert("No action allowed",
+                                navigator.notification.alert("This is a default folder. It cannot be shared or removed.",
                                 function () { }, "Notification", 'OK');
                             }
                         }
@@ -990,6 +990,7 @@
             		);
            
         },
+        
         fileExists:function(fileEntry)
         {
             if(device.platform.toLowerCase() === "ios" )
@@ -1092,8 +1093,8 @@
         {
             closeModalView(e);
             var socialsharing =window.plugins.socialsharing;
-            var message ='Share Link:';
-            var subject = 'Biz2Credit';
+            var message ='';
+            var subject = '';
             var file = null;
             var url = sessionStorage.getItem("downloadLink");
             //var url = '<a href="'+urltext+'">'+urltext+'</a>';
