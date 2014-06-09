@@ -109,6 +109,7 @@
 })(window);
 $(document).ready(function(){
     $("body").removeAttr("style");
+    $("body").css('height','100%');
     var todaysDate = new Date();
     var pastDate = new Date(2013, 1, 1);
     var dp = $("#datepicker").kendoDatePicker({

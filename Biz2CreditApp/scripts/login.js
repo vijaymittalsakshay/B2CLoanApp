@@ -62,7 +62,6 @@
             	}
             },
             error: function (e) {
-                console.log(e);
            	  apps.hideLoading();
                  navigator.notification.alert("Server not responding properly.Please check your internet connection.",
                     function () { }, "Notification", 'OK');
@@ -75,7 +74,6 @@
             	if(data[0]['results']['faultcode'] === '1')
                 {
                     that.setUserLogin(data[0]['results']['UserData']);
- console.log(data[0]['results']['UserData']);
                 }
                 else{
                     that.hideloder();
