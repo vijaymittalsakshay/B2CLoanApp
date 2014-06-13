@@ -162,7 +162,43 @@
                         <input type="submit" id="login" data-role="button" data-bind="click: validateUser, invisible: isLoggedIn" class="login-button" value="Login" />
                     </div>
                 </form>
-               
+               <a href="#tabstrip-forgot-pass">
+                                                    <strong>Forgot password?</strong>
+                                                </a>
+            </div>
+
+        </div>
+        <!--Forgot password-->
+        <div id="tabstrip-forgot-pass" data-role="view" data-show="app.loginService.viewModel.initSetForgotPage" data-model="app.loginService.viewModel" >
+            <div data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title">
+                    <div class="matches-logo"><a href="#tabstrip-login">Back</a></div>
+                </span>
+            </div>
+            </div>
+            <div class="view-content">
+                <h2>
+                	<div>
+                        <img src="styles/images/keyy.jpg" alt="Forgot Password">
+                        <span>Forgot Password?</span>
+                        
+                    </div>
+                </h2>
+                <form id="forgotpass" data-bind="events: { keyup: checkEnter }" class="loginSection">
+                    <p class="forgot-text">Please enter the Email Address you had provided while creating your account.</p>
+                    <ul data-role="listview" data-style="inset" data-bind="invisible: isLoggedIn">
+                        <li>
+                            <label>
+                                <input id="forgotpassfield" type="text" data-bind="value: forgotmail" placeholder="Email"/>
+                            </label>
+                        </li> 
+                    </ul>
+
+                    <div class="buttonArea">
+                        <input type="submit" id="login" data-role="button" data-bind="click: forgotMailSend, invisible: isLoggedIn" class="login-button" value="Send Now" />
+                    </div>
+                </form>
             </div>
 
         </div>
