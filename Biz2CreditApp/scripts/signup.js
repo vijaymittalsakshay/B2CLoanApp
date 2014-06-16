@@ -24,13 +24,6 @@
         yourName = that.get("yourName").trim();
         yourEmail = that.get("yourEmail").trim();
         yourPhone = that.get("yourPhone").trim();
-        alert(loanAmount);
-        alert(yearInBussiness);
-        alert(yourAnnualRevenue);
-        alert(yourCreditScore);
-        alert(yourName);
-        alert(yourEmail);
-        alert(yourPhone);
         
         if (loanAmount === "0" || loanAmount === "") {
                 navigator.notification.alert("Please select loan amount you need.",
@@ -90,7 +83,45 @@
 
         	return;
         }
-        
+        /* that.showloder();
+        var dataSource = new kendo.data.DataSource({
+        transport: {
+        read: {
+                url: "https://www.biz2services.com/mobapp/api/user",
+                type:"POST",
+                dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                data: { apiaction:"usersignup",FirstName=yourName,LastName='',Phone=yourPhone,Email=yourEmail,Track='mobile',Source='mobile',Revenue=yourAnnualRevenue,LoanAmount=loanAmount,AgeOfBusiness=yearInBussiness,CreditScore=yourCreditScore,partner='mobile'}
+        }
+        },
+        schema: {
+            data: function(data)
+        	{
+            	return [data];
+        	}
+        },
+        error: function (e) {
+        	  apps.hideLoading();
+             navigator.notification.alert("Server not responding properly.Please check your internet connection.",
+                function () { }, "Notification", 'OK');
+        },
+
+        });
+        dataSource.fetch(function(){
+            
+        	var data = this.data();
+        	if(data[0]['results']['faultcode'] === '1')
+            {
+                that.setUserLogin(data[0]['results']['UserData']);
+            }
+            else{
+                that.hideloder();
+                //localStorage.setItem("isLoggedIn",false);
+              //  navigator.notification.alert("Login failed. Invalid username/password",
+               // function () { }, "Notification", 'OK');
+                return;
+            }            
+
+        }); */ 
         
     },
         
