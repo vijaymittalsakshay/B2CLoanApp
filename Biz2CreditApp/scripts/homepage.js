@@ -17,6 +17,7 @@
         dDescription:(window.localStorage.getItem("dDescription") !== null) ?  localStorage.getItem("dDescription") : '',
         dButtonText :(window.localStorage.getItem("dButtonText") !== null) ?  localStorage.getItem("dButtonText") : '',
         dButtonLink:(window.localStorage.getItem("dButtonLink") !== null) ?  localStorage.getItem("dButtonLink") : '',
+        repaymentStatus:false,
         homeShow: function (e) {  
             app.loginService.viewModel.showloder();  
             var dataSource = new kendo.data.DataSource({
@@ -58,8 +59,41 @@
                 var matches = data[0]['results']['data']['loan']['matches'];
                 var matchrows =data[0]['results']['data']['loan']['matchrows'];
                 var funded =data[0]['results']['data']['funded'];
-                var userName= localStorage.getItem("userFName");
+                var repaymentdata =data[0]['results']['data']['repaymentdata'];
+                outFullHtml= '';
+                for(i in repaymentdata){
+                    
+                   if($.isNumeric(i))
+                    {
+                        app.homesetting.viewModel.setRepaymentStatus();
+                        repaymentHtml ='';
+                        repaymentHtml += '<ul><li>Bank Name<br><span class="tx">'+repaymentdata[i][0]['lender_name']+'</span></li>';
+                        repaymentHtml += '<li>Application #<br><a href="javascript:void(0);" class="reld_info" style="display: block;><span class="tx">'+repaymentdata[i][0]['appid']+'</span></a>';
+                        repaymentHtml += '<div class="tooltip" style="position: absolute; top: 346px; data-click="viewtoolTip" left: 179.5px; opacity: 0; display: none;"><span class="tpar"></span>';
+                        repaymentHtml += '<div><span>Lender</span><span>'+repaymentdata[i][0]['lender_name']+'</span></div>';
+                        repaymentHtml += '<div><span>Funded Amount</span><span> USD '+kendo.toString(repaymentdata[i][0]['advance_amount'], "n")+'</span></div> ';
+                        repaymentHtml += '<div><span>Funded Date</span><span>'+kendo.toString(new Date(repaymentdata[i][0]['initial_funding_date']), "MM-dd-yyyy")+'</span></div>';
+                        repaymentHtml += '<div><span>Payback Amount</span><span> USD '+kendo.toString(repaymentdata[i][0]['purchase_amount'], "n")+'</span></div>';
+                        repaymentHtml += '<div><span style="width: 49%;">Oustanding Balance</span><span> USD '+kendo.toString(repaymentdata[i][0]['EndingBalance'], "n")+'</span></div>';
+                        repaymentHtml += '</div></li>';
+                        repaymentHtml += '<li>Outstanding Balance<br> USD <span class="tx">'+repaymentdata[i][0]['EndingBalance']+'</span></li>';
+                        repaymentHtml += '<li>Last Transaction<br>USD <span class="tx">'+kendo.toString(repaymentdata[i][0]['repay_amount'], "n")+'</span></li>';
+                        repaymentHtml += '<li>Last Updated Date<br><span class="tx">'+kendo.toString(new Date(repaymentdata[i][0]['transaction_date']), "MM-dd-yyyy")+'</span></li></ul>';
+                        outFullHtml +=repaymentHtml;
+                    }
+                    
+                }
+                $("#repypm").append(outFullHtml);
+                $(".reld_info").on("click", function(e){                  
+                    if($(".reld_info").next().css('display') === 'none'){ 
+                    	$(".reld_info").next().show(); 
+                    } else { 
+                    	$(".reld_info").next().hide(); 
+                    }
+
+                });
                 
+                var userName= localStorage.getItem("userFName");
             	if(cntGetStarted === 0 && loan_total === 0){
                 	pos = 1;
                    
@@ -286,7 +320,7 @@
                         url: "https://www.biz2services.com/mobapp/api/user/",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                        data: { apiaction:"reqdoclist",prodid:pdata.prodid,prodtype:pdata.prodtype} // search for tweets that contain "html5"
+                        data: { apiaction:"reqdoclist",prid:pdata.prodid,prodtype:pdata.prodtype} // search for tweets that contain "html5"
                     }
                 },
                 schema: {
@@ -364,7 +398,12 @@
              $("#popover-people").data("kendoMobilePopOver").close();
              $("#popover-docs").data("kendoMobilePopOver").close();
             
-        }
+        },
+        setRepaymentStatus:function()
+        {
+             var that = this;
+             that.set("repaymentStatus", true);
+        },
 
   
     });

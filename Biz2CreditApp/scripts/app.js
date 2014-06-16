@@ -78,6 +78,6 @@
     {
     	apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-login",skin: "flat"});
     }
-   
+ 
     
 })(window);

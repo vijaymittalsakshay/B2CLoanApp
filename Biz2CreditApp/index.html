@@ -20,6 +20,7 @@
         <script src="scripts/schedule.js"></script>
         <script src="scripts/movedocs.js"></script>
         <script src="scripts/fileExport.js"></script>
+        <script src="scripts/signup.js"></script>
         <script src="Plugins/SocialSharing/www/SocialSharing.js"></script>
         </head>
     <body>
@@ -37,12 +38,19 @@
             <div class="view-content">
                 <div id="homePage" data-template="homepage-listview-template">
                     <div id="blackBlk">
+                        
                         <div class="warps">
                             <div class="desbrdIcon clearfix">
                                 
                                 <div class="span clearfix">Dashboard </div>
                             </div>
                             <article class="clearfix" id="dashview">
+                                <div class="warps clearfix" data-bind="visible: repaymentStatus">
+                                <div id="repypm" class="clearfix repaydetail">
+                                <h2>Outstanding Loan Repayment Details</h2>
+
+
+                                </div></div>
                                 <div class="warps clearfix">
                                     <div id="stps">
                                         <ul>
@@ -162,9 +170,12 @@
                         <input type="submit" id="login" data-role="button" data-bind="click: validateUser, invisible: isLoggedIn" class="login-button" value="Login" />
                     </div>
                 </form>
-               <a href="#tabstrip-forgot-pass">
+               <div data-align="left"><a href="#tabstrip-forgot-pass">
                                                     <strong>Forgot password?</strong>
-                                                </a>
+                                                </a></div>
+                <div data-align="right"><a href="#tabstrip-sign-up">
+                                                    <strong>Sign Up</strong>
+                                                </a></div>
             </div>
 
         </div>
@@ -197,6 +208,94 @@
 
                     <div class="buttonArea">
                         <input type="submit" id="login" data-role="button" data-bind="click: forgotMailSend, invisible: isLoggedIn" class="login-button" value="Send Now" />
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <!--Create New User-->
+        <div id="tabstrip-sign-up" data-role="view" data-show="app.signupService.viewModel.signUpFormShow" data-model="app.signupService.viewModel" >
+            <div data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title">
+                    <div class="matches-logo"><a href="#tabstrip-login">Back</a></div>
+                </span>
+            </div>
+            </div>
+            <div class="view-content">
+                <form id="newuser" data-bind="events: { keyup: checkEnter }" class="">
+                    <ul data-role="listview" data-style="inset" data-bind="invisible: isLoggedIn">
+                        <li>
+                            <label>
+                            <select class="inp_sl" id="loanAmount" name="loanAmount" data-bind="value: loanAmount" style="color: rgb(51, 51, 51);">
+                                <option value="0" selected>Loan Amount You Need</option>
+                                <option value="15000">Less than $15,000</option>
+                                <option value="22500">$15,000 - $29,999</option>
+                                <option value="37500">$30,000 - $44,999</option>
+                                <option value="60000">$45,000 - $74,999</option>
+                                <option value="112500">$75,000 - $149,999</option>
+                                <option value="225000">$150,000 - $300,000</option>
+                                <option value="300000">More than $300,000</option>
+                            </select>
+                            </label>
+                        </li> 
+                        <li>
+                            <label>
+                                <select name="year" id="year" class="inp_sl" data-bind="value: yearInBussiness" style="color: rgb(51, 51, 51);">
+                                    <option value="0">Years in Business</option>
+                                    <option value="0-1">0-1</option>
+                                    <option value="1-2">1-2</option>
+                                    <option value="2-5">2-5</option>
+                                    <option value="6-50">5+</option>
+                                </select>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <select class="inp_sl" id="annual_revenue" name="annual_revenue" data-bind="value: yourAnnualRevenue" style="color: rgb(51, 51, 51);">
+                                    <option value="0">Your Annual Revenue</option>
+                                    <option value="30000">Less than $30,000</option>
+                                    <option value="52500">$30,000 - $74,999</option>
+                                    <option value="112500">$75,000 - $149,999</option>
+                                    <option value="225000">$150,000 - $299,999</option>
+                                    <option value="400000">$300,000 - $499,999</option>
+                                    <option value="750000">$500,000 - $999,999</option>
+                                    <option value="3000000">$1 million - $5 million</option>
+                                    <option value="5000000">More than $5 million</option>
+                                </select>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <select name="credittype" id="credittype" class="inp_sl" data-bind="value: yourCreditScore" style="color: rgb(51, 51, 51);">
+                                    <option value="0" selected="">Your Credit Score</option>
+                                    <option value="721-850">Excellent (720+)</option>
+                                    <option value="660-720">Good (660-720)</option>
+                                    <option value="600-659">Fair (600-659)</option>
+                                    <option value="520-599">Poor (&lt;600)</option>
+                                    <option value="500-611">Not Sure</option>
+                                </select>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="text" data-bind="value: yourName" placeholder="Your Name"/>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="text" data-bind="value: yourEmail" placeholder="Email"/>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="text" data-bind="value: yourPhone" placeholder="Phone"/>
+                            </label>
+                        </li>
+                    </ul>
+
+                    <div class="buttonArea">
+                        <input type="submit" id="login" data-role="button" data-bind="click: newUserForb2c, invisible: isLoggedIn" class="login-button" value="Sign Up For Biz2Credit" />
                     </div>
                 </form>
             </div>
