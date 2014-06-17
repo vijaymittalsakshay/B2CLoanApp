@@ -68,9 +68,9 @@
                     {
                         app.homesetting.viewModel.setRepaymentStatus();
                         repaymentHtml ='';
-                        repaymentHtml += '<ul><li>Bank Name<br><span class="tx">'+repaymentdata[i][0]['lender_name']+'</span></li>';
+                        repaymentHtml += '<ul id="repypmContent"><li>Bank Name<br><span class="tx">'+repaymentdata[i][0]['lender_name']+'</span></li>';
                         repaymentHtml += '<li>Application #<br><a href="javascript:void(0);" class="reld_info" style="display: block;><span class="tx">'+repaymentdata[i][0]['appid']+'</span></a>';
-                        repaymentHtml += '<div class="tooltip" style="position: absolute; top: 346px; data-click="viewtoolTip" left: 179.5px; opacity: 0; display: none;"><span class="tpar"></span>';
+                        repaymentHtml += '<div class="tooltip" style="position: absolute; data-click="viewtoolTip" opacity: 0; display: none;"><span class="tpar"></span>';
                         repaymentHtml += '<div><span>Lender</span><span>'+repaymentdata[i][0]['lender_name']+'</span></div>';
                         repaymentHtml += '<div><span>Funded Amount</span><span> USD '+kendo.toString(repaymentdata[i][0]['advance_amount'], "n")+'</span></div> ';
                         repaymentHtml += '<div><span>Funded Date</span><span>'+kendo.toString(new Date(repaymentdata[i][0]['initial_funding_date']), "MM-dd-yyyy")+'</span></div>';
@@ -84,12 +84,13 @@
                     }
                     
                 }
+                $("#repypmContent").remove();
                 $("#repypm").append(outFullHtml);
                 $(".reld_info").on("click", function(e){                  
-                    if($(".reld_info").next().css('display') === 'none'){ 
-                    	$(".reld_info").next().show(); 
+                    if($(".tooltip").css('display') === 'none'){ 
+                    	$(".tooltip").show(); 
                     } else { 
-                    	$(".reld_info").next().hide(); 
+                    	$(".tooltip").hide(); 
                     }
 
                 });

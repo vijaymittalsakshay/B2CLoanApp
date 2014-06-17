@@ -325,10 +325,10 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #newuser .buttonArea input[type=submit] {/* Safari 4-5, Chrome 1-9 */ background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8dbc00), to(#9fcf0f));  /* Safari 5.1, Chrome 10+ */ background: -webkit-linear-gradient(top, #9fcf0f, #8dbc00); /* Firefox 3.6+ */ background: -moz-linear-gradient(top, #9fcf0f, #8dbc00); /* IE 10 */ background: -ms-linear-gradient(top, #9fcf0f, #8dbc00); /* Opera 11.10+ */ background: -o-linear-gradient(top, #9fcf0f, #8dbc00); border-radius:3px; border:1px solid #808080; color:#000; font-size:1.125em; -moz-box-shadow: inset 0px 0px 1px #7a9e0e; padding:0.9em!important;-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;box-shadow: inset 0px 0px 1px #7a9e0e;}
 #newuser .buttonArea { margin:0 10%;}
 /***********17-06-14*****************/
-#repypm {padding:0;}
-#repypm h2 { border-bottom: 1px solid #DDDDDD; font-size:1.1em;padding:0px 1.5% 15px; color:#333; margin:15px 0 0;}
-#repypm ul {background: none repeat scroll 0 0 #FFFFFF; border-bottom: 1px solid #DDDDDD; overflow: hidden; padding: 0px 1.5% 10px; list-style:none;}
-#repypm.repaydetail ul li {color: #323232; padding: 0 1% 0 0; width:33%;}
+#repypm {padding:0; border-bottom:12px solid #ECECEC;}
+#repypm h2 {background-color:#ECECEC; border-bottom: 1px solid #DDDDDD; font-size:1.1em;padding:15px 1.5% 15px; color:#333; margin:0 0 10px;}
+#repypm ul {background: none repeat scroll 0 0 #FFFFFF; border-bottom: 1px solid #DDDDDD; overflow: hidden; padding: 0px 1.5% 10px; margin:0; list-style:none;}
+#repypm.repaydetail ul li {color: #323232; padding: 0 1.5% 0; width:33%;}
 #repypm ul li { color: #666666;float: left;font-size:0.75em; padding-bottom:10px; font-weight:bold; padding-right: 40px; padding-top: 0; text-align: left; width: auto;}
 #repypm.repaydetail ul li span.tx {color: #B6B6B6;font-size: 1.2em;}
 #repypm ul li span.tx {color: #666666;display: block; font-size: 1.2; font-weight: normal; height:25px; padding-top: 0;}

@@ -59,6 +59,9 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #newuser {margin:2em 0;}
 #newuser ul.km-listinset li {margin-bottom: 2%;}
 #newuser ul.km-listinset li input[type=text], #newuser ul.km-listinset li select{padding:1em!important;}
+#repypm.repaydetail ul li {width: 20%;}
+#repypm ul li {font-size:0.9em; font-weight:normal;}
+#repypm ul li span.tx{ font-weight:bold; padding:5px 0 0;}
 }
 @media (min-width:0px) and (max-width:1024px) {
 #tabstrip-download-file {padding:2%; height:47%; background-color:#fff;}
@@ -163,7 +166,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #tabstrip-Setting .Setting-ac, #tabstrip-Setting ul#settingpage li{padding: 4% 0 4% 12%;background-size: 7%;background-position: 22px 10px;}
 #tabstrip-download-file.modal-mess-Popup {height: 23%;}
 .matches-logo {background-size:23%;height: 60px;}
-
+#repypm.repaydetail ul li { width:33%;}
+#repypm ul li span.tx {height:30px;}
 }
 @media (min-width:0px) and (max-width:640px) { 
 .logo { margin:3% auto;}
@@ -196,6 +200,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-picker-wrap .k-input {border-radius: 0;height: auto;padding:6px 0 6px 10px;} 
 #tabstrip-download-file.modal-mess-Popup {height:59%;}
 #tabstrip-forgot-pass .view-content { margin-top:12em;}
+    
 }
 
 @media (min-width:0px) and (max-width:600px) { 
@@ -308,7 +313,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #blackBlk .desbrdIcon .span span { float:left; padding:2% 0 0;}
 #blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; background-position: right 45%; background-size:9%;*/ display:block; padding:0% 0 1%; color:#fff; font-size:1.2em;}
 #stps ul li span{ font-size:13px;}
-.stpsumry h2 { font-size:1em; margin:1%; line-height:25px;}
+.stpsumry h2 { font-size:1em; line-height:25px;}
 #stpSumAc { padding:15px 2% 5px;}
 #stps ul li.activ span.dnar { height:25px; background-size:33%;}
 .stpsumry p { font-size:12px; margin:0;}
@@ -380,6 +385,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #newuser ul.km-listinset li { margin-bottom:4%;}
 #newuser ul.km-listinset li input[type=text], #newuser ul.km-listinset li select{ padding:0.9em !important;}
 #newuser {margin: 1.5em 0;}
+#repypm ul li {font-size:0.85em;}
 }
 @media (min-width:0px) and (max-width:370px) { 
 .logo { margin:6% auto;}
@@ -435,6 +441,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 #tabstrip-Setting ul#settingpage li {padding: 4% 0 4% 16%;background-size: 8.5%;background-position: 20px 7px;}
 .folder-events .km-scroll-container ul li {padding: 2px;}
 .forgtpass {font-size: 1em;padding-top: 15px;padding-bottom: 0px;}
+#repypm ul li {font-size:0.8em;}
 }
 
 @media (min-width:0px) and (max-width:320px) { 
