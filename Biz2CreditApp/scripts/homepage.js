@@ -27,10 +27,10 @@
                         url: "https://www.biz2services.com/mobapp/api/user/",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                        data: { apiaction:"userdashboard",userid:localStorage.getItem("userID")} // search for tweets that contain "html5"
+                        data: { apiaction:"userdashboard",userid:78372} // search for tweets that contain "html5"
                     }
                     
-                },
+                },//localStorage.getItem("userID")
                 schema: {
                     data: function(data)
                     {
