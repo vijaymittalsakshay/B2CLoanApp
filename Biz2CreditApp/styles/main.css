@@ -105,7 +105,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #blackBlk .desbrdIcon .span span { float:left; padding:3% 0 0;}
 #blackBlk .desbrdIcon .span {background-image: url("images/ic_dashboard.png"); background-repeat:no-repeat; background-position: left 2px; background-size:8%; display:block; padding:0.5% 0 1%; color:#fff; font-size:1.2em;}
 #dashview{ background-color:#FFF; border:3px solid #ececec; -webkit-border-radius: 6px; border-radius: 6px;}
-#dashview .tooltip {background-color: #FFFFFF;     border: 1px solid #999999;	box-shadow: 3px 3px 0 0 #e0e0e0;    display: none;    height: auto;    margin: 10px auto 0;    padding: 20px 20px 10px;    text-align: left; width:230px; font-size:11px;	-webkit-border-radius: 3px; border-radius: 3px;     z-index: 9999999; }
+#dashview .tooltip {background-color: #FFFFFF;     border: 1px solid #999999;	box-shadow: 3px 3px 0 0 #e0e0e0;    display: none;    height: auto;    margin: 10px auto 0;    padding: 10px 5px 5px;  margin: 0 0 0 -40px;  text-align: left; width:230px; font-size:11px;	-webkit-border-radius: 3px; border-radius: 3px;     z-index: 9999999; }
 #dashview .tooltip span.tpar {    background-image: url("images/tootltip_ar.png");    background-position: center top;    background-repeat: no-repeat;    display: block;    height: 17px;    margin-top: -32px;    position: absolute;    width: 250px;
     z-index: 999; }
 #dashview .tooltip div{ overflow:hidden; padding-bottom:6px; line-height:12px; font-size:12px; color:#333333}
@@ -326,9 +326,11 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #newuser .buttonArea { margin:0 10%;}
 /***********17-06-14*****************/
 #repypm {padding:0; border-bottom:12px solid #ECECEC;}
-#repypm h2 {background-color:#ECECEC; border-bottom: 1px solid #DDDDDD; font-size:1.1em;padding:15px 1.5% 15px; color:#333; margin:0 0 10px;}
-#repypm ul {background: none repeat scroll 0 0 #FFFFFF; border-bottom: 1px solid #DDDDDD; overflow: hidden; padding: 0px 1.5% 10px; margin:0; list-style:none;}
+#repypm h2 {background-color:#ECECEC; border-bottom: 1px solid #DDDDDD; font-size:1.1em;padding:15px 1.5% 15px; color:#333; margin:0 0 5px;}
+#repypm ul {background: none repeat scroll 0 0 #FFFFFF; border-bottom: 1px solid #DDDDDD; overflow: hidden; padding: 5px 1.5% 10px; margin:0; list-style:none;}
 #repypm.repaydetail ul li {color: #323232; padding: 0 1.5% 0; width:33%;}
 #repypm ul li { color: #666666;float: left;font-size:0.75em; padding-bottom:10px; font-weight:bold; padding-right: 40px; padding-top: 0; text-align: left; width: auto;}
 #repypm.repaydetail ul li span.tx {color: #B6B6B6;font-size: 1.2em;}
 #repypm ul li span.tx {color: #666666;display: block; font-size: 1.2; font-weight: normal; height:25px; padding-top: 0;}
+#dashview .tooltip span { display:block; font-size:10px; color:rgb(168, 168, 168); line-height:12px; height:auto; text-align:right; padding-bottom:6px;}
+#dashview .tooltip span span { color:rgb(36, 36, 36);padding:0 0 0 5px;display:inline-block; text-align:left; width:52%;}
