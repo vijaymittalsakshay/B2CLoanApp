@@ -75,10 +75,10 @@
                         repaymentHtml += '<span>Funded Amount<span> USD '+kendo.toString(repaymentdata[i][0]['advance_amount'], "n")+'</span></span> ';
                         repaymentHtml += '<span>Funded Date<span>'+kendo.toString(new Date(repaymentdata[i][0]['initial_funding_date']), "MM-dd-yyyy")+'</span></span>';
                         repaymentHtml += '<span>Payback Amount<span> USD '+kendo.toString(repaymentdata[i][0]['purchase_amount'], "n")+'</span></span>';
-                        repaymentHtml += '<span style="width: 49%;">Oustanding Balance<span> USD '+kendo.toString(repaymentdata[i][0]['EndingBalance'], "n")+'</span></span>';
+                        repaymentHtml += '<span>Oustanding Balance<span> USD '+kendo.toString(repaymentdata[i][0]['EndingBalance'], "n")+'</span></span>';
                         repaymentHtml += '</div></li>';
-                        repaymentHtml += '<li>Outstanding Balance<br> USD <span class="tx">'+repaymentdata[i][0]['EndingBalance']+'</span></li>';
-                        repaymentHtml += '<li>Last Transaction<br>USD <span class="tx">'+kendo.toString(repaymentdata[i][0]['repay_amount'], "n")+'</span></li>';
+                        repaymentHtml += '<li>Outstanding Balance<br><span class="tx">USD '+repaymentdata[i][0]['EndingBalance']+'</span></li>';
+                        repaymentHtml += '<li>Last Transaction<br><span class="tx">USD '+kendo.toString(repaymentdata[i][0]['repay_amount'], "n")+'</span></li>';
                         repaymentHtml += '<li>Last Updated Date<br><span class="tx">'+kendo.toString(new Date(repaymentdata[i][0]['transaction_date']), "MM-dd-yyyy")+'</span></li></ul>';
                         outFullHtml +=repaymentHtml;
                     }
