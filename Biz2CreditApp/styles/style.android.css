@@ -52,7 +52,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #tabstrip-Setting .docs-back {height: 85px;background-size:75%;background-position: 10px 10px;width: 10%;margin-top: 0rem!important;margin-bottom: 0rem !important;}
 #tabstrip-Setting .docs-docu {padding: 2% 0 0;font-size: 1.2em;}
 #tabstrip-Setting .Setting-ac, #tabstrip-Setting ul#settingpage li {padding: 3% 0 2% 10%;background-size: 5%;background-position:27px 12px;}
-#stps ul li article {width:220px;}
+#stps ul li article {width:300px;}
+#stps ul li article span { font-size:12px; padding-bottom:8px;}
 #tabstrip-download-file.modal-mess-Popup {padding: 0;width: 98%;margin: 0 0 0 1.3%;height: 48%;}
 #tabstrip-forgot-pass .view-content { margin-top:7em;}
 .forgtpass { font-size:1.1em; padding-top:25px;}
@@ -63,6 +64,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #repypm ul li {font-size:0.9em; font-weight:normal;}
 #repypm ul li span.tx{ font-weight:bold; padding:5px 0 0;}
 #dashview .tooltip { width:300px;}
+#tabstrip-forgot-pass .view-content p{font-size:1em;}
+#dashview .tooltip span {font-size:12px; padding-bottom:8px;}
 }
 @media (min-width:0px) and (max-width:1024px) {
 #tabstrip-download-file {padding:2%; height:47%; background-color:#fff;}
@@ -151,6 +154,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #newuser {margin: 4em 0;}
 #newuser ul.km-listinset li {margin-bottom:5%;}
 #newuser ul.km-listinset li input[type=text], #newuser ul.km-listinset li select{padding:1.5em!important;}
+#dashview .tooltip { width:250px;}
 }
 @media (min-width:0px) and (max-width:768px) {
 .logLogo {margin: 34% auto 10%;}
@@ -169,7 +173,6 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 .matches-logo {background-size:23%;height: 60px;}
 #repypm.repaydetail ul li { width:33%;}
 #repypm ul li span.tx {height:30px;}
-#dashview .tooltip { width:250px;}
 }
 @media (min-width:0px) and (max-width:640px) { 
 .logo { margin:3% auto;}
@@ -202,7 +205,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-picker-wrap .k-input {border-radius: 0;height: auto;padding:6px 0 6px 10px;} 
 #tabstrip-download-file.modal-mess-Popup {height:59%;}
 #tabstrip-forgot-pass .view-content { margin-top:12em;}
-    
+#stps ul li article {width:260px;}
+#stps ul li article span { font-size:10px; padding-bottom:8px;}
 }
 
 @media (min-width:0px) and (max-width:600px) { 
@@ -245,6 +249,9 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #tabstrip-download-file .download-file-name {text-align: center;height: 110px;padding: 0 0 20px;}
 #tabstrip-download-file.modal-mess-Popup {height: 20%;}
 #tabstrip-forgot-pass .view-content { margin-top:17em;}
+#tabstrip-forgot-pass .view-content p{font-size:0.85em;}
+#dashview .tooltip span {font-size:10px; padding-bottom:6px;}
+#dashview .tooltip { width:230px;}
 }
 
 @media (min-width:0px) and (max-width:599px) { 
@@ -277,7 +284,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder {background-position:7px 7px;padding: 11px 14%;background-size:10%;}
 .logLogo {margin:4% auto;height:85px;background-size:60%;}
 #tabstrip-download-file.modal-mess-Popup { padding: 0;width: 98%;margin: 0 0 0 1.3%;height:56%;}
-
+#tabstrip-forgot-pass .view-content {margin-top:3em;}
 }
 @media (min-width:0px) and (max-width:580px) { 
 .logLogo {margin: 2% auto 1%;background-size: 50%;}
@@ -386,7 +393,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #tabstrip-forgot-pass .view-content { margin-top:8em;} 
 #newuser ul.km-listinset li { margin-bottom:4%;}
 #newuser ul.km-listinset li input[type=text], #newuser ul.km-listinset li select{ padding:0.9em !important;}
-#newuser {margin: 1.5em 0;}
+#newuser {margin: 2.5em 0;}
 #repypm ul li {font-size:0.85em;}
 }
 @media (min-width:0px) and (max-width:370px) { 
@@ -444,6 +451,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 .folder-events .km-scroll-container ul li {padding: 2px;}
 .forgtpass {font-size: 1em;padding-top: 15px;padding-bottom: 0px;}
 #repypm ul li {font-size:0.8em;}
+    #newuser {margin: 1.5em 0;}
 }
 
 @media (min-width:0px) and (max-width:320px) { 
