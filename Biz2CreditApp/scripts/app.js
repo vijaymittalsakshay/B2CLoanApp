@@ -20,6 +20,10 @@
         {
         	e.preventDefault();
         }
+        else if(apps.view()['element']['0']['id']==='tabstrip-sign-up' || apps.view()['element']['0']['id']==='tabstrip-forgot-pass')
+        {
+        	apps.navigate("#tabstrip-login");
+        }
         else
         { 
             $("#tabstrip-mess-fourth").data("kendoMobileModalView").close();
