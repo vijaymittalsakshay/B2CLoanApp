@@ -70,12 +70,12 @@
                         repaymentHtml ='';
                         repaymentHtml += '<ul id="repypmContent"><li>Bank Name<br><span class="tx">'+repaymentdata[i][0]['lender_name']+'</span></li>';
                         repaymentHtml += '<li>Application #<br><a href="javascript:void(0);" class="reld_info1" style="display: block;><span class="tx">'+repaymentdata[i][0]['appid']+'</span></a>';
-                        repaymentHtml += '<div class="tooltip" style="position: absolute; data-click="viewtoolTip" opacity: 0; display: none;"><span class="tpar"></span>';
-                        repaymentHtml += '<div><span>Lender</span><span>'+repaymentdata[i][0]['lender_name']+'</span></div>';
-                        repaymentHtml += '<div><span>Funded Amount</span><span> USD '+kendo.toString(repaymentdata[i][0]['advance_amount'], "n")+'</span></div> ';
-                        repaymentHtml += '<div><span>Funded Date</span><span>'+kendo.toString(new Date(repaymentdata[i][0]['initial_funding_date']), "MM-dd-yyyy")+'</span></div>';
-                        repaymentHtml += '<div><span>Payback Amount</span><span> USD '+kendo.toString(repaymentdata[i][0]['purchase_amount'], "n")+'</span></div>';
-                        repaymentHtml += '<div><span style="width: 49%;">Oustanding Balance</span><span> USD '+kendo.toString(repaymentdata[i][0]['EndingBalance'], "n")+'</span></div>';
+                        repaymentHtml += '<div class="tooltip" style="position: absolute; data-click="viewtoolTip" opacity: 0; display: none;">';
+                        repaymentHtml += '<span>Lender<span>'+repaymentdata[i][0]['lender_name']+'</span></span>';
+                        repaymentHtml += '<span>Funded Amount<span> USD '+kendo.toString(repaymentdata[i][0]['advance_amount'], "n")+'</span></span> ';
+                        repaymentHtml += '<span>Funded Date<span>'+kendo.toString(new Date(repaymentdata[i][0]['initial_funding_date']), "MM-dd-yyyy")+'</span></span>';
+                        repaymentHtml += '<span>Payback Amount<span> USD '+kendo.toString(repaymentdata[i][0]['purchase_amount'], "n")+'</span></span>';
+                        repaymentHtml += '<span style="width: 49%;">Oustanding Balance<span> USD '+kendo.toString(repaymentdata[i][0]['EndingBalance'], "n")+'</span></span>';
                         repaymentHtml += '</div></li>';
                         repaymentHtml += '<li>Outstanding Balance<br> USD <span class="tx">'+repaymentdata[i][0]['EndingBalance']+'</span></li>';
                         repaymentHtml += '<li>Last Transaction<br>USD <span class="tx">'+kendo.toString(repaymentdata[i][0]['repay_amount'], "n")+'</span></li>';
