@@ -120,6 +120,7 @@
         dataSource.fetch(function(){
             
         	var data = this.data();
+            app.loginService.viewModel.hideloder();
         	if(data[0]['results']['faultcode'] === '1')
             {
                 
@@ -152,7 +153,6 @@
                return;
             }
             else{
-                app.loginService.viewModel.hideloder();
                 //localStorage.setItem("isLoggedIn",false);
                 //  navigator.notification.alert("Login failed. Invalid username/password",
                 // function () { }, "Notification", 'OK');
