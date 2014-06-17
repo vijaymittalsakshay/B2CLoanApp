@@ -109,7 +109,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #dashview .tooltip span.tpar {    background-image: url("images/tootltip_ar.png");    background-position: center top;    background-repeat: no-repeat;    display: block;    height: 17px;    margin-top: -32px;    position: absolute;    width: 250px;
     z-index: 999; }
 #dashview .tooltip div{ overflow:hidden; padding-bottom:6px; line-height:12px; font-size:12px; color:#333333}
-#dashview .tooltip div span{font-size:12px; color:#666666; float:left; width:47%; text-align:right; height:auto;}
+#dashview .tooltip div span{ font-size:10px; color:rgb(168, 168, 168); line-height:12px; height:auto; text-align:right; padding-bottom:6px;}
 #dashview .tooltip div span:nth-child(even){ float:right; color:#333; text-align:left}
 .edtdet{ text-align:center; padding:20px 0px;}
 #dashview .tooltip div a.btnblck{ background-image:none; color:#FFF; padding:11px 15px; display:inline-block; margin:0px auto; clear:both}
