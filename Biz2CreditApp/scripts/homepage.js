@@ -18,7 +18,8 @@
         dButtonText :(window.localStorage.getItem("dButtonText") !== null) ?  localStorage.getItem("dButtonText") : '',
         dButtonLink:(window.localStorage.getItem("dButtonLink") !== null) ?  localStorage.getItem("dButtonLink") : '',
         repaymentStatus:false,
-        homeShow: function (e) {  
+        homeShow: function (e) { 
+            
             app.loginService.viewModel.showloder();  
             var dataSource = new kendo.data.DataSource({
                 transport: {
