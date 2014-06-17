@@ -69,7 +69,7 @@
                         app.homesetting.viewModel.setRepaymentStatus();
                         repaymentHtml ='';
                         repaymentHtml += '<ul id="repypmContent"><li>Bank Name<br><span class="tx">'+repaymentdata[i][0]['lender_name']+'</span></li>';
-                        repaymentHtml += '<li>Application #<br><a href="javascript:void(0);" class="reld_info" style="display: block;><span class="tx">'+repaymentdata[i][0]['appid']+'</span></a>';
+                        repaymentHtml += '<li>Application #<br><a href="javascript:void(0);" class="reld_info1" style="display: block;><span class="tx">'+repaymentdata[i][0]['appid']+'</span></a>';
                         repaymentHtml += '<div class="tooltip" style="position: absolute; data-click="viewtoolTip" opacity: 0; display: none;"><span class="tpar"></span>';
                         repaymentHtml += '<div><span>Lender</span><span>'+repaymentdata[i][0]['lender_name']+'</span></div>';
                         repaymentHtml += '<div><span>Funded Amount</span><span> USD '+kendo.toString(repaymentdata[i][0]['advance_amount'], "n")+'</span></div> ';
@@ -86,7 +86,7 @@
                 }
                 $("#repypmContent").remove();
                 $("#repypm").append(outFullHtml);
-                $(".reld_info").on("click", function(e){                  
+                $(".reld_info1").on("click", function(e){                  
                     if($(".tooltip").css('display') === 'none'){ 
                     	$(".tooltip").show(); 
                     } else { 
