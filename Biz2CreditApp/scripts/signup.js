@@ -92,7 +92,7 @@
         }
         else
         {
-        	LastName = ''; 
+        	LastName = ' '; 
         }
 		app.loginService.viewModel.showloder();
         var dataSource = new kendo.data.DataSource({
