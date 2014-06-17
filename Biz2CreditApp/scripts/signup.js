@@ -10,10 +10,10 @@
     yourName:'',
     yourEmail:'',
     yourPhone:'',
-        signUpFormShow:function()
-        {
-            $("select option[value='0']").attr("selected","selected");
-        },
+    signUpFormShow:function()
+    {
+        $("select option[value='0']").attr("selected","selected");
+    },
     newUserForb2c:function(e)
     {
         var that = this;
@@ -83,14 +83,25 @@
 
         	return;
         }
-        /* that.showloder();
+
+        var ret = yourName.split(" ");
+        var FirstName = ret[0];
+        if(typeof ret[1] !=='undefined')
+        {
+        	LastName = ret[1]; 
+        }
+        else
+        {
+        	LastName = ''; 
+        }
+		app.loginService.viewModel.showloder();
         var dataSource = new kendo.data.DataSource({
         transport: {
         read: {
                 url: "https://www.biz2services.com/mobapp/api/user",
                 type:"POST",
                 dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                data: { apiaction:"usersignup",FirstName=yourName,LastName='',Phone=yourPhone,Email=yourEmail,Track='mobile',Source='mobile',Revenue=yourAnnualRevenue,LoanAmount=loanAmount,AgeOfBusiness=yearInBussiness,CreditScore=yourCreditScore,partner='mobile'}
+                data: { apiaction:"usersignup",FirstName:FirstName,LastName:LastName,Phone:yourPhone,Email:yourEmail,Track:'mobile',Source:'mobile',Revenue:yourAnnualRevenue,LoanAmount:loanAmount,AgeOfBusiness:yearInBussiness,CreditScore:yourCreditScore,partner:'mobile'}
         }
         },
         schema: {
@@ -100,7 +111,7 @@
         	}
         },
         error: function (e) {
-        	  apps.hideLoading();
+        	 apps.hideLoading();
              navigator.notification.alert("Server not responding properly.Please check your internet connection.",
                 function () { }, "Notification", 'OK');
         },
@@ -111,17 +122,44 @@
         	var data = this.data();
         	if(data[0]['results']['faultcode'] === '1')
             {
-                that.setUserLogin(data[0]['results']['UserData']);
+                
+                $msg= "Your account has been created successfully";
+                app.loginService.viewModel.mobileNotification($msg,'info');
+                app.loginService.viewModel.setUserLogin(data[0]['results']['UserData']);
+            }
+            else if(data[0]['results']['faultcode'] === '0')
+            {
+               $msg= "Registration not successfull. Please try again.";
+               app.loginService.viewModel.mobileNotification($msg,'info'); 
+               return;
+            }
+            else if(data[0]['results']['faultcode'] === '3')
+            {
+               $msg= "Please enter all fields.";
+               app.loginService.viewModel.mobileNotification($msg,'info');
+               return;
+            }
+            else if(data[0]['results']['faultcode'] === '4')
+            {
+               $msg= "Please enter a valid email address.";
+               app.loginService.viewModel.mobileNotification($msg,'info');
+               return;
+            }
+            else if(data[0]['results']['faultcode'] === '5')
+            {
+               $msg= "This email address already exists.";
+               app.loginService.viewModel.mobileNotification($msg,'info');
+               return;
             }
             else{
-                that.hideloder();
+                app.loginService.viewModel.hideloder();
                 //localStorage.setItem("isLoggedIn",false);
-              //  navigator.notification.alert("Login failed. Invalid username/password",
-               // function () { }, "Notification", 'OK');
+                //  navigator.notification.alert("Login failed. Invalid username/password",
+                // function () { }, "Notification", 'OK');
                 return;
             }            
 
-        }); */ 
+        });
         
     },
         
