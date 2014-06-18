@@ -50,10 +50,9 @@
                 return;
         }
         if (yourName === "") {
-            	$('#nuYourName').focus();
                 navigator.notification.alert("Please enter your name.",
                     function () { }, "Notification", 'OK');
-            	alert($('#nuYourName').attr('id'));
+				$('#nuYourName').focus();
                 return;
         }
         if (yourEmail === "") {
