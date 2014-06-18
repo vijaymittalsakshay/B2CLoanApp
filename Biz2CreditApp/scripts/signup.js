@@ -11,8 +11,8 @@
     yourEmail:'',
     yourPhone:'',
     signUpFormShow:function()
-    {
-        $("select option[value='0']").attr("selected","selected");
+    {  
+        app.signupService.viewModel.intialisedAllfield();
     },
     newUserForb2c:function(e)
     {
@@ -52,35 +52,35 @@
         if (yourName === "") {
                 navigator.notification.alert("Please enter your name.",
                     function () { }, "Notification", 'OK');
-
+				$('#nuYourName').focus();
                 return;
         }
         if (yourEmail === "") {
                 navigator.notification.alert("Please enter your email address!.",
                     function () { }, "Notification", 'OK');
-
+				$('#nuYourName').focus();
                 return;
         }
         if (!app.loginService.viewModel.validateEmailId(yourEmail)) {
                 navigator.notification.alert("Please enter a valid email address.",
                     function () { }, "Notification", 'OK');
-
+				$('#nuYourEmail').focus();
                 return;
         }
         if (yourPhone === "") {
                 navigator.notification.alert("Please enter phone Number.",
                     function () { }, "Notification", 'OK');
-
+				$('#nuYourPhone').focus();
                 return;
         }
         if (!$.isNumeric(yourPhone)) {
         	navigator.notification.alert("Phone Number should be numeric.");
-
+			$('#nuYourPhone').focus();
         	return;
         }
         if (yourPhone.length !== 10) {
         	navigator.notification.alert("Phone Number should be 10 digits.");
-
+			$('#nuYourPhone').focus();
         	return;
         }
 
@@ -167,9 +167,22 @@
                 $(e.target).blur();
                 app.signupService.viewModel.newUserForb2c();
             }
-        },    
-        
+    },
+    intialisedAllfield:function()
+    {
+		var that = this;
+        that.set("loanAmount","");
+        that.set("yearInBussiness","");
+        that.set("yourAnnualRevenue","");
+        that.set("yourCreditScore","");
+        that.set("yourName","");
+        that.set("yourEmail","");
+        that.set("yourPhone","");
+        $("select option[value='0']").attr("selected","selected");
+    },
+    
     });
+    
     
     app.signupService = {
         viewModel: new SignUpViewModel()	
