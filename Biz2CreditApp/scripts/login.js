@@ -293,6 +293,14 @@
            	 return false;
             }
         },
+        checkEnterForForgot: function (e) {
+            var that = this;
+
+            if (e.keyCode === 13) {
+                $(e.target).blur();
+                that.forgotMailSend();
+            }
+        },
         
     });
     

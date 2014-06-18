@@ -161,6 +161,13 @@
         });
         
     },
+    checkEnterSignUp: function (e) {
+
+            if (e.keyCode === 13) {
+                $(e.target).blur();
+                app.signupService.viewModel.newUserForb2c();
+            }
+        },    
         
     });
     

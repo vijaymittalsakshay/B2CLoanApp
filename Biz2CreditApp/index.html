@@ -196,7 +196,7 @@
                         
                     </div>
                 </h2>
-                <form id="forgotpass" data-bind="events: { keyup: checkEnter }" class="loginSection">
+                <form id="forgotpass" data-bind="events: { keyup: checkEnterForForgot }" class="loginSection">
                     <p class="forgot-text">Please enter the Email Address you had provided while creating your account.</p>
                     <ul data-role="listview" data-style="inset" data-bind="invisible: isLoggedIn">
                         <li>
@@ -223,7 +223,7 @@
             </div>
             </div>
             <div class="view-content">
-                <form id="newuser" data-bind="events: { keyup: checkEnter }" class="">
+                <form id="newuser" data-bind="events: { keyup: checkEnterSignUp }" class="">
                     <ul data-role="listview" data-style="inset" data-bind="invisible: isLoggedIn">
                         <li>
                             <label>
