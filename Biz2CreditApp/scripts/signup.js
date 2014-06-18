@@ -128,25 +128,25 @@
                 app.loginService.viewModel.mobileNotification($msg,'info');
                 app.loginService.viewModel.setUserLogin(data[0]['results']['UserData']);
             }
-            else if(data[0]['results']['faultcode'] === 0)
+            else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
             {
                $msg= "Registration not successfull. Please try again.";
                app.loginService.viewModel.mobileNotification($msg,'info'); 
                return;
             }
-            else if(data[0]['results']['faultcode'] === 3)
+            else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
             {
                $msg= "Please enter all fields.";
                app.loginService.viewModel.mobileNotification($msg,'info');
                return;
             }
-            else if(data[0]['results']['faultcode'] === 4)
+            else if(data[0]['results']['faultcode'] === 4 || data[0]['results']['faultcode'] === "4")
             {
                $msg= "Please enter a valid email address.";
                app.loginService.viewModel.mobileNotification($msg,'info');
                return;
             }
-            else if(data[0]['results']['faultcode'] === 5)
+            else if(data[0]['results']['faultcode'] === 5 || data[0]['results']['faultcode'] === "5")
             {
                $msg= "This email address already exists.";
                app.loginService.viewModel.mobileNotification($msg,'info');
