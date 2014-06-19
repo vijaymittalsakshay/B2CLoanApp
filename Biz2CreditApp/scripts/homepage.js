@@ -220,7 +220,7 @@
                 if(app.homesetting.viewModel.repaymentStatus === true)
                 {
                     dHeader='Congratulations '+userName+'!';
-                    dDescription='Reapply when you need additional funds or would like to refinance.';
+                    dDescription='Please reapply when you need additional funds or would like to refinance.';
                     dButtonText = "Start an Application";
                     dButtonLink ="#tabstrip-mess-one";
                 }
