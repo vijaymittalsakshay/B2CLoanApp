@@ -17,14 +17,20 @@
             password = that.get("password").trim();
             
             if (username === "") {
-                navigator.notification.alert("Please enter your username",
-                    function () { }, "Notification", 'OK');
+                 navigator.notification.confirm('Please enter your username', function (confirmed) {
+                if (confirmed === true || confirmed === 1) {
+                	$('#loginusername').focus();
+                }
+                }, 'Notification','OK');
 
                 return;
             }
             if (password === "") {
-                navigator.notification.alert("Please enter your password",
-                    function () { }, "Notification", 'OK');
+                 navigator.notification.confirm('Please enter your password', function (confirmed) {
+                if (confirmed === true || confirmed === 1) {
+                	$('#loginpassword').focus();
+                }
+                }, 'Notification','OK');
 
                 return;
             }
@@ -201,14 +207,20 @@
             
             
             if (forgotmail === "") {
-                navigator.notification.alert("Please enter your email",
-                    function () { }, "Notification", 'OK');
+                navigator.notification.confirm('Please enter your email!.', function (confirmed) {
+                if (confirmed === true || confirmed === 1) {
+                	$('#forgotpassfield').focus();
+                }
+                }, 'Notification','OK');
 
                 return;
             }
             if (!app.loginService.viewModel.validateEmailId(forgotmail)) {
-                navigator.notification.alert("Please enter a valid email address.",
-                    function () { }, "Notification", 'OK');
+                 navigator.notification.confirm('Please enter a valid email address.', function (confirmed) {
+                if (confirmed === true || confirmed === 1) {
+                	$('#forgotpassfield').focus();
+                }
+                }, 'Notification','OK');
 
                 return;
             }
