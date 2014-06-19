@@ -34,12 +34,16 @@
             apps.navigate("#:back");
         }
     };
+    var Keyboardisoff = function(e) {
+      $("#tabstrip-sign-up").find(".km-scroll-container").css("-webkit-transform", "translate3d(0px, 0px, 0px)");
+    };
 
     var onDeviceReady = function() {
         navigator.splashscreen.hide();
         StatusBar.overlaysWebView(false);
         StatusBar.backgroundColorByName('#99cc00');
         document.addEventListener('backbutton', onBackKeyDown, false);
+        document.addEventListener("hidekeyboard", Keyboardisoff, false);
         window.connectionInfo = new ConnectionApp();
 		window.connectionInfo.checkConnection();
        // document.addEventListener("menubutton",omenu, false);

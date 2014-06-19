@@ -50,37 +50,55 @@
                 return;
         }
         if (yourName === "") {
-                //navigator.notification.alert("Please enter your name.",
-                   // function () { }, "Notification", 'OK');
-				$('#nuYourName').focus();
+
+            navigator.notification.confirm('Please enter your name.', function (confirmed) {
+            	if (confirmed === true || confirmed === 1) {
+            		$('#nuYourName').focus();
+            	}
+            }, 'Notification','OK');
+				
                 return;
         }
         if (yourEmail === "") {
-                navigator.notification.alert("Please enter your email address!.",
-                    function () { }, "Notification", 'OK');
-				$('#nuYourName').focus();
-                return;
+            navigator.notification.confirm('Please enter your email address!.', function (confirmed) {
+            	if (confirmed === true || confirmed === 1) {
+            		$('#nuYourEmail').focus();
+            	}
+            }, 'Notification','OK');
+            
+            return;
         }
         if (!app.loginService.viewModel.validateEmailId(yourEmail)) {
-                navigator.notification.alert("Please enter a valid email address.",
-                    function () { }, "Notification", 'OK');
-				$('#nuYourEmail').focus();
-                return;
+            navigator.notification.confirm('Please enter a valid email address.', function (confirmed) {
+                if (confirmed === true || confirmed === 1) {
+               	 $('#nuYourEmail').focus();
+                }
+            }, 'Notification','OK');
+            return;
         }
         if (yourPhone === "") {
-                navigator.notification.alert("Please enter phone Number.",
-                    function () { }, "Notification", 'OK');
-				$('#nuYourPhone').focus();
-                return;
+            navigator.notification.confirm('Please enter phone Number.', function (confirmed) {
+            	if (confirmed === true || confirmed === 1) {
+            		$('#nuYourPhone').focus();
+            	}
+            }, 'Notification','OK');
+
+            return;
         }
         if (!$.isNumeric(yourPhone)) {
-        	navigator.notification.alert("Phone Number should be numeric.");
-			$('#nuYourPhone').focus();
+            navigator.notification.confirm('Phone Number should be numeric.', function (confirmed) {
+            	if (confirmed === true || confirmed === 1) {
+            		$('#nuYourPhone').focus();
+            	}
+            }, 'Notification','OK');
         	return;
         }
         if (yourPhone.length !== 10) {
-        	navigator.notification.alert("Phone Number should be 10 digits.");
-			$('#nuYourPhone').focus();
+             navigator.notification.confirm('Phone Number should be 10 digits.', function (confirmed) {
+            	if (confirmed === true || confirmed === 1) {
+            		$('#nuYourPhone').focus();
+            	}
+            }, 'Notification','OK');
         	return;
         }
 
