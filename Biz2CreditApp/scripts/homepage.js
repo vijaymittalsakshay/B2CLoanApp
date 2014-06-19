@@ -97,6 +97,7 @@
                 });
                 
                 var userName= localStorage.getItem("userFName");
+                
             	if(cntGetStarted === 0 && loan_total === 0){
                 	pos = 1;
                    
@@ -119,7 +120,11 @@
                 if(matchstatus === 1 && funded === 1){
                 	pos = 5;
                    
-                }  
+                }
+                if(app.homesetting.viewModel.repaymentStatus === true)
+                {
+                    pos = 6;
+                }
 
                 if((cntGetStarted >= 1 && loan_posted === 0)){
                    
@@ -212,6 +217,13 @@
                 	dButtonLink ="views/matches.html";
                     
     		    }
+                if(app.homesetting.viewModel.repaymentStatus === true)
+                {
+                    dHeader='Congratulations '+userName+'!';
+                    dDescription='Reapply when you need additional funds or would like to refinance.';
+                    dButtonText = "Start an Application";
+                    dButtonLink ="#tabstrip-mess-one";
+                }
                 
                 $('#stps ul li').removeClass();
                 if(pos===1)
@@ -219,10 +231,17 @@
                      $('#stps ul li:eq('+(pos-1)+')').addClass('activ');
                      $('#stps ul li:lt('+(pos)+')').addClass('dn');
                 }
+                else if(pos ===6)
+                {
+                    $('#stps ul li:eq(4)').addClass('activ');
+                	$('#stps ul li:lt(5)').addClass('dn'); 
+                    
+                }
                 else
                 {
-           		 $('#stps ul li:eq('+(pos-1)+')').addClass('activ');
-                	$('#stps ul li:lt('+(pos-1)+')').addClass('dn'); 
+                     $('#stps ul li:eq('+(pos-1)+')').addClass('activ');
+                	$('#stps ul li:lt('+(pos-1)+')').addClass('dn');
+           		 
                 }
                
                 
@@ -373,10 +392,41 @@
         {
             var that = this;
             that.set("toolStatus",false);
-            that.set("LoanAmt", "$"+data['loanamt']);
-            that.set("YearsBus", data['ageofbuss']+" yrs.");
-            that.set("AnnnualRevenue", "$"+data['annrevenue']);
-            that.set("CreditScore", data['creditscore']);
+            if(data['loanamt'] ==="")
+            {
+                that.set("LoanAmt", false);
+            }
+            else
+            {
+                that.set("LoanAmt", "$"+data['loanamt']);
+            }
+            
+            if(data['ageofbuss'] ==="")
+            {
+                that.set("YearsBus", false);
+            }
+            else
+            {
+                that.set("YearsBus", "$"+data['ageofbuss']);
+            }
+            
+            if(data['annrevenue'] ==="")
+            {
+                that.set("AnnnualRevenue", false);
+            }
+            else
+            {
+                that.set("AnnnualRevenue", "$"+data['annrevenue']);
+            }
+            
+            if(data['creditscore'] ==="")
+            {
+                that.set("CreditScore", false);
+            }
+            else
+            {
+                that.set("CreditScore", "$"+data['creditscore']);
+            }
            // that.set("State",data['state']);
             that.set("name",localStorage.getItem("userFName"));
             that.set("email",localStorage.getItem("userEmail"));

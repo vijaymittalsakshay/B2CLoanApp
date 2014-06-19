@@ -65,10 +65,10 @@
                                                 </div>
                                                 <span class="dnar"></span>
 												<article class="toltip" id="home-tools-tips" data-bind="visible: toolStatus">
-                                                        <span>Loan Amount<span data-bind="text: LoanAmt"></span></span>
-                                                        <span>Years in Business<span data-bind="text: YearsBus"></span></span>
-                                                        <span>Annual Revenue<span data-bind="text: AnnnualRevenue"></span></span>
-                                                        <span>Credit Score<span data-bind="text: CreditScore"></span></span>
+                                                        <span  data-bind="visible: LoanAmt">Loan Amount<span data-bind="text: LoanAmt"></span></span>
+                                                        <span data-bind="visible: YearsBus">Years in Business<span data-bind="text: YearsBus"></span></span>
+                                                        <span data-bind="visible: AnnnualRevenue">Annual Revenue<span data-bind="text: AnnnualRevenue"></span></span>
+                                                        <span data-bind="visible: CreditScore">Credit Score<span data-bind="text: CreditScore"></span></span>
                                                         <span>Name<span data-bind="text: name"></span></span>
                                                         <span>Email<span data-bind="text: email"></span></span>
                                                         <span>Phone<span data-bind="text: phone"></span></span>
