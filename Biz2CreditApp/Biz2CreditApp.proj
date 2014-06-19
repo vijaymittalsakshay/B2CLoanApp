@@ -13,13 +13,13 @@
     <iOSStatusBarStyle>Default</iOSStatusBarStyle>
     <AndroidHardwareAcceleration>false</AndroidHardwareAcceleration>
     <WP8SupportedResolutions>ID_RESOLUTION_WVGA;ID_RESOLUTION_WXGA;ID_RESOLUTION_HD720P</WP8SupportedResolutions>
-    <BundleVersion>1.1</BundleVersion>
+    <BundleVersion>1.0</BundleVersion>
     <DisplayName />
     <Author />
     <Description>Biz2CreditApp</Description>
     <iOSDeviceFamily>1;2</iOSDeviceFamily>
     <iOSBackgroundMode />
-    <AndroidVersionCode>4</AndroidVersionCode>
+    <AndroidVersionCode>5</AndroidVersionCode>
     <WP8Requirements />
     <WP8Capabilities />
     <WP8TileTitle />
