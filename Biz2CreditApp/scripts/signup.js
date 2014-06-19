@@ -139,7 +139,7 @@
             
         	var data = this.data();
             app.loginService.viewModel.hideloder();
-        	if(data[0]['results']['faultcode'] === 1)
+        	if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
             {
                 
                 $msg= "Your account has been created successfully";
