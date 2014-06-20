@@ -68,19 +68,41 @@
                    if($.isNumeric(i))
                     {
                         app.homesetting.viewModel.setRepaymentStatus();
+                        //set date formate to resole invalid date in safari
+                        
+                        values_ifd = repaymentdata[i][0]['initial_funding_date'].split(/[^0-9]/),
+                        year_ifd = parseInt(values_ifd[0], 10),
+                        month_ifd = parseInt(values_ifd[1], 10) - 1, // Month is zero based, so subtract 1
+                        day_ifd = parseInt(values_ifd[2], 10),
+                        hours_ifd = parseInt(values_ifd[3], 10),
+                        minutes_ifd = parseInt(values_ifd[4], 10),
+                        seconds_ifd = parseInt(values_ifd[5], 10),
+                        ifdDate =  new Date(year_ifd, month_ifd, day_ifd, hours_ifd, minutes_ifd, seconds_ifd);
+                        //set date formate to resole invalid date in safari
+                        
+                        values_td = repaymentdata[i][0]['transaction_date'].split(/[^0-9]/),
+                        year_td = parseInt(values_td[0], 10),
+                        month_td = parseInt(values_td[1], 10) - 1, // Month is zero based, so subtract 1
+                        day_td = parseInt(values_td[2], 10),
+                        hours_td = parseInt(values_td[3], 10),
+                        minutes_td = parseInt(values_td[4], 10),
+                        seconds_td = parseInt(values_td[5], 10),
+                        
+                        tdDate =  new Date(year_td, month_td, day_td, hours_td, minutes_td, seconds_td);
+                        
                         repaymentHtml ='';
                         repaymentHtml += '<ul id="repypmContent"><li>Bank Name<br><span class="tx">'+repaymentdata[i][0]['lender_name']+'</span></li>';
                         repaymentHtml += '<li>Application #<br><a href="javascript:void(0);" class="reld_info1" style="display: block;><span class="tx">'+repaymentdata[i][0]['appid']+'</span></a>';
                         repaymentHtml += '<div class="tooltip" style="position: absolute; data-click="viewtoolTip" opacity: 0; display: none;">';
                         repaymentHtml += '<span>Lender<span>'+repaymentdata[i][0]['lender_name']+'</span></span>';
                         repaymentHtml += '<span>Funded Amount<span> USD '+numeral(repaymentdata[i][0]['advance_amount']).format('0,0')+'</span></span> ';
-                        repaymentHtml += '<span>Funded Date<span>'+kendo.toString(new Date(repaymentdata[i][0]['initial_funding_date']), "MM-dd-yyyy")+'</span></span>';
+                        repaymentHtml += '<span>Funded Date<span>'+kendo.toString(new Date(ifdDate), "MM-dd-yyyy")+'</span></span>';
                         repaymentHtml += '<span>Payback Amount<span> USD '+numeral(repaymentdata[i][0]['purchase_amount']).format('0,0')+'</span></span>';
                         repaymentHtml += '<span>Oustanding Balance<span> USD '+numeral(repaymentdata[i][0]['EndingBalance']).format('0,0')+'</span></span>';
                         repaymentHtml += '</div></li>';
                         repaymentHtml += '<li>Outstanding Balance<br><span class="tx">USD '+numeral(repaymentdata[i][0]['EndingBalance']).format('0,0')+'</span></li>';
                         repaymentHtml += '<li>Last Transaction<br><span class="tx">USD '+numeral(repaymentdata[i][0]['repay_amount']).format('0,0')+'</span></li>';
-                        repaymentHtml += '<li>Last Updated Date<br><span class="tx">'+kendo.toString(new Date(repaymentdata[i][0]['transaction_date']), "MM-dd-yyyy")+'</span></li></ul>';
+                        repaymentHtml += '<li>Last Updated Date<br><span class="tx">'+kendo.toString(new Date(tdDate), "MM-dd-yyyy")+'</span></li></ul>';
                         outFullHtml +=repaymentHtml;
                     }
                     
