@@ -15,7 +15,6 @@
             var that = this,
             username = that.get("username").trim(),
             password = that.get("password").trim();
-            
             if (username === "") {
                  navigator.notification.confirm('Please enter your username', function (confirmed) {
                 if (confirmed === true || confirmed === 1) {
