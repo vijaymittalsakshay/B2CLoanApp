@@ -141,5 +141,7 @@ $(document).ready(function(){
     listOfTimes.append('<li tabindex="-1" role="option" class="k-item" selectable="on">02PM - 04PM</li>');
     listOfTimes.append('<li tabindex="-1" role="option" class="k-item" selectable="on">04PM - 06PM</li>');
     listOfTimes.append('<li tabindex="-1" role="option" class="k-item" selectable="on">06PM - 08PM</li>');
-  
+     $("[data-role=\"popover\"][id =\"popover-people\"]").each(function() {
+                $(this).parent().attr('id', 'dynamicCl');
+            });
 });

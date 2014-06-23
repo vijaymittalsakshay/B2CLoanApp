@@ -14,6 +14,12 @@
         fileExt:'',
         documentShow:function(e)
         { 
+            $("[data-role=\"popover\"][id =\"popover-docs\"]").each(function() {
+                $(this).parent().attr('id', 'dynamicCl');
+            });
+            $("[data-role=\"popover\"][id =\"tabstrip-folder-events-popup\"]").each(function() {
+                $(this).parent().attr('id', 'popoverId');
+            });
             if(!window.connectionInfo.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
         			if (confirmed === true || confirmed === 1) {
