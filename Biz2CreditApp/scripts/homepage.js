@@ -20,6 +20,9 @@
         repaymentStatus:false,
         
         homeShow: function (e) { 
+            $("[data-role=\"popover\"][id =\"popover-people\"]").each(function() {
+            	$(this).parent().attr('id', 'dynamicCl');
+            });
             app.homesetting.viewModel.reSetRepaymentStatus();
             app.loginService.viewModel.showloder();  
             var dataSource = new kendo.data.DataSource({

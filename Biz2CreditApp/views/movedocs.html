@@ -28,20 +28,33 @@
              #if(typeof docType !== "undefined" || typeof docType !== "undefined"){#
                 #if(docType === "Folder"){#
                     #if(name === "Shared Files" || name === "Shared Folders"){#
-                    	
-                    	<span data-id="folder" class="sharedfolder"> <span data-id="folder">#: name #</span></span>
-                    	
+                    	<table cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" align="left">
+                        	<tr>
+                            	<td data-id="folder" class="sharedfolder"></td>
+                                <td data-id="folder"> #: name #</td>
+                                <td></td>
+                            </tr>
+                        </table>	
                     #}else{#
-                   	 
-                    	<span data-id="folder" class="#: docType #"><span data-id="folder"> #: name #</span></span>
+                   	 <table cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" align="left">
+                        	<tr>
+                            	<td class="#: docType #" data-id="folder"></td>
+                                <td data-id="folder"> #: name #</td>
+                                <td></td>
+                            </tr>
+                        </table>
                     	
                     #}#
 
                 #}else{#
                 	# var ext = getFileExtension(name) #
-                	  
-                	<span data-id="files" class="#= ext # default-icon"><span data-id="files">#: name #</span></span>
-                	
+                	 <table cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" align="left">
+                        	<tr>
+                            	<td data-id="files" class="#= ext # default-icon"></td>
+                                <td data-id="files"> #: name #</td>
+                                <td></td>
+                            </tr>
+                        </table>  
                 #}#
           	#}#
            

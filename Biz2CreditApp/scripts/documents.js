@@ -478,8 +478,9 @@
         
         deleteFolder:function(e)
         { 
-             closeModalView(e);
-             $("#tabstrip-delete-folder").data("kendoMobileModalView").open();
+            if(typeof e.sender.element.context.dataset.src === 'undefined')
+            closeModalView(e);
+            $("#tabstrip-delete-folder").data("kendoMobileModalView").open();
         },
         thisFolderDelete:function(e)
         {
@@ -648,6 +649,7 @@
        
         renameFolder:function(e)
         {
+            if(typeof e.sender.element.context.dataset.src === 'undefined')
             closeModalView(e);
             var that = this;
             that.set("renameFolderName",$.trim(sessionStorage.getItem("currentFName")));
@@ -829,6 +831,7 @@
         },
         moveFolder:function(e)
         {
+            if(typeof e.sender.element.context.dataset.src === 'undefined')
             closeModalView(e);
             var params = e.button.data();
             apps.navigate('views/movedocs.html?param='+params.checkstatus);
