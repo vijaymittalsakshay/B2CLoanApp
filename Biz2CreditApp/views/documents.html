@@ -300,7 +300,7 @@
                         	<tr>
                             	<td class="#: docType #" data-id="folder"></td>
                                 <td data-id="folder"> #: name #</td>
-                                <td><a data-align="right"  data-rel="popover" href="\#tabstrip-folder-events-popup" data-role="button" class="docs-popup"></a></td>
+                                <td><a data-align="right"  data-text ="#: name #" data-id="#: data.id #" data-download="#: data.downloadLink #" data-click="setFolderClick" data-rel="popover" href="\#tabstrip-folder-events-popup" data-role="button" class="docs-popup"></a></td>
                             </tr>
                         </table>
                     #}#
@@ -310,7 +310,7 @@
                         	<tr>
                             	<td data-id="files" class="#= ext # default-icon"></td>
                                 <td data-id="files"> #: name #</td>
-                                <td><a data-align="right"  data-rel="popover" href="\#tabstrip-files-events-popup" data-role="button" class="docs-popup"></a></td>
+                                <td><a data-align="right" data-text ="#: name #" data-id="#: data.id #" data-download="#: data.downloadLink #" data-click="setFileClick" data-rel="popover" href="\#tabstrip-files-events-popup" data-role="button" class="docs-popup"></a></td>
                             </tr>
                         </table> 
                 #}#
@@ -321,4 +321,24 @@
                 var ext = /^.+\.([^.]+)$/.exec(filename);
                 return ext === null ? "" : ext[1];
             }#
+             #function checkClick()
+            {
+                alert('ffsfsf');
+            }#
+            
+        </script>
+        <script>          
+            function setFolderClick(e)
+            {
+                var fdata = e.button.data();           
+                sessionStorage.currentFId = fdata.id;
+                sessionStorage.currentFName =fdata.text;
+            }
+            function setFileClick(e)
+            {
+                var fdata = e.button.data();           
+                sessionStorage.currentFileId = fdata.id;
+                sessionStorage.downloadLink = $.trim(fdata.download);
+                sessionStorage.currentFileName = fdata.text;
+            }
         </script>

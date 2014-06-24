@@ -319,6 +319,12 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #tabstrip-folder-events-popup ul li { display:block; float:left; width:33%;}
 #tabstrip-folder-events-popup ul li a { background:none; padding:0; border-radius:0; border:0; color:#fff;}
 #tabstrip-folder-events-popup .km-content {background-color:transparent;}
+
+#tabstrip-files-events-popup{ background-image: url(images/bg-dot.png);background-repeat:repeat; background-color:transparent;border-radius: 0; min-height:initial;}
+#tabstrip-files-events-popup ul {list-style:none; padding:0; text-align:center; width:100%;}
+#tabstrip-files-events-popup ul li { display:block; float:left; width:20%;}
+#tabstrip-files-events-popup ul li a { background:none; padding:0; border-radius:0; border:0; color:#fff;}
+#tabstrip-files-events-popup .km-content {background-color:transparent;}
 .km-up .km-popup-arrow, .km-down .km-popup-arrow {margin:0;top: -15px;}
 #dynamicCl .km-popup-arrow, #dynamicCl .km-popup-arrow:after, #dynamicCl .km-down .km-popup-arrow:before { border:0 !important;display:none;}
 /********18-05-14********/

@@ -20,6 +20,9 @@
             $("[data-role=\"popover\"][id =\"tabstrip-folder-events-popup\"]").each(function() {
                 $(this).parent().attr('id', 'popoverId');
             });
+            $("[data-role=\"popover\"][id =\"tabstrip-files-events-popup\"]").each(function() {
+                $(this).parent().attr('id', 'popoverId');
+            });
             if(!window.connectionInfo.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
         			if (confirmed === true || confirmed === 1) {
@@ -479,7 +482,14 @@
         deleteFolder:function(e)
         { 
             if(typeof e.sender.element.context.dataset.src === 'undefined')
-            closeModalView(e);
+            {
+               closeModalView(e); 
+            }
+            else
+            {
+                $("#tabstrip-folder-events-popup").data("kendoMobilePopOver").close();
+            }
+            
             $("#tabstrip-delete-folder").data("kendoMobileModalView").open();
         },
         thisFolderDelete:function(e)
@@ -563,7 +573,14 @@
         },
         deleteFile:function(e)
         {
-           closeModalView(e);
+            if(typeof e.sender.element.context.dataset.src === 'undefined')
+            {
+               closeModalView(e); 
+            }
+            else
+            {
+                $("#tabstrip-files-events-popup").data("kendoMobilePopOver").close();
+            }
            $("#tabstrip-delete-files").data("kendoMobileModalView").open();
         } ,
         thisFileDelete:function(e)
@@ -650,7 +667,13 @@
         renameFolder:function(e)
         {
             if(typeof e.sender.element.context.dataset.src === 'undefined')
-            closeModalView(e);
+            {
+               closeModalView(e); 
+            }
+            else
+            {
+                $("#tabstrip-folder-events-popup").data("kendoMobilePopOver").close();
+            }
             var that = this;
             that.set("renameFolderName",$.trim(sessionStorage.getItem("currentFName")));
             $("#tabstrip-rename-folder .new-folder-field").val(that.get("renameFolderName"));
@@ -732,7 +755,14 @@
         },
         renameFile:function(e)
         {
-            closeModalView(e);
+            if(typeof e.sender.element.context.dataset.src === 'undefined')
+            {
+               closeModalView(e); 
+            }
+            else
+            {
+                $("#tabstrip-files-events-popup").data("kendoMobilePopOver").close();
+            }
             var that = this;
             that.set("fileExt",$.trim(that.getFileExtension(sessionStorage.getItem("currentFileName"))));
             var fileNameWithoutExt= sessionStorage.getItem("currentFileName").substr(0, sessionStorage.getItem("currentFileName").lastIndexOf('.'));
@@ -1100,7 +1130,14 @@
         },
         shareVia:function(e)
         {
-            closeModalView(e);
+            if(typeof e.sender.element.context.dataset.src === 'undefined')
+            {
+               closeModalView(e); 
+            }
+            else
+            {
+                $("#tabstrip-files-events-popup").data("kendoMobilePopOver").close();
+            }
             var socialsharing =window.plugins.socialsharing;
             var message ='';
             var subject = '';
