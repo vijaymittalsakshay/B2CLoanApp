@@ -500,7 +500,7 @@
         
         deleteFolder:function(e)
         { 
-            if(typeof e.sender.element.context.dataset.src === 'undefined')
+            if(typeof e.sender.element.context.dataset.src === "undefined" || e.sender.element.context.dataset.src === "")
             {
                closeModalView(e); 
             }
@@ -592,7 +592,7 @@
         },
         deleteFile:function(e)
         {
-            if(typeof e.sender.element.context.dataset.src === 'undefined')
+            if(typeof e.sender.element.context.dataset.src === "undefined" || e.sender.element.context.dataset.src === "")
             {
                closeModalView(e); 
             }
@@ -601,6 +601,7 @@
                 $("#tabstrip-files-events-popup").data("kendoMobilePopOver").close();
                 $("#tabstrip-share-files-file-events-popup").data("kendoMobilePopOver").close();
             }
+            alert(e.sender.element.context.dataset.src);
            $("#tabstrip-delete-files").data("kendoMobileModalView").open();
         } ,
         thisFileDelete:function(e)
@@ -686,7 +687,7 @@
        
         renameFolder:function(e)
         {
-            if(typeof e.sender.element.context.dataset.src === 'undefined')
+            if(typeof e.sender.element.context.dataset.src === "undefined" || e.sender.element.context.dataset.src === "")
             {
                closeModalView(e); 
             }
@@ -775,7 +776,7 @@
         },
         renameFile:function(e)
         {
-            if(typeof e.sender.element.context.dataset.src === 'undefined')
+            if(typeof e.sender.element.context.dataset.src === "undefined" || e.sender.element.context.dataset.src === "")
             {
                closeModalView(e); 
             }
@@ -881,7 +882,6 @@
         },
         moveFolder:function(e)
         {
-            if(typeof e.sender.element.context.dataset.src === 'undefined')
             closeModalView(e);
             var params = e.button.data();
             apps.navigate('views/movedocs.html?param='+params.checkstatus);
