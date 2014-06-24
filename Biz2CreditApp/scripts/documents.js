@@ -881,12 +881,26 @@
         },
         exportFile:function(e)
         {	
-             closeModalView(e);
+            if(typeof e.sender.element.context.dataset.src === "undefined" || e.sender.element.context.dataset.src === "")
+            {
+               closeModalView(e); 
+            }
+            else
+            {
+                $("#tabstrip-folder-events-popup").data("kendoMobilePopOver").close();
+            }
              apps.navigate('views/fileExport.html');
         },
         moveFolder:function(e)
         {
-            closeModalView(e);
+            if(typeof e.sender.element.context.dataset.src === "undefined" || e.sender.element.context.dataset.src === "")
+            {
+               closeModalView(e); 
+            }
+            else
+            {
+                $("#tabstrip-folder-events-popup").data("kendoMobilePopOver").close();
+            }
             var params = e.button.data();
             apps.navigate('views/movedocs.html?param='+params.checkstatus);
         },
