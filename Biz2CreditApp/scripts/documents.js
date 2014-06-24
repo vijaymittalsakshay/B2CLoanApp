@@ -23,6 +23,9 @@
             $("[data-role=\"popover\"][id =\"tabstrip-files-events-popup\"]").each(function() {
                 $(this).parent().attr('id', 'popoverId');
             });
+            $("[data-role=\"popover\"][id =\"tabstrip-share-files-file-events-popup\"]").each(function() {
+                $(this).parent().attr('id', 'popoverId');
+            });
             if(!window.connectionInfo.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
         			if (confirmed === true || confirmed === 1) {
@@ -275,6 +278,7 @@
         },
         setDocuments: function(data)
         { 
+            
             var that = this;
             that.set("documents", data['0']); 
             if(typeof $(".list-edit-listview").data("kendoMobileListView") !=='undefined')
@@ -437,11 +441,26 @@
                                 
                         }
                 		e.touch.currentTarget.className=''
-                	}                    
+                	}          
             });
             $("#tabstrip-docs").find(".km-scroll-container").css("-webkit-transform", "");
             $('#docs-filter').html('');
             $(".km-filter-form").detach().appendTo('#docs-filter');
+            
+            if(shareBackHistory[0]==='Shared Folders')
+            {
+ 
+                $('.list-edit-listview').each(function() {
+                	$('.list-edit-listview table tr td:nth-child(3) a.folder').remove();
+                    $('.list-edit-listview table tr td:nth-child(3) a.file').attr('href', '\#tabstrip-share-files-file-events-popup');
+                });
+            }
+            else if(shareBackHistory[0]==='Shared Files')
+            {
+                $('.list-edit-listview').each(function() {
+                	$('.list-edit-listview table tr td:nth-child(3) a.file').attr('href', '\#tabstrip-share-files-file-events-popup');
+                });
+            }
             app.loginService.viewModel.hideloder();    
         },
         setVisibilty:function()
@@ -580,6 +599,7 @@
             else
             {
                 $("#tabstrip-files-events-popup").data("kendoMobilePopOver").close();
+                $("#tabstrip-share-files-file-events-popup").data("kendoMobilePopOver").close();
             }
            $("#tabstrip-delete-files").data("kendoMobileModalView").open();
         } ,
