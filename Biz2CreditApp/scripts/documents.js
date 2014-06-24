@@ -12,9 +12,9 @@
         renameFolderName:'',
         renameFileName:'',
         fileExt:'',
-        documentShow:function(e)
-        { 
-            $("[data-role=\"popover\"][id =\"popover-docs\"]").each(function() {
+        documentBeforeShow:function()
+        {
+          $("[data-role=\"popover\"][id =\"popover-docs\"]").each(function() {
                 $(this).parent().attr('id', 'dynamicCl');
             });
             $("[data-role=\"popover\"][id =\"tabstrip-folder-events-popup\"]").each(function() {
@@ -25,7 +25,11 @@
             });
             $("[data-role=\"popover\"][id =\"tabstrip-share-files-file-events-popup\"]").each(function() {
                 $(this).parent().attr('id', 'popoverId');
-            });
+            });  
+        },
+        documentShow:function(e)
+        { 
+            
             if(!window.connectionInfo.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
         			if (confirmed === true || confirmed === 1) {
