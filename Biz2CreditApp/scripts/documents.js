@@ -291,11 +291,12 @@
             }
             $(".list-edit-listview").kendoMobileListView({
                 dataSource: app.documentsetting.viewModel.documents,
-                template: $("#docs-template").html(),
+                template: kendo.template($("#docs-template").html()),
                 filterable: {
                 field: "name",
                 operator: "startswith",
                 },
+                virtualViewSize:10, // this configuration is needed to determine the items displayed, since the datasource does not (and should not) have paging set.
                 }).kendoTouch({ 
                 	filter: "li",
                   	tap: function (e) {
