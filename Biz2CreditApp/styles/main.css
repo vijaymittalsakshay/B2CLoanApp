@@ -252,7 +252,8 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .documentContent .km-listview-wrapper ul li table td {padding:0; width:10%;}
 .documentContent .km-listview-wrapper ul li table td:nth-child(2) {width:85%; height:45px; word-wrap:break-word;}
 .documentContent .km-listview-wrapper ul li table td:nth-child(3) {width:5%; text-align:center;}
-.documentContent .km-listview-wrapper ul li table td:nth-child(3) a.docs-popup {background-image: url(images/doc-icon.png); background-repeat:no-repeat; background-size:100%; background-position:center 0px; height:78%; margin:0; background-color:transparent; border:none;}
+.documentContent .km-listview-wrapper ul li table td:nth-child(3) a.docs-popup {background-image: url(images/doc-icon.png); background-repeat:no-repeat; background-size:80%; background-position:center; height:100%; margin:0; width:100%; background-color:transparent; border:none;}
+.documentContent .km-listview-wrapper ul li table td:nth-child(3) a.k-state-border-down {background-image: url(images/doc-icon-act.png);}
 
 .documentContent .km-listview-wrapper .km-state-active { background-color:#eeffd9;}
 .documentContent .km-listview-wrapper ul li a { text-decoration:none; }
@@ -322,7 +323,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 
 #tabstrip-files-events-popup{ background-image: url(images/bg-dot.png);background-repeat:repeat; background-color:transparent;border-radius: 0; min-height:initial;}
 #tabstrip-files-events-popup ul {list-style:none; padding:0; text-align:center; width:100%;}
-#tabstrip-files-events-popup ul li { display:block; float:left; width:20%;}
+#tabstrip-files-events-popup ul li { display:block; float:left; width:25%;}
 #tabstrip-files-events-popup ul li a { background:none; padding:0; border-radius:0; border:0; color:#fff;}
 #tabstrip-files-events-popup .km-content {background-color:transparent;}
 
@@ -361,3 +362,4 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #repypm ul li span.tx {color: #666666;display: block; font-size: 1.2; font-weight: normal; height:25px; padding-top: 0;}
 #dashview .tooltip span { display:block; font-size:10px; color:rgb(168, 168, 168); line-height:12px; height:auto; text-align:right; padding-bottom:6px;}
 #dashview .tooltip span span { color:rgb(36, 36, 36);padding:0 0 0 5px;display:inline-block; text-align:left; width:52%;}
+#popoverId .km-popup-arrow {background-image: url(images/pop-arow-top.png); background-repeat:no-repeat; background-position:0px 0px; width:20px;margin: 0 0 0 4px;}

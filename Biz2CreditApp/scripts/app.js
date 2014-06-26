@@ -34,7 +34,7 @@
             apps.navigate("#:back");
         }
     };
-    var Keyboardisoff = function(e) {
+    var Keyboardisoff = function() {
       $("#tabstrip-sign-up").find(".km-scroll-container").css("-webkit-transform", "translate3d(0px, 0px, 0px)");
     };
 

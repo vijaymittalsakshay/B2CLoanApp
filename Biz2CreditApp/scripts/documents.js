@@ -296,7 +296,6 @@
                 field: "name",
                 operator: "startswith",
                 },
-                virtualViewSize:10, // this configuration is needed to determine the items displayed, since the datasource does not (and should not) have paging set.
                 }).kendoTouch({ 
                 	filter: "li",
                   	tap: function (e) {
@@ -606,7 +605,6 @@
                 $("#tabstrip-files-events-popup").data("kendoMobilePopOver").close();
                 $("#tabstrip-share-files-file-events-popup").data("kendoMobilePopOver").close();
             }
-            alert(e.sender.element.context.dataset.src);
            $("#tabstrip-delete-files").data("kendoMobileModalView").open();
         } ,
         thisFileDelete:function(e)
