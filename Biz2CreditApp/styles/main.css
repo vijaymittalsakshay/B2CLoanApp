@@ -253,7 +253,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .documentContent .km-listview-wrapper ul li table td {padding:0; width:10%;}
 .documentContent .km-listview-wrapper ul li table td:nth-child(2) {width:85%; height:45px; word-wrap:break-word;}
 .documentContent .km-listview-wrapper ul li table td:nth-child(3) {width:5%; text-align:center;}
-.documentContent .km-listview-wrapper ul li table td:nth-child(3) a.docs-popup {background-image: url(images/doc-icon.png); background-repeat:no-repeat; background-size:80%; background-position:center; height:100%; margin:0; width:100%; background-color:transparent; border:none;}
+.documentContent .km-listview-wrapper ul li table td:nth-child(3) a.docs-popup {background-image: url(images/doc-icon.png); background-repeat:no-repeat; background-size:80%; background-position:center; height:100%; margin:0; width:100%; background-color:transparent; border:none; }
 .documentContent .km-listview-wrapper ul li table td:nth-child(3) a.k-state-border-down {background-image: url(images/doc-icon-act.png);}
 
 .documentContent .km-listview-wrapper .km-state-active { background-color:#eeffd9;}
@@ -317,20 +317,34 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #dynamicCl.km-popup-wrapper { width:180px !important; height:150px !important;}
 .k-animation-container #popoverId.km-popup-wrapper {padding:15px 0 0 0;}
 #tabstrip-folder-events-popup{ background-image: url(images/bg-dot.png);background-repeat:repeat; background-color:transparent;border-radius: 0; min-height:initial;}
-#tabstrip-folder-events-popup ul {list-style:none; padding:0; text-align:center; width:100%;}
+#tabstrip-folder-events-popup ul {list-style:none; padding:0; text-align:center; width:100%; margin:0;}
 #tabstrip-folder-events-popup ul li { display:block; float:left; width:33%;}
+#tabstrip-folder-events-popup ul li .delete {background-image: url(images/delete.png);background-repeat:no-repeat; background-position:center 6px; background-size:44%;}
+#tabstrip-folder-events-popup ul li .rename {background-image: url(images/rename.png);background-repeat:no-repeat; background-position:center 10px; background-size:44%;}
+#tabstrip-folder-events-popup ul li .move {background-image: url(images/move.png);background-repeat:no-repeat; background-position:center 10px; background-size:55%;}
 #tabstrip-folder-events-popup ul li a { background:none; padding:0; border-radius:0; border:0; color:#fff;}
+#tabstrip-folder-events-popup ul li a span {padding: 33px 0 0 0;display: block;}
 #tabstrip-folder-events-popup .km-content {background-color:transparent;}
 
 #tabstrip-files-events-popup{ background-image: url(images/bg-dot.png);background-repeat:repeat; background-color:transparent;border-radius: 0; min-height:initial;}
-#tabstrip-files-events-popup ul {list-style:none; padding:0; text-align:center; width:100%;}
+#tabstrip-files-events-popup ul {list-style:none; padding:0; text-align:center; width:100%;margin:0;}
 #tabstrip-files-events-popup ul li { display:block; float:left; width:25%;}
+#tabstrip-files-events-popup ul li .share {background-image: url(images/share.png);background-repeat:no-repeat; background-position:center 6px; background-size:30%;}
+#tabstrip-files-events-popup ul li .export {background-image: url(images/export.png);background-repeat:no-repeat; background-position:center 10px; background-size:44%;}
+#tabstrip-files-events-popup ul li .move {background-image: url(images/move.png);background-repeat:no-repeat; background-position:center 10px; background-size:55%;}
+#tabstrip-files-events-popup ul li .more {background-image: url(images/more.png);background-repeat:no-repeat; background-position:center 10px; background-size:55%;}
+#tabstrip-files-events-popup ul li a span {padding: 33px 0 0 0;display: block;}
 #tabstrip-files-events-popup ul li a { background:none; padding:0; border-radius:0; border:0; color:#fff;}
 #tabstrip-files-events-popup .km-content {background-color:transparent;}
 
 #tabstrip-share-files-file-events-popup{ background-image: url(images/bg-dot.png);background-repeat:repeat; background-color:transparent;border-radius: 0; min-height:initial;}
-#tabstrip-share-files-file-events-popup ul {list-style:none; padding:0; text-align:center; width:100%;}
+#tabstrip-share-files-file-events-popup ul {list-style:none; padding:0; text-align:center; width:100%;margin:0;}
 #tabstrip-share-files-file-events-popup ul li { display:block; float:left; width:25%;}
+#tabstrip-share-files-file-events-popup ul li .share {background-image: url(images/share.png);background-repeat:no-repeat; background-position:center 6px; background-size:30%;}
+#tabstrip-share-files-file-events-popup ul li .export {background-image: url(images/export.png);background-repeat:no-repeat; background-position:center 10px; background-size:44%;}
+#tabstrip-share-files-file-events-popup ul li .move {background-image: url(images/move.png);background-repeat:no-repeat; background-position:center 10px; background-size:55%;}
+#tabstrip-share-files-file-events-popup ul li .delete {background-image: url(images/delete.png);background-repeat:no-repeat; background-position:center 6px; background-size:44%;}
+#tabstrip-share-files-file-events-popup ul li a span {padding: 33px 0 0 0;display: block;}
 #tabstrip-share-files-file-events-popup ul li a { background:none; padding:0; border-radius:0; border:0; color:#fff;}
 #tabstrip-share-files-file-events-popup .km-content {background-color:transparent;}
 #dynamicCl .km-popup-arrow, #dynamicCl .km-popup-arrow:after, #dynamicCl .km-down .km-popup-arrow:before { border:0 !important;display:none;}

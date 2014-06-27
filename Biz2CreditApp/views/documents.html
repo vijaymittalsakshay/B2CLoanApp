@@ -32,54 +32,55 @@
                 </div>
             </div>
             <!--folder events popup-->
-            <div id="tabstrip-folder-events-popup"  data-role="popover"   data-popup='{"height": "4.5em", "width": "100%"}'>
+            <div id="tabstrip-folder-events-popup"  class="tabstrip-ff-events-popup" data-role="popover"   data-popup='{"height": "4.5em", "width": "100%"}'>
                 <div data-role="view" data-model="app.documentsetting.viewModel">
                     <ul>
                         <li>
-                        	<a data-role="button"  data-src ="pop" data-bind="click: deleteFolder">Delete</a>
+                        	<a data-role="button" class="delete" data-src ="pop" data-bind="click: deleteFolder">Delete</a>
                         </li>
                         <li>
-                        	<a data-role="button"  data-src ="pop" data-bind="click: renameFolder">Rename</a>
+                        	<a data-role="button" class="rename" data-src ="pop" data-bind="click: renameFolder">Rename</a>
                         </li>
                         <li>
-                        	<a data-role="button"  data-src ="pop" data-checkStatus="folder" data-bind="click: moveFolder">Move</a>
+  
+                            <a data-role="button" class="move" data-src ="pop" data-checkStatus="folder" data-bind="click: moveFolder">Move</a>
                         </li>
                     </ul> 
                 </div>
             </div>
             <!--file events popup-->
-            <div id="tabstrip-files-events-popup"  data-role="popover"   data-popup='{"height": "4.5em", "width": "100%"}'>
+            <div id="tabstrip-files-events-popup"  class="tabstrip-ff-events-popup" data-role="popover"   data-popup='{"height": "4.5em", "width": "100%"}'>
             <div data-role="view" data-model="app.documentsetting.viewModel">
                 <ul>
                 <li>
-            		<a data-role="button"  data-src ="pop" data-bind="click: shareVia">Share via</a>
+            		<a data-role="button"  class="share" data-src ="pop" data-click="closePopOver" data-bind="click: shareVia">Share via</a>
             	</li>
                  <li>
-            		<a data-role="button"  data-src ="pop"  data-bind="click: exportFile">Export</a>
+            		<a data-role="button" class="export" data-src ="pop"  data-bind="click: exportFile">Export</a>
             	</li>
                 <li>
-            		<a data-role="button"  data-src ="pop" data-checkStatus="files" data-bind="click: moveFolder">Move</a>
+            		<a data-role="button" class="move" data-src ="pop" data-checkStatus="files" data-bind="click: moveFolder">Move</a>
             	</li> 
             	<li>
-                 	<a data-rel="popover" href="#tabstrip-files-events" data-click="closePopOver" data-role="button">More</a>
+                 	<a data-rel="popover" href="#tabstrip-files-events" class="more" data-click="closePopOver" data-role="button">More</a>
                 </li>
             </ul>  
         </div></div>
             <!--shared file events popup-->
-            <div id="tabstrip-share-files-file-events-popup"  data-role="popover"   data-popup='{"height": "4.5em", "width": "100%"}'>
+            <div id="tabstrip-share-files-file-events-popup"  class="tabstrip-ff-events-popup" data-role="popover"   data-popup='{"height": "4.5em", "width": "100%"}'>
                 <div data-role="view" data-model="app.documentsetting.viewModel">
                     <ul>
                 	<li>
-                     	<a data-role="button"  data-src ="pop" data-bind="click: deleteFile">Delete</a>
+                     	<a data-role="button"  class="delete" data-src ="pop" data-bind="click: deleteFile">Delete</a>
                     </li>
                 	<li>
-                		<a data-role="button"  data-src ="pop" data-checkStatus="files" data-bind="click: moveFolder">Move</a>
+                		<a data-role="button"  class="move" data-src ="pop" data-checkStatus="files" data-bind="click: moveFolder">Move</a>
                 	</li>
                     <li>
-                		<a data-role="button"  data-src ="pop"  data-bind="click: exportFile">Export</a>
+                		<a data-role="button"  class="export" data-src ="pop"  data-bind="click: exportFile">Export</a>
                 	</li>
                     <li>
-                		<a data-role="button"  data-src ="pop" data-bind="click: shareVia">Share via</a>
+                		<a data-role="button"  class="share" data-src ="pop" data-click="closePopOver" data-bind="click: shareVia">Share via</a>
                 	</li>
                 </ul>  
             	</div>
