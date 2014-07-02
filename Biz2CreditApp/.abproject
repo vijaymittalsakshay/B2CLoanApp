@@ -1,0 +1,56 @@
+{
+  "ProjectGuid": "5d00feb1-1b03-4db5-ab13-880140c52318",
+  "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
+  "AppIdentifier": "com.telerik.Biz2CreditApp",
+  "ProjectName": "Biz2CreditApp",
+  "IsRunnable": "true",
+  "FrameworkVersion": "3.2.0",
+  "AndroidPermissions": [
+    "android.permission.ACCESS_NETWORK_STATE",
+    "android.permission.INTERNET",
+    "android.permission.MANAGE_ACCOUNTS",
+    "android.permission.READ_PHONE_STATE",
+    "android.permission.VIBRATE",
+    "android.permission.WRITE_EXTERNAL_STORAGE"
+  ],
+  "CorePlugins": [
+    "org.apache.cordova.device",
+    "org.apache.cordova.device-orientation",
+    "org.apache.cordova.file",
+    "org.apache.cordova.file-transfer",
+    "org.apache.cordova.inappbrowser",
+    "org.apache.cordova.network-information",
+    "org.apache.cordova.dialogs",
+    "org.apache.cordova.splashscreen",
+    "org.apache.cordova.statusbar",
+    "org.apache.cordova.vibration"
+  ],
+  "DeviceOrientations": [
+    "Portrait",
+    "Landscape"
+  ],
+  "iOSStatusBarStyle": "Default",
+  "AndroidHardwareAcceleration": "false",
+  "WP8SupportedResolutions": [
+    "ID_RESOLUTION_WVGA",
+    "ID_RESOLUTION_WXGA",
+    "ID_RESOLUTION_HD720P"
+  ],
+  "BundleVersion": "1.2",
+  "DisplayName": "",
+  "Author": "",
+  "Description": "Biz2CreditApp",
+  "iOSDeviceFamily": [
+    "1",
+    "2"
+  ],
+  "iOSBackgroundMode": [],
+  "AndroidVersionCode": "5",
+  "WP8Requirements": [],
+  "WP8Capabilities": [],
+  "WP8TileTitle": "",
+  "WP8ProductID": "{5d00feb1-1b03-4db5-ab13-880140c52318}",
+  "WP8PublisherID": "{10e7cda5-5087-4017-a803-aca65e872f3a}",
+  "WP8Publisher": "",
+  "Framework": "Cordova"
+}
