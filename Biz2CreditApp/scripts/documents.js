@@ -25,7 +25,21 @@
             });
             $("[data-role=\"popover\"][id =\"tabstrip-share-files-file-events-popup\"]").each(function() {
                 $(this).parent().attr('id', 'popoverId');
-            });  
+            }); 
+            
+            
+            
+        },
+        documentAfterShow:function()
+        {
+
+            if(device.platform=== 'iOS')
+            {
+              $('#tabstrip-files-events-popup li.export').remove();
+              $('#tabstrip-share-files-file-events-popup li.export').remove();
+              $('#tabstrip-files-events-popup li.more a').attr('href','#tabstrip-files-events-ios');
+                
+            }
         },
         documentShow:function(e)
         { 
@@ -163,6 +177,7 @@
        },
        refreshView:function(e)
         {
+
             if(!window.connectionInfo.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
             		if (confirmed === true || confirmed === 1) {
