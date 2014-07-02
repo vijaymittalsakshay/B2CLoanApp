@@ -359,7 +359,7 @@
                 sessionStorage.downloadLink = $.trim(fdata.download);
                 sessionStorage.currentFileName = fdata.text;
                 $('.folderName').html('');
-                if(sessionStorage.currentFileName >= 20)
+                if(sessionStorage.currentFileName.length >= 20)
                 {
                 	$('.folderName').append('<span>'+sessionStorage.currentFileName.substring(0, 15)+'...</span>'); 
                 }
