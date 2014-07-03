@@ -378,3 +378,4 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #dashview .tooltip span { display:block; font-size:10px; color:rgb(168, 168, 168); line-height:12px; height:auto; text-align:right; padding-bottom:6px;}
 #dashview .tooltip span span { color:rgb(36, 36, 36);padding:0 0 0 5px;display:inline-block; text-align:left; width:52%;}
 #popoverId .km-popup-arrow {background-image: url(images/pop-arow-top.png); background-repeat:no-repeat; background-position:0px 0px; width:20px;margin: 0 0 0 4px;}
+#tabstrip-Setting .km-header {border-bottom: 1px solid #99cc00;}
