@@ -32,7 +32,6 @@
         },
         documentAfterShow:function()
         {
-
             if(device.platform=== 'iOS')
             {
               $('#tabstrip-files-events-popup li.export').remove();

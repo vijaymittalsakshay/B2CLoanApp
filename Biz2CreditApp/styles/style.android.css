@@ -148,7 +148,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #dynamicCl.km-popup-wrapper {width:190px !important;height:180px !important;}
 /*******Android css************/
 .folder-events .scheduleSection .buttonArea .km-button{padding:0.8em 0;}
-#tabstrip-download-file.modal-mess-Popup { padding: 0;width: 98%;margin: 0 0 0 1.3%;height:223%;}
+#tabstrip-download-file.modal-mess-Popup { padding: 0;width: 98%;margin: 0 0 0 1.3%;height:22%;}
 #tabstrip-Setting .docs-back {height: 80px;background-size: 88%;}
 .matches-logo {background-size: 20%;height: 65px;}
 #tabstrip-forgot-pass .view-content { margin-top:18em;}
