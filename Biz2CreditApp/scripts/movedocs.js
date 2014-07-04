@@ -40,13 +40,13 @@
                 } 
                 if(app.movedocumentsetting.viewModel.moveDocsId === 0)
                 {
-                    $('.inner-docs-back').addClass("hidedocsback");
-                    $('.inner-docs-back span').addClass("hidedocsback");
+                    $('#tabstrip-movedocs .inner-docs-back').addClass("hidedocsback");
+                    $('#tabstrip-movedocs .inner-docs-back span').addClass("hidedocsback");
                 }
                 else
                 {
-                     $('.inner-docs-back').removeClass("hidedocsback");
-                     $('.inner-docs-back span').removeClass("hidedocsback");
+                     $('#tabstrip-movedocs .inner-docs-back').removeClass("hidedocsback");
+                     $('#tabstrip-movedocs .inner-docs-back span').removeClass("hidedocsback");
                 }
 
            	 var dataSource = new kendo.data.DataSource({         
@@ -175,14 +175,14 @@
             }
             if(app.movedocumentsetting.viewModel.moveDocsId === 0)
             {
-                $('.inner-docs-back').addClass("hidedocsback");
-                $('.inner-docs-back span').addClass("hidedocsback");
+                $('#tabstrip-movedocs .inner-docs-back').addClass("hidedocsback");
+                $('#tabstrip-movedocs .inner-docs-back span').addClass("hidedocsback");
 
             }
             else
             {
-                 $('.inner-docs-back').removeClass("hidedocsback");
-                 $('.inner-docs-back span').removeClass("hidedocsback");
+                 $('#tabstrip-movedocs .inner-docs-back').removeClass("hidedocsback");
+                 $('#tabstrip-movedocs .inner-docs-back span').removeClass("hidedocsback");
 
             }
             $(".list-move-listview").kendoMobileListView({
@@ -259,10 +259,10 @@
         thisFolderMove:function(e)
         {
             var that = this;
-            var status = that.get("checkStatus"); 
+            var status = that.get("checkStatus");
         	if(status === 'folder')
             {
-                if ( app.documentsetting.viewModel.parentId === app.movedocumentsetting.viewModel.moveDocsId) {
+                if ( app.documentsetting.viewModel.parentId === app.movedocumentsetting.viewModel.moveDocsId ||  $.inArray($.trim(sessionStorage.getItem("currentFId")), backHistory ) !== -1) {
                     navigator.notification.alert("Folder cannot move in same location",
                     function () { }, "Notification", 'OK');
 
