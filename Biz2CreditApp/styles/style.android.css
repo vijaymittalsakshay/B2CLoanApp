@@ -405,7 +405,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #newuser ul.km-listinset li select {background-size:10%;}
 .documentContent .km-listview-wrapper ul li table td:nth-child(2) {height: 50px;width: 32%;}
 .documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder {padding: 11px 0%;background-size: 65%;}
-.documentContent .km-listview-wrapper ul li table td:nth-child(3) a.docs-popup, .documentContent .km-listview-wrapper ul li table td:nth-child(3) a.k-state-border-down { background-size:76%;}
+.documentContent .km-listview-wrapper ul li table td:nth-child(3) a.docs-popup, .documentContent .km-listview-wrapper ul li table td:nth-child(3) a.k-state-border-down { background-size:72%;}
 }
 @media (min-width:0px) and (max-width:370px) { 
 .logo { margin:6% auto;}
@@ -462,6 +462,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 .forgtpass {font-size: 1em;padding-top: 15px;padding-bottom: 0px;}
 #repypm ul li {font-size:0.8em;}
 #newuser {margin: 1.5em 0;}
+.documentContent .km-listview-wrapper ul li table td:nth-child(3) a.docs-popup, .documentContent .km-listview-wrapper ul li table td:nth-child(3) a.k-state-border-down { background-size:76%;}
 }
 
 @media (min-width:0px) and (max-width:320px) { 

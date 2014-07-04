@@ -323,7 +323,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #tabstrip-folder-events-popup ul li .rename {background-image: url(images/rename.png);background-repeat:no-repeat; background-position:center 10px; background-size:44%;}
 #tabstrip-folder-events-popup ul li .move {background-image: url(images/move.png);background-repeat:no-repeat; background-position:center 10px; background-size:55%;}
 #tabstrip-folder-events-popup ul li a { background:none; padding:0; border-radius:0; border:0; color:#fff;}
-#tabstrip-folder-events-popup ul li a span {padding: 33px 0 0 0;display: block;}
+#tabstrip-folder-events-popup ul li a span {padding: 30px 0 0 0;display: block;}
 #tabstrip-folder-events-popup .km-content {background-color:transparent;}
 
 #tabstrip-files-events-popup{ background-image: url(images/bg-dot.png);background-repeat:repeat; background-color:transparent;border-radius: 0; min-height:initial;}
