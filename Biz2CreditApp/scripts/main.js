@@ -1,5 +1,4 @@
 
-<!-- 
 function menuresponsive1() {
 	
 	
