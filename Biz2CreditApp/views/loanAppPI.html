@@ -1,9 +1,557 @@
-<!DOCTYPE html>
+<div data-role="view" id="tabstrip-loanapp-bi" data-model="app.loansetting.viewModel" data-show="app.loansetting.viewModel.show">
+    <div data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title">
+                        <div class="logo"><img src="styles/images/bizDoc-logo.png"></div>
+                    </span>
+                    
+                </div>
+            </div>
+    <div  data-role="content">
+         <section>
+            <form id="B2cAppForms" class="cmxform" action="dashboard-application4.html" method="post" novalidate="novalidate">
+            <article id="aplicn_tp">
+            <div class="warps clearfix">
+            <ul class="app_nav">
+            <li class="dn"><a href="dashboard-application.html"><span>Contact Information</span></a></li>
+            <li class="dn"><a href="dashboard-application2.html"><span>Business Information</span></a></li>
+            <li class="activ"><span>Personal Information</span></li>
+            <li><span>Financing Preferences</span></li>
+            </ul>
 
-<html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-    </body>
-</html>
+            </div>
+            </article>
+              
+              
+            <article id="aplicn_frm"><div class="warps clearfix">
+            <div class="rws clearfix">
+            <div class="lftitb">Personal Information</div>
+            <div class="rwfil">
+            <p><input type="text" name="avmoninco" class="IN3" id="avmoninco"  title="Average Monthly Income"  placeholder="Average Monthly Income" required /></p>
+            <p><input type="text" name="avmonexm" class="IN3" id="avmonexm"  title="Average Monthly Expenses"  placeholder="Average Monthly Expenses" required /></p>
+            </div></div>
+
+
+            <div class="rws clearfix">
+            <div class="lftitb">Personal Credit Score</div>
+            <div class="rwfil">
+            <div class="rw_lin clearfix">  
+            <div class="labl_tx">Would you like us to check your credit score for free?*</div>
+            </div>
+
+            <div class="rw_lin clearfix"> 
+            <span><input name="creditscorechk" type="radio" value="1" class="crYes"> <label>Yes</label> </span>
+            <span><input name="creditscorechk" type="radio" value="0" class="crYes"> <label>No</label></span> 
+            </div>
+
+
+
+
+            <div class="rwfil"><!-- bus info bx--><div id="crdscrYes" class="showfilds_bx">
+            <div class="rw_lin clearfix">  
+             <select name="credittype" id="credittype"  class="IN3"  title="Select Personal Credit Score">
+                        <option value="" selected>Select Personal Credit Score</option>
+                                    <option value="500" >500</option>
+                                    <option value="501" >501</option>
+                                    <option value="502" >502</option>
+                                    <option value="503" >503</option>
+                                    <option value="504" >504</option>
+                                    <option value="505" >505</option>
+                                    <option value="506" >506</option>
+                                    <option value="507" >507</option>
+                                    <option value="508" >508</option>
+                                    <option value="509" >509</option>
+                                    <option value="510" >510</option>
+                                    <option value="511" >511</option>
+                                    <option value="512" >512</option>
+                                    <option value="513" >513</option>
+                                    <option value="514" >514</option>
+                                    <option value="515" >515</option>
+                                    <option value="516" >516</option>
+                                    <option value="517" >517</option>
+                                    <option value="518" >518</option>
+                                    <option value="519" >519</option>
+                                    <option value="520" >520</option>
+                                    <option value="521" >521</option>
+                                    <option value="522" >522</option>
+                                    <option value="523" >523</option>
+                                    <option value="524" >524</option>
+                                    <option value="525" >525</option>
+                                    <option value="526" >526</option>
+                                    <option value="527" >527</option>
+                                    <option value="528" >528</option>
+                                    <option value="529" >529</option>
+                                    <option value="530" >530</option>
+                                    <option value="531" >531</option>
+                                    <option value="532" >532</option>
+                                    <option value="533" >533</option>
+                                    <option value="534" >534</option>
+                                    <option value="535" >535</option>
+                                    <option value="536" >536</option>
+                                    <option value="537" >537</option>
+                                    <option value="538" >538</option>
+                                    <option value="539" >539</option>
+                                    <option value="540" >540</option>
+                                    <option value="541" >541</option>
+                                    <option value="542" >542</option>
+                                    <option value="543" >543</option>
+                                    <option value="544" >544</option>
+                                    <option value="545" >545</option>
+                                    <option value="546" >546</option>
+                                    <option value="547" >547</option>
+                                    <option value="548" >548</option>
+                                    <option value="549" >549</option>
+                                    <option value="550" >550</option>
+                                    <option value="551" >551</option>
+                                    <option value="552" >552</option>
+                                    <option value="553" >553</option>
+                                    <option value="554" >554</option>
+                                    <option value="555" >555</option>
+                                    <option value="556" >556</option>
+                                    <option value="557" >557</option>
+                                    <option value="558" >558</option>
+                                    <option value="559" >559</option>
+                                    <option value="560" >560</option>
+                                    <option value="561" >561</option>
+                                    <option value="562" >562</option>
+                                    <option value="563" >563</option>
+                                    <option value="564" >564</option>
+                                    <option value="565" >565</option>
+                                    <option value="566" >566</option>
+                                    <option value="567" >567</option>
+                                    <option value="568" >568</option>
+                                    <option value="569" >569</option>
+                                    <option value="570" >570</option>
+                                    <option value="571" >571</option>
+                                    <option value="572" >572</option>
+                                    <option value="573" >573</option>
+                                    <option value="574" >574</option>
+                                    <option value="575" >575</option>
+                                    <option value="576" >576</option>
+                                    <option value="577" >577</option>
+                                    <option value="578" >578</option>
+                                    <option value="579" >579</option>
+                                    <option value="580" >580</option>
+                                    <option value="581" >581</option>
+                                    <option value="582" >582</option>
+                                    <option value="583" >583</option>
+                                    <option value="584" >584</option>
+                                    <option value="585" >585</option>
+                                    <option value="586" >586</option>
+                                    <option value="587" >587</option>
+                                    <option value="588" >588</option>
+                                    <option value="589" >589</option>
+                                    <option value="590" >590</option>
+                                    <option value="591" >591</option>
+                                    <option value="592" >592</option>
+                                    <option value="593" >593</option>
+                                    <option value="594" >594</option>
+                                    <option value="595" >595</option>
+                                    <option value="596" >596</option>
+                                    <option value="597" >597</option>
+                                    <option value="598" >598</option>
+                                    <option value="599" >599</option>
+                                    <option value="600" >600</option>
+                                    <option value="601" >601</option>
+                                    <option value="602" >602</option>
+                                    <option value="603" >603</option>
+                                    <option value="604" >604</option>
+                                    <option value="605" >605</option>
+                                    <option value="606" >606</option>
+                                    <option value="607" >607</option>
+                                    <option value="608" >608</option>
+                                    <option value="609" >609</option>
+                                    <option value="610" >610</option>
+                                    <option value="611" >611</option>
+                                    <option value="612" >612</option>
+                                    <option value="613" >613</option>
+                                    <option value="614" >614</option>
+                                    <option value="615" >615</option>
+                                    <option value="616" >616</option>
+                                    <option value="617" >617</option>
+                                    <option value="618" >618</option>
+                                    <option value="619" >619</option>
+                                    <option value="620" >620</option>
+                                    <option value="621" >621</option>
+                                    <option value="622" >622</option>
+                                    <option value="623" >623</option>
+                                    <option value="624" >624</option>
+                                    <option value="625" >625</option>
+                                    <option value="626" >626</option>
+                                    <option value="627" >627</option>
+                                    <option value="628" >628</option>
+                                    <option value="629" >629</option>
+                                    <option value="630" >630</option>
+                                    <option value="631" >631</option>
+                                    <option value="632" >632</option>
+                                    <option value="633" >633</option>
+                                    <option value="634" >634</option>
+                                    <option value="635" >635</option>
+                                    <option value="636" >636</option>
+                                    <option value="637" >637</option>
+                                    <option value="638" >638</option>
+                                    <option value="639" >639</option>
+                                    <option value="640" >640</option>
+                                    <option value="641" >641</option>
+                                    <option value="642" >642</option>
+                                    <option value="643" >643</option>
+                                    <option value="644" >644</option>
+                                    <option value="645" >645</option>
+                                    <option value="646" >646</option>
+                                    <option value="647" >647</option>
+                                    <option value="648" >648</option>
+                                    <option value="649" >649</option>
+                                    <option value="650" >650</option>
+                                    <option value="651" >651</option>
+                                    <option value="652" >652</option>
+                                    <option value="653" >653</option>
+                                    <option value="654" >654</option>
+                                    <option value="655" >655</option>
+                                    <option value="656" >656</option>
+                                    <option value="657" >657</option>
+                                    <option value="658" >658</option>
+                                    <option value="659" >659</option>
+                                    <option value="660" >660</option>
+                                    <option value="661" >661</option>
+                                    <option value="662" >662</option>
+                                    <option value="663" >663</option>
+                                    <option value="664" >664</option>
+                                    <option value="665" >665</option>
+                                    <option value="666" >666</option>
+                                    <option value="667" >667</option>
+                                    <option value="668" >668</option>
+                                    <option value="669" >669</option>
+                                    <option value="670" >670</option>
+                                    <option value="671" >671</option>
+                                    <option value="672" >672</option>
+                                    <option value="673" >673</option>
+                                    <option value="674" >674</option>
+                                    <option value="675" >675</option>
+                                    <option value="676" >676</option>
+                                    <option value="677" >677</option>
+                                    <option value="678" >678</option>
+                                    <option value="679" >679</option>
+                                    <option value="680" >680</option>
+                                    <option value="681" >681</option>
+                                    <option value="682" >682</option>
+                                    <option value="683" >683</option>
+                                    <option value="684" >684</option>
+                                    <option value="685" >685</option>
+                                    <option value="686" >686</option>
+                                    <option value="687" >687</option>
+                                    <option value="688" >688</option>
+                                    <option value="689" >689</option>
+                                    <option value="690" >690</option>
+                                    <option value="691" >691</option>
+                                    <option value="692" >692</option>
+                                    <option value="693" >693</option>
+                                    <option value="694" >694</option>
+                                    <option value="695" >695</option>
+                                    <option value="696" >696</option>
+                                    <option value="697" >697</option>
+                                    <option value="698" >698</option>
+                                    <option value="699" >699</option>
+                                    <option value="700" >700</option>
+                                    <option value="701" >701</option>
+                                    <option value="702" >702</option>
+                                    <option value="703" >703</option>
+                                    <option value="704" >704</option>
+                                    <option value="705" >705</option>
+                                    <option value="706" >706</option>
+                                    <option value="707" >707</option>
+                                    <option value="708" >708</option>
+                                    <option value="709" >709</option>
+                                    <option value="710" >710</option>
+                                    <option value="711" >711</option>
+                                    <option value="712" >712</option>
+                                    <option value="713" >713</option>
+                                    <option value="714" >714</option>
+                                    <option value="715" >715</option>
+                                    <option value="716" >716</option>
+                                    <option value="717" >717</option>
+                                    <option value="718" >718</option>
+                                    <option value="719" >719</option>
+                                    <option value="720" >720</option>
+                                    <option value="721" >721</option>
+                                    <option value="722" >722</option>
+                                    <option value="723" >723</option>
+                                    <option value="724" >724</option>
+                                    <option value="725" >725</option>
+                                    <option value="726" >726</option>
+                                    <option value="727" >727</option>
+                                    <option value="728" >728</option>
+                                    <option value="729" >729</option>
+                                    <option value="730" >730</option>
+                                    <option value="731" >731</option>
+                                    <option value="732" >732</option>
+                                    <option value="733" >733</option>
+                                    <option value="734" >734</option>
+                                    <option value="735" >735</option>
+                                    <option value="736" >736</option>
+                                    <option value="737" >737</option>
+                                    <option value="738" >738</option>
+                                    <option value="739" >739</option>
+                                    <option value="740" >740</option>
+                                    <option value="741" >741</option>
+                                    <option value="742" >742</option>
+                                    <option value="743" >743</option>
+                                    <option value="744" >744</option>
+                                    <option value="745" >745</option>
+                                    <option value="746" >746</option>
+                                    <option value="747" >747</option>
+                                    <option value="748" >748</option>
+                                    <option value="749" >749</option>
+                                    <option value="750" >750</option>
+                                    <option value="751" >751</option>
+                                    <option value="752" >752</option>
+                                    <option value="753" >753</option>
+                                    <option value="754" >754</option>
+                                    <option value="755" >755</option>
+                                    <option value="756" >756</option>
+                                    <option value="757" >757</option>
+                                    <option value="758" >758</option>
+                                    <option value="759" >759</option>
+                                    <option value="760" >760</option>
+                                    <option value="761" >761</option>
+                                    <option value="762" >762</option>
+                                    <option value="763" >763</option>
+                                    <option value="764" >764</option>
+                                    <option value="765" >765</option>
+                                    <option value="766" >766</option>
+                                    <option value="767" >767</option>
+                                    <option value="768" >768</option>
+                                    <option value="769" >769</option>
+                                    <option value="770" >770</option>
+                                    <option value="771" >771</option>
+                                    <option value="772" >772</option>
+                                    <option value="773" >773</option>
+                                    <option value="774" >774</option>
+                                    <option value="775" >775</option>
+                                    <option value="776" >776</option>
+                                    <option value="777" >777</option>
+                                    <option value="778" >778</option>
+                                    <option value="779" >779</option>
+                                    <option value="780" >780</option>
+                                    <option value="781" >781</option>
+                                    <option value="782" >782</option>
+                                    <option value="783" >783</option>
+                                    <option value="784" >784</option>
+                                    <option value="785" >785</option>
+                                    <option value="786" >786</option>
+                                    <option value="787" >787</option>
+                                    <option value="788" >788</option>
+                                    <option value="789" >789</option>
+                                    <option value="790" >790</option>
+                                    <option value="791" >791</option>
+                                    <option value="792" >792</option>
+                                    <option value="793" >793</option>
+                                    <option value="794" >794</option>
+                                    <option value="795" >795</option>
+                                    <option value="796" >796</option>
+                                    <option value="797" >797</option>
+                                    <option value="798" >798</option>
+                                    <option value="799" >799</option>
+                                    <option value="800" >800</option>
+                                    <option value="801" >801</option>
+                                    <option value="802" >802</option>
+                                    <option value="803" >803</option>
+                                    <option value="804" >804</option>
+                                    <option value="805" >805</option>
+                                    <option value="806" >806</option>
+                                    <option value="807" >807</option>
+                                    <option value="808" >808</option>
+                                    <option value="809" >809</option>
+                                    <option value="810" >810</option>
+                                    <option value="811" >811</option>
+                                    <option value="812" >812</option>
+                                    <option value="813" >813</option>
+                                    <option value="814" >814</option>
+                                    <option value="815" >815</option>
+                                    <option value="816" >816</option>
+                                    <option value="817" >817</option>
+                                    <option value="818" >818</option>
+                                    <option value="819" >819</option>
+                                    <option value="820" >820</option>
+                                    <option value="821" >821</option>
+                                    <option value="822" >822</option>
+                                    <option value="823" >823</option>
+                                    <option value="824" >824</option>
+                                    <option value="825" >825</option>
+                                    <option value="826" >826</option>
+                                    <option value="827" >827</option>
+                                    <option value="828" >828</option>
+                                    <option value="829" >829</option>
+                                    <option value="830" >830</option>
+                                    <option value="831" >831</option>
+                                    <option value="832" >832</option>
+                                    <option value="833" >833</option>
+                                    <option value="834" >834</option>
+                                    <option value="835" >835</option>
+                                    <option value="836" >836</option>
+                                    <option value="837" >837</option>
+                                    <option value="838" >838</option>
+                                    <option value="839" >839</option>
+                                    <option value="840" >840</option>
+                                    <option value="841" >841</option>
+                                    <option value="842" >842</option>
+                                    <option value="843" >843</option>
+                                    <option value="844" >844</option>
+                                    <option value="845" >845</option>
+                                    <option value="846" >846</option>
+                                    <option value="847" >847</option>
+                                    <option value="848" >848</option>
+                                    <option value="849" >849</option>
+                                    <option value="850" >850</option>
+             </select>
+            </div>
+
+            <script>
+            // if less than 7000
+            $('#credittype').change(function(){
+                var sel_value=$(this).val();
+                
+            if(sel_value<700)
+            {
+            	jQuery.colorbox({href:'https://www.biz2credit.com/components/com_financialnew/betterqualified.php', iframe:true, open:true, width:"50%", height:590})
+               $('#ifless700').show();
+            }
+            else{
+               $('#ifless700').hide();
+            }
+            })
+            </script>
+
+            <div id="ifless700" style="display:none" class="rw_lin clearfix">  
+             <h4>Reason for your low credit score:<span>*</span><em>(Check all that apply)</em></h4>
+                      <ul class="low_creditop">
+                                    <li>
+                          <input type="checkbox" name="chk_reason[]" id="chk_reason1" value="14"  class="reset">
+                          <label>A lot of inquiries</label>
+                        </li>
+                                    <li>
+                          <input type="checkbox" name="chk_reason[]" id="chk_reason2" value="4"  class="reset">
+                          <label>High credit card balances due to business expenses</label>
+                        </li>
+                                    <li>
+                          <input type="checkbox" name="chk_reason[]" id="chk_reason3" value="3"  class="reset">
+                          <label>High credit card balances due to personal expenses</label>
+                        </li>
+                                    <li>
+                          <input type="checkbox" name="chk_reason[]" id="chk_reason4" value="15"  class="reset">
+                          <label>I don't know</label>
+                        </li>
+                                    <li>
+                          <input type="checkbox" name="chk_reason[]" id="chk_reason5" value="7"  class="reset">
+                          <label>Incorrect items on credit report</label>
+                        </li>
+                                    <li>
+                          <input type="checkbox" name="chk_reason[]" id="chk_reason6" value="8"  class="reset">
+                          <label>Judgments</label>
+                        </li>
+                                    <li>
+                          <input type="checkbox" name="chk_reason[]" id="chk_reason7" value="2"  class="reset">
+                          <label>Late on credit cards</label>
+                        </li>
+                                    <li>
+                          <input type="checkbox" name="chk_reason[]" id="chk_reason8" value="1"  class="reset">
+                          <label>Late on mortgage</label>
+                        </li>
+                                    <li>
+                          <input type="checkbox" name="chk_reason[]" id="chk_reason9" value="10"  class="reset">
+                          <label>Late on personal loans</label>
+                        </li>
+                                    <li>
+                          <input type="checkbox" name="chk_reason[]" id="chk_reason10" value="11"  class="reset">
+                          <label>No credit history</label>
+                        </li>
+                                    <li>
+                          <input type="checkbox" name="chk_reason[]" id="chk_reason11" value="5"  class="reset">
+                          <label>Personal bankruptcy more than 7 years ago</label>
+                        </li>
+                                    <li>
+                          <input type="checkbox" name="chk_reason[]" id="chk_reason12" value="9"  class="reset">
+                          <label>Personally guaranteed a loan that defaulted</label>
+                        </li>
+                                    <li>
+                          <input type="checkbox" name="chk_reason[]" id="chk_reason13" value="13"  class="reset">
+                          <label>Recent foreclosure</label>
+                        </li>
+                                    <li>
+                          <input type="checkbox" name="chk_reason[]" id="chk_reason14" value="6"  class="reset">
+                          <label>Recent Personal Bankruptcy</label>
+                        </li>
+                                    <li>
+                          <input type="checkbox" name="chk_reason[]" id="chk_reason15" value="12"  class="reset">
+                          <label>Tax liens</label>
+                        </li>
+                                  </ul>
+            </div>
+
+            </div><!-- bus info bx--></div>
+
+
+            <div class="rwfil"><!-- bus info bx--><div id="crdscrNo" class="showfilds_bx">
+            <div class="rw_lin clearfix">  
+            <span class="prg">Check your credit score for free from Transunion. An accurate credit score increases loan approval by 70%, gets lower interest rate and results in 
+            faster funding. The soft pull will not impact your credit score. <a class='inline' href="#credScr">Click here to authorize and pull the credit score</a>.</span>
+
+            <!--Credit score--><div style='display:none'>
+            		<div id='credScr' style='padding:10px; background:#fff;'>
+            		<div class="titad">Please fill all rquired Fields:</div>
+                    <div class="titad_fld">
+                    <input type="text" name="fname" class="IN3" id="fname"  title="First Name"  placeholder="First Name" />
+                    <input type="text" name="mname" class="IN3" id="mname"  title="Middle Name"  placeholder="Middle Name" />
+                    <input type="text" name="lname" class="IN3" id="lname"  title="Last Name"  placeholder="Last Name" />
+                    <input type="text" name="hsn" class="IN3" id="hsn"  title="Home Street Number"  placeholder="Home Street Number" />
+                    <input type="text" name="hsa" class="IN3" id="hsa"  title="Home Street Address"  placeholder="Home Street Address" />
+                    
+                    <select name="" class="IN3b" title="Select State" >
+              <option>Select State</option>
+            </select>
+              <select name="" class="IN3b" title="Select City" >
+              <option>Select City</option>
+            </select>
+                    <input type="text" name="zcod" class="IN3" id="zcod"  title="Zipcode"  placeholder="Zipcode" /> 
+                    <input type="text" name="lbname" class="IN3 dat" id="lbname"   title="Date of Birth - Month"  placeholder="Date of Birth - Month" />
+                    <input type="text" name="ssn" class="IN3" id="ssn"   title="Social Security Number (SSN)"  placeholder="Social Security Number (SSN)" />
+            </div>
+            <div class="titad_btn"><input name="next" type="submit" id="next" value="Submit"  class="BTgren"></div>
+
+            			
+            </div>
+            </div><!--Credit score end-->
+
+
+            </div>
+
+            </div><!-- bus info bx--></div>
+
+
+
+            </div></div>
+
+
+
+
+            </div></article>
+
+            <article id="aplicn_btm"><div class="warps">
+            <div class="coln">
+             <input name="" type="submit" data-role="backbutton" value="Back" class="BTgry">
+            <input name="" type="submit" data-role="button" value="Save &amp; Exit" class="BTgry">
+                <input name="next" type="submit" data-role="button" data-bind ="click:loanAppFPpage" id="next" value="Next"  class="BTgren">
+            </div>
+            </div></article>
+
+
+            </form> 
+            </section>
+    </div>
+    <div data-role="footer">
+    <div data-role="navbar" class="documentClick">
+        <a href="views/documents.html" data-role="button">
+            <img src="styles/images/ic_launcher.png"><span>Documents</span>
+        </a>
+    </div>
+    </div>
+</div>

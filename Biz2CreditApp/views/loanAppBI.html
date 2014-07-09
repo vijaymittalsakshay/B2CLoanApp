@@ -13,7 +13,7 @@
             <article id="aplicn_tp">
                 <div class="warps clearfix">
                     <ul class="app_nav">
-                        <li class="dn activ"><span>Business Information</span></li>
+                        <li class="activ"><span>Business Information</span></li>
                         <li ><span>Contact Information</span></li>
                         <li><span>Personal Information</span></li>
                         <li><span>Financing Preferences</span></li>
@@ -33,7 +33,8 @@
         <div class="rwfil clearfix">
         <div class="rw_lin clearfix"><p><input type="text" class="IN1 ipsm1"  name="stno"  id="stno" title="Street No."  placeholder="Street No." required /></p>
         <p><input type="text" class="IN1 ipsm3"  name="sname" id="sname" title="Street Name"  placeholder="Street Name" required /></p>
-        <p><input type="text" class="IN1 ipsm3" name="aptsui" id="aptsui" title="Apt/Suite/Unit"  placeholder="Apt/Suite/Unit" required /></p><br>
+        <p><input type="text" class="IN1 ipsm3" name="aptsui" id="aptsui" title="Apt/Suite/Unit"  placeholder="Apt/Suite/Unit" required /></p>
+         <p class="LargePhone"><input type="text" placeholder="Mobile Number" id="businessphone" name="businessphone" class="IN1 ipsm1 smphone valid" original-title="Mobile Number" value="111-111-1111" maxlength="10"> </p><br>
         </div>
 
         <div class="rw_lin clearfix">
@@ -146,12 +147,8 @@
         </select>
 
         </p>
-        <a href="#" class="que_hint flf">&nbsp;</a>
-        <div class="tooltip">
-        <span class="tpar"></span>
-        <div><h6>Industry</h6>
-        <p>Find the industry and sub-industry that best describe your business. Classification is based on the North American Industry Classification System</p>
-        </div></div>
+        <a class="que_hint flf" title="<div class='tooltip'><span class='tpar'</span><div><h6>Industry</h6><p>Find the industry and sub-industry that best describe your business. Classification is based on the North American Industry Classification System</p></div></div>">&nbsp;</a>
+        
 
         <p><select name="orgcategory" id="orgcategory" class="IN5"    title='Select Sub Industry'  required>
         <option value="">Select Sub Industry</option>
@@ -522,7 +519,7 @@
 
 
         <div class="rw_lin clearfix"> 
-        <a href="javascript:;" class="add_oth"  onClick="addInput();" >Add Another Loan</a>
+        <a id="add-form" class="add_oth" href="javascript:;">Add Another Loan</a>
         </div>
 
 
@@ -577,7 +574,8 @@
 
         <article id="aplicn_btm"><div class="warps">
         <div class="coln">
-        <input name="" type="submit" data-role="button" value="Save &amp; Exit" class="BTgry"> <input name="next" type="submit" id="next" data-role="button" data-bind ="click:loanAppCIpage" value="Next"  class="BTgren">
+        <input name="" type="submit" data-role="button" value="Save &amp; Exit" class="BTgry">
+        <input name="next" type="submit" id="next" data-role="button" data-bind ="click:loanAppCIpage" value="Next"  class="BTgren">
         </div>
         </div></article>
 

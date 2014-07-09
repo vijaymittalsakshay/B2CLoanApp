@@ -12,8 +12,10 @@
 
     
             //$(".reld_info").tooltip({ effect: 'slide', position: 'bottom center'});
-            //$(".que_hint").tooltip({ effect: 'slide', position: 'bottom center'});
-
+           // $(".que_hint").tooltip({ effect: 'slide', position: 'bottom center'});
+            $(".que_hint").kendoTooltip({
+            	autoHide: false
+            });
             // menu 
             $('.subms').hide();
             $('.subnv ').click(function(){	$(".subms").slideToggle(300);  	$('.subnv').toggleClass( "act" );  });
@@ -39,7 +41,10 @@
             });*/
 
             $('.own2').hide();
-            $('.admr').click(function(){	$('.own2').show();   });
+            $('.admr').click(function(){	
+                $('.own2').show(); 
+                $('.addbtns').hide();
+            });
 
 
 			/*--------------function for select--------------*/
@@ -132,10 +137,108 @@
             	$('#crdscrNo').hide();
             }
             });
+            $('.tpar').click(function(){
+                alert('debug');
+                
+            });
+            
+            
+
+	var addForm = $("#add-form");
+	var index = 0;
+	addForm.on("click", function() {
+        alert('debug');
+ 		var form = app.loansetting.viewModel.getForm(++index);
+		$('#totbusinessDebtYesDiv').val(index);
+		 var tot= parseInt($('#currntControl').val())+1;
+		$('#currntControl').val(tot);
+		$("#debtwrapper").append(form);
+ 		
+		$("#debttype"+index).rules("add", {
+			required: true,
+			messages: {
+				required: "This value is required"
+			}
+		});
+		$("#yeardisbursed"+index).rules("add", {
+			required: true,
+			messages: {
+				required: "This value is required"
+			}
+		});
+		totalOutstanding=0;
+		 
+		
+ 		$("#remove-form"+index).on("click", function() {
+			var currentIndex = $(this).data( "index" );
+			$("#debt" + currentIndex).remove();
+			$("#loan_" + currentIndex).remove();
+ 			$('#currntControl').val($('#currntControl').val()-1);
+			divId.push(currentIndex);
+			$('#deleteIds').val(divId);
+			
+			
+			if(parseInt($('#currntControl').val())==0) {
+				$("#debttype").prop("checked", false); 
+				$('#outsta_debt').hide();
+			}
+		});
+	});
+		 
+		
+		if($("#orgname").length > 0) {
+		$("#orgname").autocomplete("./dnb-serverexe.php?task=dnbbankrecord");
+			$("#orgname").result(function(event, data, formatted) {
+			if(data) {
+ 				getCompInfoData(data[1]);
+				
+  			}
+			});
+			
+			
+		}
         },
         loanAppCIpage:function()
         {
              apps.navigate("views/loanAppCI.html");
+        },
+        loanAppPIpage:function()
+        {
+            apps.navigate("views/loanAppPI.html");
+        },
+        loanAppFPpage:function()
+        {
+            apps.navigate("views/loanAppFP.html");
+        },
+        getForm:function(index, action)
+        {
+            return $('\
+			<div class="rw_lin addons clearfix" id="debt'+ index+'">\
+			<p class="imp40">\
+			'+app.loansetting.viewModel.createDebtType(index)+'\
+			</p>\
+			<p class="imp40">\
+				'+app.loansetting.viewModel.createYear(index)+'\
+			</p>\
+ 			 <p><a class="rem_col" href="javascript:void(0);" id="remove-form' + index + '" data-index="' + index + '">Remove</a></p>\
+ 			 </div>\
+			 <div id="loan_'+index+'"></div>\
+		');
+        },
+        createDebtType:function(NumOfDiv) {
+            var str='';
+            str = "<select name='debttype"+NumOfDiv+"' class='IN5 debtclass' title='Select Debt Type' id='debttype"+NumOfDiv+"' onChange='javascript:createInput(this.value, "+NumOfDiv +")' title='Select Debt Type'><option value=''>Select Debt Type</option><option value='Business Credit Card'>Business Credit Card</option><option value='Cash Advance'>Cash Advance</option><option value='Line of credit'>Line of credit</option><option value='Term loan'>Term loan</option></select>";
+            return str;
+        },
+        createYear:function(yearid) {
+            var str;
+            str ="<select name='yeardisbursed"+yearid+"' id='yeardisbursed"+yearid+"' title='Select Disbursed Year' class='IN5'>";
+            str +='<option value="">Select Disbursed Year</option>';
+            for(i=1970; i<=2020;i++) {
+            str +='<option value='+i+'>'+i+'</option>';
+            }
+            str +='</select>';
+            return str;
         }
     });
    

@@ -1,9 +1,144 @@
-<!DOCTYPE html>
+<div data-role="view" id="tabstrip-loanapp-bi" data-model="app.loansetting.viewModel" data-show="app.loansetting.viewModel.show">
+    <div data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title">
+                        <div class="logo"><img src="styles/images/bizDoc-logo.png"></div>
+                    </span>
+                    
+                </div>
+            </div>
+    <div  data-role="content">
+        <section>
+        <form id="B2cAppForms" class="cmxform" action="dashboard-application4.html" method="post" novalidate="novalidate">
+        <article id="aplicn_tp">
+        <div class="warps clearfix">
+        <ul class="app_nav">
+        <li class="dn"><a href="dashboard-application.html"><span>Contact Information</span></a></li>
+        <li class="dn"><a href="dashboard-application2.html"><span>Business Information</span></a></li>
+        <li class="dn"><a href="dashboard-application3.html"><span>Personal Information</span></a></li>
+        <li class="activ"><span>Financing Preferences</span></li>
+        </ul>
 
-<html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-    </body>
-</html>
+        </div>
+        </article>
+
+
+        <article id="aplicn_frm"><div class="warps clearfix">
+
+
+        <div class="rws clearfix">
+        <div class="lftitb">Funding Priority</div>
+        <div class="rwfil">
+        <select name="" class="IN1">
+        <option>Select Priority</option>
+        </select>
+
+        </div></div>
+
+        <div class="rws clearfix">
+        <div class="lftitb">Loan Requirement</div>
+        <div class="rwfil">
+        <p><input type="text" name="minloanamont" class="IN4" id="minloanamont"  title="Minimum Loan Amount" placeholder="Minimum Loan Amount" required /></p>
+        <p><input type="text" name="maxloanamont" class="IN4" id="maxloanamont"  title="Maximum Loan Amount" placeholder="Maximum Loan Amount" required /></p>
+
+        </div></div>
+
+
+        <div class="rws clearfix">
+        <div class="lftitb">How do you plan on using the loan?*</div>
+
+
+        <div class="rwfil">
+
+
+        <div class="rw_lin clearfix">  
+        <div class="labl_tx2">Cash Flow Management</div>
+        <div class="rwfilbc">
+        <span><input name="" type="checkbox" value=""> <label>Fulfilling Contracts/Orders</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Payroll Expenses</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Refinancing Debt</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Repairing Equipment</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Other Working Capital</label> </span>
+        </div>
+        </div>
+
+
+
+        <div class="rw_lin clearfix">  
+        <div class="labl_tx2">Marketing/Advertising</div>
+        <div class="rwfilbc">
+        <span><input name="" type="checkbox" value=""> <label>Marketing Materials</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Online Advertising</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Print/TV Advertising</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Web Site Development</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Other Marketing</label> </span>
+        </div>
+        </div>
+
+
+        <div class="rw_lin clearfix">  
+        <div class="labl_tx2">Expansion Plans</div>
+        <div class="rwfilbc">
+        <span><input name="" type="checkbox" value=""> <label>Buying Equipment</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Buying Real-Estate</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Hiring More Employees</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>License or Certification Fees</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Purchasing a Business</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Purchasing Inventory</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Renovation/Build Out</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Other Expansion Plans</label> </span>
+        </div>
+        </div>
+
+
+        <div class="rw_lin clearfix">  
+        <div class="labl_tx2">Startup Plans</div>
+        <div class="rwfilbc">
+        <span><input name="" type="checkbox" value=""> <label>Buying Equipmento</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Buying Real-Estate</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Hiring More Employees</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>License or Certification Fees</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Purchasing a Business</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Purchasing Inventory</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Renovation/Build Out</label> </span>
+        <span><input name="" type="checkbox" value=""> <label>Other Expansion Plans</label> </span>
+        </div>
+        </div>
+
+
+
+        </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+        </div></article>
+
+        <article id="aplicn_btm"><div class="warps">
+        <div class="coln">
+         <input name="" type="submit" data-role="backbutton" value="Back" class="BTgry">   
+        <input name="" type="submit" data-role="button" value="Save &amp; Exit" class="BTgry">
+        <input name="next" type="submit" id="next" value="Next" data-role="button"  class="BTgren">
+        </div>
+        </div></article>
+
+
+        </form> 
+        </section>
+    </div>
+    <div data-role="footer">
+    <div data-role="navbar" class="documentClick">
+        <a href="views/documents.html" data-role="button">
+            <img src="styles/images/ic_launcher.png"><span>Documents</span>
+        </a>
+    </div>
+    </div>
+</div>
