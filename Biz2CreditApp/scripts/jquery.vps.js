@@ -55,7 +55,7 @@ else{
 
 /*--------------function for select end-------------*/
 /*--------------function for radio--------------*/
-$('.se_radio').live("change", function(){
+$('.se_radio').click(function(){
     var sel_value=$(this).val();
 if(sel_value==1){
    $('#credit_show').show();
@@ -68,7 +68,7 @@ else{
 
 // credit card accpted
 
-$('.crditaccep').live("change", function(){
+$('.crditaccep').click(function(){
     alert('debug');
     var sel_value=$(this).val();
 if(sel_value==1){

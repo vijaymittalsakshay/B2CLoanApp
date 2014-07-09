@@ -1,9 +1,701 @@
-<!DOCTYPE html>
+<div data-role="view" id="tabstrip-loanapp-bi" data-model="app.loansetting.viewModel" data-show="app.loansetting.viewModel.show">
+    <div data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title">
+                        <div class="logo"><img src="styles/images/bizDoc-logo.png"></div>
+                    </span>
+                    
+                </div>
+            </div>
+    <div  data-role="content">
+        <section>
+<form id="B2cAppForms" class="cmxform" action="dashboard-application2.html" method="post" novalidate="novalidate">
+<article id="aplicn_tp">
+<div class="warps clearfix">
+<ul class="app_nav">
+<li ><span>Business Information</span></li>
+<li class="activ"><span>Contact Information</span></li>
+<li><span>Personal Information</span></li>
+<li><span>Financing Preferences</span></li>
+</ul>
 
-<html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-    </body>
-</html>
+</div>
+</article>
+  
+  
+<article id="aplicn_frm"><div class="warps clearfix">
+
+<!-- first owner--><div class="row_owner">
+<div class="rws rw1 clearfix">
+<div class="lftit">Applicant/Owner</div>
+<div class="rwfil aut clearfix">
+
+<p><input type="text" class="IN1" name="firstname" id="firstname" title="First Name" placeholder="First Name" required /></p>
+
+<p><input type="text" class="IN1" name="lastname" id="lastname" title="Last Name" placeholder="Last Name" required /></p>
+</div></div>
+
+<div class="rws rw2 clearfix">
+<div class="lftit">Home Address</div>
+<div class="rwfil aut clearfix">
+<p><input type="text" class="IN1 ipsm1"  name="stno"  id="stno" title="Street No."  placeholder="Street No." required /></p>
+<p><input type="text" class="IN1 ipsm3"  name="sname" id="sname" title="Street Name"  placeholder="Street Name" required /></p>
+<p><input type="text" class="IN1 ipsm4" name="aptsui" id="aptsui" title="Apt/Suite/Unit"  placeholder="Apt/Suite/Unit" required /></p><br>
+
+<p><select class="IN1b ipsm3" name="state_user"  id="state_user"  title="Select State"  onchange="displayCity_user( this.value,'');" required>
+<option value="">Select State</option>
+<option value="1">Alabama</option>
+<option value="2">Alaska</option>
+<option value="4">Arizona</option>
+<option value="5">Arkansas</option>
+<option value="9">California</option>
+<option value="10">Colorado</option>
+<option value="11">Connecticut</option>
+<option value="12">Delaware</option>
+<option value="13">District of Columbia</option>
+<option value="15">Florida</option>
+<option value="16">Georgia</option>
+<option value="18">Hawaii</option>
+<option value="19">Idaho</option>
+<option value="20">Illinois</option>
+<option value="21">Indiana</option>
+<option value="22">Iowa</option>
+<option value="23">Kansas</option>
+<option value="24">Kentucky</option>
+<option value="25">Louisiana</option>
+<option value="26">Maine</option>
+<option value="28">Maryland</option>
+<option value="29">Massachusetts</option>
+<option value="30">Michigan</option>
+<option value="31">Minnesota</option>
+<option value="32">Mississippi</option>
+<option value="33">Missouri</option>
+<option value="34">Montana</option>
+<option value="35">Nebraska</option>
+<option value="36">Nevada</option>
+<option value="37">New Hampshire</option>
+<option value="38">New Jersey</option>
+<option value="39">New Mexico</option>
+<option value="40">New York</option>
+<option value="41">North Carolina</option>
+<option value="42">North Dakota</option>
+<option value="44">Ohio</option>
+<option value="45">Oklahoma</option>
+<option value="46">Oregon</option>
+<option value="47">Pennsylvania</option>
+<option value="48">Puerto Rico</option>
+<option value="49">Rhode Island</option>
+<option value="50">South Carolina</option>
+<option value="51">South Dakota</option>
+<option value="52">Tennessee</option>
+<option value="53">Texas</option>
+<option value="54">Utah</option>
+<option value="55">Vermont</option>
+<option value="102">Virgin Islands</option>
+<option value="57">Virginia</option>
+<option value="58">Washington</option>
+<option value="60">West Virginia</option>
+<option value="61">Wisconsin</option>
+<option value="62">Wyoming</option>
+</select></p>
+
+<p><select title="Select City" class="IN1b ipsm3" id="cmbCity_user" name="cmbCity_user" required>
+<option value="">Select City</option><option value="984">Adona</option><option value="985">Alexander</option><option value="1179">Alicia</option><option value="1387">Alix</option><option value="911">Alleene</option><option value="1422">Alma</option><option value="986">Almyra</option><option value="1297">Alpena</option><option value="950">Alpine</option><option value="987">Altheimer</option><option value="1388">Altus</option><option value="988">Amagon</option><option value="951">Amity</option><option value="952">Antoine</option><option value="953">Arkadelphia</option><option value="848">Arkansas City</option><option value="1117">Armorel</option><option value="1242">Ash Flat</option><option value="912">Ashdown</option><option value="1389">Atkins</option><option value="1118">Aubrey</option><option value="989">Augusta</option><option value="990">Austin</option><option value="1346">Avoca</option><option value="991">Bald Knob</option><option value="849">Banks</option><option value="1423">Barling</option><option value="1119">Barton</option><option value="1120">Bassett</option><option value="1240">Batesville</option><option value="992">Bauxite</option><option value="1180">Bay</option><option value="880">Bearden</option><option value="1298">Beaver</option><option value="994">Bee Branch</option><option value="993">Beebe</option><option value="1181">Beech Grove</option><option value="995">Beedeville</option><option value="881">Beirne</option><option value="1348">Bella Vista</option><option value="1390">Belleville</option><option value="913">Ben Lomond</option><option value="996">Benton</option><option value="1347">Bentonville</option><option value="1299">Bergman</option><option value="1300">Berryville</option><option value="1243">Bexar</option><option value="1301">Big Flat</option><option value="997">Bigelow</option><option value="1182">Biggers</option><option value="998">Biscoe</option><option value="954">Bismarck</option><option value="1183">Black Oak</option><option value="1184">Black Rock</option><option value="914">Blevins</option><option value="1391">Blue Mountain</option><option value="882">Bluff City</option><option value="1392">Bluffton</option><option value="1121">Blytheville</option><option value="955">Board Camp</option><option value="1424">Boles</option><option value="956">Bonnerdale</option><option value="1185">Bono</option><option value="1425">Booneville</option><option value="999">Bradford</option><option value="915">Bradley</option><option value="1426">Branch</option><option value="1123">Brickeys</option><option value="1393">Briggsville</option><option value="1000">Brinkley</option><option value="1244">Brockwell</option><option value="1186">Brookland</option><option value="1001">Bryant</option><option value="916">Buckner</option><option value="1302">Bull Shoals</option><option value="1124">Burdette</option><option value="1002">Cabot</option><option value="957">Caddo Gap</option><option value="1125">Caldwell</option><option value="917">Cale</option><option value="1245">Calico Rock</option><option value="883">Calion</option><option value="879">Camden</option><option value="1246">Camp</option><option value="1349">Canehill</option><option value="1187">Caraway</option><option value="1003">Carlisle</option><option value="884">Carthage</option><option value="1004">Casa</option><option value="1188">Cash</option><option value="1005">Casscoe</option><option value="1247">Cave City</option><option value="1350">Cave Springs</option><option value="1427">Cecil</option><option value="1428">Cedarville</option><option value="1006">Center Ridge</option><option value="1351">Centerton</option><option value="1394">Centerville</option><option value="1429">Charleston</option><option value="1248">Charlotte</option><option value="1251">Cherokee Village</option><option value="1126">Cherry Valley</option><option value="1430">Chester</option><option value="885">Chidester</option><option value="1007">Choctaw</option><option value="1008">Clarendon</option><option value="1127">Clarkedale</option><option value="1303">Clarkridge</option><option value="1395">Clarksville</option><option value="1009">Cleveland</option><option value="1010">Clinton</option><option value="1396">Coal Hill</option><option value="1027">College Station</option><option value="1128">Colt</option><option value="918">Columbus</option><option value="1352">Combs</option><option value="1304">Compton</option><option value="1249">Concord</option><option value="1011">Conway</option><option value="1250">Cord</option><option value="1189">Corning</option><option value="1305">Cotter</option><option value="1012">Cotton Plant</option><option value="958">Cove</option><option value="1013">Coy</option><option value="1129">Crawfordsville</option><option value="1014">Crocketts Bluff</option><option value="850">Crossett</option><option value="1130">Crumrod</option><option value="886">Curtis</option><option value="1252">Cushman</option><option value="1015">Damascus</option><option value="1397">Danville</option><option value="1398">Dardanelle</option><option value="1190">Datto</option><option value="919">De Queen</option><option value="1017">De Valls Bluff</option><option value="1018">De Witt</option><option value="1353">Decatur</option><option value="1306">Deer</option><option value="1191">Delaplaine</option><option value="1399">Delaware</option><option value="959">Delight</option><option value="1192">Dell</option><option value="1307">Dennard</option><option value="851">Dermott</option><option value="1016">Des Arc</option><option value="1253">Desha</option><option value="1308">Diamond City</option><option value="1019">Diaz</option><option value="920">Dierks</option><option value="921">Doddridge</option><option value="1254">Dolph</option><option value="960">Donaldson</option><option value="1400">Dover</option><option value="1255">Drasco</option><option value="1131">Driver</option><option value="852">Dumas</option><option value="1431">Dyer</option><option value="1132">Dyess</option><option value="1133">Earle</option><option value="1020">Edgemont</option><option value="1134">Edmondson</option><option value="1193">Egypt</option><option value="887">El Dorado</option><option value="1021">El Paso</option><option value="1135">Elaine</option><option value="1256">Elizabeth</option><option value="1354">Elkins</option><option value="1355">Elm Springs</option><option value="888">Emerson</option><option value="922">Emmet</option><option value="1022">England</option><option value="1023">Enola</option><option value="1024">Ethel</option><option value="1194">Etowah</option><option value="853">Eudora</option><option value="1309">Eureka Springs</option><option value="1356">Evansville</option><option value="1257">Evening Shade</option><option value="1310">Everton</option><option value="1056">Fairfield Bay</option><option value="1357">Farmington</option><option value="1345">Fayetteville</option><option value="1258">Fifty Six</option><option value="1195">Fisher</option><option value="1311">Flippin</option><option value="1259">Floral</option><option value="889">Fordyce</option><option value="923">Foreman</option><option value="1136">Forrest City</option><option value="1421">Fort Smith</option><option value="924">Fouke</option><option value="854">Fountain Hill</option><option value="1025">Fox</option><option value="1260">Franklin</option><option value="1137">Frenchmans Bayou</option><option value="961">Friendship</option><option value="925">Fulton</option><option value="1261">Gamaliel</option><option value="1358">Garfield</option><option value="926">Garland City</option><option value="1026">Garner</option><option value="1312">Gassville</option><option value="1359">Gateway</option><option value="927">Genoa</option><option value="1360">Gentry</option><option value="1262">Gepp</option><option value="1313">Gilbert</option><option value="1028">Gillett</option><option value="928">Gillham</option><option value="1138">Gilmore</option><option value="1263">Glencoe</option><option value="962">Glenwood</option><option value="1139">Goodwin</option><option value="1361">Goshen</option><option value="1122">Gosnell</option><option value="855">Gould</option><option value="856">Grady</option><option value="963">Grannis</option><option value="1029">Grapevine</option><option value="1401">Gravelly</option><option value="1362">Gravette</option><option value="1314">Green Forest</option><option value="1030">Greenbrier</option><option value="1363">Greenland</option><option value="1196">Greenway</option><option value="1432">Greenwood</option><option value="1031">Gregory</option><option value="1032">Griffithville</option><option value="1197">Grubbs</option><option value="1264">Guion</option><option value="890">Gurdon</option><option value="1033">Guy</option><option value="1433">Hackett</option><option value="1402">Hagarville</option><option value="857">Hamburg</option><option value="891">Hampton</option><option value="1265">Hardy</option><option value="892">Harrell</option><option value="1315">Harriet</option><option value="1198">Harrisburg</option><option value="1296">Harrison</option><option value="1434">Hartford</option><option value="1403">Hartman</option><option value="1404">Harvey</option><option value="1316">Hasty</option><option value="964">Hatfield</option><option value="1034">Hattieville</option><option value="1405">Havana</option><option value="1140">Haynes</option><option value="1035">Hazen</option><option value="1266">Heber Springs</option><option value="1406">Hector</option><option value="1141">Helena</option><option value="1267">Henderson</option><option value="1036">Hensley</option><option value="858">Hermitage</option><option value="1142">Heth</option><option value="1037">Hickory Plains</option><option value="1143">Hickory Ridge</option><option value="1038">Higden</option><option value="1039">Higginson</option><option value="1364">Hindsville</option><option value="1365">Hiwasse</option><option value="1040">Holly Grove</option><option value="910">Hope</option><option value="929">Horatio</option><option value="1241">Horseshoe Bend</option><option value="948">Hot Springs National Park</option><option value="949">Hot Springs Village</option><option value="1041">Houston</option><option value="1199">Hoxie</option><option value="1144">Hughes</option><option value="1042">Humnoke</option><option value="1043">Humphrey</option><option value="1044">Hunter</option><option value="1435">Huntington</option><option value="1366">Huntsville</option><option value="893">Huttig</option><option value="1268">Ida</option><option value="1200">Imboden</option><option value="894">Ivan</option><option value="1045">Jacksonport</option><option value="1046">Jacksonville</option><option value="1317">Jasper</option><option value="1047">Jefferson</option><option value="859">Jersey</option><option value="1048">Jerusalem</option><option value="965">Jessieville</option><option value="1367">Johnson</option><option value="1145">Joiner</option><option value="1062">Jones Mill</option><option value="1178">Jonesboro</option><option value="1049">Judsonia</option><option value="895">Junction City</option><option value="1146">Keiser</option><option value="1050">Kensett</option><option value="1051">Keo</option><option value="860">Kingsland</option><option value="1368">Kingston</option><option value="966">Kirby</option><option value="1201">Knobel</option><option value="1407">Knoxville</option><option value="1147">La Grange</option><option value="1202">Lafe</option><option value="1203">Lake City</option><option value="861">Lake Village</option><option value="1318">Lakeview</option><option value="1408">Lamar</option><option value="1148">Lambrook</option><option value="930">Laneburg</option><option value="967">Langley</option><option value="1436">Lavaca</option><option value="896">Lawson</option><option value="1204">Leachville</option><option value="1319">Lead Hill</option><option value="1052">Leola</option><option value="1149">Lepanto</option><option value="1320">Leslie</option><option value="1053">Letona</option><option value="931">Lewisville</option><option value="1150">Lexa</option><option value="1205">Light</option><option value="1369">Lincoln</option><option value="1115">Little Rock</option><option value="1057">Little Rock Air Force Base</option><option value="932">Lockesburg</option><option value="1269">Locust Grove</option><option value="1409">London</option><option value="1054">Lonoke</option><option value="1055">Lonsdale</option><option value="897">Louann</option><option value="1370">Lowell</option><option value="1151">Luxora</option><option value="1206">Lynn</option><option value="1060">Mabelvale</option><option value="1152">Madison</option><option value="1437">Magazine</option><option value="1270">Magness</option><option value="899">Magnolia</option><option value="1061">Malvern</option><option value="1271">Mammoth Spring</option><option value="1208">Manila</option><option value="1438">Mansfield</option><option value="1321">Marble Falls</option><option value="1272">Marcella</option><option value="1153">Marianna</option><option value="1154">Marion</option><option value="1155">Marked Tree</option><option value="1209">Marmaduke</option><option value="1322">Marshall</option><option value="1156">Marvell</option><option value="1069">Maumelle</option><option value="1063">Mayflower</option><option value="1210">Maynard</option><option value="1371">Maysville</option><option value="933">Mc Caskill</option><option value="1058">Mc Crory</option><option value="1207">Mc Dougal</option><option value="862">Mc Gehee</option><option value="898">Mc Neil</option><option value="1059">Mc Rae</option><option value="1273">Melbourne</option><option value="1157">Mellwood</option><option value="968">Mena</option><option value="1064">Menifee</option><option value="1439">Midland</option><option value="1323">Midway</option><option value="934">Mineral Springs</option><option value="1211">Minturn</option><option value="1212">Monette</option><option value="1065">Monroe</option><option value="863">Monticello</option><option value="864">Montrose</option><option value="1158">Moro</option><option value="1066">Morrilton</option><option value="1372">Morrow</option><option value="865">Moscow</option><option value="900">Mount Holly</option><option value="970">Mount Ida</option><option value="1325">Mount Judea</option><option value="1275">Mount Pleasant</option><option value="1067">Mount Vernon</option><option value="1324">Mountain Home</option><option value="969">Mountain Pine</option><option value="1274">Mountain View</option><option value="1440">Mountainburg</option><option value="1441">Mulberry</option><option value="971">Murfreesboro</option><option value="935">Nashville</option><option value="1442">Natural Dam</option><option value="1410">New Blaine</option><option value="866">New Edinburg</option><option value="1276">Newark</option><option value="972">Newhope</option><option value="1068">Newport</option><option value="1327">Norfork</option><option value="973">Norman</option><option value="901">Norphlet</option><option value="1070">North Little Rock</option><option value="1213">O Kean</option><option value="1328">Oak Grove</option><option value="1329">Oakland</option><option value="1411">Oark</option><option value="974">Oden</option><option value="936">Ogden</option><option value="1277">Oil Trough</option><option value="975">Okolona</option><option value="1412">Ola</option><option value="1330">Omaha</option><option value="1159">Oneida</option><option value="1331">Onia</option><option value="1160">Osceola</option><option value="1278">Oxford</option><option value="938">Ozan</option><option value="1443">Ozark</option><option value="1413">Ozone</option><option value="1161">Palestine</option><option value="1072">Pangburn</option><option value="1214">Paragould</option><option value="1414">Paris</option><option value="867">Parkdale</option><option value="1162">Parkin</option><option value="1444">Parks</option><option value="1073">Paron</option><option value="1332">Parthenon</option><option value="1074">Patterson</option><option value="1373">Pea Ridge</option><option value="1215">Peach Orchard</option><option value="976">Pearcy</option><option value="1333">Peel</option><option value="1415">Pelsor</option><option value="977">Pencil Bluff</option><option value="1075">Perry</option><option value="1076">Perryville</option><option value="1374">Pettigrew</option><option value="868">Pickens</option><option value="1216">Piggott</option><option value="1334">Pindall</option><option value="846">Pine Bluff</option><option value="1279">Pineville</option><option value="1416">Plainview</option><option value="1280">Pleasant Grove</option><option value="1281">Pleasant Plains</option><option value="1077">Plumerville</option><option value="1217">Pocahontas</option><option value="1218">Pollard</option><option value="1335">Ponca</option><option value="1163">Poplar Grove</option><option value="1219">Portia</option><option value="869">Portland</option><option value="1417">Pottsville</option><option value="1282">Poughkeepsie</option><option value="1220">Powhatan</option><option value="1078">Poyen</option><option value="1375">Prairie Grove</option><option value="1079">Prattsville</option><option value="939">Prescott</option><option value="1080">Prim</option><option value="1164">Proctor</option><option value="1336">Pyatt</option><option value="1081">Quitman</option><option value="1445">Ratcliff</option><option value="1221">Ravenden</option><option value="1222">Ravenden Springs</option><option value="1223">Rector</option><option value="1082">Redfield</option><option value="1083">Reydell</option><option value="1224">Reyno</option><option value="870">Rison</option><option value="1165">Rivervale</option><option value="1084">Roe</option><option value="1376">Rogers</option><option value="1085">Roland</option><option value="1086">Romance</option><option value="1087">Rose Bud</option><option value="1283">Rosie</option><option value="940">Rosston</option><option value="1418">Rover</option><option value="978">Royal</option><option value="1446">Rudy</option><option value="1088">Russell</option><option value="1386">Russellville</option><option value="1284">Saffell</option><option value="1285">Sage</option><option value="1089">Saint Charles</option><option value="1225">Saint Francis</option><option value="1337">Saint Joe</option><option value="1377">Saint Paul</option><option value="1286">Salado</option><option value="1287">Salem</option><option value="941">Saratoga</option><option value="1090">Scotland</option><option value="1091">Scott</option><option value="1419">Scranton</option><option value="1092">Searcy</option><option value="1226">Sedgwick</option><option value="1093">Sheridan</option><option value="1094">Sherrill</option><option value="1071">Sherwood</option><option value="1095">Shirley</option><option value="1288">Sidney</option><option value="1378">Siloam Springs</option><option value="979">Sims</option><option value="902">Smackover</option><option value="1227">Smithville</option><option value="1166">Snow Lake</option><option value="1096">Solgohachia</option><option value="903">Sparkman</option><option value="1379">Springdale</option><option value="1097">Springfield</option><option value="942">Stamps</option><option value="871">Star City</option><option value="1228">State University</option><option value="904">Stephens</option><option value="980">Story</option><option value="1229">Strawberry</option><option value="905">Strong</option><option value="1289">Sturkie</option><option value="1098">Stuttgart</option><option value="1420">Subiaco</option><option value="1230">Success</option><option value="1290">Sulphur Rock</option><option value="1380">Sulphur Springs</option><option value="1381">Summers</option><option value="1338">Summit</option><option value="1099">Sweet Home</option><option value="1231">Swifton</option><option value="943">Taylor</option><option value="937">Texarkana</option><option value="1100">Thida</option><option value="906">Thornton</option><option value="1101">Tichnor</option><option value="872">Tillar</option><option value="1339">Tilly</option><option value="1326">Timbo</option><option value="1382">Tontitown</option><option value="1102">Traskwood</option><option value="1232">Trumann</option><option value="1103">Tucker</option><option value="1233">Tuckerman</option><option value="1291">Tumbling Shoals</option><option value="1104">Tupelo</option><option value="1167">Turner</option><option value="1168">Turrell</option><option value="1169">Tyronza</option><option value="1105">Ulm</option><option value="981">Umpire</option><option value="1447">Uniontown</option><option value="907">Urbana</option><option value="1340">Valley Springs</option><option value="1448">Van Buren</option><option value="982">Vandervoort</option><option value="1170">Vanndale</option><option value="1341">Vendor</option><option value="1106">Vilonia</option><option value="1292">Viola</option><option value="1293">Violet Hill</option><option value="1171">Wabash</option><option value="1107">Wabbaseka</option><option value="1234">Walcott</option><option value="1235">Waldenburg</option><option value="908">Waldo</option><option value="1449">Waldron</option><option value="1236">Walnut Ridge</option><option value="1108">Ward</option><option value="1237">Warm Springs</option><option value="873">Warren</option><option value="944">Washington</option><option value="874">Watson</option><option value="1238">Weiner</option><option value="1383">Wesley</option><option value="1384">West Fork</option><option value="1172">West Helena</option><option value="1116">West Memphis</option><option value="1109">West Point</option><option value="1173">West Ridge</option><option value="1342">Western Grove</option><option value="1174">Wheatley</option><option value="909">Whelen Springs</option><option value="847">White Hall</option><option value="983">Wickes</option><option value="1294">Wideman</option><option value="1175">Widener</option><option value="1110">Wilburn</option><option value="1239">Williford</option><option value="945">Willisville</option><option value="875">Wilmar</option><option value="876">Wilmot</option><option value="1176">Wilson</option><option value="946">Wilton</option><option value="877">Winchester</option><option value="1450">Winslow</option><option value="947">Winthrop</option><option value="1295">Wiseman</option><option value="1385">Witter</option><option value="1343">Witts Springs</option><option value="1111">Woodson</option><option value="1112">Wooster</option><option value="1113">Wright</option><option value="1114">Wrightsville</option><option value="1177">Wynne</option><option value="1344">Yellville</option><option value="878">Yorktown</option>
+</select></p>
+                                  
+
+<p><input type="text" class="IN1 ipsm1" name="zcode"  id="zcode" title="Zip Code" placeholder="Zip Code" required /></p>
+
+</div></div>
+<div class="clear"></div>
+
+<div class="rws rw2 clearfix">
+<div class="lftit">Date of Birth</div>
+<div class="rwfil aut clearfix">
+<p><select class="IN1b ipsm1" title="Month" name="month" id="month" required>
+<option value="">Month</option>
+             <option value="1">January</option>
+<option value="2">February</option>
+<option value="3">March</option>
+<option value="4">April</option>
+<option value="5">May</option>
+<option value="6">June</option>
+<option value="7">July</option>
+<option value="8">August</option>
+<option value="9">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select></p>
+            
+<p><select class="IN1b ipsm1" title="Day" name="day" id="day" required>
+<option value="">Day</option>
+                            <option value="01">1</option>
+                            <option value="02">2</option>
+                            <option value="03">3</option>
+                            <option value="04">4</option>
+                            <option value="05">5</option>
+                            <option value="06">6</option>
+                            <option value="07">7</option>
+                            <option value="08">8</option>
+                            <option value="09">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+</select></p>
+                          
+<p><select class="IN1b  ipsm1" title="Year" name="year" id="year" required>
+<option value="">Year</option>
+                            <option value="1950">1950</option>
+                            <option value="1951">1951</option>
+                            <option value="1952">1952</option>
+                            <option value="1953">1953</option>
+                            <option value="1954">1954</option>
+                            <option value="1955">1955</option>
+                            <option value="1956">1956</option>
+                            <option value="1957">1957</option>
+                            <option value="1958">1958</option>
+                            <option value="1959">1959</option>
+                            <option value="1960">1960</option>
+                            <option value="1961">1961</option>
+                            <option value="1962">1962</option>
+                            <option value="1963">1963</option>
+                            <option value="1964">1964</option>
+                            <option value="1965">1965</option>
+                            <option value="1966">1966</option>
+                            <option value="1967">1967</option>
+                            <option value="1968">1968</option>
+                            <option value="1969">1969</option>
+                            <option value="1970">1970</option>
+                            <option value="1971">1971</option>
+                            <option value="1972">1972</option>
+                            <option value="1973">1973</option>
+                            <option value="1974">1974</option>
+                            <option value="1975">1975</option>
+                            <option value="1976">1976</option>
+                            <option value="1977">1977</option>
+                            <option value="1978">1978</option>
+                            <option value="1979">1979</option>
+                            <option value="1980">1980</option>
+                            <option value="1981">1981</option>
+                            <option value="1982">1982</option>
+                            <option value="1983">1983</option>
+                            <option value="1984">1984</option>
+                            <option value="1985">1985</option>
+                            <option value="1986">1986</option>
+                            <option value="1987">1987</option>
+                            <option value="1988">1988</option>
+                            <option value="1989">1989</option>
+                            <option value="1990">1990</option>
+                            <option value="1991">1991</option>
+                            <option value="1992">1992</option>
+                            <option value="1993">1993</option>
+                            <option value="1994">1994</option>
+                            <option value="1995">1995</option>
+                            <option value="1996">1996</option>
+                            <option value="1997">1997</option>
+                            <option value="1998">1998</option>
+                            <option value="1999">1999</option>
+                            <option value="2000">2000</option>
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                            <option value="2004">2004</option>
+                            <option value="2005">2005</option>
+                            <option value="2006">2006</option>
+                            <option value="2007">2007</option>
+                            <option value="2008">2008</option>
+                            <option value="2009">2009</option>
+                            <option value="2010">2010</option>
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+</select></p>
+</div></div>
+
+
+
+
+
+
+<div class="rws rw4 clearfix">
+<div class="lftit">Ownership Percentage</div>
+<div class="rwfil aut clearfix">
+<p><select class="IN1b ipsm3" onChange="javascript:showhideownerinfo(this.value)" title="Ownership Percentage"  name="own_percent" id="own_percent" required>
+<option selected="selected" value="">Ownership Percentage</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                                <option value="33">33</option>
+                                <option value="34">34</option>
+                                <option value="35">35</option>
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                                <option value="46">46</option>
+                                <option value="47">47</option>
+                                <option value="48">48</option>
+                                <option value="49">49</option>
+                                <option value="50">50</option>
+                                <option value="51">51</option>
+                                <option value="52">52</option>
+                                <option value="53">53</option>
+                                <option value="54">54</option>
+                                <option value="55">55</option>
+                                <option value="56">56</option>
+                                <option value="57">57</option>
+                                <option value="58">58</option>
+                                <option value="59">59</option>
+                                <option value="60">60</option>
+                                <option value="61">61</option>
+                                <option value="62">62</option>
+                                <option value="63">63</option>
+                                <option value="64">64</option>
+                                <option value="65">65</option>
+                                <option value="66">66</option>
+                                <option value="67">67</option>
+                                <option value="68">68</option>
+                                <option value="69">69</option>
+                                <option value="70">70</option>
+                                <option value="71">71</option>
+                                <option value="72">72</option>
+                                <option value="73">73</option>
+                                <option value="74">74</option>
+                                <option value="75">75</option>
+                                <option value="76">76</option>
+                                <option value="77">77</option>
+                                <option value="78">78</option>
+                                <option value="79">79</option>
+                                <option value="80">80</option>
+                                <option value="81">81</option>
+                                <option value="82">82</option>
+                                <option value="83">83</option>
+                                <option value="84">84</option>
+                                <option value="85">85</option>
+                                <option value="86">86</option>
+                                <option value="87">87</option>
+                                <option value="88">88</option>
+                                <option value="89">89</option>
+                                <option value="90">90</option>
+                                <option value="91">91</option>
+                                <option value="92">92</option>
+                                <option value="93">93</option>
+                                <option value="94">94</option>
+                                <option value="95">95</option>
+                                <option value="96">96</option>
+                                <option value="97">97</option>
+                                <option value="98">98</option>
+                                <option value="99">99</option>
+                                <option value="100">100</option>
+</select></p>
+
+
+</div></div></div><!-- first owner-->
+
+<!-- Second owner--><div class="row_owner onwonwr own2">
+<div class="rws rw1 clearfix">
+<div class="lftit">Second Owner</div>
+<div class="rwfil aut clearfix">
+
+<p><input type="text" class="IN1" name="firstname" id="firstname" title="First Name" placeholder="First Name" required /></p>
+
+<p><input type="text" class="IN1" name="lastname" id="lastname" title="Last Name" placeholder="Last Name" required /></p>
+</div></div>
+
+<div class="rws rw2 clearfix">
+<div class="lftit">Home Address</div>
+<div class="rwfil aut clearfix">
+<p><input type="text" class="IN1 ipsm1"  name="stno"  id="stno" title="Street No."  placeholder="Street No." required /></p>
+<p><input type="text" class="IN1 ipsm3"  name="sname" id="sname" title="Street Name"  placeholder="Street Name" required /></p>
+<p><input type="text" class="IN1 ipsm4" name="aptsui" id="aptsui" title="Apt/Suite/Unit"  placeholder="Apt/Suite/Unit" required /></p><br>
+
+<p><select class="IN1b ipsm3" name="state_user"  id="state_user"  title="Select State"  onchange="displayCity_user( this.value,'');" required>
+<option value="">Select State</option>
+<option value="1">Alabama</option>
+<option value="2">Alaska</option>
+<option value="4">Arizona</option>
+<option value="5">Arkansas</option>
+<option value="9">California</option>
+<option value="10">Colorado</option>
+<option value="11">Connecticut</option>
+<option value="12">Delaware</option>
+<option value="13">District of Columbia</option>
+<option value="15">Florida</option>
+<option value="16">Georgia</option>
+<option value="18">Hawaii</option>
+<option value="19">Idaho</option>
+<option value="20">Illinois</option>
+<option value="21">Indiana</option>
+<option value="22">Iowa</option>
+<option value="23">Kansas</option>
+<option value="24">Kentucky</option>
+<option value="25">Louisiana</option>
+<option value="26">Maine</option>
+<option value="28">Maryland</option>
+<option value="29">Massachusetts</option>
+<option value="30">Michigan</option>
+<option value="31">Minnesota</option>
+<option value="32">Mississippi</option>
+<option value="33">Missouri</option>
+<option value="34">Montana</option>
+<option value="35">Nebraska</option>
+<option value="36">Nevada</option>
+<option value="37">New Hampshire</option>
+<option value="38">New Jersey</option>
+<option value="39">New Mexico</option>
+<option value="40">New York</option>
+<option value="41">North Carolina</option>
+<option value="42">North Dakota</option>
+<option value="44">Ohio</option>
+<option value="45">Oklahoma</option>
+<option value="46">Oregon</option>
+<option value="47">Pennsylvania</option>
+<option value="48">Puerto Rico</option>
+<option value="49">Rhode Island</option>
+<option value="50">South Carolina</option>
+<option value="51">South Dakota</option>
+<option value="52">Tennessee</option>
+<option value="53">Texas</option>
+<option value="54">Utah</option>
+<option value="55">Vermont</option>
+<option value="102">Virgin Islands</option>
+<option value="57">Virginia</option>
+<option value="58">Washington</option>
+<option value="60">West Virginia</option>
+<option value="61">Wisconsin</option>
+<option value="62">Wyoming</option>
+</select></p>
+
+<p><select title="Select City" class="IN1b ipsm3" id="cmbCity_user" name="cmbCity_user" required>
+<option value="">Select City</option><option value="984">Adona</option><option value="985">Alexander</option><option value="1179">Alicia</option><option value="1387">Alix</option><option value="911">Alleene</option><option value="1422">Alma</option><option value="986">Almyra</option><option value="1297">Alpena</option><option value="950">Alpine</option><option value="987">Altheimer</option><option value="1388">Altus</option><option value="988">Amagon</option><option value="951">Amity</option><option value="952">Antoine</option><option value="953">Arkadelphia</option><option value="848">Arkansas City</option><option value="1117">Armorel</option><option value="1242">Ash Flat</option><option value="912">Ashdown</option><option value="1389">Atkins</option><option value="1118">Aubrey</option><option value="989">Augusta</option><option value="990">Austin</option><option value="1346">Avoca</option><option value="991">Bald Knob</option><option value="849">Banks</option><option value="1423">Barling</option><option value="1119">Barton</option><option value="1120">Bassett</option><option value="1240">Batesville</option><option value="992">Bauxite</option><option value="1180">Bay</option><option value="880">Bearden</option><option value="1298">Beaver</option><option value="994">Bee Branch</option><option value="993">Beebe</option><option value="1181">Beech Grove</option><option value="995">Beedeville</option><option value="881">Beirne</option><option value="1348">Bella Vista</option><option value="1390">Belleville</option><option value="913">Ben Lomond</option><option value="996">Benton</option><option value="1347">Bentonville</option><option value="1299">Bergman</option><option value="1300">Berryville</option><option value="1243">Bexar</option><option value="1301">Big Flat</option><option value="997">Bigelow</option><option value="1182">Biggers</option><option value="998">Biscoe</option><option value="954">Bismarck</option><option value="1183">Black Oak</option><option value="1184">Black Rock</option><option value="914">Blevins</option><option value="1391">Blue Mountain</option><option value="882">Bluff City</option><option value="1392">Bluffton</option><option value="1121">Blytheville</option><option value="955">Board Camp</option><option value="1424">Boles</option><option value="956">Bonnerdale</option><option value="1185">Bono</option><option value="1425">Booneville</option><option value="999">Bradford</option><option value="915">Bradley</option><option value="1426">Branch</option><option value="1123">Brickeys</option><option value="1393">Briggsville</option><option value="1000">Brinkley</option><option value="1244">Brockwell</option><option value="1186">Brookland</option><option value="1001">Bryant</option><option value="916">Buckner</option><option value="1302">Bull Shoals</option><option value="1124">Burdette</option><option value="1002">Cabot</option><option value="957">Caddo Gap</option><option value="1125">Caldwell</option><option value="917">Cale</option><option value="1245">Calico Rock</option><option value="883">Calion</option><option value="879">Camden</option><option value="1246">Camp</option><option value="1349">Canehill</option><option value="1187">Caraway</option><option value="1003">Carlisle</option><option value="884">Carthage</option><option value="1004">Casa</option><option value="1188">Cash</option><option value="1005">Casscoe</option><option value="1247">Cave City</option><option value="1350">Cave Springs</option><option value="1427">Cecil</option><option value="1428">Cedarville</option><option value="1006">Center Ridge</option><option value="1351">Centerton</option><option value="1394">Centerville</option><option value="1429">Charleston</option><option value="1248">Charlotte</option><option value="1251">Cherokee Village</option><option value="1126">Cherry Valley</option><option value="1430">Chester</option><option value="885">Chidester</option><option value="1007">Choctaw</option><option value="1008">Clarendon</option><option value="1127">Clarkedale</option><option value="1303">Clarkridge</option><option value="1395">Clarksville</option><option value="1009">Cleveland</option><option value="1010">Clinton</option><option value="1396">Coal Hill</option><option value="1027">College Station</option><option value="1128">Colt</option><option value="918">Columbus</option><option value="1352">Combs</option><option value="1304">Compton</option><option value="1249">Concord</option><option value="1011">Conway</option><option value="1250">Cord</option><option value="1189">Corning</option><option value="1305">Cotter</option><option value="1012">Cotton Plant</option><option value="958">Cove</option><option value="1013">Coy</option><option value="1129">Crawfordsville</option><option value="1014">Crocketts Bluff</option><option value="850">Crossett</option><option value="1130">Crumrod</option><option value="886">Curtis</option><option value="1252">Cushman</option><option value="1015">Damascus</option><option value="1397">Danville</option><option value="1398">Dardanelle</option><option value="1190">Datto</option><option value="919">De Queen</option><option value="1017">De Valls Bluff</option><option value="1018">De Witt</option><option value="1353">Decatur</option><option value="1306">Deer</option><option value="1191">Delaplaine</option><option value="1399">Delaware</option><option value="959">Delight</option><option value="1192">Dell</option><option value="1307">Dennard</option><option value="851">Dermott</option><option value="1016">Des Arc</option><option value="1253">Desha</option><option value="1308">Diamond City</option><option value="1019">Diaz</option><option value="920">Dierks</option><option value="921">Doddridge</option><option value="1254">Dolph</option><option value="960">Donaldson</option><option value="1400">Dover</option><option value="1255">Drasco</option><option value="1131">Driver</option><option value="852">Dumas</option><option value="1431">Dyer</option><option value="1132">Dyess</option><option value="1133">Earle</option><option value="1020">Edgemont</option><option value="1134">Edmondson</option><option value="1193">Egypt</option><option value="887">El Dorado</option><option value="1021">El Paso</option><option value="1135">Elaine</option><option value="1256">Elizabeth</option><option value="1354">Elkins</option><option value="1355">Elm Springs</option><option value="888">Emerson</option><option value="922">Emmet</option><option value="1022">England</option><option value="1023">Enola</option><option value="1024">Ethel</option><option value="1194">Etowah</option><option value="853">Eudora</option><option value="1309">Eureka Springs</option><option value="1356">Evansville</option><option value="1257">Evening Shade</option><option value="1310">Everton</option><option value="1056">Fairfield Bay</option><option value="1357">Farmington</option><option value="1345">Fayetteville</option><option value="1258">Fifty Six</option><option value="1195">Fisher</option><option value="1311">Flippin</option><option value="1259">Floral</option><option value="889">Fordyce</option><option value="923">Foreman</option><option value="1136">Forrest City</option><option value="1421">Fort Smith</option><option value="924">Fouke</option><option value="854">Fountain Hill</option><option value="1025">Fox</option><option value="1260">Franklin</option><option value="1137">Frenchmans Bayou</option><option value="961">Friendship</option><option value="925">Fulton</option><option value="1261">Gamaliel</option><option value="1358">Garfield</option><option value="926">Garland City</option><option value="1026">Garner</option><option value="1312">Gassville</option><option value="1359">Gateway</option><option value="927">Genoa</option><option value="1360">Gentry</option><option value="1262">Gepp</option><option value="1313">Gilbert</option><option value="1028">Gillett</option><option value="928">Gillham</option><option value="1138">Gilmore</option><option value="1263">Glencoe</option><option value="962">Glenwood</option><option value="1139">Goodwin</option><option value="1361">Goshen</option><option value="1122">Gosnell</option><option value="855">Gould</option><option value="856">Grady</option><option value="963">Grannis</option><option value="1029">Grapevine</option><option value="1401">Gravelly</option><option value="1362">Gravette</option><option value="1314">Green Forest</option><option value="1030">Greenbrier</option><option value="1363">Greenland</option><option value="1196">Greenway</option><option value="1432">Greenwood</option><option value="1031">Gregory</option><option value="1032">Griffithville</option><option value="1197">Grubbs</option><option value="1264">Guion</option><option value="890">Gurdon</option><option value="1033">Guy</option><option value="1433">Hackett</option><option value="1402">Hagarville</option><option value="857">Hamburg</option><option value="891">Hampton</option><option value="1265">Hardy</option><option value="892">Harrell</option><option value="1315">Harriet</option><option value="1198">Harrisburg</option><option value="1296">Harrison</option><option value="1434">Hartford</option><option value="1403">Hartman</option><option value="1404">Harvey</option><option value="1316">Hasty</option><option value="964">Hatfield</option><option value="1034">Hattieville</option><option value="1405">Havana</option><option value="1140">Haynes</option><option value="1035">Hazen</option><option value="1266">Heber Springs</option><option value="1406">Hector</option><option value="1141">Helena</option><option value="1267">Henderson</option><option value="1036">Hensley</option><option value="858">Hermitage</option><option value="1142">Heth</option><option value="1037">Hickory Plains</option><option value="1143">Hickory Ridge</option><option value="1038">Higden</option><option value="1039">Higginson</option><option value="1364">Hindsville</option><option value="1365">Hiwasse</option><option value="1040">Holly Grove</option><option value="910">Hope</option><option value="929">Horatio</option><option value="1241">Horseshoe Bend</option><option value="948">Hot Springs National Park</option><option value="949">Hot Springs Village</option><option value="1041">Houston</option><option value="1199">Hoxie</option><option value="1144">Hughes</option><option value="1042">Humnoke</option><option value="1043">Humphrey</option><option value="1044">Hunter</option><option value="1435">Huntington</option><option value="1366">Huntsville</option><option value="893">Huttig</option><option value="1268">Ida</option><option value="1200">Imboden</option><option value="894">Ivan</option><option value="1045">Jacksonport</option><option value="1046">Jacksonville</option><option value="1317">Jasper</option><option value="1047">Jefferson</option><option value="859">Jersey</option><option value="1048">Jerusalem</option><option value="965">Jessieville</option><option value="1367">Johnson</option><option value="1145">Joiner</option><option value="1062">Jones Mill</option><option value="1178">Jonesboro</option><option value="1049">Judsonia</option><option value="895">Junction City</option><option value="1146">Keiser</option><option value="1050">Kensett</option><option value="1051">Keo</option><option value="860">Kingsland</option><option value="1368">Kingston</option><option value="966">Kirby</option><option value="1201">Knobel</option><option value="1407">Knoxville</option><option value="1147">La Grange</option><option value="1202">Lafe</option><option value="1203">Lake City</option><option value="861">Lake Village</option><option value="1318">Lakeview</option><option value="1408">Lamar</option><option value="1148">Lambrook</option><option value="930">Laneburg</option><option value="967">Langley</option><option value="1436">Lavaca</option><option value="896">Lawson</option><option value="1204">Leachville</option><option value="1319">Lead Hill</option><option value="1052">Leola</option><option value="1149">Lepanto</option><option value="1320">Leslie</option><option value="1053">Letona</option><option value="931">Lewisville</option><option value="1150">Lexa</option><option value="1205">Light</option><option value="1369">Lincoln</option><option value="1115">Little Rock</option><option value="1057">Little Rock Air Force Base</option><option value="932">Lockesburg</option><option value="1269">Locust Grove</option><option value="1409">London</option><option value="1054">Lonoke</option><option value="1055">Lonsdale</option><option value="897">Louann</option><option value="1370">Lowell</option><option value="1151">Luxora</option><option value="1206">Lynn</option><option value="1060">Mabelvale</option><option value="1152">Madison</option><option value="1437">Magazine</option><option value="1270">Magness</option><option value="899">Magnolia</option><option value="1061">Malvern</option><option value="1271">Mammoth Spring</option><option value="1208">Manila</option><option value="1438">Mansfield</option><option value="1321">Marble Falls</option><option value="1272">Marcella</option><option value="1153">Marianna</option><option value="1154">Marion</option><option value="1155">Marked Tree</option><option value="1209">Marmaduke</option><option value="1322">Marshall</option><option value="1156">Marvell</option><option value="1069">Maumelle</option><option value="1063">Mayflower</option><option value="1210">Maynard</option><option value="1371">Maysville</option><option value="933">Mc Caskill</option><option value="1058">Mc Crory</option><option value="1207">Mc Dougal</option><option value="862">Mc Gehee</option><option value="898">Mc Neil</option><option value="1059">Mc Rae</option><option value="1273">Melbourne</option><option value="1157">Mellwood</option><option value="968">Mena</option><option value="1064">Menifee</option><option value="1439">Midland</option><option value="1323">Midway</option><option value="934">Mineral Springs</option><option value="1211">Minturn</option><option value="1212">Monette</option><option value="1065">Monroe</option><option value="863">Monticello</option><option value="864">Montrose</option><option value="1158">Moro</option><option value="1066">Morrilton</option><option value="1372">Morrow</option><option value="865">Moscow</option><option value="900">Mount Holly</option><option value="970">Mount Ida</option><option value="1325">Mount Judea</option><option value="1275">Mount Pleasant</option><option value="1067">Mount Vernon</option><option value="1324">Mountain Home</option><option value="969">Mountain Pine</option><option value="1274">Mountain View</option><option value="1440">Mountainburg</option><option value="1441">Mulberry</option><option value="971">Murfreesboro</option><option value="935">Nashville</option><option value="1442">Natural Dam</option><option value="1410">New Blaine</option><option value="866">New Edinburg</option><option value="1276">Newark</option><option value="972">Newhope</option><option value="1068">Newport</option><option value="1327">Norfork</option><option value="973">Norman</option><option value="901">Norphlet</option><option value="1070">North Little Rock</option><option value="1213">O Kean</option><option value="1328">Oak Grove</option><option value="1329">Oakland</option><option value="1411">Oark</option><option value="974">Oden</option><option value="936">Ogden</option><option value="1277">Oil Trough</option><option value="975">Okolona</option><option value="1412">Ola</option><option value="1330">Omaha</option><option value="1159">Oneida</option><option value="1331">Onia</option><option value="1160">Osceola</option><option value="1278">Oxford</option><option value="938">Ozan</option><option value="1443">Ozark</option><option value="1413">Ozone</option><option value="1161">Palestine</option><option value="1072">Pangburn</option><option value="1214">Paragould</option><option value="1414">Paris</option><option value="867">Parkdale</option><option value="1162">Parkin</option><option value="1444">Parks</option><option value="1073">Paron</option><option value="1332">Parthenon</option><option value="1074">Patterson</option><option value="1373">Pea Ridge</option><option value="1215">Peach Orchard</option><option value="976">Pearcy</option><option value="1333">Peel</option><option value="1415">Pelsor</option><option value="977">Pencil Bluff</option><option value="1075">Perry</option><option value="1076">Perryville</option><option value="1374">Pettigrew</option><option value="868">Pickens</option><option value="1216">Piggott</option><option value="1334">Pindall</option><option value="846">Pine Bluff</option><option value="1279">Pineville</option><option value="1416">Plainview</option><option value="1280">Pleasant Grove</option><option value="1281">Pleasant Plains</option><option value="1077">Plumerville</option><option value="1217">Pocahontas</option><option value="1218">Pollard</option><option value="1335">Ponca</option><option value="1163">Poplar Grove</option><option value="1219">Portia</option><option value="869">Portland</option><option value="1417">Pottsville</option><option value="1282">Poughkeepsie</option><option value="1220">Powhatan</option><option value="1078">Poyen</option><option value="1375">Prairie Grove</option><option value="1079">Prattsville</option><option value="939">Prescott</option><option value="1080">Prim</option><option value="1164">Proctor</option><option value="1336">Pyatt</option><option value="1081">Quitman</option><option value="1445">Ratcliff</option><option value="1221">Ravenden</option><option value="1222">Ravenden Springs</option><option value="1223">Rector</option><option value="1082">Redfield</option><option value="1083">Reydell</option><option value="1224">Reyno</option><option value="870">Rison</option><option value="1165">Rivervale</option><option value="1084">Roe</option><option value="1376">Rogers</option><option value="1085">Roland</option><option value="1086">Romance</option><option value="1087">Rose Bud</option><option value="1283">Rosie</option><option value="940">Rosston</option><option value="1418">Rover</option><option value="978">Royal</option><option value="1446">Rudy</option><option value="1088">Russell</option><option value="1386">Russellville</option><option value="1284">Saffell</option><option value="1285">Sage</option><option value="1089">Saint Charles</option><option value="1225">Saint Francis</option><option value="1337">Saint Joe</option><option value="1377">Saint Paul</option><option value="1286">Salado</option><option value="1287">Salem</option><option value="941">Saratoga</option><option value="1090">Scotland</option><option value="1091">Scott</option><option value="1419">Scranton</option><option value="1092">Searcy</option><option value="1226">Sedgwick</option><option value="1093">Sheridan</option><option value="1094">Sherrill</option><option value="1071">Sherwood</option><option value="1095">Shirley</option><option value="1288">Sidney</option><option value="1378">Siloam Springs</option><option value="979">Sims</option><option value="902">Smackover</option><option value="1227">Smithville</option><option value="1166">Snow Lake</option><option value="1096">Solgohachia</option><option value="903">Sparkman</option><option value="1379">Springdale</option><option value="1097">Springfield</option><option value="942">Stamps</option><option value="871">Star City</option><option value="1228">State University</option><option value="904">Stephens</option><option value="980">Story</option><option value="1229">Strawberry</option><option value="905">Strong</option><option value="1289">Sturkie</option><option value="1098">Stuttgart</option><option value="1420">Subiaco</option><option value="1230">Success</option><option value="1290">Sulphur Rock</option><option value="1380">Sulphur Springs</option><option value="1381">Summers</option><option value="1338">Summit</option><option value="1099">Sweet Home</option><option value="1231">Swifton</option><option value="943">Taylor</option><option value="937">Texarkana</option><option value="1100">Thida</option><option value="906">Thornton</option><option value="1101">Tichnor</option><option value="872">Tillar</option><option value="1339">Tilly</option><option value="1326">Timbo</option><option value="1382">Tontitown</option><option value="1102">Traskwood</option><option value="1232">Trumann</option><option value="1103">Tucker</option><option value="1233">Tuckerman</option><option value="1291">Tumbling Shoals</option><option value="1104">Tupelo</option><option value="1167">Turner</option><option value="1168">Turrell</option><option value="1169">Tyronza</option><option value="1105">Ulm</option><option value="981">Umpire</option><option value="1447">Uniontown</option><option value="907">Urbana</option><option value="1340">Valley Springs</option><option value="1448">Van Buren</option><option value="982">Vandervoort</option><option value="1170">Vanndale</option><option value="1341">Vendor</option><option value="1106">Vilonia</option><option value="1292">Viola</option><option value="1293">Violet Hill</option><option value="1171">Wabash</option><option value="1107">Wabbaseka</option><option value="1234">Walcott</option><option value="1235">Waldenburg</option><option value="908">Waldo</option><option value="1449">Waldron</option><option value="1236">Walnut Ridge</option><option value="1108">Ward</option><option value="1237">Warm Springs</option><option value="873">Warren</option><option value="944">Washington</option><option value="874">Watson</option><option value="1238">Weiner</option><option value="1383">Wesley</option><option value="1384">West Fork</option><option value="1172">West Helena</option><option value="1116">West Memphis</option><option value="1109">West Point</option><option value="1173">West Ridge</option><option value="1342">Western Grove</option><option value="1174">Wheatley</option><option value="909">Whelen Springs</option><option value="847">White Hall</option><option value="983">Wickes</option><option value="1294">Wideman</option><option value="1175">Widener</option><option value="1110">Wilburn</option><option value="1239">Williford</option><option value="945">Willisville</option><option value="875">Wilmar</option><option value="876">Wilmot</option><option value="1176">Wilson</option><option value="946">Wilton</option><option value="877">Winchester</option><option value="1450">Winslow</option><option value="947">Winthrop</option><option value="1295">Wiseman</option><option value="1385">Witter</option><option value="1343">Witts Springs</option><option value="1111">Woodson</option><option value="1112">Wooster</option><option value="1113">Wright</option><option value="1114">Wrightsville</option><option value="1177">Wynne</option><option value="1344">Yellville</option><option value="878">Yorktown</option>
+</select></p>
+                                  
+
+<p><input type="text" class="IN1 ipsm1" name="zcode"  id="zcode" title="Zip Code" placeholder="Zip Code" required /></p>
+
+</div></div>
+<div class="clear"></div>
+
+<div class="rws rw2 clearfix">
+<div class="lftit">Date of Birth</div>
+<div class="rwfil aut clearfix">
+<p><select class="IN1b ipsm1" title="Month" name="month" id="month" required>
+<option value="">Month</option>
+             <option value="1">January</option>
+<option value="2">February</option>
+<option value="3">March</option>
+<option value="4">April</option>
+<option value="5">May</option>
+<option value="6">June</option>
+<option value="7">July</option>
+<option value="8">August</option>
+<option value="9">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select></p>
+            
+<p><select class="IN1b ipsm1" title="Day" name="day" id="day" required>
+<option value="">Day</option>
+                            <option value="01">1</option>
+                            <option value="02">2</option>
+                            <option value="03">3</option>
+                            <option value="04">4</option>
+                            <option value="05">5</option>
+                            <option value="06">6</option>
+                            <option value="07">7</option>
+                            <option value="08">8</option>
+                            <option value="09">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+</select></p>
+                          
+<p><select class="IN1b  ipsm1" title="Year" name="year" id="year" required>
+<option value="">Year</option>
+                            <option value="1950">1950</option>
+                            <option value="1951">1951</option>
+                            <option value="1952">1952</option>
+                            <option value="1953">1953</option>
+                            <option value="1954">1954</option>
+                            <option value="1955">1955</option>
+                            <option value="1956">1956</option>
+                            <option value="1957">1957</option>
+                            <option value="1958">1958</option>
+                            <option value="1959">1959</option>
+                            <option value="1960">1960</option>
+                            <option value="1961">1961</option>
+                            <option value="1962">1962</option>
+                            <option value="1963">1963</option>
+                            <option value="1964">1964</option>
+                            <option value="1965">1965</option>
+                            <option value="1966">1966</option>
+                            <option value="1967">1967</option>
+                            <option value="1968">1968</option>
+                            <option value="1969">1969</option>
+                            <option value="1970">1970</option>
+                            <option value="1971">1971</option>
+                            <option value="1972">1972</option>
+                            <option value="1973">1973</option>
+                            <option value="1974">1974</option>
+                            <option value="1975">1975</option>
+                            <option value="1976">1976</option>
+                            <option value="1977">1977</option>
+                            <option value="1978">1978</option>
+                            <option value="1979">1979</option>
+                            <option value="1980">1980</option>
+                            <option value="1981">1981</option>
+                            <option value="1982">1982</option>
+                            <option value="1983">1983</option>
+                            <option value="1984">1984</option>
+                            <option value="1985">1985</option>
+                            <option value="1986">1986</option>
+                            <option value="1987">1987</option>
+                            <option value="1988">1988</option>
+                            <option value="1989">1989</option>
+                            <option value="1990">1990</option>
+                            <option value="1991">1991</option>
+                            <option value="1992">1992</option>
+                            <option value="1993">1993</option>
+                            <option value="1994">1994</option>
+                            <option value="1995">1995</option>
+                            <option value="1996">1996</option>
+                            <option value="1997">1997</option>
+                            <option value="1998">1998</option>
+                            <option value="1999">1999</option>
+                            <option value="2000">2000</option>
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                            <option value="2004">2004</option>
+                            <option value="2005">2005</option>
+                            <option value="2006">2006</option>
+                            <option value="2007">2007</option>
+                            <option value="2008">2008</option>
+                            <option value="2009">2009</option>
+                            <option value="2010">2010</option>
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+</select></p>
+</div></div>
+
+
+
+
+
+
+<div class="rws rw4 clearfix">
+<div class="lftit">Ownership Percentage</div>
+<div class="rwfil aut clearfix">
+<p><select class="IN1b ipsm3" onChange="javascript:showhideownerinfo(this.value)" title="Ownership Percentage"  name="own_percent" id="own_percent" required>
+<option selected="selected" value="">Ownership Percentage</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                                <option value="33">33</option>
+                                <option value="34">34</option>
+                                <option value="35">35</option>
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                                <option value="46">46</option>
+                                <option value="47">47</option>
+                                <option value="48">48</option>
+                                <option value="49">49</option>
+                                <option value="50">50</option>
+                                <option value="51">51</option>
+                                <option value="52">52</option>
+                                <option value="53">53</option>
+                                <option value="54">54</option>
+                                <option value="55">55</option>
+                                <option value="56">56</option>
+                                <option value="57">57</option>
+                                <option value="58">58</option>
+                                <option value="59">59</option>
+                                <option value="60">60</option>
+                                <option value="61">61</option>
+                                <option value="62">62</option>
+                                <option value="63">63</option>
+                                <option value="64">64</option>
+                                <option value="65">65</option>
+                                <option value="66">66</option>
+                                <option value="67">67</option>
+                                <option value="68">68</option>
+                                <option value="69">69</option>
+                                <option value="70">70</option>
+                                <option value="71">71</option>
+                                <option value="72">72</option>
+                                <option value="73">73</option>
+                                <option value="74">74</option>
+                                <option value="75">75</option>
+                                <option value="76">76</option>
+                                <option value="77">77</option>
+                                <option value="78">78</option>
+                                <option value="79">79</option>
+                                <option value="80">80</option>
+                                <option value="81">81</option>
+                                <option value="82">82</option>
+                                <option value="83">83</option>
+                                <option value="84">84</option>
+                                <option value="85">85</option>
+                                <option value="86">86</option>
+                                <option value="87">87</option>
+                                <option value="88">88</option>
+                                <option value="89">89</option>
+                                <option value="90">90</option>
+                                <option value="91">91</option>
+                                <option value="92">92</option>
+                                <option value="93">93</option>
+                                <option value="94">94</option>
+                                <option value="95">95</option>
+                                <option value="96">96</option>
+                                <option value="97">97</option>
+                                <option value="98">98</option>
+                                <option value="99">99</option>
+                                <option value="100">100</option>
+</select></p>
+
+
+</div></div></div><!-- Second owner-->
+
+
+
+
+<div class="addbtns clearfix">
+<a href="#" class="admr">+ Add Another Owner</a>
+</div>
+
+
+</div></article>
+
+<article id="aplicn_btm"><div class="warps">
+<div class="coln"><input name="" type="submit" data-role="button" value="Back" class="BTgry">
+<input name="" type="submit" data-role="button" value="Save &amp; Exit" class="BTgry"> <input name="next" type="submit" id="next" data-role="button" value="Next"  class="BTgren">
+</div>
+</div></article>
+
+
+</form> 
+</section>
+    </div>
+    <div data-role="footer">
+    <div data-role="navbar" class="documentClick">
+        <a href="views/documents.html" data-role="button">
+            <img src="styles/images/ic_launcher.png"><span>Documents</span>
+        </a>
+    </div>
+    </div>
+</div>
