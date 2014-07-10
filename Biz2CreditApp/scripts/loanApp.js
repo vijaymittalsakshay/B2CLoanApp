@@ -143,6 +143,22 @@
             });
             
             
+            $("#yettostart").click(function() {
+                
+                if($(this).is(':checked')) {
+                    alert('debug');
+                    $('#dbs_month').val("");
+                    $('#dbs_year').val("");
+                    $('#dbs_month').attr("disabled","disabled");
+                    $('#dbs_year').attr("disabled","disabled");
+
+                } else {
+                	$('#dbs_month').removeAttr("disabled");
+                	$('#dbs_year').removeAttr("disabled");
+                }
+            			
+            });
+            
 
 	var addForm = $("#add-form");
 	var index = 0;
