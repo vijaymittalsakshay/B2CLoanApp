@@ -21,7 +21,9 @@
         
         homeShow: function (e) { 
             $("[data-role=\"popover\"][id =\"popover-people\"]").each(function() {
-            	$(this).parent().attr('id', 'dynamicCl');
+            	//$(this).parent().attr('id', 'dynamicCl');
+                //$(this).height($(this).height());
+                //alert($(this).parent().height());
             });
             app.homesetting.viewModel.reSetRepaymentStatus();
             app.loginService.viewModel.showloder();  

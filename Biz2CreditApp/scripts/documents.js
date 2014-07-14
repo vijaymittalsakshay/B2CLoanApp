@@ -14,9 +14,9 @@
         fileExt:'',
         documentBeforeShow:function()
         {
-          $("[data-role=\"popover\"][id =\"popover-docs\"]").each(function() {
-                $(this).parent().attr('id', 'dynamicCl');
-            });
+          //$("[data-role=\"popover\"][id =\"popover-docs\"]").each(function() {
+           //     $(this).parent().attr('id', 'dynamicCl');
+          //  });
             $("[data-role=\"popover\"][id =\"tabstrip-folder-events-popup\"]").each(function() {
                 $(this).parent().attr('id', 'popoverId');
             });
