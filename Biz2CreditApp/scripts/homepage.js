@@ -21,9 +21,8 @@
         
         homeShow: function (e) { 
             $("[data-role=\"popover\"][id =\"popover-people\"]").each(function() {
-            	//$(this).parent().attr('id', 'dynamicCl');
-                //$(this).height($(this).height());
-                //alert($(this).parent().height());
+            	$(this).parent().attr('id', 'dynamicCl');
+                
             });
             app.homesetting.viewModel.reSetRepaymentStatus();
             app.loginService.viewModel.showloder();  
@@ -485,7 +484,6 @@
         closeParentPopover:function()
         {
              $("#popover-people").data("kendoMobilePopOver").close();
-             $("#popover-docs").data("kendoMobilePopOver").close();
             
         },
         setRepaymentStatus:function()
