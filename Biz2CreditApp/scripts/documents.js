@@ -25,10 +25,19 @@
             });
             $("[data-role=\"popover\"][id =\"tabstrip-share-files-file-events-popup\"]").each(function() {
                 $(this).parent().attr('id', 'popoverId');
-            }); 
+            });
+            if(!$('#popover-people ul li:eq(3)').hasClass('newFolderModal'))
+            {
+                $('#popover-people ul li:eq(2)').after('<li data-bind="click: newFolderModal" class="newFolderModal">New Folder</li>');
+                kendo.bind($("#popover-people ul li:eq(3)"), app.documentsetting.viewModel);
+            }
+           
             
             
-            
+        },
+        beforeHide:function()
+        {
+            $("#popover-people ul li").remove(".newFolderModal");
         },
         documentAfterShow:function()
         {

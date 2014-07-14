@@ -153,7 +153,7 @@
         },
         refreshHome:function()
         {
-           
+           apps.navigate('#tabstrip-home');
            
             if(!window.connectionInfo.checkConnection()){
                
@@ -310,6 +310,14 @@
                 $(e.target).blur();
                 that.forgotMailSend();
             }
+        },
+        application: function()
+        {   
+             apps.navigate("views/loanApp.html");
+        },
+        mydocuments: function()
+        {   
+             apps.navigate("views/documents.html");
         },
         
     });

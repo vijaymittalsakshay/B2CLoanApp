@@ -1,5 +1,6 @@
  <!--Document Section---->
-        <div id="tabstrip-docs" data-role="view" data-before-show="app.documentsetting.viewModel.documentBeforeShow" data-show="app.documentsetting.viewModel.documentShow" data-after-show="app.documentsetting.viewModel.documentAfterShow" data-model="app.documentsetting.viewModel">
+        <div id="tabstrip-docs" data-role="view" data-before-show="app.documentsetting.viewModel.documentBeforeShow" data-show="app.documentsetting.viewModel.documentShow" data-after-show="app.documentsetting.viewModel.documentAfterShow" data-before-hide="app.documentsetting.viewModel.beforeHide"
+            data-model="app.documentsetting.viewModel">
 
             <div data-role="header" class="docs-header">
                 <div data-role="navbar">
@@ -11,7 +12,7 @@
                     		<a data-bind="click: setVisibilty"class="docs-search">search</a>
                     		<a data-bind="click: refreshView,invisible: showrefreshLoading" class="refresh-com docs-refresh">refresh</a>
                             <a data-bind="click: refreshView,visible: showrefreshLoading" class="refresh-loading docs-refresh">refresh</a>
-                    		<a data-align="right" data-rel="popover" href="#popover-docs" data-role="button" class="docs-popup"></a>
+                    		<a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="docs-popup"></a>
                     	</div>
                     	<div id="docs-filter" data-bind="visible: showfilter"></div>
                     </span>
@@ -22,15 +23,18 @@
                 <a class="inner-docs-back"   data-bind="click:gobackDocsPage,visible: innerPage"><span>Documents</span></a>
             	<div class="km-listview-wrapper"><ul class="list-edit-listview"></ul></div> 
             </div>
-            <div data-role="popover" class="popupBox" id="popover-docs" data-popup='{"height": "10em", "width": "12em"}'>
+           <!-- <div data-role="popover" class="popupBox" id="popover-docs" data-popup='{"height": "10em", "width": "12em"}'>
                 <div data-role="view" data-model="app.documentsetting.viewModel">
                     <ul data-role="listview">
+                        <li data-bind="click: refreshHome" >Dashboard</li>
+                        <li data-bind="click: application" >Applications </li>
+                        <li data-bind="click: mydocuments" >My Documents</li>
                         <li data-bind="click: newFolderModal" >New Folder</li>
                         <li data-bind="click: onSettingPage">Settings</li>
                         <li data-bind="click: setUserLogout">Logout</li>
                     </ul>
                 </div>
-            </div>
+            </div>   -->
             <!--folder events popup-->
             <div id="tabstrip-folder-events-popup"  class="tabstrip-ff-events-popup" data-role="popover"   data-popup='{"height": "4.8em", "width": "100%"}'>
                 <div data-role="view" data-model="app.documentsetting.viewModel">

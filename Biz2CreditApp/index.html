@@ -132,20 +132,22 @@
                     </div>
                 </div>
             </div>
-            <div data-role="footer">
+           <!-- <div data-role="footer">
                 <div data-role="navbar" class="documentClick">
                     <a href="views/documents.html" data-role="button">
                         <img src="styles/images/ic_launcher.png"><span>Documents</span>
                     </a>
                 </div>
-            </div>
+            </div>-->
             
             <div data-role="popover" class="popupBox refreshPop" id="popover-people" >
                 <div data-role="view" data-model="app.loginService.viewModel">
                     <ul data-role="listview">
-                        <li data-bind="click: refreshHome" >Refresh</li>
+                        <li data-bind="click: refreshHome" >Dashboard</li>
+                        <li data-bind="click: application" >Applications </li>
+                        <li data-bind="click: mydocuments" >My Documents</li>
                         <li data-bind="click: onSettingPage">Settings</li>
-                         <li data-bind="click: setUserLogout">Logout</li>
+                        <li data-bind="click: setUserLogout">Logout</li>
                     </ul>
                 </div>
             </div>
@@ -318,6 +320,7 @@
                     	<a class="docs-back" data-role="backbutton">Back</a>
                     	<p class="docs-docu" data-bind="invisible: showfilter">Settings</p>
                     </span>
+                    <a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="popup"></a>
                 </div>
             </div>
             <div  data-role="content">
