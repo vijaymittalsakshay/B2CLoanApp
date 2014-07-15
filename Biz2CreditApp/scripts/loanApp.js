@@ -13,11 +13,15 @@
     
             //$(".reld_info").tooltip({ effect: 'slide', position: 'bottom center'});
            // $(".que_hint").tooltip({ effect: 'slide', position: 'bottom center'});
-           $(".que_hint").kendoTooltip({
-            	autoHide: false,
+            $(".que_hint").kendoTooltip({
+                autoHide: false,
                 width: 240,
                 showOn: "click",
-                content: $(thatTool).next('.tooltip'),
+                callout: false,
+                content: function(e) {
+                    
+                	return e.target.context.nextElementSibling.innerHTML;
+                },
             });
             // menu 
             $('.subms').hide();
