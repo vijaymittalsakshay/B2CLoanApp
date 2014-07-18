@@ -42,10 +42,10 @@
                             <div class="lftitb">Personal Information</div>
                             <div class="rwfil">
                                 <p>
-                                    <input type="text" name="avmoninco" class="IN3" id="avmoninco"  title="Average Monthly Income"  placeholder="Average Monthly Income" required />
+                                    <input type="text" name="avmoninco" data-bind="value:avg_month_income" class="IN3" id="avmoninco"  title="Average Monthly Income"  placeholder="Average Monthly Income" required />
                                 </p>
                                 <p>
-                                    <input type="text" name="avmonexm" class="IN3" id="avmonexm"  title="Average Monthly Expenses"  placeholder="Average Monthly Expenses" required />
+                                    <input type="text" name="avmonexm" class="IN3" id="avmonexm" data-bind="value:avg_month_expense"  title="Average Monthly Expenses"  placeholder="Average Monthly Expenses" required />
                                 </p>
                             </div>
                         </div>
@@ -59,11 +59,11 @@
 
                                 <div class="rw_lin clearfix">
                                     <span>
-                                        <input name="creditscorechk" type="radio" value="1" class="crYes">
+                                        <input name="creditscorechk" data-bind="value:creditScore_yes" type="radio" value="1" class="crYes">
                                         <label>Yes</label>
                                     </span>
                                     <span>
-                                        <input name="creditscorechk" type="radio" value="0" class="crYes">
+                                        <input name="creditscorechk" type="radio" data-bind="value:creditScore_no" value="0" class="crYes">
                                         <label>No</label>
                                     </span>
                                 </div>
@@ -72,7 +72,7 @@
                                     <!-- bus info bx-->
                                     <div id="crdscrYes" class="showfilds_bx">
                                         <div class="rw_lin clearfix">
-                                            <select name="credittype" id="credittype"  class="IN3"  title="Select Personal Credit Score">
+                                            <select name="credittype" id="credittype" data-bind="value:personal_credit_score" class="IN3"  title="Select Personal Credit Score">
                                                 <option value="" selected>Select Personal Credit Score</option>
                                                 <option value="500" >500</option>
                                                 <option value="501" >501</option>
@@ -448,63 +448,63 @@
                                             </h4>
                                             <ul class="low_creditop">
                                                 <li>
-                                                    <input type="checkbox" name="chk_reason[]" id="chk_reason1" value="14"  class="reset">
+                                                    <input type="checkbox" name="chk_reason[]" data-bind="value:check_reason1" id="chk_reason1" value="14"  class="reset">
                                                     <label>A lot of inquiries</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" name="chk_reason[]" id="chk_reason2" value="4"  class="reset">
+                                                    <input type="checkbox" name="chk_reason[]" data-bind="value:check_reason2" id="chk_reason2" value="4"  class="reset">
                                                     <label>High credit card balances due to business expenses</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" name="chk_reason[]" id="chk_reason3" value="3"  class="reset">
+                                                    <input type="checkbox" name="chk_reason[]" data-bind="value:check_reason3" id="chk_reason3" value="3"  class="reset">
                                                     <label>High credit card balances due to personal expenses</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" name="chk_reason[]" id="chk_reason4" value="15"  class="reset">
+                                                    <input type="checkbox" name="chk_reason[]" data-bind="value:check_reason4" id="chk_reason4" value="15"  class="reset">
                                                     <label>I don't know</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" name="chk_reason[]" id="chk_reason5" value="7"  class="reset">
+                                                    <input type="checkbox" name="chk_reason[]" data-bind="value:check_reason5" id="chk_reason5" value="7"  class="reset">
                                                     <label>Incorrect items on credit report</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" name="chk_reason[]" id="chk_reason6" value="8"  class="reset">
+                                                    <input type="checkbox" name="chk_reason[]" data-bind="value:check_reason6" id="chk_reason6" value="8"  class="reset">
                                                     <label>Judgments</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" name="chk_reason[]" id="chk_reason7" value="2"  class="reset">
+                                                    <input type="checkbox" name="chk_reason[]" data-bind="value:check_reason7" id="chk_reason7" value="2"  class="reset">
                                                     <label>Late on credit cards</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" name="chk_reason[]" id="chk_reason8" value="1"  class="reset">
+                                                    <input type="checkbox" name="chk_reason[]" data-bind="value:check_reason8" id="chk_reason8" value="1"  class="reset">
                                                     <label>Late on mortgage</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" name="chk_reason[]" id="chk_reason9" value="10"  class="reset">
+                                                    <input type="checkbox" name="chk_reason[]" data-bind="value:check_reason9" id="chk_reason9" value="10"  class="reset">
                                                     <label>Late on personal loans</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" name="chk_reason[]" id="chk_reason10" value="11"  class="reset">
+                                                    <input type="checkbox" name="chk_reason[]" data-bind="value:check_reason10" id="chk_reason10" value="11"  class="reset">
                                                     <label>No credit history</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" name="chk_reason[]" id="chk_reason11" value="5"  class="reset">
+                                                    <input type="checkbox" name="chk_reason[]" data-bind="value:check_reason11" id="chk_reason11" value="5"  class="reset">
                                                     <label>Personal bankruptcy more than 7 years ago</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" name="chk_reason[]" id="chk_reason12" value="9"  class="reset">
+                                                    <input type="checkbox" name="chk_reason[]" data-bind="value:check_reason12" id="chk_reason12" value="9"  class="reset">
                                                     <label>Personally guaranteed a loan that defaulted</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" name="chk_reason[]" id="chk_reason13" value="13"  class="reset">
+                                                    <input type="checkbox" name="chk_reason[]" data-bind="value:check_reason13" id="chk_reason13" value="13"  class="reset">
                                                     <label>Recent foreclosure</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" name="chk_reason[]" id="chk_reason14" value="6"  class="reset">
+                                                    <input type="checkbox" name="chk_reason[]" data-bind="value:check_reason14" id="chk_reason14" value="6"  class="reset">
                                                     <label>Recent Personal Bankruptcy</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" name="chk_reason[]" id="chk_reason15" value="12"  class="reset">
+                                                    <input type="checkbox" name="chk_reason[]" data-bind="value:check_reason15" id="chk_reason15" value="12"  class="reset">
                                                     <label>Tax liens</label>
                                                 </li>
                                             </ul>
@@ -526,24 +526,24 @@
                                                 <div id='credScr' style='padding:10px; background:#fff;'>
                                                     <div class="titad">Please fill all rquired Fields:</div>
                                                     <div class="titad_fld">
-                                                        <input type="text" name="fname" class="IN3" id="fname"  title="First Name"  placeholder="First Name" />
-                                                        <input type="text" name="mname" class="IN3" id="mname"  title="Middle Name"  placeholder="Middle Name" />
-                                                        <input type="text" name="lname" class="IN3" id="lname"  title="Last Name"  placeholder="Last Name" />
-                                                        <input type="text" name="hsn" class="IN3" id="hsn"  title="Home Street Number"  placeholder="Home Street Number" />
-                                                        <input type="text" name="hsa" class="IN3" id="hsa"  title="Home Street Address"  placeholder="Home Street Address" />
+                                                        <input type="text" name="fname" class="IN3" id="fname" data-bind="value:creditScore_firstname"  title="First Name"  placeholder="First Name" />
+                                                        <input type="text" name="mname" class="IN3" id="mname" data-bind="value:creditScore_middlename"  title="Middle Name"  placeholder="Middle Name" />
+                                                        <input type="text" name="lname" class="IN3" id="lname" data-bind="value:creditScore_lastname" title="Last Name"  placeholder="Last Name" />
+                                                        <input type="text" name="hsn" class="IN3" id="hsn" data-bind="value:creditScore_streetNumber" title="Home Street Number"  placeholder="Home Street Number" />
+                                                        <input type="text" name="hsa" class="IN3" id="hsa" data-bind="value:creditScore_streetAddress"  title="Home Street Address"  placeholder="Home Street Address" />
                                                         
-                                                        <select name="" class="IN3b" title="Select State" >
+                                                        <select name="" class="IN3b" data-bind="value:creditScore_state" title="Select State" >
                                                             <option>Select State</option>
                                                         </select>
-                                                        <select name="" class="IN3b" title="Select City" >
+                                                        <select name="" class="IN3b" data-bind="value:creditScore_city" title="Select City" >
                                                             <option>Select City</option>
                                                         </select>
-                                                        <input type="text" name="zcod" class="IN3" id="zcod"  title="Zipcode"  placeholder="Zipcode" />
-                                                        <input type="text" name="lbname" class="IN3 dat" id="lbname"   title="Date of Birth - Month"  placeholder="Date of Birth - Month" />
-                                                        <input type="text" name="ssn" class="IN3" id="ssn"   title="Social Security Number (SSN)"  placeholder="Social Security Number (SSN)" />
+                                                        <input type="text" name="zcod" class="IN3" id="zcod" data-bind="value:creditScore_zipCode"  title="Zipcode"  placeholder="Zipcode" />
+                                                        <input type="text" name="lbname" class="IN3 dat" id="lbname" data-bind="value:creditScore_DOBMonth"   title="Date of Birth - Month"  placeholder="Date of Birth - Month" />
+                                                        <input type="text" name="ssn" class="IN3" id="ssn" data-bind="value:creditScore_socialSecurity_Number"   title="Social Security Number (SSN)"  placeholder="Social Security Number (SSN)" />
                                                     </div>
                                                     <div class="titad_btn">
-                                                        <input name="next" type="submit" id="next" value="Submit"  class="BTgren">
+                                                        <input name="next" type="submit" id="next" data-bind="" value="Submit"  class="BTgren">
                                                     </div>
                                                         
                                                 </div>

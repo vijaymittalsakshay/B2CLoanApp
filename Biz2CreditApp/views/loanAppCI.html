@@ -1,4 +1,4 @@
-<div data-role="view" id="tabstrip-loanapp-bi" data-model="app.loansetting.viewModel" data-show="app.loansetting.viewModel.show">
+<div data-role="view" id="tabstrip-loanapp-ci" data-model="app.loansetting.viewModel" data-show="app.loansetting.viewModel.show">
     <div data-role="header">
         <div data-role="navbar">
             <span data-role="view-title">
@@ -6,7 +6,7 @@
                     <img src="styles/images/bizDoc-logo.png">
                 </div>
             </span>
-			<a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="popup"></a>
+            <a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="popup"></a>
         </div>
     </div>
     <div  data-role="content">
@@ -42,11 +42,11 @@
                                 <div class="rwfil aut clearfix">
 
                                     <p>
-                                        <input type="text" class="IN1" name="firstname" id="firstname" title="First Name" placeholder="First Name" required />
+                                        <input type="text" class="IN1" name="firstname" data-bind="value:firstowner_firstname" id="firstname" title="First Name" placeholder="First Name" required />
                                     </p>
 
                                     <p>
-                                        <input type="text" class="IN1" name="lastname" id="lastname" title="Last Name" placeholder="Last Name" required />
+                                        <input type="text" class="IN1" name="lastname" data-bind="value:firstowner_lastname" id="lastname" title="Last Name" placeholder="Last Name" required />
                                     </p>
                                 </div>
                             </div>
@@ -55,17 +55,17 @@
                                 <div class="lftit">Home Address</div>
                                 <div class="rwfil aut clearfix">
                                     <p>
-                                        <input type="text" class="IN1 ipsm1"  name="stno"  id="stno" title="Street No."  placeholder="Street No." required />
+                                        <input type="text" class="IN1 ipsm1"  name="stno" data-bind="value:firstowner_streetNo"  id="stno" title="Street No."  placeholder="Street No." required />
                                     </p>
                                     <p>
-                                        <input type="text" class="IN1 ipsm3"  name="sname" id="sname" title="Street Name"  placeholder="Street Name" required />
+                                        <input type="text" class="IN1 ipsm3"  name="sname" data-bind="value:firstowner_streetName" id="sname" title="Street Name"  placeholder="Street Name" required />
                                     </p>
                                     <p>
-                                        <input type="text" class="IN1 ipsm4" name="aptsui" id="aptsui" title="Apt/Suite/Unit"  placeholder="Apt/Suite/Unit" required />
+                                        <input type="text" class="IN1 ipsm4" name="aptsui" data-bind="value:firstowner_AptSuiteUnit" id="aptsui" title="Apt/Suite/Unit"  placeholder="Apt/Suite/Unit" required />
                                     </p><br>
 
                                     <p>
-                                        <select class="IN1b ipsm3" name="state_user"  id="state_user"  title="Select State"  onchange="displayCity_user(this.value, '');" required>
+                                        <select class="IN1b ipsm3" name="state_user" data-bind="value:firstowner_stateUser"  id="state_user"  title="Select State"  onchange="displayCity_user(this.value, '');" required>
                                             <option value="">Select State</option>
                                             <option value="1">Alabama</option>
                                             <option value="2">Alaska</option>
@@ -124,7 +124,7 @@
                                     </p>
 
                                     <p>
-                                        <select title="Select City" class="IN1b ipsm3" id="cmbCity_user" name="cmbCity_user" required>
+                                        <select title="Select City" class="IN1b ipsm3" data-bind="value:firstowner_cmbCity" id="cmbCity_user" name="cmbCity_user" required>
                                             <option value="">Select City</option>
                                             <option value="984">Adona</option>
                                             <option value="985">Alexander</option>
@@ -735,7 +735,7 @@
                                     </p>
 
                                     <p>
-                                        <input type="text" class="IN1 ipsm1" name="zcode"  id="zcode" title="Zip Code" placeholder="Zip Code" required />
+                                        <input type="text" class="IN1 ipsm1" name="zcode" data-bind="value:firstowner_zipCode"  id="zcode" title="Zip Code" placeholder="Zip Code" required />
                                     </p>
 
                                 </div>
@@ -746,7 +746,7 @@
                                 <div class="lftit">Date of Birth</div>
                                 <div class="rwfil aut clearfix">
                                     <p>
-                                        <select class="IN1b ipsm1" title="Month" name="month" id="month" required>
+                                        <select class="IN1b ipsm1" title="Month" name="month" data-bind="value:firstowner_month" id="month" required>
                                             <option value="">Month</option>
                                             <option value="1">January</option>
                                             <option value="2">February</option>
@@ -764,7 +764,7 @@
                                     </p>
 
                                     <p>
-                                        <select class="IN1b ipsm1" title="Day" name="day" id="day" required>
+                                        <select class="IN1b ipsm1" title="Day" name="day" data-bind="value:firstowner_day" id="day" required>
                                             <option value="">Day</option>
                                             <option value="01">1</option>
                                             <option value="02">2</option>
@@ -801,7 +801,7 @@
                                     </p>
 
                                     <p>
-                                        <select class="IN1b  ipsm1" title="Year" name="year" id="year" required>
+                                        <select class="IN1b  ipsm1" title="Year" name="year" data-bind="value:firstowner_year" id="year" required>
                                             <option value="">Year</option>
                                             <option value="1950">1950</option>
                                             <option value="1951">1951</option>
@@ -877,7 +877,7 @@
                                 <div class="lftit">Ownership Percentage</div>
                                 <div class="rwfil aut clearfix">
                                     <p>
-                                        <select class="IN1b ipsm3" onChange="javascript:showhideownerinfo(this.value)" title="Ownership Percentage"  name="own_percent" id="own_percent" required>
+                                        <select class="IN1b ipsm3" data-bind="value:firstowner_ownerShip_percentage" onChange="javascript:showhideownerinfo(this.value)" title="Ownership Percentage"  name="own_percent" id="own_percent" required>
                                             <option selected="selected" value="">Ownership Percentage</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -993,11 +993,11 @@
                                 <div class="rwfil aut clearfix">
 
                                     <p>
-                                        <input type="text" class="IN1" name="firstname" id="firstname" title="First Name" placeholder="First Name" required />
+                                        <input type="text" class="IN1" data-bind="value:secowner_firstname" name="firstname" id="firstname" title="First Name" placeholder="First Name" required />
                                     </p>
 
                                     <p>
-                                        <input type="text" class="IN1" name="lastname" id="lastname" title="Last Name" placeholder="Last Name" required />
+                                        <input type="text" class="IN1" name="lastname" data-bind="value:secowner_lastname" id="lastname" title="Last Name" placeholder="Last Name" required />
                                     </p>
                                 </div>
                             </div>
@@ -1006,17 +1006,17 @@
                                 <div class="lftit">Home Address</div>
                                 <div class="rwfil aut clearfix">
                                     <p>
-                                        <input type="text" class="IN1 ipsm1"  name="stno"  id="stno" title="Street No."  placeholder="Street No." required />
+                                        <input type="text" class="IN1 ipsm1"  name="stno" data-bind="value:secowner_streetNo"  id="stno" title="Street No."  placeholder="Street No." required />
                                     </p>
                                     <p>
-                                        <input type="text" class="IN1 ipsm3"  name="sname" id="sname" title="Street Name"  placeholder="Street Name" required />
+                                        <input type="text" class="IN1 ipsm3"  name="sname" data-bind="value:secowner_streetName" id="sname" title="Street Name"  placeholder="Street Name" required />
                                     </p>
                                     <p>
-                                        <input type="text" class="IN1 ipsm4" name="aptsui" id="aptsui" title="Apt/Suite/Unit"  placeholder="Apt/Suite/Unit" required />
+                                        <input type="text" class="IN1 ipsm4" name="aptsui" data-bind="value:secowner_AptSuitUnit" id="aptsui" title="Apt/Suite/Unit"  placeholder="Apt/Suite/Unit" required />
                                     </p><br>
 
                                     <p>
-                                        <select class="IN1b ipsm3" name="state_user"  id="state_user"  title="Select State"  onchange="displayCity_user(this.value, '');" required>
+                                        <select class="IN1b ipsm3" name="state_user"  id="state_user" data-bind="value:secowner_state"  title="Select State"  onchange="displayCity_user(this.value, '');" required>
                                             <option value="">Select State</option>
                                             <option value="1">Alabama</option>
                                             <option value="2">Alaska</option>
@@ -1075,7 +1075,7 @@
                                     </p>
 
                                     <p>
-                                        <select title="Select City" class="IN1b ipsm3" id="cmbCity_user" name="cmbCity_user" required>
+                                        <select title="Select City" class="IN1b ipsm3" data-bind="value:secowner_cmbCity" id="cmbCity_user" name="cmbCity_user" required>
                                             <option value="">Select City</option>
                                             <option value="984">Adona</option>
                                             <option value="985">Alexander</option>
@@ -1686,7 +1686,7 @@
                                     </p>
 
                                     <p>
-                                        <input type="text" class="IN1 ipsm1" name="zcode"  id="zcode" title="Zip Code" placeholder="Zip Code" required />
+                                        <input type="text" class="IN1 ipsm1" data-bind="value:secowner_zipCode" name="zcode"  id="zcode" title="Zip Code" placeholder="Zip Code" required />
                                     </p>
 
                                 </div>
@@ -1697,7 +1697,7 @@
                                 <div class="lftit">Date of Birth</div>
                                 <div class="rwfil aut clearfix">
                                     <p>
-                                        <select class="IN1b ipsm1" title="Month" name="month" id="month" required>
+                                        <select class="IN1b ipsm1" title="Month" data-bind="value:secowner_month" name="month" id="month" required>
                                             <option value="">Month</option>
                                             <option value="1">January</option>
                                             <option value="2">February</option>
@@ -1715,7 +1715,7 @@
                                     </p>
 
                                     <p>
-                                        <select class="IN1b ipsm1" title="Day" name="day" id="day" required>
+                                        <select class="IN1b ipsm1" title="Day" data-bind="value:secowner_day" name="day" id="day" required>
                                             <option value="">Day</option>
                                             <option value="01">1</option>
                                             <option value="02">2</option>
@@ -1752,7 +1752,7 @@
                                     </p>
 
                                     <p>
-                                        <select class="IN1b  ipsm1" title="Year" name="year" id="year" required>
+                                        <select class="IN1b  ipsm1" title="Year" data-bind="value:secowner_year" name="year" id="year" required>
                                             <option value="">Year</option>
                                             <option value="1950">1950</option>
                                             <option value="1951">1951</option>
@@ -1828,7 +1828,7 @@
                                 <div class="lftit">Ownership Percentage</div>
                                 <div class="rwfil aut clearfix">
                                     <p>
-                                        <select class="IN1b ipsm3" onChange="javascript:showhideownerinfo(this.value)" title="Ownership Percentage"  name="own_percent" id="own_percent" required>
+                                        <select class="IN1b ipsm3" data-bind="value:secowner_os_per" onChange="javascript:showhideownerinfo(this.value)" title="Ownership Percentage"  name="own_percent" id="own_percent" required>
                                             <option selected="selected" value="">Ownership Percentage</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>

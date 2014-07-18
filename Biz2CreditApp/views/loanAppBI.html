@@ -35,8 +35,8 @@
                         <div class="rws clearfix">
                             <div class="lftitb">Legal Business Name</div>
                             <div class="rwfil">
-                                <input type="text" name="lbname" class="IN1" id="lbname" title="Legal Business Name"  placeholder="Legal Business Name" required />
-                                <input type="text" placeholder="DBA Name" id="dbaname" class="IN1 ipsm3" name="dbaname" original-title="DBA Name" value="Test">
+                                <input type="text" name="lbname" class="IN1" id="lbname" title="Legal Business Name"  data-bind="value: legal_business_name" placeholder="Legal Business Name" required />
+                                <input type="text" placeholder="DBA Name" id="dbaname" class="IN1 ipsm3" name="dbaname" data-bind="value: dba_name" original-title="DBA Name" value="Test">
                             </div>
                         </div>
 
@@ -45,21 +45,21 @@
                             <div class="rwfil clearfix">
                                 <div class="rw_lin clearfix">
                                     <p>
-                                        <input type="text" class="IN1 ipsm1"  name="stno"  id="stno" title="Street No."  placeholder="Street No." required />
+                                        <input type="text" class="IN1 ipsm1"  name="stno"  id="stno" title="Street No."  data-bind="value: street_no" placeholder="Street No." required />
                                     </p>
                                     <p>
-                                        <input type="text" class="IN1 ipsm3"  name="sname" id="sname" title="Street Name"  placeholder="Street Name" required />
+                                        <input type="text" class="IN1 ipsm3"  name="sname" id="sname" title="Street Name"  data-bind="value: street_name" placeholder="Street Name" required />
                                     </p>
                                     <p>
-                                        <input type="text" class="IN1 ipsm3" name="aptsui" id="aptsui" title="Apt/Suite/Unit"  placeholder="Apt/Suite/Unit" required />
+                                        <input type="text" class="IN1 ipsm3" name="aptsui" id="aptsui" title="Apt/Suite/Unit"  data-bind="value: apt_suite_unit" placeholder="Apt/Suite/Unit" required />
                                     </p>
                                     <br>
                                 </div>
 
                                 <div class="rw_lin clearfix">
                                     <p>
-                                        <select class="IN1b ipsm3" name="state_user"  id="state_user"  title="Select State"  onchange="displayCity_user(this.value, '');" required>
-                                            <option value="">Select State</option>
+                                        <select class="IN1b ipsm3" name="state_user"  id="state_user"  title="Select State"  data-bind="value: select_state" onchange="displayCity_user(this.value, '');" required>
+                                            <option value="" selected="selected">Select State</option>
                                             <option value="1">Alabama</option>
                                             <option value="2">Alaska</option>
                                             <option value="4">Arizona</option>
@@ -117,8 +117,8 @@
                                     </p>
 
                                     <p>
-                                        <select title="Select City" class="IN1b ipsm3" id="cmbCity_user" name="cmbCity_user" required>
-                                            <option value="">Select City</option>
+                                        <select title="Select City" class="IN1b ipsm3" id="cmbCity_user" data-bind="value: select_city" name="cmbCity_user" required>
+                                            <option value="" selected="selected">Select City</option>
                                             <option value="984">Adona</option>
                                             <option value="985">Alexander</option>
                                             <option value="1179">Alicia</option>
@@ -728,21 +728,21 @@
                                     </p>
 
                                     <p>
-                                        <input type="text" class="IN1 ipsm1" name="zcode"  id="zcode" title="Zip Code" placeholder="Zip Code" required />
+                                        <input type="text" class="IN1 ipsm1" name="zcode"  id="zcode" title="Zip Code" data-bind="value: zip_code" placeholder="Zip Code" required />
                                     </p>
                                     <p class="LargePhone">
-                                        <input type="text" placeholder="Mobile Number" id="businessphone" name="businessphone" class="IN1 ipsm1 smphone valid" original-title="Mobile Number" value="111-111-1111" maxlength="10">
+                                        <input type="text" placeholder="Mobile Number" id="businessphone" name="businessphone" data-bind="value: mobile_number" class="IN1 ipsm1 smphone valid" original-title="Mobile Number" value="111-111-1111" maxlength="10">
                                     </p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="rws clearfix">
-                            <div class="lftitb">Basic Basic Information</div>
+                            <div class="lftitb">Company Information</div>
                             <div class="rwfil">
                                 <div class="rw_lin clearfix">
                                     <p>
-                                        <select onChange="javascript:showhidebann(this.value);" class="IN3" id="blegal" name="blegal" title="Select Business Legal Structure"  required>
+                                        <select onChange="javascript:showhidebann(this.value);" class="IN3" id="blegal" name="blegal" title="Select Business Legal Structure"  data-bind="value: select_b_l_s" required>
                                             <option value="" selected="selected">Select Business Legal Structure</option>
                                             <option value="Sole Proprietorship">Sole Proprietorship</option>
                                             <option value="Corporation">Corporation</option>
@@ -756,8 +756,8 @@
 
                                 <div class="rw_lin hlp clearfix">
                                     <p>
-                                        <select name="orgtype" id="orgtype" class="IN5 input_boxreg" onChange="displayorgCategory(this.value);"  title='Select Industry'  required>
-                                            <option value="">Select Industry</option>
+                                        <select name="orgtype" id="orgtype" class="IN5 input_boxreg" onChange="displayorgCategory(this.value);"  data-bind="value: industry" title='Select Industry'  required>
+                                            <option value="" selected="selected">Select Industry</option>
                                             <option value="17" >Accommodation and Food Services</option>
                                             <option value="13" >Administrative, Support, Waste Management, Remediation Services</option>
                                             <option value="1" >Agriculture, Forestry, Fishing and Hunting</option>
@@ -784,7 +784,7 @@
                                     <a class="que_hint flf">&nbsp;</a>
 									<div class='tooltip'><span class='tpar'></span><div><h6>Industry</h6><p>Find the industry and sub-industry that best describe your business. Classification is based on the North American Industry Classification System</p></div></div>
                                     <p>
-                                        <select name="orgcategory" id="orgcategory" class="IN5"    title='Select Sub Industry'  required>
+                                        <select name="orgcategory" id="orgcategory" class="IN5"    title='Select Sub Industry'   data-bind="value: sub_industry" required>
                                             <option value="">Select Sub Industry</option>
                                         </select>
                                     </p>
@@ -793,8 +793,8 @@
                                 <div class="rw_lin hlp clearfix">
 
                                     <p>
-                                        <select id="dbs_month" name="dbs_month" class="IN5 valid" original-title="Select Date Business Started (Month)">
-                                            <option value="">Select Date Business Started (Month)</option>
+                                        <select id="dbs_month" name="dbs_month" class="IN5 valid" data-bind="value: select_buss_s_m" original-title="Select Date Business Started (Month)">
+                                            <option value="" selected="selected">Select Date Business Started (Month)</option>
                                             <option value="1">Jan</option>
                                             <option value="2">Feb</option>
                                             <option value="3">Mar</option>
@@ -820,7 +820,7 @@
                                     </div>
 
                                     <p>
-                                        <select class="IN5 valid" id="dbs_year" name="dbs_year" original-title="Select Date Business Started (Year)">
+                                        <select class="IN5 valid" id="dbs_year" name="dbs_year" data-bind="value: select_buss_s_y" original-title="Select Date Business Started (Year)">
                                             <option value="" selected="selected">Select Date Business Started (Year)</option>
                                             <option value="2014">2014</option>
                                             <option value="2013">2013</option>
@@ -941,7 +941,7 @@
 
                                 <div class="rw_lin cngopt clearfix">
                                     <p>
-                                        <input type="checkbox" name="yettostart" value="1" id="yettostart">
+                                        <input type="checkbox" name="yettostart" value="1" data-bind="value: yettostart" id="yettostart">
                                         <label for="newckbx">About to start a business</label>
                                     </p>
                                     <a class="que_hint flf" style="margin-top:0;">&nbsp;</a>
@@ -956,7 +956,7 @@
 
                                 <div class="rw_lin hlp clearfix">
                                     <p>
-                                        <input type="text"  class="IN6" title="Average Annual Revenue" placeholder="Average Annual Revenue" name="revenue" id="revenue" onBlur="addComma(this.form.operatingexp);" required />
+                                        <input type="text"  class="IN6" title="Average Annual Revenue" placeholder="Average Annual Revenue" data-bind="value: average_annual_revenue" name="revenue" id="revenue" onBlur="addComma(this.form.operatingexp);" required />
                                     </p>
                                     <a class="que_hint flf">&nbsp;</a>
                                     <div class="tooltip">
@@ -969,7 +969,7 @@
                                         </div>
                                     </div>
                                     <p>
-                                        <input type="text"  class="IN6" title="Business Operating Expenses" placeholder="Business Operating Expenses" name="operatingexp" id="operatingexp" required />
+                                        <input type="text"  class="IN6" title="Business Operating Expenses" placeholder="Business Operating Expenses" data-bind="value: buss_operating_expenses" name="operatingexp" id="operatingexp" required />
                                     </p>
                                     <a class="que_hint flf">&nbsp;</a>
                                     <div class="tooltip">
@@ -991,11 +991,11 @@
                             <div class="rwfil">
                                 <div class="rw_lin clearfix">
                                     <span>
-                                        <input type="radio" class="crditaccep" name="acceptcard" id="acceptcard" value="1" />
+                                        <input type="radio" class="crditaccep" name="acceptcard" data-bind="value: acceptcard_yes" id="acceptcard" value="1" />
                                         <label for="yes">Yes</label>
                                     </span>
                                     <span>
-                                        <input name="acceptcard" type="radio" class="crditaccep" id="acceptcard" value="0" />
+                                        <input name="acceptcard" type="radio" class="crditaccep" data-bind="value: acceptcard_no" id="acceptcard" value="0" />
                                         <label for="no">No</label>
                                     </span>
                                 </div>
@@ -1006,7 +1006,7 @@
                                         <div class="rw_lin clearfix">
                                             <div class="labl_tx">Date of the Credit Card first Processed</div>
                                             <p class="imp33">
-                                                <select class="IN1b ipsm1" title="Month" name="datefirstProcessed_month" id="datefirstProcessed_month" >
+                                                <select class="IN1b ipsm1" title="Month" name="datefirstProcessed_month" data-bind="value: datefirstProcessed_month" id="datefirstProcessed_month" >
                                                     <option value="">Month</option>
                                                     <option value="1">January</option>
                                                     <option value="2">February</option>
@@ -1023,7 +1023,7 @@
                                                 </select>
                                             </p>
                                             <p class="imp33">
-                                                <select class="IN1b ipsm1" title="Day" name="datefirstProcessed_day" id="datefirstProcessed_day" >
+                                                <select class="IN1b ipsm1" title="Day" name="datefirstProcessed_day" data-bind="value: datefirstProcessed_day" id="datefirstProcessed_day" >
                                                     <option value="">Day</option>
                                                     <option value="01">1</option>
                                                     <option value="02">2</option>
@@ -1060,7 +1060,7 @@
                                             </p>
 
                                             <p class="imp33">
-                                                <select class="IN1b  ipsm1" title="Year" name="datefirstProcessed_year" id="datefirstProcessed_year" >
+                                                <select class="IN1b  ipsm1" title="Year" name="datefirstProcessed_year" data-bind="value: datefirstProcessed_year" id="datefirstProcessed_year" >
                                                     <option value="">Year</option>
                                                     <option value="1950">1950</option>
                                                     <option value="1951">1951</option>
@@ -1133,7 +1133,7 @@
                                         </div>
                                         <div class="rw_lin clearfix">
                                             <p>
-                                                <select name="creditcardproc" id="creditcardproc" class="IN3" title="Current Credit Card Processor">
+                                                <select name="creditcardproc" id="creditcardproc" class="IN3" data-bind="value: c_c_card_processor" title="Current Credit Card Processor">
                                                     <option value="">Select Current Credit Card Processor</option>
                                                     <option value="Not in List">Not in List</option>
                                                     <option value="1Card@Atime (Lockbox)">1Card@Atime (Lockbox)</option>
@@ -1781,7 +1781,7 @@
                                             </p>
 
                                             <p class="mercPr" style="display:none">
-                                                <input type="text"  class="IN1 ipsm1" title="Merchant Id" maxlength="9" placeholder="Merchant Id" name="merchantid" id="merchantid" required />
+                                                <input type="text"  class="IN1 ipsm1" title="Merchant Id" maxlength="9" data-bind="value: merchant_id" placeholder="Merchant Id" name="merchantid" id="merchantid" required />
                                             </p>
                                         </div>
 
@@ -1789,40 +1789,40 @@
                                             <div class="labl_tx2">List the total VISA/MasterCard processing volumes from previous four months</div>
                                             <div class="labl_tx">Last Month</div>
                                             <p class="imp50">
-                                                <input type="text"  class="IN1 ipsm3" name="MonthlyVolumeAmountsList1" id="MonthlyVolumeAmountsList1" title="Sales Amount($)"   placeholder="Sales Amount($)" required />
+                                                <input type="text"  class="IN1 ipsm3" name="MonthlyVolumeAmountsList1" data-bind="value: MonthlyVolumeAmountsList1" id="MonthlyVolumeAmountsList1" title="Sales Amount($)"   placeholder="Sales Amount($)" required />
                                             </p>
                                             <p class="imp50">
-                                                <input type="text" class="IN1 ipsm3"  name="MonthlyVolumeTicketsList1" id="MonthlyVolumeTicketsList1" title="Number of Transactions"   placeholder="Number of Transactions" required />
+                                                <input type="text" class="IN1 ipsm3"  name="MonthlyVolumeTicketsList1" data-bind="value: MonthlyVolumeTicketsList1" id="MonthlyVolumeTicketsList1" title="Number of Transactions"   placeholder="Number of Transactions" required />
                                             </p>
                                         </div>
 
                                         <div class="rw_lin clearfix">
                                             <div class="labl_tx">1 Month Ago</div>
                                             <p class="imp50">
-                                                <input type="text"  class="IN1 ipsm3" name="MonthlyVolumeAmountsList2" id="MonthlyVolumeAmountsList2" title="Sales Amount($)"   placeholder="Sales Amount($)" required />
+                                                <input type="text"  class="IN1 ipsm3" name="MonthlyVolumeAmountsList2" data-bind="value: MonthlyVolumeAmountsList2"id="MonthlyVolumeAmountsList2" title="Sales Amount($)"   placeholder="Sales Amount($)" required />
                                             </p>
                                             <p class="imp50">
-                                                <input type="text" class="IN1 ipsm3"  name="MonthlyVolumeTicketsList2" id="MonthlyVolumeTicketsList2" title="Number of Transactions"   placeholder="Number of Transactions" required />
+                                                <input type="text" class="IN1 ipsm3"  name="MonthlyVolumeTicketsList2" data-bind="value: MonthlyVolumeTicketsList2" id="MonthlyVolumeTicketsList2" title="Number of Transactions"   placeholder="Number of Transactions" required />
                                             </p>
                                         </div>
 
                                         <div class="rw_lin clearfix">
                                             <div class="labl_tx">2 Month Ago</div>
                                             <p class="imp50">
-                                                <input type="text"  class="IN1 ipsm3" name="MonthlyVolumeAmountsList3" id="MonthlyVolumeAmountsList3" title="Sales Amount($)"   placeholder="Sales Amount($)" required />
+                                                <input type="text"  class="IN1 ipsm3" name="MonthlyVolumeAmountsList3" data-bind="value: MonthlyVolumeAmountsList3" id="MonthlyVolumeAmountsList3" title="Sales Amount($)"   placeholder="Sales Amount($)" required />
                                             </p>
                                             <p class="imp50">
-                                                <input type="text" class="IN1 ipsm3"  name="MonthlyVolumeTicketsList3" id="MonthlyVolumeTicketsList3" title="Number of Transactions"   placeholder="Number of Transactions" required />
+                                                <input type="text" class="IN1 ipsm3"  name="MonthlyVolumeTicketsList3" data-bind="value: MonthlyVolumeTicketsList3" id="MonthlyVolumeTicketsList3" title="Number of Transactions"   placeholder="Number of Transactions" required />
                                             </p>
                                         </div>
 
                                         <div class="rw_lin clearfix">
                                             <div class="labl_tx">3 Month Ago</div>
                                             <p class="imp50">
-                                                <input type="text"  class="IN1 ipsm3" name="MonthlyVolumeAmountsList4" id="MonthlyVolumeAmountsList4" title="Sales Amount($)"   placeholder="Sales Amount($)" required />
+                                                <input type="text"  class="IN1 ipsm3" name="MonthlyVolumeAmountsList4" data-bind="value: MonthlyVolumeAmountsList4" id="MonthlyVolumeAmountsList4" title="Sales Amount($)"   placeholder="Sales Amount($)" required />
                                             </p>
                                             <p class="imp50">
-                                                <input type="text" class="IN1 ipsm3"  name="MonthlyVolumeTicketsList4" id="MonthlyVolumeTicketsList4" title="Number of Transactions"   placeholder="Number of Transactions" required />
+                                                <input type="text" class="IN1 ipsm3"  name="MonthlyVolumeTicketsList4" data-bind="value: MonthlyVolumeTicketsList4" id="MonthlyVolumeTicketsList4" title="Number of Transactions"   placeholder="Number of Transactions" required />
                                             </p>
                                         </div>
 
@@ -1837,11 +1837,11 @@
                             <div class="rw_lin clearfix">
                                 <div class="rwfil">
                                     <span>
-                                        <input type="radio" class="outDebt" name="debttype" id="debttype" value="1" />
+                                        <input type="radio" class="outDebt" name="debttype" id="debttype" data-bind="value: debttype_yes" value="1" />
                                         <label for="yes">Yes</label>
                                     </span>
                                     <span>
-                                        <input type="radio" class="outDebt" name="debttype" id="debttype" value="0" />
+                                        <input type="radio" class="outDebt" name="debttype" id="debttype" data-bind="value: debttype_no" value="0" />
                                         <label for="no">No</label>
                                     </span>
                                 </div>
@@ -1853,24 +1853,24 @@
                                     <div class="rw_lin clearfix">
 
                                         <p class="imp40">
-                                            <select title="Select Debt Type" class="IN5" id="selectdebttype" name="selectdebttype">
+                                            <select title="Select Debt Type" class="IN5" id="selectdebttype" data-bind="value: selectdebttype" name="selectdebttype">
                                                 <option value="">Select Debt Type</option>
                                             </select>
                                         </p>
 
                                         <p class="imp40">
-                                            <select title="Select Disbursed Year" class="IN5" id="selDisbursed" name="selDisbursed">
+                                            <select title="Select Disbursed Year" class="IN5" id="selDisbursed" data-bind="value: selDisbursed" name="selDisbursed">
                                                 <option value="">Select Disbursed Year</option>
                                             </select>
                                         </p>
 
                                         <p>
-                                            <a href="#" class="rem_col">Remove</a>
+                                            <a class="rem_col">Remove</a>
                                         </p>
                                     </div>
 
                                     <div class="rw_lin clearfix">
-                                        <a id="add-form" class="add_oth" href="javascript:;">Add Another Loan</a>
+                                        <a id="add-form" class="add_oth">Add Another Loan</a>
                                     </div>
 
                                 </div><!-- outstanding debt-->
@@ -1883,11 +1883,11 @@
                             <div class="rwfil">
                                 <div class="rw_lin clearfix">
                                     <span>
-                                        <input type="radio" class="businf" name="busproInfo" id="busproInfo" value="1" />
+                                        <input type="radio" class="businf" name="busproInfo" data-bind="value: busproInfo_owned" id="busproInfo" value="1" />
                                         <label for="yes">Owned</label>
                                     </span>
                                     <span>
-                                        <input type="radio" class="businf" name="busproInfo" id="busproInfo" value="0" />
+                                        <input type="radio" class="businf" name="busproInfo" data-bind="value: busproInfo_leased" id="busproInfo" value="0" />
                                         <label for="no">leased</label>
                                     </span>
                                 </div>
@@ -1899,18 +1899,18 @@
                                     <div class="rw_lin clearfix">
                                         <div class="labl_tx">Is there any outstanding mortgage?</div>
                                         <span>
-                                            <input  name="outstandingMort" type="radio" id="outstandingMort" value="1" checked />
+                                            <input  name="outstandingMort" type="radio" id="outstandingMort" data-bind="value: outstandingMort_yes" value="1" checked />
                                             <label for="yes">Yes</label>
                                         </span>
                                         <span>
-                                            <input type="radio"  name="outstandingMort" id="outstandingMort" value="0" />
+                                            <input type="radio"  name="outstandingMort" id="outstandingMort" data-bind="value: outstandingMort_no" value="0" />
                                             <label for="no">No</label>
                                         </span>
                                     </div>
                                     <div class="rw_lin clearfix">
-                                        <input type="text" name="busi_mort_bank" id="busi_mort_bank" class="IN4c" title="Mortgage Bank" placeholder="Mortgage Bank" />
-                                        <input type="text" name="busi_out_balance" id="busi_out_balance" class="IN4c"    title="Outstanding Balance" placeholder="Outstanding Balance" />
-                                        <input type="text" name="busi_month_mort_amount" id="busi_month_mort_amount" class="IN4c" title="Monthly Mortgage Amount" placeholder="Monthly Mortgage Amount"  />
+                                        <input type="text" name="busi_mort_bank" id="busi_mort_bank" class="IN4c" title="Mortgage Bank" data-bind="value: mortgage_bank" placeholder="Mortgage Bank" />
+                                        <input type="text" name="busi_out_balance" id="busi_out_balance" class="IN4c"    title="Outstanding Balance" data-bind="value: outs_bal" placeholder="Outstanding Balance" />
+                                        <input type="text" name="busi_month_mort_amount" id="busi_month_mort_amount" class="IN4c" title="Monthly Mortgage Amount" data-bind="value: month_mort_amount" placeholder="Monthly Mortgage Amount"  />
                                     </div>
 
                                 </div><!-- bus info bx-->
@@ -1920,9 +1920,9 @@
                                 <!-- bus info bx-->
                                 <div id="busInfobx2" class="showfilds_bx">
                                     <div class="rw_lin clearfix">
-                                        <input type="text" name="busi_month_rent" id="busi_month_rent" class="IN4c" title="Monthly Rent" placeholder="Monthly Rent" />
-                                        <input type="text" name="busi_landlord" id="busi_landlord"  class="IN4c"  title="Landlord Name" placeholder="Landlord Name" />
-                                        <input type="text" name="busi_cont_number" id="busi_cont_number" class="IN4c"  title="Contact Number" placeholder="Contact Number" />
+                                        <input type="text" name="busi_month_rent" id="busi_month_rent" class="IN4c" title="Monthly Rent" data-bind="value: monthly_rent" placeholder="Monthly Rent" />
+                                        <input type="text" name="busi_landlord" id="busi_landlord"  class="IN4c"  title="Landlord Name" data-bind="value: landlord_name" placeholder="Landlord Name" />
+                                        <input type="text" name="busi_cont_number" id="busi_cont_number" class="IN4c"  title="Contact Number" data-bind="value: contact_number" placeholder="Contact Number" />
                                     </div>
                                 </div><!-- bus info bx-->
                             </div>
@@ -1936,19 +1936,19 @@
                             </div>
                             <div class="rwfilbc">
                                 <span>
-                                    <input name="" type="checkbox" value="">
+                                    <input name="" type="checkbox" data-bind="value: real_state" value="">
                                     <label>Real Estate</label>
                                 </span>
                                 <span>
-                                    <input name="" type="checkbox" value="">
+                                    <input name="" type="checkbox" data-bind="value: inventory" value="">
                                     <label>Inventory</label>
                                 </span>
                                 <span>
-                                    <input name="" type="checkbox" value="">
+                                    <input name="" type="checkbox" data-bind="value: equip_finance" value="">
                                     <label>Equipment Financing</label>
                                 </span>
                                 <span>
-                                    <input name="" type="checkbox" value="">
+                                    <input name="" type="checkbox" data-bind="value: account_rece" value="">
                                     <label>Account Receivables</label>
                                 </span>
                             </div>
