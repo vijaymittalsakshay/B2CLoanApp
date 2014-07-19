@@ -1837,7 +1837,7 @@
                             <div class="rw_lin clearfix">
                                 <div class="rwfil">
                                     <span>
-                                        <input type="radio" class="outDebt" name="debttype" id="debttype" data-bind="value: debttype_yes" value="1" />
+                                        <input type="radio" class="outDebt" name="debttype" id="debttype123" data-bind="value: debttype_yes" value="1" />
                                         <label for="yes">Yes</label>
                                     </span>
                                     <span>
@@ -1850,30 +1850,17 @@
                             <div class="rwfil">
                                 <!-- outstanding debt-->
                                 <div id="outsta_debt" class="showfilds_bx">
-                                    <div class="rw_lin clearfix">
-
-                                        <p class="imp40">
-                                            <select title="Select Debt Type" class="IN5" id="selectdebttype" data-bind="value: selectdebttype" name="selectdebttype">
-                                                <option value="">Select Debt Type</option>
-                                            </select>
-                                        </p>
-
-                                        <p class="imp40">
-                                            <select title="Select Disbursed Year" class="IN5" id="selDisbursed" data-bind="value: selDisbursed" name="selDisbursed">
-                                                <option value="">Select Disbursed Year</option>
-                                            </select>
-                                        </p>
-
-                                        <p>
-                                            <a class="rem_col">Remove</a>
-                                        </p>
-                                    </div>
-
+                                    <div id="debtwrapper">
+                                        
+									</div>
                                     <div class="rw_lin clearfix">
                                         <a id="add-form" class="add_oth">Add Another Loan</a>
                                     </div>
 
                                 </div><!-- outstanding debt-->
+                                <input type="hidden" id="totbusinessDebtYesDiv" name="totbusinessDebtYesDiv" value="">
+                                <input type="hidden" id="currntControl" name="currntControl" value="0">
+                                <input type="hidden" id="deleteIds" name="deleteIds[]" value="">
                             </div>
 
                         </div>

@@ -24,7 +24,7 @@ $.extend($.fn, {
 		}
 
 		// check if a validator for this form was already created
-		var validator = $.data( this[0], "validator" );
+		var validator = $.data( this, "validator" );
 		if ( validator ) {
 			return validator;
 		}
@@ -32,8 +32,8 @@ $.extend($.fn, {
 		// Add novalidate tag if HTML5.
 		this.attr( "novalidate", "novalidate" );
 
-		validator = new $.validator( options, this[0] );
-		$.data( this[0], "validator", validator );
+		validator = new $.validator( options, this );
+		$.data( this, "validator", validator );
 
 		if ( validator.settings.onsubmit ) {
 
@@ -97,11 +97,11 @@ $.extend($.fn, {
 	},
 	// http://docs.jquery.com/Plugins/Validation/valid
 	valid: function() {
-		if ( $(this[0]).is("form")) {
+		if ( $(this).is("form")) {
 			return this.validate().form();
 		} else {
 			var valid = true;
-			var validator = $(this[0].form).validate();
+			var validator = $(this.form).validate();
 			this.each(function() {
 				valid = valid && validator.element(this);
 			});
@@ -120,8 +120,7 @@ $.extend($.fn, {
 	},
 	// http://docs.jquery.com/Plugins/Validation/rules
 	rules: function( command, argument ) {
-		var element = this[0];
-
+		var element = this;
 		if ( command ) {
 			var settings = $.data(element.form, "validator").settings;
 			var staticRules = settings.rules;
@@ -328,10 +327,10 @@ $.extend($.validator, {
 			});
 
 			function delegate(event) {
-				var validator = $.data(this[0].form, "validator"),
+				var validator = $.data(this.form, "validator"),
 					eventType = "on" + event.type.replace(/^validate/, "");
 				if ( validator.settings[eventType] ) {
-					validator.settings[eventType].call(validator, this[0], event);
+					validator.settings[eventType].call(validator, this, event);
 				}
 			}
 			$(this.currentForm)
