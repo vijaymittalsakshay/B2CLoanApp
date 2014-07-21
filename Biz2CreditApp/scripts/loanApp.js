@@ -53,60 +53,55 @@
         inventory:'',
         equip_finance:'',
         account_rece:'',
-        
-        
-
-        
-        
         show:function() {
             $('.srh_men  .scmsk').mouseover(function() {
-            $("#log_BX").hide();
-            $("#socl_BX").hide();
-            $("#srch_BX").slideToggle(300);
-            $('.log_men').removeClass("act");
-            $('.soc_men').removeClass("act");
-            $('.srh_men').toggleClass("act");
-            $('.soc_men .scmsk').show();
-            $('.srh_men .scmsk').hide();
-            $('.log_men .scmsk').show();
+                $("#log_BX").hide();
+                $("#socl_BX").hide();
+                $("#srch_BX").slideToggle(300);
+                $('.log_men').removeClass("act");
+                $('.soc_men').removeClass("act");
+                $('.srh_men').toggleClass("act");
+                $('.soc_men .scmsk').show();
+                $('.srh_men .scmsk').hide();
+                $('.log_men .scmsk').show();
             });  
             $('#srch_BX .clsmnub').click(function() {
-            $("#srch_BX").slideToggle(300);
-            $('.log_men').removeClass("act");
-            $('.srh_men').removeClass("act");
-            $('.soc_men').removeClass("act");
-            $('.soc_men .scmsk').show();
-            $('.srh_men .scmsk').show();
-            $('.log_men .scmsk').show();
+                $("#srch_BX").slideToggle(300);
+                $('.log_men').removeClass("act");
+                $('.srh_men').removeClass("act");
+                $('.soc_men').removeClass("act");
+                $('.soc_men .scmsk').show();
+                $('.srh_men .scmsk').show();
+                $('.log_men .scmsk').show();
             }); 
 
             //$(".reld_info").tooltip({ effect: 'slide', position: 'bottom center'});
             // $(".que_hint").tooltip({ effect: 'slide', position: 'bottom center'});
             $(".que_hint").kendoTooltip({
-            autoHide: false,
-            width: 240,
-            showOn: "click",
-            callout: false,
-            content: function(e) {
-            return e.target.context.nextElementSibling.innerHTML;
-            },
+                autoHide: false,
+                width: 240,
+                showOn: "click",
+                callout: false,
+                content: function(e) {
+                	return e.target.context.nextElementSibling.innerHTML;
+                },
             });
             // menu 
             $('.subms').hide();
             $('.subnv ').click(function() {
-            $(".subms").slideToggle(300);
-            $('.subnv').toggleClass("act");
+            	$(".subms").slideToggle(300);
+            	$('.subnv').toggleClass("act");
             });
 
             // application
             $('.montrnt.yes').hide();
             $('.crYes ').click(function() {
-            $('.montrnt').hide();
-            $('.montrnt.yes').show();
+            	$('.montrnt').hide();
+            	$('.montrnt.yes').show();
             });
             $('.crNo ').click(function() {
-            $('.montrnt').show();
-            $('.montrnt.yes').hide();
+            	$('.montrnt').show();
+            	$('.montrnt.yes').hide();
             });
 
             // tipsy
@@ -125,44 +120,51 @@
 
             $('.own2').hide();
             $('.admr').click(function() {	
-            $('.own2').show(); 
-            $('.addbtns').hide();
+            	$('.own2').show(); 
+            	$('.addbtns').hide();
             });
 
             /*--------------function for select--------------*/
 
             $('#count_number').change(function() {
-            var sel_value = $(this).val();
+                var sel_value = $(this).val();
 
-            if (sel_value < '5') {
-            $('#dis_count').show();
-            } else {
-            $('#dis_count').hide();
-            }
-            })
+                if (sel_value < '5') {
+                	$('#dis_count').show();
+                } else {
+                	$('#dis_count').hide();
+                }
+            });
 
-            /*--------------function for select end-------------*/
             /*--------------function for radio--------------*/
             $('.se_radio').click(function() {
-            var sel_value = $(this).val();
-            if (sel_value==='1') {
-            $('#credit_show').show();
-            } else {
-            $('#credit_show').hide();
-            }
-            })
-
+                var sel_value = $(this).val();
+                if (sel_value==='1') {
+                	$('#credit_show').show();
+                } else {
+                	$('#credit_show').hide();
+                }
+            });
+            
             // credit card accpted
-
+            
             $('.crditaccep').click(function() {
-            var sel_value = $(this).val();
-            if (sel_value === '1') {
-            $('#credit_show').show();
-            } else {
-            $('#credit_show').hide();
-            }
-            })
-
+                var sel_value = $(this).val();
+                if (sel_value === '1') {
+                	$('#credit_show').show();
+                } else {
+                	$('#credit_show').hide();
+                }
+            });
+            $(".busimort").click(function() {
+            	var mort_value=$(this).val();	
+            	if(mort_value==='1'){
+            		$("#outstandingMortagageDiv").show();		
+            	} else {
+            		$("#outstandingMortagageDiv").hide();	
+            	}
+            							  
+             });
             // outtand dept
 
             $('.outDebt').click(function() {
@@ -188,69 +190,68 @@
             // outtand dept
 
             $('.businf').click(function() {
-            var sel_value = $(this).val();
-            if (sel_value==='1') {
-            $('#busInfobx').show();
-            $('#busInfobx2').hide();
-            } else {
-            $('#busInfobx2').show();
-            $('#busInfobx').hide();
-            }
-            })
+                var sel_value = $(this).val();
+                if (sel_value==='1') {
+                	$('#busInfobx').show();
+                	$('#busInfobx2').hide();
+                } else {
+                	$('#busInfobx2').show();
+                	$('#busInfobx').hide();
+                }
+            });
 
             // credi card proc
             $('#creditcardproc').change(function() {
-            var sel_value = $(this).val();
-            if (sel_value==='') {
-            $('.mercPr').hide();
-            } else {
-            $('.mercPr').show();
-            }
+                var sel_value = $(this).val();
+                if (sel_value==='') {
+                	$('.mercPr').hide();
+                } else {
+                	$('.mercPr').show();
+                }
             })
 
             // credit score yes/no
 
             $('.crYes').click(function() {
-            var sel_value = $(this).val();
-            if (sel_value==='1') {
-            $('#crdscrYes').hide();
-            $('#crdscrNo').show();
-            } else {
-            $('#crdscrYes').show();
-            $('#crdscrNo').hide();
-            }
+                var sel_value = $(this).val();
+                if (sel_value==='1') {
+                	$('#crdscrYes').hide();
+                	$('#crdscrNo').show();
+                } else {
+                	$('#crdscrYes').show();
+                	$('#crdscrNo').hide();
+                }
             });
             $('.tpar').click(function() {
-            alert('debug');
+            	alert('debug');
             });
 
             $("#yettostart").click(function() {
-            if ($(this).is(':checked')) {
-            alert('debug');
-            $('#dbs_month').val("");
-            $('#dbs_year').val("");
-            $('#dbs_month').attr("disabled", "disabled");
-            $('#dbs_year').attr("disabled", "disabled");
-            } else {
-            $('#dbs_month').removeAttr("disabled");
-            $('#dbs_year').removeAttr("disabled");
-            }
+                if ($(this).is(':checked')) {
+                	$('#dbs_month').val("");
+                	$('#dbs_year').val("");
+                	$('#dbs_month').attr("disabled", "disabled");
+                	$('#dbs_year').attr("disabled", "disabled");
+                } else {
+                	$('#dbs_month').removeAttr("disabled");
+                	$('#dbs_year').removeAttr("disabled");
+                }
             });
-			
+            
             // outtand dept
             
             var addForm = $("#add-form");
             var index = 0;
             divId = [];
             addForm.on("click", function() {
+                
                 var form = app.loansetting.viewModel.getForm(++index);
-
                 $('#totbusinessDebtYesDiv').val(index);
                 var tot = parseInt($('#currntControl').val()) + 1;
                 $('#currntControl').val(tot);
                 $("#debtwrapper").append(form);
-
                 totalOutstanding = 0;
+                
                 $("#remove-form" + index).on("click", function() {
                     var currentIndex = $(this).data("index");
                     $("#debt" + currentIndex).remove();
@@ -258,9 +259,8 @@
                     $('#currntControl').val($('#currntControl').val() - 1);
                     divId.push(currentIndex);
                     $('#deleteIds').val(divId);
-
-                    if (parseInt($('#currntControl').val()) === 0) {
-                        $("#debttype").prop("checked", false); 
+                    if ($('#currntControl').val().trim() === '0' || $('#currntControl').val().trim() === 0) {
+                        $(".outDebt").prop("checked", false); 
                         $('#outsta_debt').hide();
                     }
                 });
@@ -275,18 +275,8 @@
                 });
         	}
         },
-        loanAppCIpage:function() {
-        	apps.navigate("views/loanAppCI.html");
-        },
-        loanAppPIpage:function() {
-        	apps.navigate("views/loanAppPI.html");
-        },
-        loanAppFPpage:function() {
-        	apps.navigate("views/loanAppFP.html");
-        },
         getForm:function(index, action) {
-
-
+            
             return $('<div class="rw_lin addons clearfix" id="debt' + index + '"><p class="imp40">' + app.loansetting.viewModel.createDebtType(index) + '</p><p class="imp40">' + app.loansetting.viewModel.createYear(index) + '</p><p><a class="rem_col" href="javascript:void(0);" id="remove-form' + index + '" data-index="' + index + '">Remove</a></p></div><div id="loan_' + index + '"></div>');
         },
         createDebtType:function(NumOfDiv) {
@@ -299,13 +289,13 @@
             str = "<select name='yeardisbursed" + yearid + "' id='yeardisbursed" + yearid + "' title='Select Disbursed Year' class='IN5'>";
             str +='<option value="">Select Disbursed Year</option>';
             for (i=1970; i <= 2020;i++) {
-            str +='<option value=' + i + '>' + i + '</option>';
+            	str +='<option value=' + i + '>' + i + '</option>';
             }
             str +='</select>';
             return str;
         },
         createInput:function(value,NumOfDiv) {
-			//console.log($("#debttype"+NumOfDiv).val());
+            
             value = $("#debttype"+NumOfDiv).val().trim();
             var str='';
             if(value==='Term loan') {
@@ -558,7 +548,16 @@
                 str='';
                 str='<select name="collateraltype'+NumOfDiv+'" id="collateraltype'+NumOfDiv+'" class="IN5 mb15" original-title="Select Collateral"><option value="">Select Collateral</option><option value="Real Estate">Real Estate</option><option value="Equipment">Equipment</option><option value="Account Receivables">Account Receivables</option><option value="Inventory">Inventory</option><option value="Credit Cards Receivables">Credit Cards Receivables</option><option value="Business">Business</option><option value="None">None</option></select>';
                 return str;
-            }
+            },
+            loanAppCIpage:function() {
+            	apps.navigate("views/loanAppCI.html");
+            },
+            loanAppPIpage:function() {
+            	apps.navigate("views/loanAppPI.html");
+            },
+            loanAppFPpage:function() {
+            	apps.navigate("views/loanAppFP.html");
+            },
         
     });
    

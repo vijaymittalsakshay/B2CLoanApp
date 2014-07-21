@@ -1837,7 +1837,7 @@
                             <div class="rw_lin clearfix">
                                 <div class="rwfil">
                                     <span>
-                                        <input type="radio" class="outDebt" name="debttype" id="debttype123" data-bind="value: debttype_yes" value="1" />
+                                        <input type="radio" class="outDebt" name="debttype" id="debttype" data-bind="value: debttype_yes" value="1" />
                                         <label for="yes">Yes</label>
                                     </span>
                                     <span>
@@ -1881,33 +1881,39 @@
                             </div>
                             <div class="rwfil">
                                 <!-- bus info bx-->
-                                <div id="busInfobx" class="showfilds_bx">
-
-                                    <div class="rw_lin clearfix">
-                                        <div class="labl_tx">Is there any outstanding mortgage?</div>
-                                        <span>
-                                            <input  name="outstandingMort" type="radio" id="outstandingMort" data-bind="value: outstandingMort_yes" value="1" checked />
-                                            <label for="yes">Yes</label>
-                                        </span>
-                                        <span>
-                                            <input type="radio"  name="outstandingMort" id="outstandingMort" data-bind="value: outstandingMort_no" value="0" />
-                                            <label for="no">No</label>
-                                        </span>
-                                    </div>
-                                    <div class="rw_lin clearfix">
-                                        <input type="text" name="busi_mort_bank" id="busi_mort_bank" class="IN4c" title="Mortgage Bank" data-bind="value: mortgage_bank" placeholder="Mortgage Bank" />
-                                        <input type="text" name="busi_out_balance" id="busi_out_balance" class="IN4c"    title="Outstanding Balance" data-bind="value: outs_bal" placeholder="Outstanding Balance" />
-                                        <input type="text" name="busi_month_mort_amount" id="busi_month_mort_amount" class="IN4c" title="Monthly Mortgage Amount" data-bind="value: month_mort_amount" placeholder="Monthly Mortgage Amount"  />
-                                    </div>
-
-                                </div><!-- bus info bx-->
+                            <div class="showfilds_bx" id="busInfobx">
+                                <div class="rw_lin opt clearfix">
+                                    <div class="labl_tx">Is there any outstanding mortgage?</div>
+                                    <span>
+                                    	<input type="radio" value="1" id="busi_out_mort_type" name="busi_out_mort_type" class="busimort" checked="true">
+                                    	<label for="yes">Yes</label>
+                                    </span> 
+                                    <span>
+                                    	<input type="radio" value="0" id="busi_out_mort_type" name="busi_out_mort_type" class="busimort">
+                                    	<label for="no">No</label>
+                                    </span> 
+                                </div>
+                                <div class="rw_lin clearfix">
+                                	<div class="field-wrap" id="outstandingMortagageDiv" >
+                                        <p>
+                                        	<input type="text" placeholder="Mortgage Bank" class="IN4c" id="busi_mort_bank" name="busi_mort_bank" value="" original-title="Mortgage Bank">
+                                        </p>
+                                        <p>
+                                        	<input type="text" placeholder="Outstanding Balance ($)" class="IN4c number" id="busi_out_balance" name="busi_out_balance" value="" original-title="Outstanding Balance ($)">
+                                        </p>
+                                        <p>
+                                        	<input type="text" placeholder="Monthly Mortgage Amount ($)" class="IN4c number" id="busi_month_mort_amount" name="busi_month_mort_amount" value="" original-title="Monthly Mortgage Amount ($)">
+                                        </p>
+                                	</div>
+                                </div>
+                            </div><!-- bus info bx-->
                             </div>
 
                             <div class="rwfil">
                                 <!-- bus info bx-->
                                 <div id="busInfobx2" class="showfilds_bx">
                                     <div class="rw_lin clearfix">
-                                        <input type="text" name="busi_month_rent" id="busi_month_rent" class="IN4c" title="Monthly Rent" data-bind="value: monthly_rent" placeholder="Monthly Rent" />
+                                        <input type="text" name="busi_month_rent" id="busi_month_rent" class="IN4c" title="Monthly Rent($)" data-bind="value: monthly_rent" placeholder="Monthly Rent($)" />
                                         <input type="text" name="busi_landlord" id="busi_landlord"  class="IN4c"  title="Landlord Name" data-bind="value: landlord_name" placeholder="Landlord Name" />
                                         <input type="text" name="busi_cont_number" id="busi_cont_number" class="IN4c"  title="Contact Number" data-bind="value: contact_number" placeholder="Contact Number" />
                                     </div>
