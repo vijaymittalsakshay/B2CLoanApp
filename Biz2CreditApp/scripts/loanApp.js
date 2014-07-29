@@ -558,6 +558,113 @@
             loanAppFPpage:function() {
             	apps.navigate("views/loanAppFP.html");
             },
+        	
+        	loanAppBISubmit:function(){
+               
+                var that = this,
+                
+                legal_business_name 		= that.get("legal_business_name").trim();
+                dbaName					 = that.get("dba_name").trim(),
+                streetNo					= that.get("street_no").trim(),
+                streetName				  = that.get("street_name").trim(),
+                aptSuiteUnit				= that.get("apt_suite_unit").trim(),
+                selectState				 = that.get("select_state").trim(),
+                selectCity				  = that.get("select_city").trim(),
+                zipCode	 				= that.get("zip_code").trim(),
+                mobileNumber				= that.get("mobile_number").trim(),
+                select_BLS				  = that.get("select_b_l_s").trim(),
+                industry					= that.get("industry").trim(),
+                subIndustry				 = that.get("sub_industry").trim(),
+                select_BSM  				= that.get("select_buss_s_m").trim(),
+                select_BSY  				= that.get("select_buss_s_y").trim(),
+                yettostart  				= that.get("yettostart").trim(),
+                avgAnnualRevenue   		 = that.get("average_annual_revenue").trim(),
+                bussOperatExpen 			= that.get("buss_operating_expenses").trim(),
+                acceptCardYES	  		 = that.get("acceptcard_yes"),
+                acceptCardNO				= that.get("acceptcard_no"),
+                DFProcessed_Month  		 = that.get("datefirstProcessed_month").trim(),
+                DFProcessed_Day    		 = that.get("datefirstProcessed_day").trim(),
+                DFProcessed_Year   		 = that.get("datefirstProcessed_year").trim(),
+                Cur_city_card_pro  		 = that.get("c_c_card_processor").trim(),
+                merchantID 	    		 = that.get("merchant_id").trim(),
+                MonthlyVolumeAmountsList1   = that.get("MonthlyVolumeAmountsList1").trim(),
+                MonthlyVolumeTicketsList1   = that.get("MonthlyVolumeTicketsList1").trim(),
+                MonthlyVolumeAmountsList2   = that.get("MonthlyVolumeAmountsList2").trim(),
+                MonthlyVolumeTicketsList2   = that.get("MonthlyVolumeTicketsList2").trim(),
+                MonthlyVolumeAmountsList3   = that.get("MonthlyVolumeAmountsList3").trim(),
+                MonthlyVolumeTicketsList3   = that.get("MonthlyVolumeTicketsList3").trim(),
+                MonthlyVolumeAmountsList4   = that.get("MonthlyVolumeAmountsList4").trim(),
+                MonthlyVolumeTicketsList4   = that.get("MonthlyVolumeTicketsList4").trim(),
+                debttypeYES			     = that.get("debttype_yes"),
+                debttypeNO			      = that.get("debttype_no"),
+                selectDebtType			  = that.get("selectdebttype").trim(),
+                selDisbursed			    = that.get("selDisbursed").trim(),
+                busproInfo_owned		    = that.get("busproInfo_owned"),
+                busproInfo_leased	       = that.get("busproInfo_leased"),
+                outStandMortage_YES		 = that.get("outstandingMort_yes"),
+                outStandMortage_NO		  = that.get("outstandingMort_no"),
+                mortgageBANK			    = that.get("mortgage_bank").trim(),
+                outStandingBAL		      = that.get("outs_bal").trim(),
+                monthMortageAMT   	      = that.get("month_mort_amount").trim(),
+                monthlyRENT			     = that.get("monthly_rent").trim(),
+                landlord_NAME			   = that.get("landlord_name").trim(),
+                contact_NUM			     = that.get("contact_number").trim(),
+                realState			       = that.get("real_state").trim(),
+                inventory			       = that.get("inventory").trim(),
+                equipFinance			    = that.get("equip_finance").trim(),
+                account_RECE		        = that.get("account_rece").trim(),
+                
+                console.log("Legal Business Name : "+legal_business_name);
+                console.log("DBA Name : "+dbaName);
+                console.log("Street Number : "+streetNo);
+                console.log("Street Name : "+streetName);
+                console.log("APT/SUIT/UNIT : "+aptSuiteUnit);
+                console.log("Select State : "+selectState);
+                console.log("Select City : "+selectCity);
+                console.log("Zipcode : "+zipCode);
+                console.log("Mobile Number : "+mobileNumber);
+                console.log("Select Business Legal Structure : "+select_BLS);
+                console.log("Industry : "+industry);
+                console.log("SubIndustry : "+subIndustry);
+                console.log("Select Business Started Month : "+select_BSM);
+                console.log("Select Business Started Year : "+select_BSY);
+                console.log("About Start a Business : "+yettostart);
+                console.log("Average Anuual Revenue : "+avgAnnualRevenue);
+                console.log("Business Operating Expanses : "+bussOperatExpen);
+                console.log("Accept Credit card Yes : "+acceptCardYES);
+                console.log("Accept Credit card Yes : "+acceptCardNO);
+                console.log("Credit card first process Month : "+DFProcessed_Month);
+                console.log("Credit card first process Day : "+DFProcessed_Day);
+                console.log("Credit card first process Year : "+DFProcessed_Year);
+                console.log("Current City card Processor : "+Cur_city_card_pro);
+                console.log("Merchant Id : "+merchantID);
+                console.log("Monthly Vol Amount List 1 : "+MonthlyVolumeAmountsList1);
+                console.log("Monthly Vol Tickets List 1 : "+MonthlyVolumeTicketsList1);
+                console.log("Monthly Vol Amount List 2 : "+MonthlyVolumeAmountsList2);
+                console.log("Monthly Vol Tickets List 2 : "+MonthlyVolumeTicketsList2);
+                console.log("Monthly Vol Amount List 3 : "+MonthlyVolumeAmountsList3);
+                console.log("Monthly Vol Tickets List 3 : "+MonthlyVolumeTicketsList3);
+                console.log("Monthly Vol Amount List 4 : "+MonthlyVolumeAmountsList4);
+                console.log("Monthly Vol Tickets List 4 : "+MonthlyVolumeTicketsList4);
+                console.log("Debit Type Yes : "+debttypeYES);
+                console.log("Debit Type No : "+debttypeNO);
+                console.log("Select Debit Type : "+selectDebtType);
+                console.log("Select Disbursed : "+selDisbursed);
+                console.log("Business Property Info Owned : "+busproInfo_owned);
+                console.log("Business Property Info Leased : "+busproInfo_leased);
+                console.log("Outstanding Mortage Yes : "+outStandMortage_YES);
+                console.log("Outstanding Mortage No : "+outStandMortage_NO);
+                console.log("Mortage Bank : "+mortgageBANK);
+                console.log("Outstanding Balance : "+outStandingBAL);
+                console.log("Monthly Mortage Amount : "+monthMortageAMT);
+                console.log("Monthly Rent : "+monthlyRENT);
+                console.log("Landlord Name : "+landlord_NAME);
+                console.log("Contact Number : "+contact_NUM);
+                console.log("Real State : "+realState);
+                console.log("Inventory : "+inventory);
+                console.log("Equipment Finance : "+equipFinance);
+                console.log("Account Receiavles : "+account_RECE);
+            }
         
     });
    
