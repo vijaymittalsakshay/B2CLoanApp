@@ -4,7 +4,7 @@
  * http://bassistance.de/jquery-plugins/jquery-plugin-validation/
  * http://docs.jquery.com/Plugins/Validation
  *
- * Copyright 2013 Jörn Zaefferer
+ * Copyright 2013 JÃ¶rn Zaefferer
  * Released under the MIT license:
  *   http://www.opensource.org/licenses/mit-license.php
  */
@@ -24,7 +24,7 @@ $.extend($.fn, {
 		}
 
 		// check if a validator for this form was already created
-		var validator = $.data( this, "validator" );
+		var validator = $.data( this[0], "validator" );
 		if ( validator ) {
 			return validator;
 		}
@@ -32,8 +32,8 @@ $.extend($.fn, {
 		// Add novalidate tag if HTML5.
 		this.attr( "novalidate", "novalidate" );
 
-		validator = new $.validator( options, this );
-		$.data( this, "validator", validator );
+		validator = new $.validator( options, this[0] );
+		$.data( this[0], "validator", validator );
 
 		if ( validator.settings.onsubmit ) {
 
@@ -97,11 +97,11 @@ $.extend($.fn, {
 	},
 	// http://docs.jquery.com/Plugins/Validation/valid
 	valid: function() {
-		if ( $(this).is("form")) {
+		if ( $(this[0]).is("form")) {
 			return this.validate().form();
 		} else {
 			var valid = true;
-			var validator = $(this.form).validate();
+			var validator = $(this[0].form).validate();
 			this.each(function() {
 				valid = valid && validator.element(this);
 			});
@@ -120,7 +120,8 @@ $.extend($.fn, {
 	},
 	// http://docs.jquery.com/Plugins/Validation/rules
 	rules: function( command, argument ) {
-		var element = this;
+		var element = this[0];
+
 		if ( command ) {
 			var settings = $.data(element.form, "validator").settings;
 			var staticRules = settings.rules;
@@ -327,10 +328,10 @@ $.extend($.validator, {
 			});
 
 			function delegate(event) {
-				var validator = $.data(this.form, "validator"),
+				var validator = $.data(this[0].form, "validator"),
 					eventType = "on" + event.type.replace(/^validate/, "");
 				if ( validator.settings[eventType] ) {
-					validator.settings[eventType].call(validator, this, event);
+					validator.settings[eventType].call(validator, this[0], event);
 				}
 			}
 			$(this.currentForm)
@@ -358,11 +359,25 @@ $.extend($.validator, {
 			this.showErrors();
 			return this.valid();
 		},
-
+/*
 		checkForm: function() {
 			this.prepareForm();
 			for ( var i = 0, elements = (this.currentElements = this.elements()); elements[i]; i++ ) {
 				this.check( elements[i] );
+			}
+			return this.valid();
+		},*/
+
+		checkForm: function() {
+			this.prepareForm();
+			for ( var i = 0, elements = (this.currentElements = this.elements()); elements[i]; i++ ) {
+				if (this.findByName( elements[i].name ).length != undefined && this.findByName( elements[i].name ).length > 1) {
+					for (var cnt = 0; cnt < this.findByName( elements[i].name ).length; cnt++) {
+						this.check( this.findByName( elements[i].name )[cnt] );
+					}
+				} else {
+					this.check( elements[i] );
+				}
 			}
 			return this.valid();
 		},

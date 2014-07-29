@@ -274,6 +274,141 @@
                 }
                 });
         	}
+          $("#B2cAppForms").validate({
+        		
+        	rules: {
+        			orgname: {
+        					required: true
+        				   },
+        			civic: { 
+        					required: true,
+        					number : true
+        					},
+        			baddr: {
+        					required: true
+        				},
+        				state: {
+        				required: true
+        			},
+        			cmbCity: {
+        				required: true
+        			},
+        			zipcode: {
+        				required: true,
+        				zipcodeUS: true
+        				
+        			},
+        			businessphone: {
+        				required: true,
+        				phoneUS: true
+        			},
+        			blegal: {
+        				required: true
+        				},
+        			orgtype: {
+        				required: true
+        			},
+        			orgcategory: {
+        				required: true
+        			},
+        			dbs_year: {
+        				required: true
+        			},
+        			dbs_month: {
+        				required: true,
+        				dbscurrent: true
+        			},
+        			revenue: {
+        				required: true,
+        				number: true
+        			},
+        			operatingexp: {
+        				required: true,
+        				number: true
+        			},
+        			acceptcard: {
+        				required: true,
+        				},
+        			debttype: {
+        				required: true
+        				
+        			},
+        			busi_pro_info_type: {
+        				required: true
+        			}
+        			
+        		},
+        	messages: {
+        			orgname: {
+        						required: "This value is required"
+        			 },
+        			 
+        			civic: { 
+        					required: "This value is required",
+        					number: "Please enter digits only"
+        					},
+        			baddr: {
+        						required: "This value is required"
+        				},
+        				state: {
+        				required: "This value is required"
+        			},
+        			cmbCity: {
+        				required: "This value is required"
+        			},
+        			zipcode: {
+        				required: "This value is required",
+        				zipcodeUS: "Please enter valid zipcode"
+        				
+        			},
+        			businessphone: {
+        				required: "This value is required",
+        				phoneUS: "Please enter us phone number"
+        			},
+        			blegal: {
+        				required: "This value is required"
+        				},
+        			orgtype: {
+        				required: "This value is required"
+        			},
+        			orgcategory: {
+        				required: "This value is required"
+        			},
+        			dbs_year: {
+        				required: "This value is required"
+        			},
+        			dbs_month: {
+        				required: "This value is required",
+        				dbscurrent: "Please select valid value"
+        			},
+        			revenue: {
+        				required: "This value is required",
+        				number: "Please enter digits only"
+        			},
+        			operatingexp: {
+        				required: "This value is required",
+        				number: "Please enter digits only"
+        			},
+        			acceptcard: {
+        				required: "This value is required",
+        				},
+        			debttype: {
+        				required: "This value is required"
+        				
+        			},
+        			busi_pro_info_type: {
+        				required: "This value is required"
+        			}
+        		 
+        		},
+         	submitHandler: function(form) {
+        		 	// $("#b2cApp1 #next").prop("disabled", true);
+        				 return false;
+        	}
+        	 
+        });
+
+
         },
         getForm:function(index, action) {
             
@@ -560,7 +695,8 @@
             },
         	
         	loanAppBISubmit:function(){
-               
+                var status = $('#B2cAppForms').valid();
+                return status;
                 var that = this,
                 
                 legal_business_name 		= that.get("legal_business_name").trim();
@@ -665,6 +801,7 @@
                 console.log("Equipment Finance : "+equipFinance);
                 console.log("Account Receiavles : "+account_RECE);
             }
+            
         
     });
    
