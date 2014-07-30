@@ -253,7 +253,7 @@
             var index = 0;
             divId = [];
             addForm.on("click", function() {
-                
+                alert('debug');
                 var form = app.loansetting.viewModel.getForm(++index);
                 $('#totbusinessDebtYesDiv').val(index);
                 var tot = parseInt($('#currntControl').val()) + 1;
@@ -261,6 +261,7 @@
                 $("#debtwrapper").append(form);
                 totalOutstanding = 0;
                 
+                app.loansetting.viewModel.addOutDebtVar(index);
                 $("#remove-form" + index).on("click", function() {
                     var currentIndex = $(this).data("index");
                     $("#debt" + currentIndex).remove();
@@ -416,12 +417,12 @@
         },
         createDebtType:function(NumOfDiv) {
             var str = '';
-            str = "<select name='debttype" + NumOfDiv + "' class='IN5 debtclass' title='Select Debt Type' id='debttype" + NumOfDiv + "' onChange='javascript:app.loansetting.viewModel.createInput(" + this.value + ", " + NumOfDiv + ")' title='Select Debt Type'><option value=''>Select Debt Type</option><option value='Business Credit Card'>Business Credit Card</option><option value='Cash Advance'>Cash Advance</option><option value='Line of credit'>Line of credit</option><option value='Term loan'>Term loan</option></select>";
+            str = "<select name='debttype" + NumOfDiv + "' class='IN5 debtclass' title='Select Debt Type' id='debttype" + NumOfDiv + "' onChange='javascript:app.loansetting.viewModel.createInput(" + this.value + ", " + NumOfDiv + ")' data-bind='value: debttype"+NumOfDiv+"' title='Select Debt Type'><option value=''>Select Debt Type</option><option value='Business Credit Card'>Business Credit Card</option><option value='Cash Advance'>Cash Advance</option><option value='Line of credit'>Line of credit</option><option value='Term loan'>Term loan</option></select>";
             return str;
         },
         createYear:function(yearid) {
             var str;
-            str = "<select name='yeardisbursed" + yearid + "' id='yeardisbursed" + yearid + "' title='Select Disbursed Year' class='IN5'>";
+            str = "<select name='yeardisbursed" + yearid + "' id='yeardisbursed" + yearid + "' data-bind='value: yeardisbursed"+yearid+"' title='Select Disbursed Year' class='IN5'>";
             str +='<option value="">Select Disbursed Year</option>';
             for (i=1970; i <= 2020;i++) {
             	str +='<option value=' + i + '>' + i + '</option>';
@@ -440,17 +441,17 @@
                     </p>\
                     <div class="clear"></div>\
                     <p class="imp40">\
-                    <input type="text" class="IN5 mb15 number" placeholder="Original Loan Amount ($)" name="txtAmountTerm'+NumOfDiv+'" id="txtAmountTerm'+NumOfDiv+'" original-title="Original Loan Amount $">\
+                    <input type="text" class="IN5 mb15 number" placeholder="Original Loan Amount ($)" name="txtAmountTerm'+NumOfDiv+'" id="txtAmountTerm'+NumOfDiv+'" data-bind="value: txtAmountTerm'+NumOfDiv+'" original-title="Original Loan Amount $">\
                     </p>\
                     <p class="imp40">\
-                    <input type="text" class="IN5 number" placeholder="Outstanding Loan Amount ($)" name="txtOutAmountTerm'+NumOfDiv+'" id="txtOutAmountTerm'+NumOfDiv+'" original-title="Outstanding Loan Amount $">\
+                    <input type="text" class="IN5 number" placeholder="Outstanding Loan Amount ($)" name="txtOutAmountTerm'+NumOfDiv+'" id="txtOutAmountTerm'+NumOfDiv+'" data-bind="value: txtOutAmountTerm'+NumOfDiv+'" original-title="Outstanding Loan Amount $">\
                     </p>\
                     <div class="clear"></div>\
                     <p class="imp40">\
-                    <input type="text" name="txtInterestTerm'+NumOfDiv+'" id="txtInterestTerm'+NumOfDiv+'" maxlength="5" placeholder="Interest Rate (%)" class="IN5 mb15" original-title="Interest Rate (%)">\
+                    <input type="text" name="txtInterestTerm'+NumOfDiv+'" id="txtInterestTerm'+NumOfDiv+'" data-bind="value: txtInterestTerm'+NumOfDiv+'" maxlength="5" placeholder="Interest Rate (%)" class="IN5 mb15" original-title="Interest Rate (%)">\
                     </p>\
                     <p class="imp40">\
-                    <select name="txtYearTerm'+NumOfDiv+'" id="txtYearTerm'+NumOfDiv+'" class="IN5B" title="Interest Rate Year(s)">\
+                    <select name="txtYearTerm'+NumOfDiv+'" id="txtYearTerm'+NumOfDiv+'" data-bind="value: txtYearTerm'+NumOfDiv+'" class="IN5B" title="Interest Rate Year(s)">\
                     <option value="1" selected="">Year(s)</option>\
                     <option value="2">Half-year</option>\
                     <option value="4">Quarter</option>\
@@ -461,7 +462,7 @@
                     </p>\
                     <div class="clear"></div>\
                     <p class="imp40">\
-                    <select class="IN4" name="txtPaymentModeTerm'+NumOfDiv+'" id="txtPaymentModeTerm'+NumOfDiv+'" original-title="Select Payment Schedule">\
+                    <select class="IN4" name="txtPaymentModeTerm'+NumOfDiv+'" id="txtPaymentModeTerm'+NumOfDiv+'" data-bind="value: txtPaymentModeTerm'+NumOfDiv+'" original-title="Select Payment Schedule">\
                     <option value="">Payment Schedule</option>\
                     <option value="1">Annually</option>\
                     <option value="2">semi-annually</option>\
@@ -472,10 +473,10 @@
                     </select>\
                     </p>\
                     <p class="imp40">\
-                    <input type="text" class="IN4" name="txtTerm'+NumOfDiv+'" id="txtTerm'+NumOfDiv+'" placeholder="Term" original-title="Term">\
+                    <input type="text" class="IN4" name="txtTerm'+NumOfDiv+'" id="txtTerm'+NumOfDiv+'" data-bind="value: txtTerm'+NumOfDiv+'" placeholder="Term" original-title="Term">\
                     </p>\
                     <p class="imp40">\
-                    <select name="txtFrequncyTerm'+NumOfDiv+'" id="txtFrequncyTerm'+NumOfDiv+'" class="IN4" original-title="Term Year(s)">\
+                    <select name="txtFrequncyTerm'+NumOfDiv+'" id="txtFrequncyTerm'+NumOfDiv+'" data-bind="value: txtFrequncyTerm'+NumOfDiv+'" class="IN4" original-title="Term Year(s)">\
                     <option value="1" selected="">Year(s)</option>\
                     <option value="2">Half-year(s)</option>\
                     <option value="4">Quarter(s)</option>\
@@ -681,7 +682,7 @@
             },
             createCollateral:function (NumOfDiv) {
                 str='';
-                str='<select name="collateraltype'+NumOfDiv+'" id="collateraltype'+NumOfDiv+'" class="IN5 mb15" original-title="Select Collateral"><option value="">Select Collateral</option><option value="Real Estate">Real Estate</option><option value="Equipment">Equipment</option><option value="Account Receivables">Account Receivables</option><option value="Inventory">Inventory</option><option value="Credit Cards Receivables">Credit Cards Receivables</option><option value="Business">Business</option><option value="None">None</option></select>';
+                str='<select name="collateraltype'+NumOfDiv+'" id="collateraltype'+NumOfDiv+'" data-bind="value: collateraltype'+NumOfDiv+'" class="IN5 mb15" original-title="Select Collateral"><option value="">Select Collateral</option><option value="Real Estate">Real Estate</option><option value="Equipment">Equipment</option><option value="Account Receivables">Account Receivables</option><option value="Inventory">Inventory</option><option value="Credit Cards Receivables">Credit Cards Receivables</option><option value="Business">Business</option><option value="None">None</option></select>';
                 return str;
             },
         	creditCardValidate:function()
@@ -800,14 +801,19 @@
             },
         	
         	loanAppBISubmit:function(){
-                var status = $('#B2cAppForms').valid();
+                //var status = $('#B2cAppForms').valid();
+                //that.get("collateraltype1").trim();
+                var that = this;
+                console.log(that);
+                console.log('collateraltype1'+viewModel.get("collateraltype1"));
+               
                 if(status === false)
                 {
                     return status;
                 }
                 
-                var that = this,
-                legal_business_name 		= that.get("legal_business_name").trim();
+                //var that = this,
+                /*legal_business_name 		= that.get("legal_business_name").trim();
                 dbaName					 = that.get("dba_name").trim(),
                 streetNo					= that.get("street_no").trim(),
                 streetName				  = that.get("street_name").trim(),
@@ -907,7 +913,16 @@
                 console.log("Real State : "+realState);
                 console.log("Inventory : "+inventory);
                 console.log("Equipment Finance : "+equipFinance);
-                console.log("Account Receiavles : "+account_RECE);
+                console.log("Account Receiavles : "+account_RECE);*/
+            },
+            addOutDebtVar:function(num)
+            {
+                alert('call');
+                //var collateraltype ='collateraltype'+num;
+                    viewModel = kendo.observable();
+                viewModel['collateraltype'+num] ='';
+                kendo.bind($("#collateraltype1"), viewModel);
+                console.log(viewModel);
             }
             
         
