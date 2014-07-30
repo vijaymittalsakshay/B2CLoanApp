@@ -1,4 +1,4 @@
-<div data-role="view" id="tabstrip-loanapp-bi" data-model="app.loansetting.viewModel" data-show="app.loansetting.viewModel.show">
+<div data-role="view" id="tabstrip-loanapp-bi" data-model="app.loansetting.viewModel" data-show="app.loansetting.viewModel.show" data-after-show="app.loansetting.viewModel.afterShow">
     <div data-role="header">
         <div data-role="navbar">
             <span data-role="view-title">
@@ -35,7 +35,7 @@
                         <div class="rws clearfix">
                             <div class="lftitb">Legal Business Name</div>
                             <div class="rwfil">
-                                <input type="text" name="lbname" class="IN1" id="lbname" title="Legal Business Name"  data-bind="value: legal_business_name" placeholder="Legal Business Name" required />
+                                <input type="text" name="orgname" class="IN1 ac_input valid" id="orgname" title="Legal Business Name"  data-bind="value: legal_business_name" placeholder="Legal Business Name" required />
                                 <input type="text" placeholder="DBA Name" id="dbaname" class="IN1 ipsm3" name="dbaname" data-bind="value: dba_name" original-title="DBA Name" value="Test">
                             </div>
                         </div>
@@ -51,14 +51,14 @@
                                         <input type="text" class="IN1 ipsm3"  name="baddr" id="baddr" title="Street Name"  data-bind="value: street_name" placeholder="Street Name" required />
                                     </p>
                                     <p>
-                                        <input type="text" class="IN1 ipsm3" name="aptsui" id="aptsui" title="Apt/Suite/Unit"  data-bind="value: apt_suite_unit" placeholder="Apt/Suite/Unit" required />
+                                        <input type="text" class="IN1 ipsm3" name="street1" id="street1" title="Apt/Suite/Unit"  data-bind="value: apt_suite_unit" placeholder="Apt/Suite/Unit" required />
                                     </p>
                                     <br>
                                 </div>
 
                                 <div class="rw_lin clearfix">
                                     <p>
-                                        <select class="IN1b ipsm3" name="state_user"  id="state_user"  title="Select State"  data-bind="value: select_state" onchange="displayCity_user(this.value, '');" required>
+                                        <select class="IN1b ipsm3 valid" name="state"  id="state"  title="Select State"  data-bind="value: select_state" onchange="displayCity_user(this.value, '');" required>
                                             <option value="" selected="selected">Select State</option>
                                             <option value="1">Alabama</option>
                                             <option value="2">Alaska</option>
@@ -117,7 +117,7 @@
                                     </p>
 
                                     <p>
-                                        <select title="Select City" class="IN1b ipsm3" id="cmbCity_user" data-bind="value: select_city" name="cmbCity_user" required>
+                                        <select title="Select City" class="IN1b ipsm3 valid" id="cmbCity" data-bind="value: select_city" name="cmbCity" required>
                                             <option value="" selected="selected">Select City</option>
                                             <option value="984">Adona</option>
                                             <option value="985">Alexander</option>
@@ -728,7 +728,7 @@
                                     </p>
 
                                     <p>
-                                        <input type="text" class="IN1 ipsm1" name="zcode"  id="zcode" title="Zip Code" data-bind="value: zip_code" placeholder="Zip Code" required />
+                                        <input type="text" class="IN1 ipsm1 valid" name="zipcode"  id="zipcode" title="Zip Code" data-bind="value: zip_code" placeholder="Zip Code" required />
                                     </p>
                                     <p class="LargePhone">
                                         <input type="text" placeholder="Mobile Number" id="businessphone" name="businessphone" data-bind="value: mobile_number" class="IN1 ipsm1 smphone valid" original-title="Mobile Number" value="111-111-1111" maxlength="10">
@@ -793,7 +793,7 @@
                                 <div class="rw_lin hlp clearfix">
 
                                     <p>
-                                        <select id="dbs_month" name="dbs_month" class="IN5 valid" data-bind="value: select_buss_s_m" original-title="Select Date Business Started (Month)">
+                                        <select id="dbs_month" name="dbs_month" class="IN5" data-bind="value: select_buss_s_m" original-title="Select Date Business Started (Month)">
                                             <option value="" selected="selected">Select Date Business Started (Month)</option>
                                             <option value="1">Jan</option>
                                             <option value="2">Feb</option>
@@ -820,7 +820,7 @@
                                     </div>
 
                                     <p>
-                                        <select class="IN5 valid" id="dbs_year" name="dbs_year" data-bind="value: select_buss_s_y" original-title="Select Date Business Started (Year)">
+                                        <select class="IN5" id="dbs_year" name="dbs_year" data-bind="value: select_buss_s_y" original-title="Select Date Business Started (Year)">
                                             <option value="" selected="selected">Select Date Business Started (Year)</option>
                                             <option value="2014">2014</option>
                                             <option value="2013">2013</option>
@@ -956,7 +956,7 @@
 
                                 <div class="rw_lin hlp clearfix">
                                     <p>
-                                        <input type="text"  class="IN6" title="Average Annual Revenue" placeholder="Average Annual Revenue" data-bind="value: average_annual_revenue" name="revenue" id="revenue" onBlur="addComma(this.form.operatingexp);" required />
+                                        <input type="text"  class="IN6" title="Average Annual Revenue ($)" placeholder="Average Annual Revenue ($)" data-bind="value: average_annual_revenue" name="revenue" id="revenue" onBlur="addComma(this.form.operatingexp);" required />
                                     </p>
                                     <a class="que_hint flf">&nbsp;</a>
                                     <div class="tooltip">
@@ -969,7 +969,7 @@
                                         </div>
                                     </div>
                                     <p>
-                                        <input type="text"  class="IN6" title="Business Operating Expenses" placeholder="Business Operating Expenses" data-bind="value: buss_operating_expenses" name="operatingexp" id="operatingexp" required />
+                                        <input type="text"  class="IN6" title="Business Operating Expenses ($)" placeholder="Business Operating Expenses ($)" data-bind="value: buss_operating_expenses" name="operatingexp" id="operatingexp" required />
                                     </p>
                                     <a class="que_hint flf">&nbsp;</a>
                                     <div class="tooltip">
@@ -1133,7 +1133,7 @@
                                         </div>
                                         <div class="rw_lin clearfix">
                                             <p>
-                                                <select name="creditcardproc" id="creditcardproc" class="IN3" data-bind="value: c_c_card_processor" title="Current Credit Card Processor">
+                                                <select name="creditcardproc" id="creditcardproc" class="IN3 valid" data-bind="value: c_c_card_processor" title="Current Credit Card Processor">
                                                     <option value="">Select Current Credit Card Processor</option>
                                                     <option value="Not in List">Not in List</option>
                                                     <option value="1Card@Atime (Lockbox)">1Card@Atime (Lockbox)</option>
@@ -1789,7 +1789,7 @@
                                             <div class="labl_tx2">List the total VISA/MasterCard processing volumes from previous four months</div>
                                             <div class="labl_tx">Last Month</div>
                                             <p class="imp50">
-                                                <input type="text"  class="IN1 ipsm3" name="MonthlyVolumeAmountsList1" data-bind="value: MonthlyVolumeAmountsList1" id="MonthlyVolumeAmountsList1" title="Sales Amount(jQuery)"   placeholder="Sales Amount(jQuery)" required />
+                                                <input type="text"  class="IN1 ipsm3 number" name="MonthlyVolumeAmountsList1" data-bind="value: MonthlyVolumeAmountsList1" id="MonthlyVolumeAmountsList1" title="Sales Amount($)"   placeholder="Sales Amount($)" required />
                                             </p>
                                             <p class="imp50">
                                                 <input type="text" class="IN1 ipsm3"  name="MonthlyVolumeTicketsList1" data-bind="value: MonthlyVolumeTicketsList1" id="MonthlyVolumeTicketsList1" title="Number of Transactions"   placeholder="Number of Transactions" required />
@@ -1799,7 +1799,7 @@
                                         <div class="rw_lin clearfix">
                                             <div class="labl_tx">1 Month Ago</div>
                                             <p class="imp50">
-                                                <input type="text"  class="IN1 ipsm3" name="MonthlyVolumeAmountsList2" data-bind="value: MonthlyVolumeAmountsList2"id="MonthlyVolumeAmountsList2" title="Sales Amount(jQuery)"   placeholder="Sales Amount(jQuery)" required />
+                                                <input type="text"  class="IN1 ipsm3 number" name="MonthlyVolumeAmountsList2" data-bind="value: MonthlyVolumeAmountsList2"id="MonthlyVolumeAmountsList2" title="Sales Amount($)"   placeholder="Sales Amount($)" required />
                                             </p>
                                             <p class="imp50">
                                                 <input type="text" class="IN1 ipsm3"  name="MonthlyVolumeTicketsList2" data-bind="value: MonthlyVolumeTicketsList2" id="MonthlyVolumeTicketsList2" title="Number of Transactions"   placeholder="Number of Transactions" required />
@@ -1809,7 +1809,7 @@
                                         <div class="rw_lin clearfix">
                                             <div class="labl_tx">2 Month Ago</div>
                                             <p class="imp50">
-                                                <input type="text"  class="IN1 ipsm3" name="MonthlyVolumeAmountsList3" data-bind="value: MonthlyVolumeAmountsList3" id="MonthlyVolumeAmountsList3" title="Sales Amount(jQuery)"   placeholder="Sales Amount(jQuery)" required />
+                                                <input type="text"  class="IN1 ipsm3 number" name="MonthlyVolumeAmountsList3" data-bind="value: MonthlyVolumeAmountsList3" id="MonthlyVolumeAmountsList3" title="Sales Amount($)"   placeholder="Sales Amount($)" required />
                                             </p>
                                             <p class="imp50">
                                                 <input type="text" class="IN1 ipsm3"  name="MonthlyVolumeTicketsList3" data-bind="value: MonthlyVolumeTicketsList3" id="MonthlyVolumeTicketsList3" title="Number of Transactions"   placeholder="Number of Transactions" required />
@@ -1819,7 +1819,7 @@
                                         <div class="rw_lin clearfix">
                                             <div class="labl_tx">3 Month Ago</div>
                                             <p class="imp50">
-                                                <input type="text"  class="IN1 ipsm3" name="MonthlyVolumeAmountsList4" data-bind="value: MonthlyVolumeAmountsList4" id="MonthlyVolumeAmountsList4" title="Sales Amount(jQuery)"   placeholder="Sales Amount(jQuery)" required />
+                                                <input type="text"  class="IN1 ipsm3 number" name="MonthlyVolumeAmountsList4" data-bind="value: MonthlyVolumeAmountsList4" id="MonthlyVolumeAmountsList4" title="Sales Amount($)"   placeholder="Sales Amount($)" required />
                                             </p>
                                             <p class="imp50">
                                                 <input type="text" class="IN1 ipsm3"  name="MonthlyVolumeTicketsList4" data-bind="value: MonthlyVolumeTicketsList4" id="MonthlyVolumeTicketsList4" title="Number of Transactions"   placeholder="Number of Transactions" required />
@@ -1896,13 +1896,13 @@
                                 <div class="rw_lin clearfix">
                                 	<div class="field-wrap" id="outstandingMortagageDiv" >
                                         <p>
-                                        	<input type="text" placeholder="Mortgage Bank" class="IN4c" id="busi_mort_bank" name="busi_mort_bank" value="" original-title="Mortgage Bank">
+                                        	<input type="text" placeholder="Mortgage Bank" class="IN4c" id="busi_mort_bank" data-bind="value:mortgage_bank" name="busi_mort_bank" value="" original-title="Mortgage Bank">
                                         </p>
                                         <p>
-                                        	<input type="text" placeholder="Outstanding Balance (jQuery)" class="IN4c number" id="busi_out_balance" name="busi_out_balance" value="" original-title="Outstanding Balance (jQuery)">
+                                        	<input type="text" placeholder="Outstanding Balance ($)" class="IN4c number" data-bind="value:outs_bal" id="busi_out_balance" name="busi_out_balance" value="" original-title="Outstanding Balance ($)">
                                         </p>
                                         <p>
-                                        	<input type="text" placeholder="Monthly Mortgage Amount (jQuery)" class="IN4c number" id="busi_month_mort_amount" name="busi_month_mort_amount" value="" original-title="Monthly Mortgage Amount (jQuery)">
+                                        	<input type="text" placeholder="Monthly Mortgage Amount ($)" data-bind="value:month_mort_amount" class="IN4c number" id="busi_month_mort_amount" name="busi_month_mort_amount" value="" original-title="Monthly Mortgage Amount ($)">
                                         </p>
                                 	</div>
                                 </div>
@@ -1913,7 +1913,7 @@
                                 <!-- bus info bx-->
                                 <div id="busInfobx2" class="showfilds_bx">
                                     <div class="rw_lin clearfix">
-                                        <input type="text" name="busi_month_rent" id="busi_month_rent" class="IN4c" title="Monthly Rent(jQuery)" data-bind="value: monthly_rent" placeholder="Monthly Rent(jQuery)" />
+                                        <input type="text" name="busi_month_rent" id="busi_month_rent" class="IN4c number" title="Monthly Rent($)" data-bind="value: monthly_rent" placeholder="Monthly Rent($)" />
                                         <input type="text" name="busi_landlord" id="busi_landlord"  class="IN4c"  title="Landlord Name" data-bind="value: landlord_name" placeholder="Landlord Name" />
                                         <input type="text" name="busi_cont_number" id="busi_cont_number" class="IN4c"  title="Contact Number" data-bind="value: contact_number" placeholder="Contact Number" />
                                     </div>
@@ -1929,19 +1929,19 @@
                             </div>
                             <div class="rwfilbc">
                                 <span>
-                                    <input name="" type="checkbox" data-bind="value: real_state" value="">
+                                    <input name="" type="checkbox" data-bind="value: real_state" value="Real Estate">
                                     <label>Real Estate</label>
                                 </span>
                                 <span>
-                                    <input name="" type="checkbox" data-bind="value: inventory" value="">
+                                    <input name="" type="checkbox" data-bind="value: inventory" value="Inventory">
                                     <label>Inventory</label>
                                 </span>
                                 <span>
-                                    <input name="" type="checkbox" data-bind="value: equip_finance" value="">
+                                    <input name="" type="checkbox" data-bind="value: equip_finance" value="Equipment Financing">
                                     <label>Equipment Financing</label>
                                 </span>
                                 <span>
-                                    <input name="" type="checkbox" data-bind="value: account_rece" value="">
+                                    <input name="" type="checkbox" data-bind="value: account_rece" value="Account Receivables">
                                     <label>Account Receivables</label>
                                 </span>
                             </div>
@@ -1952,7 +1952,7 @@
 
                 <article id="aplicn_btm">
                     <div class="warps">
-                        <div class="coln">
+                          <div class="coln">
                             <input name="" type="submit" data-role="button" value="Save &amp; Exit" data-bind="click:loanAppBISubmit" class="BTgry">
                             <input name="next" type="submit" id="next" data-role="button" data-bind ="click:loanAppCIpage" value="Next"  class="BTgren">
                         </div>

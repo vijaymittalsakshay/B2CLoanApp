@@ -53,6 +53,13 @@
         inventory:'',
         equip_finance:'',
         account_rece:'',
+        afterShow:function()
+        {
+            if($('.crditaccep').val()==='1') {
+                //alert('call');
+            	app.loansetting.viewModel.creditCardValidate();
+            }
+        },
         show:function() {
             $('.srh_men  .scmsk').mouseover(function() {
                 $("#log_BX").hide();
@@ -156,7 +163,9 @@
                 	$('#credit_show').hide();
                 }
             });
-            $(".busimort").click(function() {
+            
+            
+			$(".busimort").click(function() {
             	var mort_value=$(this).val();	
             	if(mort_value==='1'){
             		$("#outstandingMortagageDiv").show();		
@@ -266,30 +275,24 @@
                 });
             });
 
-            if ($("#orgname").length > 0) {
-                //$("#orgname").autocomplete("./dnb-serverexe.php?task=dnbbankrecord");
-                $("#orgname").result(function(event, data, formatted) {
-                if (data) {
-                	getCompInfoData(data[1]);
-                }
-                });
-        	}
+            
+            
           $("#B2cAppForms").validate({
         		
         	rules: {
         			orgname: {
-        					required: true
-        				   },
-        			civic: { 
-        					required: true,
-        					number : true
-        					},
-        			baddr: {
-        					required: true
-        				},
-        				state: {
         				required: true
         			},
+        			civic: { 
+        				required: true,
+        				number : true
+        			},
+        			baddr: {
+        				required: true
+        			},
+    				state: {
+    					required: true
+    				},
         			cmbCity: {
         				required: true
         			},
@@ -340,17 +343,16 @@
         		},
         	messages: {
         			orgname: {
-        						required: "This value is required"
+        				required: "This value is required"
         			 },
-        			 
         			civic: { 
-        					required: "This value is required",
-        					number: "Please enter digits only"
-        					},
+        				required: "This value is required",
+        				number: "Please enter digits only"
+        			},
         			baddr: {
-        						required: "This value is required"
-        				},
-        				state: {
+        				required: "This value is required"
+        			},
+        			state: {
         				required: "This value is required"
         			},
         			cmbCity: {
@@ -367,7 +369,7 @@
         			},
         			blegal: {
         				required: "This value is required"
-        				},
+        			},
         			orgtype: {
         				required: "This value is required"
         			},
@@ -391,15 +393,13 @@
         			},
         			acceptcard: {
         				required: "This value is required",
-        				},
+        			},
         			debttype: {
         				required: "This value is required"
-        				
         			},
         			busi_pro_info_type: {
         				required: "This value is required"
         			}
-        		 
         		},
          	submitHandler: function(form) {
         		 	// $("#b2cApp1 #next").prop("disabled", true);
@@ -684,6 +684,111 @@
                 str='<select name="collateraltype'+NumOfDiv+'" id="collateraltype'+NumOfDiv+'" class="IN5 mb15" original-title="Select Collateral"><option value="">Select Collateral</option><option value="Real Estate">Real Estate</option><option value="Equipment">Equipment</option><option value="Account Receivables">Account Receivables</option><option value="Inventory">Inventory</option><option value="Credit Cards Receivables">Credit Cards Receivables</option><option value="Business">Business</option><option value="None">None</option></select>';
                 return str;
             },
+        	creditCardValidate:function()
+        	{
+                $("#datefirstProcessed_month").rules("add", {
+                required: true,
+                messages: {
+                required: "This value is required"
+                }
+                });
+                $("#datefirstProcessed_day").rules("add", {
+                required: true,
+                messages: {
+                required: "This value is required"
+                }
+                });
+                $("#datefirstProcessed_year").rules("add", {
+                required: true,
+                messages: {
+                required: "This value is required"
+                }
+                });
+
+                $("#creditcardproc").rules("add", {
+                required: true,
+                messages: {
+                required: "This value is required"
+                }
+                });
+                $("#merchantid").rules("add", {
+                required: true,
+                number: true,
+                minlength:9,
+
+                messages: {
+                required: "This value is required",
+                number: "This value is required",
+                minlength: "Please enter only 9 digit merchantid"
+                }
+                });
+
+                $("#MonthlyVolumeAmountsList1").rules("add", {
+                required: true,
+                number: true,
+                messages: {
+                required: "This value is required",
+                number: "Please enter digits only"
+                }
+                });
+                $("#MonthlyVolumeTicketsList1").rules("add", {
+                required: true,
+                number: true,
+                messages: {
+                required: "This value is required",
+                number: "Please enter digits only"
+                }
+                });
+
+                $("#MonthlyVolumeAmountsList2").rules("add", {
+                required: true,
+                number: true,
+                messages: {
+                required: "This value is required",
+                number: "Please enter digits only"
+                }
+                });
+                $("#MonthlyVolumeTicketsList2").rules("add", {
+                required: true,
+                number: true,
+                messages: {
+                required: "This value is required",
+                number: "Please enter digits only"
+                }
+                });
+                $("#MonthlyVolumeAmountsList3").rules("add", {
+                required: true,
+                number: true,
+                messages: {
+                required: "This value is required",
+                number: "Please enter digits only"
+                }
+                });
+                $("#MonthlyVolumeTicketsList3").rules("add", {
+                required: true,
+                number: true,
+                messages: {
+                required: "This value is required",
+                number: "Please enter digits only"
+                }
+                });
+                $("#MonthlyVolumeAmountsList4").rules("add", {
+                required: true,
+                number: true,
+                messages: {
+                required: "This value is required",
+                number: "Please enter digits only"
+                }
+                });
+                $("#MonthlyVolumeTicketsList4").rules("add", {
+                required: true,
+                number: true,
+                messages: {
+                required: "This value is required",
+                number: "Please enter digits only"
+                }
+                });
+        	},
             loanAppCIpage:function() {
             	apps.navigate("views/loanAppCI.html");
             },
@@ -696,9 +801,12 @@
         	
         	loanAppBISubmit:function(){
                 var status = $('#B2cAppForms').valid();
-                return status;
-                var that = this,
+                if(status === false)
+                {
+                    return status;
+                }
                 
+                var that = this,
                 legal_business_name 		= that.get("legal_business_name").trim();
                 dbaName					 = that.get("dba_name").trim(),
                 streetNo					= that.get("street_no").trim(),
