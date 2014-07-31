@@ -236,17 +236,62 @@
             });
 
             $("#yettostart").click(function() {
-                if ($(this).is(':checked')) {
-                	$('#dbs_month').val("");
-                	$('#dbs_year').val("");
-                	$('#dbs_month').attr("disabled", "disabled");
-                	$('#dbs_year').attr("disabled", "disabled");
+                if($(this).is(':checked')) {
+                    $('#dbs_month').val("");
+                    $('#dbs_year').val("");
+
+                    $('#revenue').val("");
+                    $('#operatingexp').val("");
+
+                    $('#dbs_month').attr("disabled","disabled");
+                    $('#dbs_year').attr("disabled","disabled");
+
+                    $('#revenue').attr("disabled","disabled");
+                    $('#operatingexp').attr("disabled","disabled");
+
                 } else {
-                	$('#dbs_month').removeAttr("disabled");
-                	$('#dbs_year').removeAttr("disabled");
+                    $('#dbs_month').removeAttr("disabled");
+                    $('#dbs_year').removeAttr("disabled");
+
+                    $('#revenue').removeAttr("disabled","disabled");
+                    $('#operatingexp').removeAttr("disabled","disabled");
+
+                }
+
+            });
+            $.validator.addMethod("alphanumeric", function(value, element) {
+            	return this.optional(element) || /^\w+$/i.test(value);
+            });
+            $.validator.addMethod("loginRegex", function(value, element) {
+            	return this.optional(element) || /^[a-z0-9\-\s]+$/i.test(value);
+            });
+
+            $.validator.addMethod("zipcodeUS", function(value, element) {
+            	return this.optional(element) || /\d{5}-\d{4}$|^\d{5}$/.test(value);
+            });	
+            $.validator.addMethod("phoneUS", function(phone_number, element) {
+                phone_number = phone_number.replace(/\s+/g, "");
+                return this.optional(element) || phone_number.length > 9 &&
+                phone_number.match(/^(\+?1-?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/);
+            });
+
+            $.validator.addMethod("ownerPercent", function(value, element) {
+
+            	var total_per = (parseInt($("#own_percent").val())+parseInt(value));
+            	if(total_per > 100) { return false;	} else { return true; }
+            });
+            $.validator.addMethod("dbscurrent", function(value, element) {
+                var d = new Date();
+                var n = d.getMonth(); 
+                var o = d.getFullYear(); 
+                var c= parseInt($("#dbs_year").val());
+                n=n+1;
+                if(value>n && o===c)  {
+                	return false; 
+                } else {
+                	return true; 
                 }
             });
-            
             // outtand dept
             
             var addForm = $("#add-form");
@@ -688,106 +733,148 @@
         	creditCardValidate:function()
         	{
                 $("#datefirstProcessed_month").rules("add", {
-                required: true,
-                messages: {
-                required: "This value is required"
+                    required: true,
+                    messages: {
+                    required: "This value is required"
                 }
                 });
                 $("#datefirstProcessed_day").rules("add", {
-                required: true,
-                messages: {
-                required: "This value is required"
+                    required: true,
+                    messages: {
+                    required: "This value is required"
                 }
                 });
                 $("#datefirstProcessed_year").rules("add", {
-                required: true,
-                messages: {
-                required: "This value is required"
+                    required: true,
+                    messages: {
+                    required: "This value is required"
                 }
                 });
 
                 $("#creditcardproc").rules("add", {
-                required: true,
-                messages: {
-                required: "This value is required"
+                    required: true,
+                    messages: {
+                    required: "This value is required"
                 }
                 });
                 $("#merchantid").rules("add", {
-                required: true,
-                number: true,
-                minlength:9,
-
-                messages: {
-                required: "This value is required",
-                number: "This value is required",
-                minlength: "Please enter only 9 digit merchantid"
-                }
+                    required: true,
+                    number: true,
+                    minlength:9,
+                    messages: {
+                        required: "This value is required",
+                        number: "This value is required",
+                        minlength: "Please enter only 9 digit merchantid"
+                    }
                 });
 
                 $("#MonthlyVolumeAmountsList1").rules("add", {
-                required: true,
-                number: true,
-                messages: {
-                required: "This value is required",
-                number: "Please enter digits only"
+                    required: true,
+                    number: true,
+                    messages: {
+                    required: "This value is required",
+                    number: "Please enter digits only"
                 }
                 });
                 $("#MonthlyVolumeTicketsList1").rules("add", {
-                required: true,
-                number: true,
-                messages: {
-                required: "This value is required",
-                number: "Please enter digits only"
-                }
+                    required: true,
+                    number: true,
+                    messages: {
+                    	required: "This value is required",
+                    	number: "Please enter digits only"
+                	}
                 });
 
                 $("#MonthlyVolumeAmountsList2").rules("add", {
-                required: true,
-                number: true,
-                messages: {
-                required: "This value is required",
-                number: "Please enter digits only"
-                }
+                    required: true,
+                    number: true,
+                    messages: {
+                    	required: "This value is required",
+                    	number: "Please enter digits only"
+                    }
                 });
                 $("#MonthlyVolumeTicketsList2").rules("add", {
-                required: true,
-                number: true,
-                messages: {
-                required: "This value is required",
-                number: "Please enter digits only"
-                }
+               	 required: true,
+                	number: true,
+                    messages: {
+                   	 required: "This value is required",
+                    	number: "Please enter digits only"
+                    }
                 });
                 $("#MonthlyVolumeAmountsList3").rules("add", {
-                required: true,
-                number: true,
-                messages: {
-                required: "This value is required",
-                number: "Please enter digits only"
-                }
+                    required: true,
+                    number: true,
+                    messages: {
+                    	required: "This value is required",
+                    	number: "Please enter digits only"
+                    }
                 });
                 $("#MonthlyVolumeTicketsList3").rules("add", {
-                required: true,
-                number: true,
-                messages: {
-                required: "This value is required",
-                number: "Please enter digits only"
-                }
+                    required: true,
+                    number: true,
+                    messages: {
+                        required: "This value is required",
+                        number: "Please enter digits only"
+                    }
                 });
                 $("#MonthlyVolumeAmountsList4").rules("add", {
-                required: true,
-                number: true,
-                messages: {
-                required: "This value is required",
-                number: "Please enter digits only"
-                }
+                    required: true,
+                    number: true,
+                    messages: {
+                    	required: "This value is required",
+                    	number: "Please enter digits only"
+                    }
                 });
                 $("#MonthlyVolumeTicketsList4").rules("add", {
-                required: true,
-                number: true,
-                messages: {
-                required: "This value is required",
-                number: "Please enter digits only"
-                }
+                    required: true,
+                    number: true,
+                    messages: {
+                    	required: "This value is required",
+                    	number: "Please enter digits only"
+                    }
+                });
+                $("#busi_mort_bank").rules("add", {
+                    required: true,
+                    messages: {
+                    	required: "This value is required"
+              	  }
+				});
+                
+                $("#busi_out_balance").rules("add", {
+                    required: true,
+                    number: true,
+                    messages: {
+                    	required: "This value is required",
+                    	number: "Please enter digits only"
+                     }
+                });
+                $("#busi_month_mort_amount").rules("add", {
+                    required: true,
+                    number: true,
+                    messages: {
+                        required: "This value is required",
+                        number: "Please enter digits only"
+                    }
+                });
+                $("#busi_month_rent").rules("add", {
+                    required: true,
+                    number: true,
+                    messages: {
+                    	required: "This value is required",
+                    	number: "Please enter digits only"
+                    }
+				});
+                $("#busi_cont_number").rules("add", {
+                	phoneUS: true,
+                	messages: {
+                		phoneUS: "Please enter us phone number"
+                	}
+                });
+                $("#busi_out_mort_type").rules("add", {
+                	required: true,
+                	messages: {
+                		required: "This value is required"
+                	}
                 });
         	},
             loanAppCIpage:function() {
@@ -801,11 +888,11 @@
             },
         	
         	loanAppBISubmit:function(){
-                //var status = $('#B2cAppForms').valid();
+                var status = $('#B2cAppForms').valid();
                 //that.get("collateraltype1").trim();
                 var that = this;
-                console.log(that);
-                console.log('collateraltype1'+viewModel.get("collateraltype1"));
+                //console.log(that);
+               // console.log('collateraltype1'+viewModel.get("collateraltype1"));
                
                 if(status === false)
                 {
