@@ -293,20 +293,19 @@
                 }
             });
             // outtand dept
-            
+            viewFModel = kendo.observable();
             var addForm = $("#add-form");
             var index = 0;
             divId = [];
             addForm.on("click", function() {
-                alert('debug');
-                var form = app.loansetting.viewModel.getForm(++index);
+                app.loansetting.viewModel.addOutDebtVar(++index);
+                var form = app.loansetting.viewModel.getForm(index);
                 $('#totbusinessDebtYesDiv').val(index);
                 var tot = parseInt($('#currntControl').val()) + 1;
                 $('#currntControl').val(tot);
                 $("#debtwrapper").append(form);
                 totalOutstanding = 0;
                 
-                app.loansetting.viewModel.addOutDebtVar(index);
                 $("#remove-form" + index).on("click", function() {
                     var currentIndex = $(this).data("index");
                     $("#debt" + currentIndex).remove();
@@ -462,7 +461,7 @@
         },
         createDebtType:function(NumOfDiv) {
             var str = '';
-            str = "<select name='debttype" + NumOfDiv + "' class='IN5 debtclass' title='Select Debt Type' id='debttype" + NumOfDiv + "' onChange='javascript:app.loansetting.viewModel.createInput(" + this.value + ", " + NumOfDiv + ")' data-bind='value: debttype"+NumOfDiv+"' title='Select Debt Type'><option value=''>Select Debt Type</option><option value='Business Credit Card'>Business Credit Card</option><option value='Cash Advance'>Cash Advance</option><option value='Line of credit'>Line of credit</option><option value='Term loan'>Term loan</option></select>";
+            str = "<select name='debttype" + NumOfDiv + "' class='IN5 debtclass' title='Select Debt Type' id='debttype" + NumOfDiv + "' onChange='javascript:app.loansetting.viewModel.createInput(" + NumOfDiv + ", " + NumOfDiv + ")' data-bind='value: debttype"+NumOfDiv+"' title='Select Debt Type'><option value=''>Select Debt Type</option><option value='Business Credit Card'>Business Credit Card</option><option value='Cash Advance'>Cash Advance</option><option value='Line of credit'>Line of credit</option><option value='Term loan'>Term loan</option></select>";
             return str;
         },
         createYear:function(yearid) {
@@ -531,6 +530,8 @@
                     </select>\
                     </p>\
                     </div>';
+ 
+                
             } else if(value==='Cash Advance') {
                     str +='<div class="rw_lin  addons_det clearfix cash_advns">\
                     <p class="imp40">\
@@ -610,6 +611,8 @@
                     str='';
           }
             document.getElementById('loan_'+NumOfDiv).innerHTML =str;
+            
+            app.loansetting.viewModel.addBindOutDebtVar(NumOfDiv);
 
             // Added by  Later
             if(value!=='') {
@@ -723,7 +726,8 @@
         				number: "Please enter digit only"
         			}
         		});
-			}    
+			} 
+            
             },
             createCollateral:function (NumOfDiv) {
                 str='';
@@ -891,8 +895,8 @@
                 var status = $('#B2cAppForms').valid();
                 //that.get("collateraltype1").trim();
                 var that = this;
-                //console.log(that);
-               // console.log('collateraltype1'+viewModel.get("collateraltype1"));
+                console.log(viewFModel);
+                console.log('collateraltype1'+viewFModel.get("debttype1"));
                
                 if(status === false)
                 {
@@ -1004,13 +1008,46 @@
             },
             addOutDebtVar:function(num)
             {
-                alert('call');
-                //var collateraltype ='collateraltype'+num;
-                    viewModel = kendo.observable();
-                viewModel['collateraltype'+num] ='';
-                kendo.bind($("#collateraltype1"), viewModel);
-                console.log(viewModel);
+                
+                viewFModel['debttype'+num] ='';
+                viewFModel['yeardisbursed'+num] ='';
+                viewFModel['txtOutCredit'+num] ='';
+                viewFModel['txtInterestCredit'+num] ='';
+                viewFModel['txtPerYearCredit'+num] ='';
+                viewFModel['tpcompany'+num] ='';
+                viewFModel['ocadvance'+num] ='';
+                viewFModel['funded_term'+num] ='';
+                viewFModel['collateraltype'+num] ='';
+                viewFModel['txtAmountTerm'+num] ='';
+                viewFModel['txtOutAmountTerm'+num] ='';
+                viewFModel['txtInterestTerm'+num] ='';
+                viewFModel['txtYearTerm'+num] ='';
+                viewFModel['txtPaymentModeTerm'+num] ='';
+                viewFModel['txtTerm'+num] ='';
+                viewFModel['txtFrequncyTerm'+num] ='';
+
+            },
+            addBindOutDebtVar:function(num)
+            {
+				kendo.bind($("#debttype"+num), viewFModel);
+                kendo.bind($("#yeardisbursed"+num), viewFModel);
+                kendo.bind($("#txtOutCredit"+num), viewFModel);
+                kendo.bind($("#txtInterestCredit"+num), viewFModel);
+                kendo.bind($("#txtPerYearCredit"+num), viewFModel);
+                kendo.bind($("#tpcompany"+num), viewFModel);
+                kendo.bind($("#ocadvance"+num), viewFModel);
+                kendo.bind($("#funded_term"+num), viewFModel);
+                kendo.bind($("#collateraltype"+num), viewFModel);
+                kendo.bind($("#txtAmountTerm"+num), viewFModel);
+                kendo.bind($("#txtOutAmountTerm"+num), viewFModel);
+                kendo.bind($("#txtInterestTerm"+num), viewFModel);
+                kendo.bind($("#txtYearTerm"+num), viewFModel);
+                kendo.bind($("#txtPaymentModeTerm"+num), viewFModel);
+                kendo.bind($("#txtTerm"+num), viewFModel);
+                kendo.bind($("#txtFrequncyTerm"+num), viewFModel);
+
             }
+            
             
         
     });
