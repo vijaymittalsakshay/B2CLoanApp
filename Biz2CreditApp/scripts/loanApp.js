@@ -208,6 +208,7 @@
                 	$('#busInfobx').hide();
                 }
             });
+            
 
             // credi card proc
             $('#creditcardproc').change(function() {
@@ -304,6 +305,18 @@
                 var tot = parseInt($('#currntControl').val()) + 1;
                 $('#currntControl').val(tot);
                 $("#debtwrapper").append(form);
+                $("#debttype"+index).rules("add", {
+                	required: true,
+                	messages: {
+                		required: "This value is required"
+                	}
+                });
+                $("#yeardisbursed"+index).rules("add", {
+                	required: true,
+                	messages: {
+                		required: "This value is required"
+                	}
+                });
                 totalOutstanding = 0;
                 
                 $("#remove-form" + index).on("click", function() {
@@ -384,7 +397,11 @@
         			},
         			busi_pro_info_type: {
         				required: true
-        			}
+        			},
+                
+                    busproInfo:{
+                    	required:true,
+                    }
         			
         		},
         	messages: {
@@ -445,7 +462,10 @@
         			},
         			busi_pro_info_type: {
         				required: "This value is required"
-        			}
+        			},
+                	busproInfo:{
+                    	required:"This value is required",
+                    }
         		},
          	submitHandler: function(form) {
         		 	// $("#b2cApp1 #next").prop("disabled", true);
@@ -537,13 +557,13 @@
             } else if(value==='Cash Advance') {
                     str +='<div class="rw_lin  addons_det clearfix cash_advns">\
                     <p class="imp40">\
-                    <input type="text" class="IN5" placeholder="Funding Company" name="tpcompany'+NumOfDiv+'" id="tpcompany'+NumOfDiv+'" original-title="Funding Company">\
+                    <input type="text" class="IN5" placeholder="Funding Company" name="tpcompany'+NumOfDiv+'" id="tpcompany'+NumOfDiv+'" data-bind="value:tpcompany'+NumOfDiv+'" original-title="Funding Company">\
                     </p>\
                     <p class="imp40">\
-                    <input type="text" class="IN5 number" placeholder="Funded Amount ($)" name="ocadvance'+NumOfDiv+'" id="ocadvance'+NumOfDiv+'" original-title="Funded Amount ($)">\
+                    <input type="text" class="IN5 number" placeholder="Funded Amount ($)" name="ocadvance'+NumOfDiv+'" id="ocadvance'+NumOfDiv+'" data-bind="value:ocadvance'+NumOfDiv+'" original-title="Funded Amount ($)">\
                     </p>\
                     ';
-                    str +='<p class="imp40 select_caterm"><select class="IN5 debtclass valid" title="Select Term (Months)" name="funded_term'+NumOfDiv+'" id="funded_term'+NumOfDiv+'">';
+                    str +='<p class="imp40 select_caterm"><select class="IN5 debtclass valid" title="Select Term (Months)" name="funded_term'+NumOfDiv+'" id="funded_term'+NumOfDiv+'" data-bind="value:funded_term'+NumOfDiv+'">';
                     str +='<option value="">Select Term (Months)</option>';
                     for(var term=1; term< 301; term++){
                         var noyears = '';
@@ -568,13 +588,13 @@
 			} else if(value==='Business Credit Card') {
                     str +='<div class="rw_lin addons_det clearfix debt_crecrd">\
                     <p class="imp40">\
-                    <input type="text" placeholder="Outstanding Loan Amount ($)" name="txtOutCredit'+NumOfDiv+'" id="txtOutCredit'+NumOfDiv+'" class="IN4 number" original-title="Outstanding Loan Amount ($)">\
+                    <input type="text" placeholder="Outstanding Loan Amount ($)" name="txtOutCredit'+NumOfDiv+'" id="txtOutCredit'+NumOfDiv+'" data-bind="value:txtOutCredit'+NumOfDiv+'" class="IN4 number" original-title="Outstanding Loan Amount ($)">\
                     </p>\
                     <p class="imp40">\
-                    <input type="text" placeholder="Interest Rate (%)" name="txtInterestCredit'+NumOfDiv+'" id="txtInterestCredit'+NumOfDiv+'" maxlength="5" class="IN4" original-title="Interest Rate (%)">\
+                    <input type="text" placeholder="Interest Rate (%)" name="txtInterestCredit'+NumOfDiv+'" id="txtInterestCredit'+NumOfDiv+'" data-bind="value:txtInterestCredit'+NumOfDiv+'" maxlength="5" class="IN4" original-title="Interest Rate (%)">\
                     </p>\
                     <p class="imp40">\
-                    <select name="txtPerYearCredit'+NumOfDiv+'" id="txtPerYearCredit'+NumOfDiv+'" class="IN4" original-title="Interest Rate Year(s)">\
+                    <select name="txtPerYearCredit'+NumOfDiv+'" id="txtPerYearCredit'+NumOfDiv+'" data-bind="value:txtPerYearCredit'+NumOfDiv+'" class="IN4" original-title="Interest Rate Year(s)">\
                     <option value="1" selected="">Year(s)</option>\
                     <option value="2">Half-year</option>\
                     <option value="4">Quarter</option>\
@@ -592,13 +612,13 @@
                     </p>\
                     <div class="clear"></div>\
                     <p class="imp40">\
-                    <input type="text" placeholder="Outstanding Loan Amount ($)" name="txtOutCredit'+NumOfDiv+'" id="txtOutCredit'+NumOfDiv+'" class="IN4 number" original-title="Outstanding Loan Amount ($)">\
+                    <input type="text" placeholder="Outstanding Loan Amount ($)" name="txtOutCredit'+NumOfDiv+'" id="txtOutCredit'+NumOfDiv+'" data-bind="value:txtOutCredit'+NumOfDiv+'" class="IN4 number" original-title="Outstanding Loan Amount ($)">\
                     </p>\
                     <p class="imp40">\
-                    <input type="text" placeholder="Interest Rate (%)" name="txtInterestCredit'+NumOfDiv+'" id="txtInterestCredit'+NumOfDiv+'" class="IN4" maxlength="5" original-title="Interest Rate (%)">\
+                    <input type="text" placeholder="Interest Rate (%)" name="txtInterestCredit'+NumOfDiv+'" id="txtInterestCredit'+NumOfDiv+'" data-bind="value:txtInterestCredit'+NumOfDiv+'" class="IN4" maxlength="5" original-title="Interest Rate (%)">\
                     </p>\
                     <p class="imp40">\
-                    <select name="txtPerYearCredit'+NumOfDiv+'" id="txtPerYearCredit'+NumOfDiv+'" class="IN4" original-title="Interest Rate Year(s)">\
+                    <select name="txtPerYearCredit'+NumOfDiv+'" id="txtPerYearCredit'+NumOfDiv+'" data-bind="value:txtPerYearCredit'+NumOfDiv+'" class="IN4" original-title="Interest Rate Year(s)">\
                     <option value="1" selected="">Year(s)</option>\
                     <option value="2">Half-year</option>\
                     <option value="4">Quarter</option>\
@@ -608,12 +628,11 @@
                     </select>\
                     </p>\
                     </div>';
-  		}  else if(value==='') {
+  		} else if(value==='') {
                     document.getElementById('loan_'+NumOfDiv).style.display='none';
                     str='';
           }
             document.getElementById('loan_'+NumOfDiv).innerHTML =str;
-            
             app.loansetting.viewModel.addBindOutDebtVar(NumOfDiv);
 
             // Added by  Later
