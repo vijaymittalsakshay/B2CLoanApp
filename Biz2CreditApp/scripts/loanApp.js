@@ -56,7 +56,7 @@
         afterShow:function()
         {
             if($('.crditaccep').val()==='1') {
-                //alert('call');
+                
             	app.loansetting.viewModel.creditCardValidate();
             }
         },
@@ -317,6 +317,7 @@
                         $(".outDebt").prop("checked", false); 
                         $('#outsta_debt').hide();
                     }
+                    app.loansetting.viewModel.deleteOutDebtVar(currentIndex);
                 });
             });
 
@@ -477,6 +478,7 @@
         createInput:function(value,NumOfDiv) {
             
             value = $("#debttype"+NumOfDiv).val().trim();
+            viewFModel['debttype'+NumOfDiv] = value;
             var str='';
             if(value==='Term loan') {
                     str +='<div class="rw_lin  addons_det clearfix lineofcred">\
@@ -1046,7 +1048,28 @@
                 kendo.bind($("#txtTerm"+num), viewFModel);
                 kendo.bind($("#txtFrequncyTerm"+num), viewFModel);
 
-            }
+            },
+        	deleteOutDebtVar:function(num)
+            {
+                
+                delete  viewFModel['debttype'+num];
+                delete viewFModel['yeardisbursed'+num];
+                delete viewFModel['txtOutCredit'+num];
+                delete viewFModel['txtInterestCredit'+num];
+                delete viewFModel['txtPerYearCredit'+num];
+                delete viewFModel['tpcompany'+num];
+                delete viewFModel['ocadvance'+num];
+                delete viewFModel['funded_term'+num];
+                delete viewFModel['collateraltype'+num];
+                delete viewFModel['txtAmountTerm'+num] ;
+                delete viewFModel['txtOutAmountTerm'+num];
+                delete viewFModel['txtInterestTerm'+num];
+                delete viewFModel['txtYearTerm'+num];
+                delete viewFModel['txtPaymentModeTerm'+num];
+                delete viewFModel['txtTerm'+num];
+                delete viewFModel['txtFrequncyTerm'+num];
+
+            },
             
             
         
