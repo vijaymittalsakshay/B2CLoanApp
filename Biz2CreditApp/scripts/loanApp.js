@@ -53,6 +53,9 @@
         inventory:'',
         equip_finance:'',
         account_rece:'',
+        currntControl:0,
+        totbusinessDebtYesDiv:'',
+        deleteIds:'',
         afterShow:function()
         {
             if($('.crditaccep').val()==='1') {
@@ -299,9 +302,13 @@
             var index = 0;
             divId = [];
             addForm.on("click", function() {
+            
                 app.loansetting.viewModel.addOutDebtVar(++index);
                 var form = app.loansetting.viewModel.getForm(index);
-                $('#totbusinessDebtYesDiv').val(index);
+                //$('#totbusinessDebtYesDiv').val(index);
+                
+                app.loansetting.viewModel.setHiddenField(index);
+
                 var tot = parseInt($('#currntControl').val()) + 1;
                 $('#currntControl').val(tot);
                 $("#debtwrapper").append(form);
@@ -325,7 +332,8 @@
                     $("#loan_" + currentIndex).remove();
                     $('#currntControl').val($('#currntControl').val() - 1);
                     divId.push(currentIndex);
-                    $('#deleteIds').val(divId);
+                    app.loansetting.viewModel.setHiddenFieldDeleteIds(divId);
+                    //$('#deleteIds').val(divId);
                     if ($('#currntControl').val().trim() === '0' || $('#currntControl').val().trim() === 0) {
                         $(".outDebt").prop("checked", false); 
                         $('#outsta_debt').hide();
@@ -911,6 +919,17 @@
             loanAppFPpage:function() {
             	apps.navigate("views/loanAppFP.html");
             },
+        setHiddenField:function(index)
+        {
+                var that =this;
+                that.set("totbusinessDebtYesDiv",index);
+        },
+        setHiddenFieldDeleteIds:function(ids)
+        {
+            console.log(ids);
+                var that =this;
+                that.set("deleteIds",ids.toString());
+        },
         	
         	loanAppBISubmit:function(){
                 var status = $('#B2cAppForms').valid();
@@ -918,6 +937,9 @@
                 var that = this;
                 console.log(viewFModel);
                 console.log('collateraltype1'+viewFModel.get("debttype1"));
+                console.log('totbusinessDebtYesDiv'+that.get("totbusinessDebtYesDiv"));
+                console.log('currntControl'+that.get("currntControl"));
+                console.log('deleteIds'+that.get("deleteIds"));
                
                 if(status === false)
                 {
@@ -1034,7 +1056,7 @@
                 viewFModel['yeardisbursed'+num] ='';
                 viewFModel['txtOutCredit'+num] ='';
                 viewFModel['txtInterestCredit'+num] ='';
-                viewFModel['txtPerYearCredit'+num] ='';
+                viewFModel['txtPerYearCredit'+num] =1;
                 viewFModel['tpcompany'+num] ='';
                 viewFModel['ocadvance'+num] ='';
                 viewFModel['funded_term'+num] ='';
@@ -1042,10 +1064,10 @@
                 viewFModel['txtAmountTerm'+num] ='';
                 viewFModel['txtOutAmountTerm'+num] ='';
                 viewFModel['txtInterestTerm'+num] ='';
-                viewFModel['txtYearTerm'+num] ='';
+                viewFModel['txtYearTerm'+num] =1;
                 viewFModel['txtPaymentModeTerm'+num] ='';
                 viewFModel['txtTerm'+num] ='';
-                viewFModel['txtFrequncyTerm'+num] ='';
+                viewFModel['txtFrequncyTerm'+num] =1;
 
             },
             addBindOutDebtVar:function(num)
