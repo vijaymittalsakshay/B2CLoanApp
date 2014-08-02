@@ -56,6 +56,9 @@
         currntControl:0,
         totbusinessDebtYesDiv:'',
         deleteIds:[],
+        dnb_dun_no:'',
+        busi_out_mort_type_yes:1,
+        busi_out_mort_type_no:0,
         afterShow:function()
         {
             if($('.crditaccep').val()==='1') {
@@ -931,7 +934,7 @@
                 that.set("deleteIds",ids);
         },
         	
-        	loanAppBISubmit:function(){
+		loanAppBISubmit:function(){
                 //var status = $('#B2cAppForms').valid();
                 //if(status === false)
                // {
@@ -941,109 +944,147 @@
                 
                 var that = this;
                 dataParam =  {};
-				legal_business_name 		= that.get("legal_business_name").trim();
-                dataParam['legal_business_name']=legal_business_name;
-                dbaName					 = that.get("dba_name").trim(),
-                dataParam['dbaName']=dbaName;
-                streetNo					= that.get("street_no").trim(),
-                dataParam['streetNo']=streetNo;
-                streetName				  = that.get("street_name").trim(),
-                dataParam['streetName']=streetName;
-                aptSuiteUnit				= that.get("apt_suite_unit").trim(),
-                dataParam['aptSuiteUnit']=aptSuiteUnit;
-                selectState				 = that.get("select_state").trim(),
-                dataParam['selectState']=selectState;
-                selectCity				  = that.get("select_city").trim(),
-                dataParam['selectCity']=selectCity;
-                zipCode	 				= that.get("zip_code").trim(),
-                dataParam['zipCode']=zipCode;
-                mobileNumber				= that.get("mobile_number").trim(),
-                dataParam['mobileNumber']=mobileNumber;
+				legal_business_name 				 	= that.get("legal_business_name").trim();
+                dataParam['orgname']				 	= legal_business_name;
                 
+                dbaName					 		 	= that.get("dba_name").trim(),
+                dataParam['dbaname']				 	= dbaName;
                 
-                select_BLS				  = that.get("select_b_l_s").trim(),
-                dataParam['select_BLS']=select_BLS;
-                industry					= that.get("industry").trim(),
-                dataParam['industry']=industry;
-                subIndustry				 = that.get("sub_industry").trim(),
-                dataParam['subIndustry']=subIndustry;
-                select_BSM  				= that.get("select_buss_s_m").trim(),
-                dataParam['select_BSM']=select_BSM;
+                streetNo							 	= that.get("street_no").trim(),
+                dataParam['civic']		    		   = streetNo;
                 
+                streetName				   		    = that.get("street_name").trim(),
+                dataParam['baddr']  	      		   = streetName;
                 
+                aptSuiteUnit			    		 	= that.get("apt_suite_unit").trim(),
+                dataParam['street1']	    		     = aptSuiteUnit;
                 
-                select_BSY  				= that.get("select_buss_s_y").trim(),
-                dataParam['select_BSY']=select_BSY;
-                yettostart  				= that.get("yettostart").trim(),
-                dataParam['yettostart']=yettostart;
-                avgAnnualRevenue   		 = that.get("average_annual_revenue").trim(),
-                dataParam['avgAnnualRevenue']=avgAnnualRevenue;
+                selectState				 		     = that.get("select_state").trim(),
+                dataParam['state']  	      		   = selectState;
                 
+                selectCity				    		   = that.get("select_city").trim(),
+                dataParam['cmbCity']	   			  = selectCity;
                 
-                bussOperatExpen 			= that.get("buss_operating_expenses").trim(),
-                dataParam['streetNo']=streetNo;
-                acceptCardYES	  		 = that.get("acceptcard_yes"),
-                dataParam['streetNo']=streetNo;
-                acceptCardNO				= that.get("acceptcard_no"),
-                dataParam['streetNo']=streetNo;
-                DFProcessed_Month  		 = that.get("datefirstProcessed_month").trim(),
-                dataParam['streetNo']=streetNo;
-                DFProcessed_Day    		 = that.get("datefirstProcessed_day").trim(),
-                dataParam['streetNo']=streetNo;
-                DFProcessed_Year   		 = that.get("datefirstProcessed_year").trim(),
-                dataParam['streetNo']=streetNo;
-                Cur_city_card_pro  		 = that.get("c_c_card_processor").trim(),
-                dataParam['streetNo']=streetNo;
-                merchantID 	    		 = that.get("merchant_id").trim(),
-                dataParam['streetNo']=streetNo;
-                MonthlyVolumeAmountsList1   = that.get("MonthlyVolumeAmountsList1").trim(),
-                dataParam['streetNo']=streetNo;
-                MonthlyVolumeTicketsList1   = that.get("MonthlyVolumeTicketsList1").trim(),
-                dataParam['streetNo']=streetNo;
-                MonthlyVolumeAmountsList2   = that.get("MonthlyVolumeAmountsList2").trim(),
-                dataParam['streetNo']=streetNo;
-                MonthlyVolumeTicketsList2   = that.get("MonthlyVolumeTicketsList2").trim(),
-                dataParam['streetNo']=streetNo;
-                MonthlyVolumeAmountsList3   = that.get("MonthlyVolumeAmountsList3").trim(),
-                dataParam['streetNo']=streetNo;
-                MonthlyVolumeTicketsList3   = that.get("MonthlyVolumeTicketsList3").trim(),
-                dataParam['streetNo']=streetNo;
-                MonthlyVolumeAmountsList4   = that.get("MonthlyVolumeAmountsList4").trim(),
-                dataParam['streetNo']=streetNo;
-                MonthlyVolumeTicketsList4   = that.get("MonthlyVolumeTicketsList4").trim(),
-                dataParam['streetNo']=streetNo;
-                debttypeYES			     = that.get("debttype_yes"),
-                dataParam['streetNo']=streetNo;
-                debttypeNO			      = that.get("debttype_no"),
-                dataParam['streetNo']=streetNo;
-                selectDebtType			  = that.get("selectdebttype").trim(),
-                dataParam['streetNo']=streetNo;
-                selDisbursed			    = that.get("selDisbursed").trim(),
-                dataParam['streetNo']=streetNo;
-                busproInfo_owned		    = that.get("busproInfo_owned"),
-                dataParam['streetNo']=streetNo;
-                busproInfo_leased	       = that.get("busproInfo_leased"),
-                dataParam['streetNo']=streetNo;
-                outStandMortage_YES		 = that.get("outstandingMort_yes"),
-                dataParam['streetNo']=streetNo;
-                outStandMortage_NO		  = that.get("outstandingMort_no"),
-                dataParam['streetNo']=streetNo;
-                mortgageBANK			    = that.get("mortgage_bank").trim(),
-                dataParam['streetNo']=streetNo;
-                outStandingBAL		      = that.get("outs_bal").trim(),
-                dataParam['streetNo']=streetNo;
-                monthMortageAMT   	      = that.get("month_mort_amount").trim(),
-                dataParam['streetNo']=streetNo;
-                monthlyRENT			     = that.get("monthly_rent").trim(),
-                dataParam['streetNo']=streetNo;
-                landlord_NAME			   = that.get("landlord_name").trim(),
-                dataParam['streetNo']=streetNo;
-                contact_NUM			     = that.get("contact_number").trim(),
-                dataParam['streetNo']=streetNo;
-                realState			       = that.get("real_state").trim(),
-                dataParam['realState']=realState;
-                inventory			       = that.get("inventory").trim(),
-                dataParam['inventory']=inventory;
+                zipCode	 				  		   = that.get("zip_code").trim(),
+                dataParam['zipcode']				 	= zipCode;
+                
+                mobileNumber						 	= that.get("mobile_number").trim(),
+                dataParam['businessphone']			   = mobileNumber;
+                
+                select_BLS					 		  = that.get("select_b_l_s").trim(),
+                dataParam['blegal']					  = select_BLS;
+                
+                industry								 = that.get("industry").trim(),
+                dataParam['orgtype']		  		   = industry;
+                
+                subIndustry							  = that.get("sub_industry").trim(),
+                dataParam['orgcategory']				 = subIndustry;
+                
+                select_BSM  				  		   = that.get("select_buss_s_m").trim(),
+                dataParam['dbs_month']				   = select_BSM;
+                
+                select_BSY  						 	= that.get("select_buss_s_y").trim(),
+                dataParam['dbs_year']		 		   = select_BSY;
+                
+                yettostart  						 	= that.get("yettostart").trim(),
+                dataParam['yettostart']				  = yettostart;
+                
+                avgAnnualRevenue   					  = that.get("average_annual_revenue").trim(),
+                dataParam['revenue']				 	= avgAnnualRevenue;
+                
+                bussOperatExpen 					 	= that.get("buss_operating_expenses").trim(),
+                dataParam['operatingexp']	 		   = bussOperatExpen;
+                
+                acceptCardYES	  					  = that.get("acceptcard_yes"),
+                dataParam['acceptcard']				  = acceptCardYES;
+                
+                acceptCardNO							 = that.get("acceptcard_no"),
+                dataParam['acceptcard']				  = acceptCardNO;
+                
+                DFProcessed_Month  		 			 = that.get("datefirstProcessed_month").trim(),
+                dataParam['datefirstProcessed_month']	= DFProcessed_Month;
+                
+                DFProcessed_Day    					  = that.get("datefirstProcessed_day").trim(),
+                dataParam['datefirstProcessed_day']	  = DFProcessed_Day;
+                
+                DFProcessed_Year   		 			 = that.get("datefirstProcessed_year").trim(),
+                dataParam['datefirstProcessed_year']	 = DFProcessed_Year;
+                
+                Cur_city_card_pro  					  = that.get("c_c_card_processor").trim(),
+                dataParam['creditcardproc']			  = Cur_city_card_pro;
+                
+                merchantID 	    					  = that.get("merchant_id").trim(),
+                dataParam['merchantid']				  = merchantID;
+                
+                MonthlyVolumeAmountsList1   			 = that.get("MonthlyVolumeAmountsList1").trim(),
+                dataParam['MonthlyVolumeAmountsList1']   = MonthlyVolumeAmountsList1;
+                
+                MonthlyVolumeTicketsList1   			 = that.get("MonthlyVolumeTicketsList1").trim(),
+                dataParam['MonthlyVolumeTicketsList1']   = MonthlyVolumeTicketsList1;
+                
+                MonthlyVolumeAmountsList2  			  = that.get("MonthlyVolumeAmountsList2").trim(),
+                dataParam['MonthlyVolumeAmountsList2']   = MonthlyVolumeAmountsList2;
+                
+                MonthlyVolumeTicketsList2   			 = that.get("MonthlyVolumeTicketsList2").trim(),
+                dataParam['MonthlyVolumeTicketsList2']   = MonthlyVolumeTicketsList2;
+                
+                MonthlyVolumeAmountsList3   			 = that.get("MonthlyVolumeAmountsList3").trim(),
+                dataParam['MonthlyVolumeAmountsList3']   = MonthlyVolumeAmountsList3;
+                
+                MonthlyVolumeTicketsList3  			  = that.get("MonthlyVolumeTicketsList3").trim(),
+                dataParam['MonthlyVolumeTicketsList3']   = MonthlyVolumeTicketsList3;
+                
+                MonthlyVolumeAmountsList4  			  = that.get("MonthlyVolumeAmountsList4").trim(),
+                dataParam['MonthlyVolumeAmountsList4']   = MonthlyVolumeAmountsList4;
+                
+                MonthlyVolumeTicketsList4  			  = that.get("MonthlyVolumeTicketsList4").trim(),
+                dataParam['MonthlyVolumeTicketsList4']   = MonthlyVolumeTicketsList4;
+                
+                debttypeYES			    			  = that.get("debttype_yes"),
+                dataParam['debttype']					= debttypeYES;
+                
+                debttypeNO			  			     = that.get("debttype_no"),
+                dataParam['debttype']					= debttypeNO;
+                
+                busproInfo_owned		  			   = that.get("busproInfo_owned"),
+                dataParam['busi_pro_info_type']		  = busproInfo_owned;
+                
+                busproInfo_leased	   				 = that.get("busproInfo_leased"),
+                dataParam['busi_pro_info_type']		  = busproInfo_leased;
+                
+                busi_OutMortTtype_yes		  		 = that.get("busi_out_mort_type_yes"),
+                dataParam['busi_out_mort_type']		 = busi_OutMortTtype_yes;
+                
+                busi_OutMortTtype_no		  		  = that.get("busi_out_mort_type_no"),
+                dataParam['busi_out_mort_type']		 = busi_OutMortTtype_no;
+                
+                mortgageBANK			   			 = that.get("mortgage_bank").trim(),
+                dataParam['busi_mort_bank']			 = mortgageBANK;
+                
+                outStandingBAL		     		     = that.get("outs_bal").trim(),
+                dataParam['busi_out_balance']		   = outStandingBAL;
+                
+                monthMortageAMT   	      			= that.get("month_mort_amount").trim(),
+                dataParam['busi_month_mort_amount']	 = monthMortageAMT;
+                
+                monthlyRENT			     			= that.get("monthly_rent").trim(),
+                dataParam['busi_month_rent']			= monthlyRENT;
+                
+                landlord_NAME			   			= that.get("landlord_name").trim(),
+                dataParam['busi_landlord']			  = landlord_NAME;
+                
+                contact_NUM			  			   = that.get("contact_number").trim(),
+                dataParam['busi_cont_number']		   = contact_NUM;
+                
+                dnb_dun_no			  			    = that.get("dnb_dun_no").trim(),
+                dataParam['dnb_dun_no']	  		   = dnb_dun_no;
+                
+                dnb_dun_no						
+                
+                realState						 = that.get("real_state").trim(),
+                dataParam['realState']	  = realState;
+                inventor			      = that.get("inventory").trim(),
+                dataParam['inventory']	  = inventory;
                 equipFinance			    = that.get("equip_finance").trim(),
                 dataParam['equipFinance']=equipFinance;
                 account_RECE		        = that.get("account_rece").trim(),
