@@ -55,7 +55,7 @@
         account_rece:'',
         currntControl:0,
         totbusinessDebtYesDiv:'',
-        deleteIds:'',
+        deleteIds:[],
         afterShow:function()
         {
             if($('.crditaccep').val()==='1') {
@@ -928,26 +928,19 @@
         {
             console.log(ids);
                 var that =this;
-                that.set("deleteIds",ids.toString());
+                that.set("deleteIds",ids);
         },
         	
         	loanAppBISubmit:function(){
-                var status = $('#B2cAppForms').valid();
+                //var status = $('#B2cAppForms').valid();
+                //if(status === false)
+               // {
+                //    return status;
+                //}
                 //that.get("collateraltype1").trim();
-                var that = this;
-                console.log(viewFModel);
-                console.log('collateraltype1'+viewFModel.get("debttype1"));
-                console.log('totbusinessDebtYesDiv'+that.get("totbusinessDebtYesDiv"));
-                console.log('currntControl'+that.get("currntControl"));
-                console.log('deleteIds'+that.get("deleteIds"));
-               
-                if(status === false)
-                {
-                    return status;
-                }
                 
-                //var that = this,
-                /*legal_business_name 		= that.get("legal_business_name").trim();
+                var that = this;
+				legal_business_name 		= that.get("legal_business_name").trim();
                 dbaName					 = that.get("dba_name").trim(),
                 streetNo					= that.get("street_no").trim(),
                 streetName				  = that.get("street_name").trim(),
@@ -1047,7 +1040,35 @@
                 console.log("Real State : "+realState);
                 console.log("Inventory : "+inventory);
                 console.log("Equipment Finance : "+equipFinance);
-                console.log("Account Receiavles : "+account_RECE);*/
+                console.log("Account Receiavles : "+account_RECE);
+                
+                for(var i=1; i<=totbusinessDebtYesDiv;i++)
+                {
+                    if(jQuery.inArray( i, deleteIds )=== -1)
+                    {
+                        console.log('debttype'+i+'='+viewFModel.get('debttype'+i));
+                        console.log('yeardisbursed'+i+'='+viewFModel.get('yeardisbursed'+i));
+                        console.log('txtOutCredit'+i+'='+viewFModel.get('txtOutCredit'+i));
+                        console.log('txtInterestCredit'+i+'='+viewFModel.get('txtInterestCredit'+i));
+                        
+                        console.log('txtPerYearCredit'+i+'='+viewFModel.get('txtPerYearCredit'+i));
+                        console.log('tpcompany'+i+'='+viewFModel.get('tpcompany'+i));
+                        console.log('ocadvance'+i+'='+viewFModel.get('ocadvance'+i));
+                        console.log('funded_term'+i+'='+viewFModel.get('funded_term'+i));
+                        
+                        console.log('collateraltype'+i+'='+viewFModel.get('collateraltype'+i));
+                        console.log('txtAmountTerm'+i+'='+viewFModel.get('txtAmountTerm'+i));
+                        console.log('txtOutAmountTerm'+i+'='+viewFModel.get('txtOutAmountTerm'+i));
+                        console.log('txtInterestTerm'+i+'='+viewFModel.get('txtInterestTerm'+i));
+                        
+                        console.log('txtPaymentModeTerm'+i+'='+viewFModel.get('txtPaymentModeTerm'+i));
+                        console.log('txtYearTerm'+i+'='+viewFModel.get('txtYearTerm'+i));
+                        console.log('txtTerm'+i+'='+viewFModel.get('txtTerm'+i));
+                        console.log('txtFrequncyTerm'+i+'='+viewFModel.get('txtFrequncyTerm'+i));
+                                               
+                    }
+                }
+				
             },
             addOutDebtVar:function(num)
             {
