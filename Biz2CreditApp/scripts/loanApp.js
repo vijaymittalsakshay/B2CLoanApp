@@ -936,14 +936,12 @@
         },
         	
 		loanAppBISubmit:function(){
-            apps.navigate('views/loanAppCI.html');
-            //var status = $('#B2cAppForms').valid();
-            //if(status === false)
-            // {
-            //    return status;
-            //}
+            //apps.navigate('views/loanAppCI.html');
+            var status = $('#B2cAppForms').valid();
+            if(status === false)
+			return status;
                 
-           /* var that = this;
+            var that = this;
             dataParam =  {};
 
             var totbusinessDebtYesDiv = that.get("totbusinessDebtYesDiv");
@@ -998,7 +996,7 @@
             equipFinance				    = that.get("equip_finance").trim(),
             dataParam['equipFinance']	   = equipFinance;
             account_RECE		            = that.get("account_rece").trim(),
-            dataParam['account_RECE']       = account_RECE;
+            dataParam['account_RECE']       = account_RECE;*/
 
             //for Checkbox yettostart
             
@@ -1317,7 +1315,7 @@
                     return;
                 }            
 
-                });*/
+                });
 
         
             },
