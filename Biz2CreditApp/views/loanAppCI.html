@@ -1,4 +1,4 @@
-<div data-role="view" id="tabstrip-loanapp-ci" data-model="app.loansetting.viewModel" data-show="app.loansetting.viewModel.show">
+<div data-role="view" id="tabstrip-loanapp-ci" data-model="app.loanAppCI.viewModel" data-show="app.loanAppCI.viewModel.show">
     <div data-role="header">
         <div data-role="navbar">
             <span data-role="view-title">
@@ -11,7 +11,7 @@
     </div>
     <div  data-role="content">
         <section>
-            <form id="B2cAppForms" class="cmxform" action="dashboard-application2.html" method="post" novalidate="novalidate">
+            <form id="b2cApp1" class="cmxform" action="" method="post" novalidate="novalidate"> 
                 <article id="aplicn_tp">
                     <div class="warps clearfix">
                         <ul class="app_nav">
@@ -36,36 +36,47 @@
                     <div class="warps clearfix">
 
                         <!-- first owner-->
-                        <div class="row_owner">
+                        <div class="row_owner" id="row_owners">
                             <div class="rws rw1 clearfix">
                                 <div class="lftit">Applicant/Owner</div>
                                 <div class="rwfil aut clearfix">
 
                                     <p>
-                                        <input type="text" class="IN1" name="firstname" data-bind="value:firstowner_firstname" id="firstname" title="First Name" placeholder="First Name" required />
+                                        <input type="text" class="IN1" name="OwnerFirstName" data-bind="value:Owner_FirstName" id="OwnerFirstName" title="First Name" placeholder="First Name" required />
                                     </p>
 
                                     <p>
-                                        <input type="text" class="IN1" name="lastname" data-bind="value:firstowner_lastname" id="lastname" title="Last Name" placeholder="Last Name" required />
+                                        <input type="text" class="IN1" name="OwnerLastName" data-bind="value:Owner_LastName" id="OwnerLastName" title="Last Name" placeholder="Last Name" required />
                                     </p>
                                 </div>
+                            </div>
+
+                            <div class="rws rw1 clearfix">
+                                <div class="lftit">Email </div>
+                                <p>
+                                    <input type="text" data-bind="value:Owner_email" placeholder="Email Address" id="email" name="email" class="IN1" original-title="Email Address">
+                                </p>
+                                <p>
+                                    <select class="IN1" name="OwnJobTitle" id="OwnJobTitle" data-bind="value:Owner_JobTitle" original-title="Job Title">
+                                        <option value="">Select Job Title</option>
+                                        <option value="Sole Proprietor">Sole Proprietor</option>
+                                    </select>
+                                </p>
                             </div>
 
                             <div class="rws rw2 clearfix">
                                 <div class="lftit">Home Address</div>
                                 <div class="rwfil aut clearfix">
                                     <p>
-                                        <input type="text" class="IN1 ipsm1"  name="stno" data-bind="value:firstowner_streetNo"  id="stno" title="Street No."  placeholder="Street No." required />
+                                        <input type="text" class="IN1 ipsm1"  name="OwnerCivic" data-bind="value:Owner_Civic"  id="OwnerCivic" title="Street No."  placeholder="Street No." required />
                                     </p>
                                     <p>
-                                        <input type="text" class="IN1 ipsm3"  name="sname" data-bind="value:firstowner_streetName" id="sname" title="Street Name"  placeholder="Street Name" required />
+                                        <input type="text" class="IN1 ipsm4" name="OwnerStreetAddress" id="OwnerStreetAddress" placeholder="Street Name/Apt/Suite/Unit" data-bind="value:Owner_StreetAddress" original-title="Street Name/Apt/Suite/Unit">
                                     </p>
-                                    <p>
-                                        <input type="text" class="IN1 ipsm4" name="aptsui" data-bind="value:firstowner_AptSuiteUnit" id="aptsui" title="Apt/Suite/Unit"  placeholder="Apt/Suite/Unit" required />
-                                    </p><br>
+                                    <br>
 
                                     <p>
-                                        <select class="IN1b ipsm3" name="state_user" data-bind="value:firstowner_stateUser"  id="state_user"  title="Select State"  onchange="displayCity_user(this.value, '');" required>
+                                        <select class="IN1b ipsm3" name="state_user" data-bind="value:state_user"  id="state_user"  title="Select State"  onchange="displayCity_user(this.value, '');" required>
                                             <option value="">Select State</option>
                                             <option value="1">Alabama</option>
                                             <option value="2">Alaska</option>
@@ -124,7 +135,7 @@
                                     </p>
 
                                     <p>
-                                        <select title="Select City" class="IN1b ipsm3" data-bind="value:firstowner_cmbCity" id="cmbCity_user" name="cmbCity_user" required>
+                                        <select title="Select City" class="IN1b ipsm3" data-bind="value:cmbCity" id="cmbCity_user" name="cmbCity_user" required>
                                             <option value="">Select City</option>
                                             <option value="984">Adona</option>
                                             <option value="985">Alexander</option>
@@ -735,7 +746,7 @@
                                     </p>
 
                                     <p>
-                                        <input type="text" class="IN1 ipsm1" name="zcode" data-bind="value:firstowner_zipCode"  id="zcode" title="Zip Code" placeholder="Zip Code" required />
+                                        <input type="text" class="IN1 ipsm1" name="OwnZipCode" data-bind="value:OwnZipCode"  id="OwnZipCode" title="Zip Code" placeholder="Zip Code" required />
                                     </p>
 
                                 </div>
@@ -746,7 +757,7 @@
                                 <div class="lftit">Date of Birth</div>
                                 <div class="rwfil aut clearfix">
                                     <p>
-                                        <select class="IN1b ipsm1" title="Month" name="month" data-bind="value:firstowner_month" id="month" required>
+                                        <select class="IN1b ipsm1" title="Month" name="owner_month" data-bind="value:owner_month" id="owner_month" required>
                                             <option value="">Month</option>
                                             <option value="1">January</option>
                                             <option value="2">February</option>
@@ -764,7 +775,7 @@
                                     </p>
 
                                     <p>
-                                        <select class="IN1b ipsm1" title="Day" name="day" data-bind="value:firstowner_day" id="day" required>
+                                        <select class="IN1b ipsm1" title="Day" name="owner_day" data-bind="value:owner_day" id="owner_day" required>
                                             <option value="">Day</option>
                                             <option value="01">1</option>
                                             <option value="02">2</option>
@@ -801,7 +812,7 @@
                                     </p>
 
                                     <p>
-                                        <select class="IN1b  ipsm1" title="Year" name="year" data-bind="value:firstowner_year" id="year" required>
+                                        <select class="IN1b  ipsm1" title="Year" name="owner_year" data-bind="value:owner_year" id="owner_year" required>
                                             <option value="">Year</option>
                                             <option value="1950">1950</option>
                                             <option value="1951">1951</option>
@@ -877,7 +888,7 @@
                                 <div class="lftit">Ownership Percentage</div>
                                 <div class="rwfil aut clearfix">
                                     <p>
-                                        <select class="IN1b ipsm3" data-bind="value:firstowner_ownerShip_percentage" onChange="javascript:showhideownerinfo(this.value)" title="Ownership Percentage"  name="own_percent" id="own_percent" required>
+                                        <select class="IN1b ipsm3" data-bind="value:own_percent" onChange="javascript:showhideownerinfo(this.value)" title="Ownership Percentage"  name="own_percent" id="own_percent" required>
                                             <option selected="selected" value="">Ownership Percentage</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -987,17 +998,32 @@
                         </div><!-- first owner-->
 
                         <!-- Second owner-->
-                        <div class="row_owner onwonwr own2">
+                      <!--  <div class="row_owner onwonwr own2">
                             <div class="rws rw1 clearfix">
                                 <div class="lftit">Second Owner</div>
                                 <div class="rwfil aut clearfix">
 
                                     <p>
-                                        <input type="text" class="IN1" data-bind="value:secowner_firstname" name="firstname" id="firstname" title="First Name" placeholder="First Name" required />
+                                        <input type="text" class="IN1" data-bind="value:OwnerFirstName2" name="OwnerFirstName2" id="OwnerFirstName2" title="First Name" placeholder="First Name" required />
                                     </p>
 
                                     <p>
-                                        <input type="text" class="IN1" name="lastname" data-bind="value:secowner_lastname" id="lastname" title="Last Name" placeholder="Last Name" required />
+                                        <input type="text" class="IN1" name="OwnerLastName2" data-bind="value:OwnerLastName2" id="OwnerLastName2" title="Last Name" placeholder="Last Name" required />
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="rws rw1 clearfix">
+                                <div class="lftit">Second Owner Email</div>
+                                <div class="rwfil aut clearfix">
+                                    <p>
+                                        <input type="text" class="IN1" name="OwnerEmail2" id="OwnerEmail2" placeholder="Email Address" data-bind="value:OwnerEmail2" original-title="Email Address">
+                                    </p>
+                                    <p>
+                                        <select class="IN1" name="OwnJobTitle2" id="OwnJobTitle2" data-bind="value:OwnJobTitle2" original-title="Job Title">
+                                            <option value="">Select Job Title</option>
+                                            <option value="Sole Proprietor">Sole Proprietor</option>
+                                        </select>
                                     </p>
                                 </div>
                             </div>
@@ -1006,17 +1032,15 @@
                                 <div class="lftit">Home Address</div>
                                 <div class="rwfil aut clearfix">
                                     <p>
-                                        <input type="text" class="IN1 ipsm1"  name="stno" data-bind="value:secowner_streetNo"  id="stno" title="Street No."  placeholder="Street No." required />
+                                        <input type="text" class="IN1 ipsm1"  name="OwnerCivic2" data-bind="value:OwnerCivic2"  id="OwnerCivic2" title="Street No."  placeholder="Street No." required />
                                     </p>
                                     <p>
-                                        <input type="text" class="IN1 ipsm3"  name="sname" data-bind="value:secowner_streetName" id="sname" title="Street Name"  placeholder="Street Name" required />
+                                        <input type="text" class="IN1 ipsm4" name="OwnerStreetAddress2" id="OwnerStreetAddress2" placeholder="Street Name/Apt/Suite/Unit" data-bind="value:OwnerStreetAddress2" original-title="Street Name/Apt/Suite/Unit">
                                     </p>
-                                    <p>
-                                        <input type="text" class="IN1 ipsm4" name="aptsui" data-bind="value:secowner_AptSuitUnit" id="aptsui" title="Apt/Suite/Unit"  placeholder="Apt/Suite/Unit" required />
-                                    </p><br>
+                                    <br>
 
                                     <p>
-                                        <select class="IN1b ipsm3" name="state_user"  id="state_user" data-bind="value:secowner_state"  title="Select State"  onchange="displayCity_user(this.value, '');" required>
+                                        <select class="IN1b ipsm3" name="state_user2"  id="state_user2" data-bind="value:state_user2"  title="Select State"  onchange="displayCity_user(this.value, '');" required>
                                             <option value="">Select State</option>
                                             <option value="1">Alabama</option>
                                             <option value="2">Alaska</option>
@@ -1075,7 +1099,7 @@
                                     </p>
 
                                     <p>
-                                        <select title="Select City" class="IN1b ipsm3" data-bind="value:secowner_cmbCity" id="cmbCity_user" name="cmbCity_user" required>
+                                        <select title="Select City" class="IN1b ipsm3" data-bind="value:cmbCity_user2" id="cmbCity_user2" name="cmbCity_user2" required>
                                             <option value="">Select City</option>
                                             <option value="984">Adona</option>
                                             <option value="985">Alexander</option>
@@ -1686,7 +1710,7 @@
                                     </p>
 
                                     <p>
-                                        <input type="text" class="IN1 ipsm1" data-bind="value:secowner_zipCode" name="zcode"  id="zcode" title="Zip Code" placeholder="Zip Code" required />
+                                        <input type="text" class="IN1 ipsm1" data-bind="value:OwnZipCode2" name="OwnZipCode2"  id="OwnZipCode2" title="Zip Code" placeholder="Zip Code" required />
                                     </p>
 
                                 </div>
@@ -1697,7 +1721,7 @@
                                 <div class="lftit">Date of Birth</div>
                                 <div class="rwfil aut clearfix">
                                     <p>
-                                        <select class="IN1b ipsm1" title="Month" data-bind="value:secowner_month" name="month" id="month" required>
+                                        <select class="IN1b ipsm1" title="Month" data-bind="value:owner_month2" name="owner_month2" id="owner_month2" required>
                                             <option value="">Month</option>
                                             <option value="1">January</option>
                                             <option value="2">February</option>
@@ -1715,7 +1739,7 @@
                                     </p>
 
                                     <p>
-                                        <select class="IN1b ipsm1" title="Day" data-bind="value:secowner_day" name="day" id="day" required>
+                                        <select class="IN1b ipsm1" title="Day" data-bind="value:owner_day2" name="owner_day2" id="owner_day2" required>
                                             <option value="">Day</option>
                                             <option value="01">1</option>
                                             <option value="02">2</option>
@@ -1752,7 +1776,7 @@
                                     </p>
 
                                     <p>
-                                        <select class="IN1b  ipsm1" title="Year" data-bind="value:secowner_year" name="year" id="year" required>
+                                        <select class="IN1b  ipsm1" title="Year" data-bind="value:owner_year2" name="owner_year2" id="owner_year2" required>
                                             <option value="">Year</option>
                                             <option value="1950">1950</option>
                                             <option value="1951">1951</option>
@@ -1828,7 +1852,7 @@
                                 <div class="lftit">Ownership Percentage</div>
                                 <div class="rwfil aut clearfix">
                                     <p>
-                                        <select class="IN1b ipsm3" data-bind="value:secowner_os_per" onChange="javascript:showhideownerinfo(this.value)" title="Ownership Percentage"  name="own_percent" id="own_percent" required>
+                                        <select class="IN1b ipsm3" data-bind="value:own_percent2" onChange="javascript:showhideownerinfo(this.value)" title="Ownership Percentage"  name="own_percent2" id="own_percent2" required>
                                             <option selected="selected" value="">Ownership Percentage</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -1937,9 +1961,7 @@
                             </div>
                         </div><!-- Second owner-->
 
-                        <div class="addbtns clearfix">
-                            <a data-role="button" class="admr">+ Add Another Owner</a>
-                        </div>
+                       <div class="rw_lin clearfix"> <a id="add-ownerForm" class="add_oth" href="javascript:;">Add Another Owner</a> </div>
 
                     </div>
                 </article>
@@ -1948,12 +1970,23 @@
                     <div class="warps">
                         <div class="coln">
                             <input name="" type="submit" data-role="backbutton" value="Back" class="BTgry">
-                            <input name="" type="submit" data-role="button" value="Save &amp; Exit" class="BTgry">
+                            <input name="" type="submit" data-role="button" value="Save &amp; Exit" data-bind="click:loanAppCISubmit" class="BTgry">
                             <input name="next" type="submit" id="next" data-role="button" data-bind ="click:loanAppPIpage" value="Next"  class="BTgren">
                         </div>
                     </div>
                 </article>
+                <input type="hidden" id="totownerDiv" name="totownerDiv" value="0">
+                <input type="hidden" id="ownercurrntControl" name="ownercurrntControl" value="0">
+                <input type="hidden" id="ownerdeleteIds" name="ownerdeleteIds" value="">
+                <input type="hidden" id="aredyownerdeleteIds" name="aredyownerdeleteIds" value="">
+                <input type="hidden" id="deldbownerids" name="deldbownerids" value="">
 
+                <input type="hidden" name="fid" id="fid" value="" class="b2cAppfid">
+                <input type="hidden" name="frmname" id="frmname" value="b2cApp1" class="classfrm">
+                <input type="hidden" name="type" id="type" value="">
+                <input type="hidden" name="cust_id" id="cust_id" value="">
+                <input type="hidden" name="contact_act" id="contact_act" value="">
+                <input type="hidden" name="blegal_struct" id="blegal_struct" value="Corporation">
             </form>
         </section>
     </div>

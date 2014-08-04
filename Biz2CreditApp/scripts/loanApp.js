@@ -17,7 +17,7 @@
         sub_industry:'',
         select_buss_s_m:'',
         select_buss_s_y:'',
-        yettostart:'',
+        yettostart:1,
         average_annual_revenue:'',
         buss_operating_expenses:'', 
         acceptcard_yes:1,
@@ -59,6 +59,7 @@
         dnb_dun_no:'',
         busi_out_mort_type_yes:1,
         busi_out_mort_type_no:0,
+        debttype:'',
         afterShow:function()
         {
             if($('.crditaccep').val()==='1') {
@@ -935,244 +936,389 @@
         },
         	
 		loanAppBISubmit:function(){
-                //var status = $('#B2cAppForms').valid();
-                //if(status === false)
-               // {
-                //    return status;
-                //}
-                //that.get("collateraltype1").trim();
+            apps.navigate('views/loanAppCI.html');
+            //var status = $('#B2cAppForms').valid();
+            //if(status === false)
+            // {
+            //    return status;
+            //}
                 
-                var that = this;
-                dataParam =  {};
-				legal_business_name 				 	= that.get("legal_business_name").trim();
-                dataParam['orgname']				 	= legal_business_name;
+           /* var that = this;
+            dataParam =  {};
+
+            var totbusinessDebtYesDiv = that.get("totbusinessDebtYesDiv");
+			deleteIds = that.get("deleteIds");
+
+
+            legal_business_name 				 	= that.get("legal_business_name").trim();
+            dataParam['orgname']				 	= legal_business_name;
+
+            dbaName					 		 	= that.get("dba_name").trim(),
+            dataParam['dbaname']				 	= dbaName;
+
+            streetNo							 	= that.get("street_no").trim(),
+            dataParam['civic']		    		   = streetNo;
+
+            streetName				   		    = that.get("street_name").trim(),
+            dataParam['baddr']  	      		   = streetName;
+
+            aptSuiteUnit			    		 	= that.get("apt_suite_unit").trim(),
+            dataParam['street1']	    		     = aptSuiteUnit;
+
+            selectState				 		     = that.get("select_state").trim(),
+            dataParam['state']  	      		   = selectState;
+
+            selectCity				    		   = that.get("select_city").trim(),
+            dataParam['cmbCity']	   			  = selectCity;
+
+            zipCode	 				  		   = that.get("zip_code").trim(),
+            dataParam['zipcode']				 	= zipCode;
+
+            mobileNumber						 	= that.get("mobile_number").trim(),
+            dataParam['businessphone']			   = mobileNumber;
+
+            select_BLS					 		  = that.get("select_b_l_s").trim(),
+            dataParam['blegal']					  = select_BLS;
+
+            industry								 = that.get("industry").trim(),
+            dataParam['orgtype']		  		   = industry;
+
+            subIndustry							  = that.get("sub_industry").trim(),
+            dataParam['orgcategory']				 = subIndustry;   
+
+
+            dnb_dun_no			  			    = that.get("dnb_dun_no").trim(),
+            dataParam['dnb_dun_no']	  		   = dnb_dun_no;
+                						
                 
-                dbaName					 		 	= that.get("dba_name").trim(),
-                dataParam['dbaname']				 	= dbaName;
+            /*  realState					   = that.get("real_state").trim(),
+            dataParam['realState']		  = realState;
+            inventor			     	   = that.get("inventory").trim(),
+            dataParam['inventory']		  = inventory;
+            equipFinance				    = that.get("equip_finance").trim(),
+            dataParam['equipFinance']	   = equipFinance;
+            account_RECE		            = that.get("account_rece").trim(),
+            dataParam['account_RECE']       = account_RECE;
+
+            //for Checkbox yettostart
+            
+            if(document.getElementById('yettostart').checked)
+            {
+                yettostart							  = that.get("yettostart").trim(),
+                dataParam['yettostart']				 = yettostart;   
+                dataParam['dbs_month']		= "";
+                dataParam['dbs_year']         = "";
+                dataParam['revenue']		  = "";
+                dataParam['operatingexp']     = "";
+            }
+            else
+            {
+                dataParam['yettostart']	   = "0";
+
+                select_BSM  				  = that.get("select_buss_s_m").trim(),
+                dataParam['dbs_month']	    = select_BSM;
+
+                select_BSY  			      = that.get("select_buss_s_y").trim(),
+                dataParam['dbs_year']		 = select_BSY;
+
+                avgAnnualRevenue   		   = that.get("average_annual_revenue").trim(),
+                dataParam['revenue']		  = avgAnnualRevenue;
+
+                bussOperatExpen 			  = that.get("buss_operating_expenses").trim(),
+                dataParam['operatingexp']	 = bussOperatExpen;
+            }
                 
-                streetNo							 	= that.get("street_no").trim(),
-                dataParam['civic']		    		   = streetNo;
-                
-                streetName				   		    = that.get("street_name").trim(),
-                dataParam['baddr']  	      		   = streetName;
-                
-                aptSuiteUnit			    		 	= that.get("apt_suite_unit").trim(),
-                dataParam['street1']	    		     = aptSuiteUnit;
-                
-                selectState				 		     = that.get("select_state").trim(),
-                dataParam['state']  	      		   = selectState;
-                
-                selectCity				    		   = that.get("select_city").trim(),
-                dataParam['cmbCity']	   			  = selectCity;
-                
-                zipCode	 				  		   = that.get("zip_code").trim(),
-                dataParam['zipcode']				 	= zipCode;
-                
-                mobileNumber						 	= that.get("mobile_number").trim(),
-                dataParam['businessphone']			   = mobileNumber;
-                
-                select_BLS					 		  = that.get("select_b_l_s").trim(),
-                dataParam['blegal']					  = select_BLS;
-                
-                industry								 = that.get("industry").trim(),
-                dataParam['orgtype']		  		   = industry;
-                
-                subIndustry							  = that.get("sub_industry").trim(),
-                dataParam['orgcategory']				 = subIndustry;
-                
-                select_BSM  				  		   = that.get("select_buss_s_m").trim(),
-                dataParam['dbs_month']				   = select_BSM;
-                
-                select_BSY  						 	= that.get("select_buss_s_y").trim(),
-                dataParam['dbs_year']		 		   = select_BSY;
-                
-                yettostart  						 	= that.get("yettostart").trim(),
-                dataParam['yettostart']				  = yettostart;
-                
-                avgAnnualRevenue   					  = that.get("average_annual_revenue").trim(),
-                dataParam['revenue']				 	= avgAnnualRevenue;
-                
-                bussOperatExpen 					 	= that.get("buss_operating_expenses").trim(),
-                dataParam['operatingexp']	 		   = bussOperatExpen;
-                
+            
+            //for Business Accept credit card
+
+            if(document.getElementById('acceptcard').checked)
+            {
                 acceptCardYES	  					  = that.get("acceptcard_yes"),
                 dataParam['acceptcard']				  = acceptCardYES;
-                
-                acceptCardNO							 = that.get("acceptcard_no"),
-                dataParam['acceptcard']				  = acceptCardNO;
-                
+
                 DFProcessed_Month  		 			 = that.get("datefirstProcessed_month").trim(),
                 dataParam['datefirstProcessed_month']	= DFProcessed_Month;
-                
+
                 DFProcessed_Day    					  = that.get("datefirstProcessed_day").trim(),
                 dataParam['datefirstProcessed_day']	  = DFProcessed_Day;
-                
+
                 DFProcessed_Year   		 			 = that.get("datefirstProcessed_year").trim(),
                 dataParam['datefirstProcessed_year']	 = DFProcessed_Year;
-                
+
                 Cur_city_card_pro  					  = that.get("c_c_card_processor").trim(),
                 dataParam['creditcardproc']			  = Cur_city_card_pro;
-                
+
                 merchantID 	    					  = that.get("merchant_id").trim(),
                 dataParam['merchantid']				  = merchantID;
-                
+
                 MonthlyVolumeAmountsList1   			 = that.get("MonthlyVolumeAmountsList1").trim(),
                 dataParam['MonthlyVolumeAmountsList1']   = MonthlyVolumeAmountsList1;
-                
+
                 MonthlyVolumeTicketsList1   			 = that.get("MonthlyVolumeTicketsList1").trim(),
                 dataParam['MonthlyVolumeTicketsList1']   = MonthlyVolumeTicketsList1;
-                
+
                 MonthlyVolumeAmountsList2  			  = that.get("MonthlyVolumeAmountsList2").trim(),
                 dataParam['MonthlyVolumeAmountsList2']   = MonthlyVolumeAmountsList2;
-                
+
                 MonthlyVolumeTicketsList2   			 = that.get("MonthlyVolumeTicketsList2").trim(),
                 dataParam['MonthlyVolumeTicketsList2']   = MonthlyVolumeTicketsList2;
-                
+
                 MonthlyVolumeAmountsList3   			 = that.get("MonthlyVolumeAmountsList3").trim(),
                 dataParam['MonthlyVolumeAmountsList3']   = MonthlyVolumeAmountsList3;
-                
+
                 MonthlyVolumeTicketsList3  			  = that.get("MonthlyVolumeTicketsList3").trim(),
                 dataParam['MonthlyVolumeTicketsList3']   = MonthlyVolumeTicketsList3;
-                
+
                 MonthlyVolumeAmountsList4  			  = that.get("MonthlyVolumeAmountsList4").trim(),
                 dataParam['MonthlyVolumeAmountsList4']   = MonthlyVolumeAmountsList4;
-                
+
                 MonthlyVolumeTicketsList4  			  = that.get("MonthlyVolumeTicketsList4").trim(),
                 dataParam['MonthlyVolumeTicketsList4']   = MonthlyVolumeTicketsList4;
-                
+
+            }
+            else
+            {   
+                acceptCardNO							 = that.get("acceptcard_no"),
+                dataParam['acceptcard']				  = acceptCardNO;
+                dataParam['datefirstProcessed_month']	= "";
+                dataParam['datefirstProcessed_day']	  = "";
+                dataParam['datefirstProcessed_year']	 = "";
+                dataParam['creditcardproc']			  = "";
+                dataParam['merchantid']				  = "";
+                dataParam['MonthlyVolumeAmountsList1']   = "";
+                dataParam['MonthlyVolumeTicketsList1']   = "";
+                dataParam['MonthlyVolumeAmountsList2']   = "";
+                dataParam['MonthlyVolumeTicketsList2']   = "";
+                dataParam['MonthlyVolumeAmountsList3']   = "";
+                dataParam['MonthlyVolumeTicketsList3']   = "";
+                dataParam['MonthlyVolumeAmountsList4']   = "";
+                dataParam['MonthlyVolumeTicketsList4']   = "";
+            }
+            
+            
+        	//business have outstanding debt
+        
+        	if(document.getElementById('debttype').checked)
+            {
                 debttypeYES			    			  = that.get("debttype_yes"),
-                dataParam['debttype']					= debttypeYES;
-                
-                debttypeNO			  			     = that.get("debttype_no"),
-                dataParam['debttype']					= debttypeNO;
-                
-                busproInfo_owned		  			   = that.get("busproInfo_owned"),
-                dataParam['busi_pro_info_type']		  = busproInfo_owned;
-                
-                busproInfo_leased	   				 = that.get("busproInfo_leased"),
-                dataParam['busi_pro_info_type']		  = busproInfo_leased;
-                
-                busi_OutMortTtype_yes		  		 = that.get("busi_out_mort_type_yes"),
-                dataParam['busi_out_mort_type']		 = busi_OutMortTtype_yes;
-                
-                busi_OutMortTtype_no		  		  = that.get("busi_out_mort_type_no"),
-                dataParam['busi_out_mort_type']		 = busi_OutMortTtype_no;
-                
-                mortgageBANK			   			 = that.get("mortgage_bank").trim(),
-                dataParam['busi_mort_bank']			 = mortgageBANK;
-                
-                outStandingBAL		     		     = that.get("outs_bal").trim(),
-                dataParam['busi_out_balance']		   = outStandingBAL;
-                
-                monthMortageAMT   	      			= that.get("month_mort_amount").trim(),
-                dataParam['busi_month_mort_amount']	 = monthMortageAMT;
-                
-                monthlyRENT			     			= that.get("monthly_rent").trim(),
-                dataParam['busi_month_rent']			= monthlyRENT;
-                
-                landlord_NAME			   			= that.get("landlord_name").trim(),
-                dataParam['busi_landlord']			  = landlord_NAME;
-                
-                contact_NUM			  			   = that.get("contact_number").trim(),
-                dataParam['busi_cont_number']		   = contact_NUM;
-                
-                dnb_dun_no			  			    = that.get("dnb_dun_no").trim(),
-                dataParam['dnb_dun_no']	  		   = dnb_dun_no;
-                
-                dnb_dun_no						
-                
-                realState						 = that.get("real_state").trim(),
-                dataParam['realState']	  = realState;
-                inventor			      = that.get("inventory").trim(),
-                dataParam['inventory']	  = inventory;
-                equipFinance			    = that.get("equip_finance").trim(),
-                dataParam['equipFinance']=equipFinance;
-                account_RECE		        = that.get("account_rece").trim(),
-                dataParam['account_RECE']=account_RECE;
-               
-                console.log(dataParam);
-                
-                for(var i=1; i<=totbusinessDebtYesDiv;i++)
+            	dataParam['debttype']					= debttypeYES;
+            
+				for(var i=1; i<=totbusinessDebtYesDiv;i++)
                 {
                     if(jQuery.inArray( i, deleteIds )=== -1)
-                    {
-                        dataParam['debttype'+i]=viewFModel.get('debttype'+i);
+                    {   
+						dataParam['debttype'+i] = viewFModel.get('debttype'+i);
                         dataParam['yeardisbursed'+i]=viewFModel.get('yeardisbursed'+i);
-                        dataParam['txtOutCredit'+i]=viewFModel.get('txtOutCredit'+i);
-                        dataParam['txtInterestCredit'+i]=viewFModel.get('txtInterestCredit'+i);
-                        
-                        dataParam['txtPerYearCredit'+i]=viewFModel.get('txtPerYearCredit'+i);
-                        dataParam['tpcompany'+i]=viewFModel.get('tpcompany'+i);
-                        dataParam['ocadvance'+i]=viewFModel.get('ocadvance'+i);
-                        dataParam['funded_term'+i]=viewFModel.get('funded_term'+i);
-                        
-                        dataParam['collateraltype'+i]=viewFModel.get('collateraltype'+i);
-                        dataParam['txtAmountTerm'+i]=viewFModel.get('txtAmountTerm'+i); 
-                        dataParam['txtOutAmountTerm'+i]=viewFModel.get('txtOutAmountTerm'+i);
-                        dataParam['txtInterestTerm'+i]=viewFModel.get('txtInterestTerm'+i);
-
-                        dataParam['txtPaymentModeTerm'+i]=viewFModel.get('txtPaymentModeTerm'+i);
-                        dataParam['txtYearTerm'+i]=viewFModel.get('txtYearTerm'+i);
-                        dataParam['txtTerm'+i]=viewFModel.get('txtTerm'+i); 
-                        dataParam['txtFrequncyTerm'+i]=viewFModel.get('txtFrequncyTerm'+i);
+                        switch(viewFModel.get('debttype'+i))
+                        {
+                            case 'Business Credit Card':
+                            			
+                            			 dataParam['txtOutCredit'+i]=viewFModel.get('txtOutCredit'+i);
+                       				  dataParam['txtInterestCredit'+i]=viewFModel.get('txtInterestCredit'+i);
+                            		 	dataParam['txtPerYearCredit'+i]=viewFModel.get('txtPerYearCredit'+i); 
+                          
+                            			 dataParam['tpcompany'+i]="";
+                                         dataParam['ocadvance'+i]="";
+                                         dataParam['funded_term'+i]="";
+                                         dataParam['collateraltype'+i]="";
+                                         dataParam['txtAmountTerm'+i]=""; 
+                                         dataParam['txtOutAmountTerm'+i]="";
+                                         dataParam['txtInterestTerm'+i]="";
+                                         dataParam['txtPaymentModeTerm'+i]="";
+                                         dataParam['txtYearTerm'+i]="";
+                                         dataParam['txtTerm'+i]=""; 
+                                         dataParam['txtFrequncyTerm'+i]="";
+                            		break;
+                            
+                            case 'Cash Advance':
+                            		 	dataParam['tpcompany'+i]=viewFModel.get('tpcompany'+i);
+                            			 dataParam['ocadvance'+i]=viewFModel.get('ocadvance'+i);
+                            			 dataParam['funded_term'+i]=viewFModel.get('funded_term'+i);
+                            			 
+                            			 dataParam['txtOutCredit'+i]="";
+                       				  dataParam['txtInterestCredit'+i]="";
+                            		 	dataParam['txtPerYearCredit'+i]="";            
+                                         dataParam['collateraltype'+i]="";
+                                         dataParam['txtAmountTerm'+i]=""; 
+                                         dataParam['txtOutAmountTerm'+i]="";
+                                         dataParam['txtInterestTerm'+i]="";
+                                         dataParam['txtPaymentModeTerm'+i]="";
+                                         dataParam['txtYearTerm'+i]="";
+                                         dataParam['txtTerm'+i]=""; 
+                                         dataParam['txtFrequncyTerm'+i]="";
+                            
+                            		break;
+                            
+                            case 'Line of credit':
+                            			 dataParam['collateraltype'+i]=viewFModel.get('collateraltype'+i);
+                            			 dataParam['txtOutCredit'+i]=viewFModel.get('txtOutCredit'+i);
+                            			 dataParam['txtInterestCredit'+i]=viewFModel.get('txtInterestCredit'+i);
+                            			 dataParam['txtPerYearCredit'+i]=viewFModel.get('txtPerYearCredit'+i);    
+                            
+                            			 dataParam['funded_term'+i]="";
+                                         dataParam['tpcompany'+i]="";
+                            			 dataParam['ocadvance'+i]="";
+                                         dataParam['txtAmountTerm'+i]=""; 
+                                         dataParam['txtOutAmountTerm'+i]="";
+                                         dataParam['txtInterestTerm'+i]="";
+                                         dataParam['txtPaymentModeTerm'+i]="";
+                                         dataParam['txtYearTerm'+i]="";
+                                         dataParam['txtTerm'+i]=""; 
+                                         dataParam['txtFrequncyTerm'+i]="";
+                            		break;
+                            
+                             case 'Term loan':
+                            			 dataParam['collateraltype'+i]=viewFModel.get('collateraltype'+i);
+                            			 dataParam['txtAmountTerm'+i]=viewFModel.get('txtAmountTerm'+i); 
+                            			 dataParam['txtOutAmountTerm'+i]=viewFModel.get('txtOutAmountTerm'+i);
+                            			 dataParam['txtInterestTerm'+i]=viewFModel.get('txtInterestTerm'+i);
+                            			 dataParam['txtYearTerm'+i]=viewFModel.get('txtYearTerm'+i);
+                            			 dataParam['txtPaymentModeTerm'+i]=viewFModel.get('txtPaymentModeTerm'+i);
+                            			 dataParam['txtTerm'+i]=viewFModel.get('txtTerm'+i); 
+                            			 dataParam['txtFrequncyTerm'+i]=viewFModel.get('txtFrequncyTerm'+i);
+                            
+                            			 dataParam['txtOutCredit'+i]="";
+                            			 dataParam['txtInterestCredit'+i]="";
+                            			 dataParam['txtPerYearCredit'+i]=""; 
+                            			 dataParam['funded_term'+i]="";
+                                         dataParam['tpcompany'+i]="";
+                            			 dataParam['ocadvance'+i]="";
+                            		break;
+                            
+                            default:
+                            		//alert("sorry");
+                            		break;
+                        }
                                                
                     }
                 }
-				
-        app.loginService.viewModel.showloder();
-        var dataSource = new kendo.data.DataSource({
-        transport: {
-        read: {
-                url: "http://google.com",
-                type:"POST",
-                dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                data: dataParam
-        }
-        },
-        schema: {
-            data: function(data)
-        	{
-            	return [data];
-        	}
-        },
-        error: function (e) {
-        	 apps.hideLoading();
-             navigator.notification.alert("Server not responding properly.Please check your internet connection.",
-                function () { }, "Notification", 'OK');
-        },
-
-        });
-        dataSource.fetch(function(){
-            
-        	var data = this.data();
-            app.loginService.viewModel.hideloder();
-        	if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
+            }
+            else
             {
+                debttypeNO			  			     = that.get("debttype_no"),
+           	 dataParam['debttype']					= debttypeNO;
                 
-                $msg= "Business Information submitted successfully";
-                app.loginService.viewModel.mobileNotification($msg,'info');
-                apps.navigate('#tabstrip-loanapp-ci');
-
+                dataParam['debttype'+i]="";
+                dataParam['yeardisbursed'+i]="";
+                dataParam['txtOutCredit'+i]="";
+                dataParam['txtInterestCredit'+i]="";
+                dataParam['txtPerYearCredit'+i]="";
+                dataParam['tpcompany'+i]="";
+                dataParam['ocadvance'+i]="";
+                dataParam['funded_term'+i]="";
+                dataParam['collateraltype'+i]="";
+                dataParam['txtAmountTerm'+i]=""; 
+                dataParam['txtOutAmountTerm'+i]="";
+                dataParam['txtInterestTerm'+i]="";
+                dataParam['txtPaymentModeTerm'+i]="";
+                dataParam['txtYearTerm'+i]="";
+                dataParam['txtTerm'+i]=""; 
+                dataParam['txtFrequncyTerm'+i]="";
             }
-            else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
+            
+            
+            //business property information
+            if(document.getElementById('busi_pro_info_type').checked)
             {
-               $msg= "Business Information not submitted successfully.";
-               app.loginService.viewModel.mobileNotification($msg,'info'); 
-               return;
-            }
-            else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
-            {
-               $msg= "Please enter all fields.";
-               app.loginService.viewModel.mobileNotification($msg,'info');
-               return;
-            }
-            else{
-                $msg= "Server not responding properly,Please try again";
-                app.loginService.viewModel.mobileNotification($msg,'info');
-                return;
-            }            
+                busproInfo_owned		  			   = that.get("busproInfo_owned"),
+                dataParam['busi_pro_info_type']		  = busproInfo_owned;
 
-        });
+                if(document.getElementById('busi_out_mort_type').checked)
+                {
+                    busi_OutMortTtype_yes		  		 = that.get("busi_out_mort_type_yes"),
+                    dataParam['busi_out_mort_type']		 = busi_OutMortTtype_yes;
+
+                    mortgageBANK			   			 = that.get("mortgage_bank").trim(),
+                    dataParam['busi_mort_bank']			 = mortgageBANK;
+
+                    outStandingBAL		     		     = that.get("outs_bal").trim(),
+                    dataParam['busi_out_balance']		   = outStandingBAL;
+
+                    monthMortageAMT   	      			= that.get("month_mort_amount").trim(),
+                    dataParam['busi_month_mort_amount']	 = monthMortageAMT;
+                }
+                else
+                {
+                    busi_OutMortTtype_no		  		  = that.get("busi_out_mort_type_no"),
+                    dataParam['busi_out_mort_type']		 = busi_OutMortTtype_no;
+
+                    dataParam['busi_mort_bank']			=	"";
+                    dataParam['busi_out_balance']  		=	"";
+                    dataParam['busi_month_mort_amount']	=	"";
+                }
+            }
+            else
+        	{
+                 busproInfo_leased	   				 = that.get("busproInfo_leased"),
+           	  dataParam['busi_pro_info_type']		  = busproInfo_leased;
+                
+                 monthlyRENT			     			= that.get("monthly_rent").trim(),
+                 dataParam['busi_month_rent']			= monthlyRENT;
+                
+                 landlord_NAME			   			= that.get("landlord_name").trim(),
+                 dataParam['busi_landlord']			  = landlord_NAME;
+                
+                 contact_NUM			  			   = that.get("contact_number").trim(),
+                 dataParam['busi_cont_number']		   = contact_NUM;
+            }
+            
+            	
+			console.log(dataParam);
+            app.loginService.viewModel.showloder();
+            var dataSource = new kendo.data.DataSource({
+                transport: {
+                read: {
+                    url: "http://google.com",
+                    type:"POST",
+                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: dataParam
+            	}
+            },
+            schema: {
+                data: function(data)
+                {
+                	return [data];
+                }
+            },
+            error: function (e) {
+                apps.hideLoading();
+                navigator.notification.alert("Server not responding properly.Please check your internet connection.",
+                function () { }, "Notification", 'OK');
+            },
+
+            });
+            dataSource.fetch(function(){
+
+                var data = this.data();
+                app.loginService.viewModel.hideloder();
+                if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
+                {
+
+                    $msg= "Business Information submitted successfully";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
+                    apps.navigate('#tabstrip-loanapp-ci');
+
+                }
+                else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
+                {
+                    $msg= "Business Information not submitted successfully.";
+                    app.loginService.viewModel.mobileNotification($msg,'info'); 
+                    return;
+                }
+                else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
+                {
+                    $msg= "Please enter all fields.";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
+                    return;
+                }
+                else{
+                    $msg= "Server not responding properly,Please try again";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
+                    return;
+                }            
+
+                });*/
+
         
             },
             addOutDebtVar:function(num)
