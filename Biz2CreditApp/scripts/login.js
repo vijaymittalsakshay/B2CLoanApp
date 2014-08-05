@@ -55,7 +55,7 @@
             var dataSource = new kendo.data.DataSource({
             transport: {
             read: {
-                    url: "https://www.biz2services.com/mobapp/api/user",
+                    url: " http://sandbox.biz2services.com/mobapp/api/user",
                     type:"POST",
                     dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                     data: { apiaction:"userlogin",userID:username,password:password} // search for tweets that contain "html5"
@@ -237,7 +237,7 @@
             var dataSource = new kendo.data.DataSource({
             transport: {
             read: {
-                    url: "https://www.biz2services.com/mobapp/api/user",
+                    url: " http://sandbox.biz2services.com/mobapp/api/user",
                     type:"POST",
                     dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                     data: { apiaction:"forgotpassword",useremail:forgotmail} // search for tweets that contain "html5"
