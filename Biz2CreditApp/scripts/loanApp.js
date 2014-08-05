@@ -20,8 +20,8 @@
         yettostart:1,
         average_annual_revenue:'',
         buss_operating_expenses:'', 
-        acceptcard_yes:1,
-        acceptcard_no:0,
+        acceptcard_yes:'Yes',
+        acceptcard_no:'No',
         datefirstProcessed_month:'',
         datefirstProcessed_day:'',
         datefirstProcessed_year:'',
@@ -35,12 +35,12 @@
         MonthlyVolumeTicketsList3:'',
         MonthlyVolumeAmountsList4:'',
         MonthlyVolumeTicketsList4:'',
-        debttype_yes:1,
-        debttype_no:0,
+        debttype_yes:'Yes',
+        debttype_no:'No',
         selectdebttype:'',
         selDisbursed:'',
-        busproInfo_owned:1,
-        busproInfo_leased:0,
+        busproInfo_owned:2,
+        busproInfo_leased:1,
         outstandingMort_yes:1,
         outstandingMort_no:0,
         mortgage_bank:'',
@@ -62,7 +62,7 @@
         debttype:'',
         afterShow:function()
         {
-            if($('.crditaccep').val()==='1') {
+            if($('.crditaccep').val()==='Yes') {
                 
             	app.loansetting.viewModel.creditCardValidate();
             }
@@ -164,7 +164,7 @@
             
             $('.crditaccep').click(function() {
                 var sel_value = $(this).val();
-                if (sel_value === '1') {
+                if (sel_value === 'Yes') {
                 	$('#credit_show').show();
                 } else {
                 	$('#credit_show').hide();
@@ -185,7 +185,7 @@
 
             $('.outDebt').click(function() {
             	var sel_value=$(this).val();
-                if(sel_value==='1'){
+                if(sel_value==='Yes'){
                     if($('#currntControl').val()==='0' || $('#currntControl').val()==='') {
                     	$("#add-form").trigger('click');
                     }
@@ -207,7 +207,7 @@
 
             $('.businf').click(function() {
                 var sel_value = $(this).val();
-                if (sel_value==='1') {
+                if (sel_value==='2') {
                 	$('#busInfobx').show();
                 	$('#busInfobx2').hide();
                 } else {
@@ -937,21 +937,21 @@
         	
 		loanAppBISubmit:function(){
             //apps.navigate('views/loanAppCI.html');
-            var status = $('#B2cAppForms').valid();
-            if(status === false)
-			return status;
+             var status = $('#B2cAppForms').valid();
+             if(status === false)
+			 return status;
                 
             var that = this;
             dataParam =  {};
 
-            var totbusinessDebtYesDiv = that.get("totbusinessDebtYesDiv");
+            totbusinessDebtYesDiv = that.get("totbusinessDebtYesDiv");
 			deleteIds = that.get("deleteIds");
-
+			dataParam['apiaction']='loanappstep2';
 			dataParam['cust_id']=localStorage.getItem("userID");
-            dataParam['fid']='';
+            dataParam['fid']='70691';
             dataParam['type']='';
-            dataParam['frmname']='';
-            dataParam['business_act']='NEXT';
+            dataParam['frmname']='b2cApp2';
+            dataParam['business_act']='Next';
             legal_business_name 				 	= that.get("legal_business_name").trim();
             dataParam['orgname']				 	= legal_business_name;
 
@@ -992,18 +992,27 @@
             dnb_dun_no			  			    = that.get("dnb_dun_no").trim(),
             dataParam['dnb_dun_no']	  		   = dnb_dun_no;
                 						
-                
-            /*  realState					   = that.get("real_state").trim(),
-            dataParam['realState']		  = realState;
-            inventor			     	   = that.get("inventory").trim(),
-            dataParam['inventory']		  = inventory;
-            equipFinance				    = that.get("equip_finance").trim(),
-            dataParam['equipFinance']	   = equipFinance;
-            account_RECE		            = that.get("account_rece").trim(),
-            dataParam['account_RECE']       = account_RECE;*/
-
-            //for Checkbox yettostart
+            collateral=[];
             
+            realState					   = that.get("real_state");
+            if(realState === true)
+            collateral.push('Real Estate');
+            
+            inventor			     	   = that.get("inventory");
+            if(inventor === true)
+            collateral.push('Inventory');
+            
+            equipFinance				    = that.get("equip_finance");
+            if(equipFinance === true)
+            collateral.push('Equipment');
+
+            account_RECE		            = that.get("account_rece");
+            if(account_RECE === true)
+            collateral.push('Accounts Receivables');  
+            
+			dataParam['collateral'] =collateral;
+            //for Checkbox yettostart
+           
             if(document.getElementById('yettostart').checked)
             {
                 yettostart							  = that.get("yettostart").trim(),
@@ -1217,7 +1226,8 @@
                 dataParam['txtTerm'+i]=""; 
                 dataParam['txtFrequncyTerm'+i]="";
             }
-            
+            dataParam['totbusinessDebtYesDiv']=totbusinessDebtYesDiv; 
+            dataParam['deleteIds']=deleteIds;
             
             //business property information
             if(document.getElementById('busi_pro_info_type').checked)
@@ -1248,20 +1258,27 @@
                     dataParam['busi_out_balance']  		=	"";
                     dataParam['busi_month_mort_amount']	=	"";
                 }
+                 dataParam['busi_month_rent']			= '';           
+                 dataParam['busi_landlord']			  = '';
+                 dataParam['busi_cont_number']		   = '';
             }
             else
         	{
-                 busproInfo_leased	   				 = that.get("busproInfo_leased"),
-           	  dataParam['busi_pro_info_type']		  = busproInfo_leased;
+                busproInfo_leased	   				 = that.get("busproInfo_leased"),
+                dataParam['busi_pro_info_type']		  = busproInfo_leased;
+
+                monthlyRENT			     			= that.get("monthly_rent").trim(),
+                dataParam['busi_month_rent']			= monthlyRENT;
+
+                landlord_NAME			   			= that.get("landlord_name").trim(),
+                dataParam['busi_landlord']			  = landlord_NAME;
+
+                contact_NUM			  			   = that.get("contact_number").trim(),
+                dataParam['busi_cont_number']		   = contact_NUM;
+                dataParam['busi_mort_bank']			=	"";
+                dataParam['busi_out_balance']  		=	"";
+                dataParam['busi_month_mort_amount']	=	"";
                 
-                 monthlyRENT			     			= that.get("monthly_rent").trim(),
-                 dataParam['busi_month_rent']			= monthlyRENT;
-                
-                 landlord_NAME			   			= that.get("landlord_name").trim(),
-                 dataParam['busi_landlord']			  = landlord_NAME;
-                
-                 contact_NUM			  			   = that.get("contact_number").trim(),
-                 dataParam['busi_cont_number']		   = contact_NUM;
             }
             
             	
