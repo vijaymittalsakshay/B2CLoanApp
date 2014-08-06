@@ -1971,13 +1971,13 @@
                         <div class="coln">
                             <input name="" type="submit" data-role="backbutton" value="Back" class="BTgry">
                             <input name="" type="submit" data-role="button" value="Save &amp; Exit" data-bind="click:loanAppCISubmit" class="BTgry">
-                            <input name="next" type="submit" id="next" data-role="button" data-bind ="click:loanAppPIpage" value="Next"  class="BTgren">
+                            <input name="next" type="submit" id="next" data-role="button" data-bind ="click:loanAppCISubmit" value="Next"  class="BTgren">
                         </div>
                     </div>
                 </article>
-                <input type="hidden" id="totownerDiv" name="totownerDiv" value="0">
-                <input type="hidden" id="ownercurrntControl" name="ownercurrntControl" value="0">
-                <input type="hidden" id="ownerdeleteIds" name="ownerdeleteIds" value="">
+                <input type="hidden" id="totownerDiv" name="totownerDiv" data-bind="value: totownerDiv" value="0">
+                <input type="hidden" id="ownercurrntControl" name="ownercurrntControl" data-bind="value: ownercurrntControl" value="0">
+                <input type="hidden" id="ownerdeleteIds" name="ownerdeleteIds[]" data-bind="value: ownerdeleteIds" value="">
                 <input type="hidden" id="aredyownerdeleteIds" name="aredyownerdeleteIds" value="">
                 <input type="hidden" id="deldbownerids" name="deldbownerids" value="">
 

@@ -68,6 +68,10 @@
             }
         },
         show:function() {
+            
+            $("#add-form").unbind('.myPlugin');
+            $(".outDebt").unbind(".myPlugin");
+
             $('.srh_men  .scmsk').mouseover(function() {
                 $("#log_BX").hide();
                 $("#socl_BX").hide();
@@ -183,7 +187,7 @@
              });
             // outtand dept
 
-            $('.outDebt').click(function() {
+            $('.outDebt').on("click.myPlugin", function() {
             	var sel_value=$(this).val();
                 if(sel_value==='Yes'){
                     if($('#currntControl').val()==='0' || $('#currntControl').val()==='') {
@@ -305,7 +309,7 @@
             var addForm = $("#add-form");
             var index = 0;
             divId = [];
-            addForm.on("click", function() {
+            addForm.on("click.myPlugin", function() {
             
                 app.loansetting.viewModel.addOutDebtVar(++index);
                 var form = app.loansetting.viewModel.getForm(index);
@@ -936,8 +940,8 @@
         },
         	
 		loanAppBISubmit:function(){
-            //apps.navigate('views/loanAppCI.html');
-             var status = $('#B2cAppForms').valid();
+            apps.navigate('views/loanAppCI.html');
+            /*var status = $('#B2cAppForms').valid();
              if(status === false)
 			 return status;
                 
@@ -1313,9 +1317,9 @@
                 if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
                 {
 
-                    $msg= "Business Information submitted successfully";
-                    app.loginService.viewModel.mobileNotification($msg,'info');
-                    apps.navigate('#tabstrip-loanapp-ci');
+                    //$msg= "Business Information submitted successfully";
+                    //app.loginService.viewModel.mobileNotification($msg,'info');
+                    apps.navigate('views/loanAppCI.html');
 
                 }
                 else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
@@ -1336,7 +1340,7 @@
                     return;
                 }            
 
-                });
+                });*/
 
         
             },

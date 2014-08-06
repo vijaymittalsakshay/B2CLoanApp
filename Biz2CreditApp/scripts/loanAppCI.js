@@ -29,8 +29,45 @@
         owner_day2:'',
         owner_year2:'',
         own_percent2:'',
+        ownercurrntControl:0,
+        totownerDiv:0,
+        ownerdeleteIds:[],
         
         show:function() {
+
+
+            $("#add-ownerForm").unbind(".myPlugin");
+            
+            
+            var DateDiff = { 
+                inDays: function(d1, d2) {
+                    var t2 = d2.getTime();
+                    var t1 = d1.getTime();
+
+                    return parseInt((t2-t1)/(24*3600*1000));
+                },
+
+                inWeeks: function(d1, d2) {
+                    var t2 = d2.getTime();
+                    var t1 = d1.getTime();
+
+                    return parseInt((t2-t1)/(24*3600*1000*7));
+                },
+
+                inMonths: function(d1, d2) {
+                    var d1Y = d1.getFullYear();
+                    var d2Y = d2.getFullYear();
+                    var d1M = d1.getMonth();
+                    var d2M = d2.getMonth();
+
+                    return (d2M+12*d2Y)-(d1M+12*d1Y);
+                },
+
+                inYears: function(d1, d2) {
+                	return d2.getFullYear()-d1.getFullYear();
+                }
+            }
+    
             
             $("#own_percent").change(function() {
                 if($(this).val()>=1 && $(this).val()<100) {
@@ -40,6 +77,97 @@
                 }			
 
             });
+            
+            $.validator.addMethod("zipcodeUS", function(value, element) {
+            	return this.optional(element) || /\d{5}-\d{4}$|^\d{5}$/.test(value);
+            });
+            
+            $.validator.addMethod("loginRegex", function(value, element) {
+           	 return this.optional(element) || /^[a-z0-9\-\s]+$/i.test(value);
+            });
+            
+            $.validator.addMethod("ownerPercent", function(value, element) {
+
+                var strdeldivids = "";
+                var totaldivs = $("#totownerDiv").val();
+                var deldivids = $("#ownerdeleteIds").val();
+                var adelids = $("#aredyownerdeleteIds").val();
+
+                //alert(totaldivs+" : "+deldivids+" : "+adelids);
+
+                if(deldivids !=='' && adelids !=='')
+                {
+              	  strdeldivids = deldivids+","+adelids;
+                }
+                else if(deldivids !=='' && adelids === '')
+                {
+               	 strdeldivids = deldivids;
+                }
+                else if(deldivids ==='' && adelids !== '')
+                {
+               	 strdeldivids = adelids;
+                } 
+                else 
+                {
+               	 var strdeldivids = "";
+                }
+
+                if(totaldivs >0) 
+                {
+                    /*
+                    var deldids = strdeldivids.split(",");                                 
+                    if($.inArray(c, deldids ) ) {
+                    alert("found"+c);
+                    }
+                    */
+                    var total_per = 0;
+                    for( var c=1; c<=totaldivs; c++)
+                    {                                    
+                        if(strdeldivids !=='') 
+                        {
+                            if(!strdeldivids.match(c)) 
+                            {
+                                if(parseInt($('#own_percent'+c).val()) >0) 
+                                {
+                                total_per = total_per + (parseInt($('#own_percent'+c).val()));
+               				 }
+              			  }
+              		  } 
+                        else 
+                        {
+                            if(parseInt($('#own_percent'+c).val()) >0) 
+                            {
+                          	  total_per = total_per + (parseInt($('#own_percent'+c).val()));
+                            }     
+                		}
+              	  }                              
+               	 total_per = total_per + (parseInt($('#own_percent').val()));                                
+                }                           
+                if(total_per > 100) { return false;	} else { return true; }                            
+            });
+            
+            $.validator.addMethod("dobminor", function(value, element) {       			 
+                var mm = $("#owner_month").val();
+                var dd = $("#owner_day").val();
+                var yy = $("#owner_year").val();
+                var sdate = yy+"-"+mm+"-"+dd;
+                var edate = $("#current_sdtae").val();
+
+                if(mm !=='' && dd !=='' && yy!==''){ 
+                   var d1 = new Date(sdate);
+                   var d2 = new Date(edate);                            
+                   //var nofYears = DateDiff.inYears(d1, d2);
+                   var nofDays = DateDiff.inDays(d1, d2);
+                   if(nofDays < 6574){                  
+                       return false;
+                   } else {
+                       return true;
+                   }
+                } else {
+                   return false;
+                }     
+        	});
+            
             $("#b2cApp1").validate({
                 rules: {
                     OwnerFirstName: {
@@ -140,14 +268,17 @@
             });
             
             var addownerForm = $("#add-ownerForm");
-            var index = $('#totownerDiv').val();                  
-            addownerForm.on("click", function() {
-                
-                var form = app.loanAppCI.viewModel.getownerForm(++index)
-                $('#totownerDiv').val(index);
+            var index = $('#totownerDiv').val(); 
+			viewCModel = kendo.observable();
+            addownerForm.on("click.myPlugin", function() {
+                app.loanAppCI.viewModel.addOutDebtVar(++index);
+                var form = app.loanAppCI.viewModel.getownerForm(index)
+                //$('#totownerDiv').val(index);
+                 app.loanAppCI.viewModel.setHiddenField(index);
                 var tot= parseInt($('#ownercurrntControl').val())+1;
                 $('#ownercurrntControl').val(tot);
-                $("#row_owners").append(form); 
+                $("#row_owners").append(form);
+                app.loanAppCI.viewModel.addBindOutDebtVar(index);
                 var ownerFlag = app.loanAppCI.viewModel.checkownerFlag();
                 
 
@@ -302,7 +433,8 @@
                 //divId.push(currentIndex);
                 var newstrdeldivs = $("#ownerdeleteIds").val(); 
                 newstrdeldivs = newstrdeldivs+currentIndex+',';                                            
-                $("#ownerdeleteIds").val(newstrdeldivs); 
+                //$("#ownerdeleteIds").val(newstrdeldivs);
+                app.loanAppCI.viewModel.setHiddenFieldDeleteIds(newstrdeldivs);
                 var ownerFlag = app.loanAppCI.viewModel.checkownerFlag();
                 
             });
@@ -316,10 +448,13 @@
 		},
         createFormfields:function (NumOfDiv) {
             
+            //var value = $("#divId"+NumOfDiv).val().trim();
+           // alert(value);
+            
             var blegal = $('#blegal_struct').val();
-            var str='<div class="rws rw1 clearfix"><div class="lftit">Applicant/Owner</div>';
-            str += "<p><input type='text' class='IN1' name='OwnerFirstName"+NumOfDiv+"' id='OwnerFirstName"+NumOfDiv+"' title='First Name' placeholder='First Name' value='' /></p>";
-            str += "<p><input type='text' class='IN1' style='width: 312px;' name='OwnerLastName"+NumOfDiv+"' id='OwnerLastName"+NumOfDiv+"' title='Last Name' placeholder='Last Name' value='' />";
+            var str="<div class='rws rw1 clearfix' ><div class='lftit'>Applicant/Owner</div>";
+            str += "<p><input type='text' class='IN1' name='OwnerFirstName"+NumOfDiv+"' id='OwnerFirstName"+NumOfDiv+"' orignal-title='First Name' placeholder='First Name' value='' /></p>";
+            str += "<p><input type='text' class='IN1' style='width: 312px;' name='OwnerLastName"+NumOfDiv+"' id='OwnerLastName"+NumOfDiv+"' orignal-title='Last Name' placeholder='Last Name' value='' />";
             str += "<input type='hidden'  name='own_id"+NumOfDiv+"' id='own_id"+NumOfDiv+"'  value='' />";
             str += "<input type='hidden'  name='isCheckScore"+NumOfDiv+"' id='isCheckScore"+NumOfDiv+"'  value='' />";
             str += "<input type='hidden'  name='creditScore"+NumOfDiv+"' id='creditScore"+NumOfDiv+"'  value='' />";
@@ -361,8 +496,8 @@
             str += '</select></p></div>';
 
             str += '<div class="rws rw2 clearfix"><div class="lftit">Home Address</div><div class="rwfil aut clearfix"><div class="rw_lin clearfix">'; 
-            str += "<p><input maxlength='15' type='text' class='IN1 ipsm1' name='OwnerCivic"+NumOfDiv+"' id='OwnerCivic"+NumOfDiv+"' title='Street No.' placeholder='Street No.' value='' /></p>";
-            str += "<p><input type='text' class='IN1 ipsm4' name='OwnerStreetAddress"+NumOfDiv+"' id='OwnerStreetAddress"+NumOfDiv+"' title='Street Name/Apt/Suite/Unit' placeholder='Street Name/Apt/Suite/Unit' value='' /></p>";
+            str += "<p><input maxlength='15' type='text' class='IN1 ipsm1' name='OwnerCivic"+NumOfDiv+"' id='OwnerCivic"+NumOfDiv+"' orignal-title='Street No.' placeholder='Street No.' value='' /></p>";
+            str += "<p><input type='text' class='IN1 ipsm4' name='OwnerStreetAddress"+NumOfDiv+"' id='OwnerStreetAddress"+NumOfDiv+"' orignal-title='Street Name/Apt/Suite/Unit' placeholder='Street Name/Apt/Suite/Unit' value='' /></p>";
             str += '<div class="clear"></div></div>';
 
             str += "<div class='rw_lin clearfix'><p id='ownerState"+NumOfDiv+"'>\
@@ -371,7 +506,7 @@
             str += "<p id='ownerCity"+NumOfDiv+"'>\
             <select class='IN1b ipsm3' name='own_city"+NumOfDiv+"' id='own_city"+NumOfDiv+"' original-title='Select City'><option value=''>Select City</option></select></p>";
 
-            str += "<p><input maxlength='5' type='text' class='IN1 ipsm1' name='OwnZipCode"+NumOfDiv+"' id='OwnZipCode"+NumOfDiv+"' title='Zip Code' placeholder='Zip Code' value='' /></p>";
+            str += "<p><input maxlength='5' type='text' class='IN1 ipsm1' name='OwnZipCode"+NumOfDiv+"' id='OwnZipCode"+NumOfDiv+"' orignal-title='Zip Code' placeholder='Zip Code' value='' /></p>";
             str += '</div></div></div>';
 
             str += '<div class="clear"></div>';
@@ -499,7 +634,112 @@
             }else {
             	$('#add-ownerForm').show();
             }
-		}
+		},
+        setHiddenField:function(index)
+        {
+                var that =this;
+                that.set("totownerDiv",index);
+        },
+        setHiddenFieldDeleteIds:function(ids)
+        {
+                var that =this;
+                that.set("ownerdeleteIds",ids);
+        },
+        loanAppCISubmit:function(){
+            
+          // var status = $("#b2cApp1").valid();
+           
+           //if(status === false)
+           //{
+			//	return false;   
+          // }
+            var that = this;
+            dataParam =  {};
+			ownerFName = that.get("Owner_FirstName").trim();
+            
+            ownerLName = that.get("Owner_LastName").trim(),
+            emailAdd   = that.get("Owner_email").trim(),
+            jobTitle   = that.get("Owner_JobTitle"),
+            streetNo   = that.get("Owner_Civic").trim(),
+            streetName = that.get("Owner_StreetAddress").trim(),
+            ownerState = that.get("state_user"),
+            ownerCity  = that.get("state_user"),
+            ownerZip   = that.get("OwnZipCode").trim(),
+            dobDay     = that.get("owner_day"),
+            dobMonth   = that.get("owner_month"),
+            dobYear    = that.get("owner_year"),
+            ownPercent = that.get("own_percent"),
+            totownerDiv = that.get("totownerDiv"),
+            ownerdeleteIds = that.get("ownerdeleteIds");
+            
+            console.log("Owner Fname "+ownerFName);
+            console.log("Owner Lname "+ownerLName);
+            console.log("Owner email "+emailAdd);
+            console.log("Owner Job Title "+jobTitle);
+            console.log("Owner Street No "+streetNo);
+            console.log("Owner Street Name "+streetName);
+            console.log("Owner State "+ownerState);
+            console.log("Owner City "+ownerCity);
+            console.log("Owner Zipcode "+ownerZip);
+            console.log("Owner day "+dobDay);
+            console.log("Owner month "+dobMonth);
+            console.log("Owner year "+dobYear);
+            console.log("Owner percent "+ownPercent);
+            console.log("value : "+totownerDiv);
+            console.log("delete : "+ownerdeleteIds);
+            
+            
+            
+            for(var i=1; i<=totownerDiv;i++)
+            {
+                if(jQuery.inArray( i, ownerdeleteIds )=== -1)
+                {  
+
+                    dataParam['Owner_FirstName'+i]=viewCModel.get('Owner_FirstName'+i);
+                    
+                    
+                    
+                    
+                }
+            }
+            console.log(dataParam);
+          
+       },
+        addOutDebtVar:function(num)
+        {
+
+            viewCModel['OwnerFirstName'+num] ='';
+            viewCModel['OwnerLastName'+num] ='';
+            viewCModel['email'+num] ='';
+            viewCModel['OwnJobTitle'+num] ='';
+            viewCModel['OwnerCivic'+num] ='';
+            viewCModel['OwnerStreetAddress'+num] ='';
+            viewCModel['own_state'+num] ='';
+            viewCModel['own_city'+num] ='';
+            viewCModel['OwnZipCode'+num] ='';
+            viewCModel['owner_month'+num] ='';
+            viewCModel['owner_day'+num] ='';
+            viewCModel['owner_year'+num] ='';
+            viewCModel['own_percent'+num] ='';
+
+        },
+        addBindOutDebtVar:function(num)
+        {
+			kendo.bind($("#OwnerFirstName"+num), viewCModel);
+            kendo.bind($("#OwnerLastName"+num), viewCModel);
+            kendo.bind($("#email"+num), viewCModel);
+            kendo.bind($("#OwnJobTitle"+num), viewCModel);
+            kendo.bind($("#OwnerCivic"+num), viewCModel);
+            kendo.bind($("#OwnerStreetAddress"+num), viewCModel);
+            kendo.bind($("#own_state"+num), viewCModel);
+            kendo.bind($("#own_city"+num), viewCModel);
+            kendo.bind($("#OwnZipCode"+num), viewCModel);
+            kendo.bind($("#owner_month"+num), viewCModel);
+            kendo.bind($("#owner_day"+num), viewCModel);
+            kendo.bind($("#owner_year"+num), viewCModel);
+            kendo.bind($("#own_percent"+num), viewCModel);
+        },
+        
 
             
             
