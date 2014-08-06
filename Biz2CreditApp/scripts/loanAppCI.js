@@ -446,23 +446,23 @@
             return $('\
             <div class="rw_lin addons  clearfix" id="adddowner'+ index+'"><p class="imp40">'+app.loanAppCI.viewModel.createFormfields(index)+'</p><p><a class="rem_col" href="javascript:void(0);" id="remove-ownerform' + index + '" data-index="' + index + '">Remove</a></p></div>');
 		},
-        createFormfields:function (NumOfDiv) {
+                createFormfields:function (NumOfDiv) {
             
             //var value = $("#divId"+NumOfDiv).val().trim();
            // alert(value);
             
             var blegal = $('#blegal_struct').val();
             var str="<div class='rws rw1 clearfix' ><div class='lftit'>Applicant/Owner</div>";
-            str += "<p><input type='text' class='IN1' name='OwnerFirstName"+NumOfDiv+"' id='OwnerFirstName"+NumOfDiv+"' orignal-title='First Name' placeholder='First Name' value='' /></p>";
-            str += "<p><input type='text' class='IN1' style='width: 312px;' name='OwnerLastName"+NumOfDiv+"' id='OwnerLastName"+NumOfDiv+"' orignal-title='Last Name' placeholder='Last Name' value='' />";
+            str += "<p><input type='text' class='IN1' name='OwnerFirstName"+NumOfDiv+"' id='OwnerFirstName"+NumOfDiv+"' data-bind='value:OwnerFirstName"+NumOfDiv+"' orignal-title='First Name' placeholder='First Name' value='' /></p>";
+            str += "<p><input type='text' class='IN1' style='width: 312px;' name='OwnerLastName"+NumOfDiv+"' id='OwnerLastName"+NumOfDiv+"' data-bind='value:OwnerLastName"+NumOfDiv+"' orignal-title='Last Name' placeholder='Last Name' value='' />";
             str += "<input type='hidden'  name='own_id"+NumOfDiv+"' id='own_id"+NumOfDiv+"'  value='' />";
             str += "<input type='hidden'  name='isCheckScore"+NumOfDiv+"' id='isCheckScore"+NumOfDiv+"'  value='' />";
             str += "<input type='hidden'  name='creditScore"+NumOfDiv+"' id='creditScore"+NumOfDiv+"'  value='' />";
             str += "<input type='hidden'  name='reasonlscore"+NumOfDiv+"' id='reasonlscore"+NumOfDiv+"'  value='' />";
             str += '</p></div>';
             str += '<div class="rws rw1 clearfix"><div class="lftit">Email</div>';
-            str += "<p><input type='text' class='IN1' name='email"+NumOfDiv+"' id='email"+NumOfDiv+"' original-title='Email Address' placeholder='Email Address' value='' /></p>";
-            str += "<p><select class='IN1' name='OwnJobTitle"+NumOfDiv+"' id='OwnJobTitle"+NumOfDiv+"' original-title='Job Title'>";
+            str += "<p><input type='text' class='IN1' name='email"+NumOfDiv+"' id='email"+NumOfDiv+"' data-bind='value:email"+NumOfDiv+"' original-title='Email Address' placeholder='Email Address' value='' /></p>";
+            str += "<p><select class='IN1' name='OwnJobTitle"+NumOfDiv+"' id='OwnJobTitle"+NumOfDiv+"' data-bind='value:OwnJobTitle"+NumOfDiv+"' original-title='Job Title'>";
             str += '<option value="">Select Job Title</option>';
 
             if(blegal === 'Sole Proprietorship'){
@@ -496,17 +496,17 @@
             str += '</select></p></div>';
 
             str += '<div class="rws rw2 clearfix"><div class="lftit">Home Address</div><div class="rwfil aut clearfix"><div class="rw_lin clearfix">'; 
-            str += "<p><input maxlength='15' type='text' class='IN1 ipsm1' name='OwnerCivic"+NumOfDiv+"' id='OwnerCivic"+NumOfDiv+"' orignal-title='Street No.' placeholder='Street No.' value='' /></p>";
-            str += "<p><input type='text' class='IN1 ipsm4' name='OwnerStreetAddress"+NumOfDiv+"' id='OwnerStreetAddress"+NumOfDiv+"' orignal-title='Street Name/Apt/Suite/Unit' placeholder='Street Name/Apt/Suite/Unit' value='' /></p>";
+            str += "<p><input maxlength='15' type='text' class='IN1 ipsm1' name='OwnerCivic"+NumOfDiv+"' id='OwnerCivic"+NumOfDiv+"' data-bind='value:OwnerCivic"+NumOfDiv+"' orignal-title='Street No.' placeholder='Street No.' value='' /></p>";
+            str += "<p><input type='text' class='IN1 ipsm4' name='OwnerStreetAddress"+NumOfDiv+"' id='OwnerStreetAddress"+NumOfDiv+"' data-bind='value:OwnerStreetAddress"+NumOfDiv+"' orignal-title='Street Name/Apt/Suite/Unit' placeholder='Street Name/Apt/Suite/Unit' value='' /></p>";
             str += '<div class="clear"></div></div>';
 
             str += "<div class='rw_lin clearfix'><p id='ownerState"+NumOfDiv+"'>\
             "+app.loanAppCI.viewModel.createStateCmb(NumOfDiv)+"\
-            <select name='own_state"+NumOfDiv+"' id='own_state"+NumOfDiv+"'><option value=''>Select State</option></select></p>";
+            <select name='own_state"+NumOfDiv+"' id='own_state"+NumOfDiv+"' data-bind='value:own_state"+NumOfDiv+"'><option value=''>Select State</option></select></p>";
             str += "<p id='ownerCity"+NumOfDiv+"'>\
-            <select class='IN1b ipsm3' name='own_city"+NumOfDiv+"' id='own_city"+NumOfDiv+"' original-title='Select City'><option value=''>Select City</option></select></p>";
+            <select class='IN1b ipsm3' name='own_city"+NumOfDiv+"' id='own_city"+NumOfDiv+"' data-bind='value:own_city"+NumOfDiv+"' original-title='Select City'><option value=''>Select City</option></select></p>";
 
-            str += "<p><input maxlength='5' type='text' class='IN1 ipsm1' name='OwnZipCode"+NumOfDiv+"' id='OwnZipCode"+NumOfDiv+"' orignal-title='Zip Code' placeholder='Zip Code' value='' /></p>";
+            str += "<p><input maxlength='5' type='text' class='IN1 ipsm1' name='OwnZipCode"+NumOfDiv+"' data-bind='value:OwnZipCode"+NumOfDiv+"' id='OwnZipCode"+NumOfDiv+"' orignal-title='Zip Code' placeholder='Zip Code' value='' /></p>";
             str += '</div></div></div>';
 
             str += '<div class="clear"></div>';
@@ -541,19 +541,21 @@
             		$('#own_city'+NumOfDiv+'').attr("disabled","disabled");                    
             	},
             	success: function(data) {                     				
-            		str = "<select name='own_state"+NumOfDiv+"' id='own_state"+NumOfDiv+"' class='IN1b ipsm1' original-title='Select State' onChange='javascript:createCityCmb(this.value, "+NumOfDiv +")'>"+data+"</select>";                    
+            		str = "<select name='own_state"+NumOfDiv+"' id='own_state"+NumOfDiv+"' class='IN1b ipsm1' data-bind='value:own_state"+NumOfDiv+"' original-title='Select State' onChange='javascript:createCityCmb(this.value, "+NumOfDiv +")'>"+data+"</select>";                    
             		$('#ownerState'+NumOfDiv+'').html(str); 
             		$('#own_city'+NumOfDiv+'').removeAttr("disabled","disabled");
             		return str;                
             	}          
             });	
+            
+            
 		},
         createDobMonth:function(NumOfDiv) {
             var str='';
-            str ="<select name='owner_month"+NumOfDiv+"' id='owner_month"+NumOfDiv+"'original-title='Month' class='IN1b ipsm1'>";
+            str ="<select name='owner_month"+NumOfDiv+"' id='owner_month"+NumOfDiv+"' data-bind='value:owner_month"+NumOfDiv+"' original-title='Month' class='IN1b ipsm1'>";
             str +='<option value="">Month</option>';
             var months = new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");        
-            var mlength = months.length;
+            //var mlength = months.length;
             for(var i=1; i<=12;i++){
                 if(i<10){
                 	mval = '0'+i;
@@ -568,7 +570,7 @@
 		},
         createDobDay:function(NumOfDiv) {
             var str='';
-            str ="<select name='owner_day"+NumOfDiv+"' id='owner_day"+NumOfDiv+"'original-title='Day' class='IN1b ipsm1'>";
+            str ="<select name='owner_day"+NumOfDiv+"' id='owner_day"+NumOfDiv+"' data-bind='value:owner_day"+NumOfDiv+"' original-title='Day' class='IN1b ipsm1'>";
             str +='<option value="">Day</option>';        
             for(var i=1; i<=31;i++){
             if(i<10){
@@ -583,7 +585,7 @@
 		},
         createDobYear:function (NumOfDiv) {
         var str='';
-        str ="<select name='owner_year"+NumOfDiv+"' id='owner_year"+NumOfDiv+"'original-title='Year' class='IN1b ipsm1'>";
+        str ="<select name='owner_year"+NumOfDiv+"' id='owner_year"+NumOfDiv+"' data-bind='value:owner_year"+NumOfDiv+"' original-title='Year' class='IN1b ipsm1'>";
         str +='<option value="">Year</option>';        
         for(i=1914; i<=2014;i++){          
         	str +='<option value="'+i+'">'+i+'</option>';
@@ -593,7 +595,7 @@
         },
         createOwnership:function (NumOfDiv){
             var str='';
-            str ="<select name='own_percent"+NumOfDiv+"' id='own_percent"+NumOfDiv+"' original-title='Ownership Percentage' class='IN1b ipsm3'>";
+            str ="<select name='own_percent"+NumOfDiv+"' id='own_percent"+NumOfDiv+"' data-bind='value:own_percent"+NumOfDiv+"' original-title='Ownership Percentage' class='IN1b ipsm3'>";
             str +='<option value="">Ownership Percentage</option>';        
             for(i=100; i>=1;i--){          
             str +='<option value="'+i+'">'+i+'</option>';
