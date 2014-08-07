@@ -269,16 +269,18 @@
             
             var addownerForm = $("#add-ownerForm");
             var index = $('#totownerDiv').val(); 
+            OwnerdivId = [];
 			viewCModel = kendo.observable();
             addownerForm.on("click.myPlugin", function() {
-                app.loanAppCI.viewModel.addOutDebtVar(++index);
+                
+                app.loanAppCI.viewModel.addDynamicOwner(++index);
                 var form = app.loanAppCI.viewModel.getownerForm(index)
                 //$('#totownerDiv').val(index);
-                 app.loanAppCI.viewModel.setHiddenField(index);
+                app.loanAppCI.viewModel.setHiddenField(index);
                 var tot= parseInt($('#ownercurrntControl').val())+1;
                 $('#ownercurrntControl').val(tot);
                 $("#row_owners").append(form);
-                app.loanAppCI.viewModel.addBindOutDebtVar(index);
+                app.loanAppCI.viewModel.addBindDynamicOwner(index);
                 var ownerFlag = app.loanAppCI.viewModel.checkownerFlag();
                 
 
@@ -430,11 +432,11 @@
                 var currentIndex = $(this).data( "index" );                    
                 $("#adddowner" + currentIndex).remove();			
                 $('#ownercurrntControl').val($('#ownercurrntControl').val()-1);
-                //divId.push(currentIndex);
-                var newstrdeldivs = $("#ownerdeleteIds").val(); 
-                newstrdeldivs = newstrdeldivs+currentIndex+',';                                            
+                OwnerdivId.push(currentIndex);
+                //ar newstrdeldivs = $("#ownerdeleteIds").val(); 
+                //newstrdeldivs = newstrdeldivs+currentIndex+',';                                            
                 //$("#ownerdeleteIds").val(newstrdeldivs);
-                app.loanAppCI.viewModel.setHiddenFieldDeleteIds(newstrdeldivs);
+                app.loanAppCI.viewModel.setHiddenFieldDeleteIds(OwnerdivId);
                 var ownerFlag = app.loanAppCI.viewModel.checkownerFlag();
                 
             });
@@ -688,7 +690,7 @@
             console.log("Owner year "+dobYear);
             console.log("Owner percent "+ownPercent);
             console.log("value : "+totownerDiv);
-            console.log("delete : "+ownerdeleteIds);
+            console.log(ownerdeleteIds);
             
             
             
@@ -697,7 +699,19 @@
                 if(jQuery.inArray( i, ownerdeleteIds )=== -1)
                 {  
 
-                    dataParam['Owner_FirstName'+i]=viewCModel.get('Owner_FirstName'+i);
+                    dataParam['Owner_FirstName'+i]=viewCModel.get('OwnerFirstName'+i);
+                    dataParam['Owner_FirstName'+i]=viewCModel.get('OwnerLastName'+i);
+                    dataParam['Owner_FirstName'+i]=viewCModel.get('email'+i);
+                    dataParam['Owner_FirstName'+i]=viewCModel.get('OwnJobTitle'+i);
+                    dataParam['Owner_FirstName'+i]=viewCModel.get('OwnerCivic'+i);
+                    dataParam['Owner_FirstName'+i]=viewCModel.get('OwnerStreetAddress'+i);
+                    dataParam['Owner_FirstName'+i]=viewCModel.get('own_state'+i);
+                    dataParam['Owner_FirstName'+i]=viewCModel.get('own_city'+i);
+                    dataParam['Owner_FirstName'+i]=viewCModel.get('OwnZipCode'+i);
+                    dataParam['Owner_FirstName'+i]=viewCModel.get('owner_month'+i);
+                    dataParam['Owner_FirstName'+i]=viewCModel.get('owner_day'+i);
+                    dataParam['Owner_FirstName'+i]=viewCModel.get('owner_year'+i);
+                    dataParam['Owner_FirstName'+i]=viewCModel.get('own_percent'+i);
                     
                     
                     
@@ -707,7 +721,7 @@
             console.log(dataParam);
           
        },
-        addOutDebtVar:function(num)
+        addDynamicOwner:function(num)
         {
 
             viewCModel['OwnerFirstName'+num] ='';
@@ -725,7 +739,7 @@
             viewCModel['own_percent'+num] ='';
 
         },
-        addBindOutDebtVar:function(num)
+        addBindDynamicOwner:function(num)
         {
 			kendo.bind($("#OwnerFirstName"+num), viewCModel);
             kendo.bind($("#OwnerLastName"+num), viewCModel);
