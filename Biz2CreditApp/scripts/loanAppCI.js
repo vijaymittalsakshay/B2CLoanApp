@@ -3,7 +3,7 @@
         app = global.app = global.app || {};
 
     loanCIViewModal = kendo.data.ObservableObject.extend({
-        Owner_FirstName:'',
+		currentfid:(localStorage.getItem("fid") !== '') ?  localStorage.getItem("fid") : '',
         Owner_LastName:'',
         Owner_email:'',
         Owner_JobTitle:'',
@@ -270,7 +270,11 @@
             var addownerForm = $("#add-ownerForm");
             var index = $('#totownerDiv').val(); 
             OwnerdivId = [];
-			viewCModel = kendo.observable();
+			
+            if(typeof viewCModel === 'undefined')
+            {
+                viewCModel = kendo.observable();
+            }
             addownerForm.on("click.myPlugin", function() {
                 
                 app.loanAppCI.viewModel.addDynamicOwner(++index);
@@ -651,75 +655,137 @@
         },
         loanAppCISubmit:function(){
             
-          // var status = $("#b2cApp1").valid();
+           var status = $("#b2cApp1").valid();
            
-           //if(status === false)
-           //{
-			//	return false;   
-          // }
+           if(status === false)
+           {
+				return false;   
+           }
             var that = this;
             dataParam =  {};
+            dataParam['apiaction']='loanappstep1';
 			ownerFName = that.get("Owner_FirstName").trim();
-            
-            ownerLName = that.get("Owner_LastName").trim(),
-            emailAdd   = that.get("Owner_email").trim(),
-            jobTitle   = that.get("Owner_JobTitle"),
-            streetNo   = that.get("Owner_Civic").trim(),
-            streetName = that.get("Owner_StreetAddress").trim(),
-            ownerState = that.get("state_user"),
-            ownerCity  = that.get("state_user"),
-            ownerZip   = that.get("OwnZipCode").trim(),
-            dobDay     = that.get("owner_day"),
-            dobMonth   = that.get("owner_month"),
-            dobYear    = that.get("owner_year"),
-            ownPercent = that.get("own_percent"),
-            totownerDiv = that.get("totownerDiv"),
+			ownerLName = that.get("Owner_LastName").trim(); 
+            emailAdd   = that.get("Owner_email").trim();
+            jobTitle   = that.get("Owner_JobTitle");
+            streetNo   = that.get("Owner_Civic").trim();
+            streetName = that.get("Owner_StreetAddress").trim();
+            ownerState = that.get("state_user");
+            ownerCity  = that.get("state_user");
+            dobDay     = that.get("owner_day");
+            dobMonth   = that.get("owner_month");
+            dobYear    = that.get("owner_year");
+            ownerZip   = that.get("OwnZipCode").trim();
+            ownPercent = that.get("own_percent");
+            totownerDiv = that.get("totownerDiv");
             ownerdeleteIds = that.get("ownerdeleteIds");
-            
-            console.log("Owner Fname "+ownerFName);
-            console.log("Owner Lname "+ownerLName);
-            console.log("Owner email "+emailAdd);
-            console.log("Owner Job Title "+jobTitle);
-            console.log("Owner Street No "+streetNo);
-            console.log("Owner Street Name "+streetName);
-            console.log("Owner State "+ownerState);
-            console.log("Owner City "+ownerCity);
-            console.log("Owner Zipcode "+ownerZip);
-            console.log("Owner day "+dobDay);
-            console.log("Owner month "+dobMonth);
-            console.log("Owner year "+dobYear);
-            console.log("Owner percent "+ownPercent);
-            console.log("value : "+totownerDiv);
-            console.log(ownerdeleteIds);
+            aredyownerdeleteIds = that.get("aredyownerdeleteIds");
+            deldbownerids = that.get("deldbownerids");
             
             
+            dataParam['cust_id'] = localStorage.getItem("userID");
+            dataParam['fid'] = localStorage.getItem("fid");
+			dataParam['type'] = '';
+			dataParam['frmname'] = 'b2cApp1';
+			dataParam['contact_act'] = 'Next';
+            dataParam['email']  = emailAdd;
+            dataParam['OwnJobTitle'] = jobTitle;
+            dataParam['OwnerHomePhone'] = '';
+            dataParam['OwnerFirstName'] = ownerFName;
+            dataParam['OwnerLastName'] = ownerLName;
+            dataParam['OwnerCivic'] = streetNo;
+            dataParam['OwnerStreetAddress'] = streetName;
+            dataParam['state_user'] = ownerState;
+            dataParam['cmbCity_user'] = ownerCity;
+            dataParam['owner_year'] = dobYear;
+            dataParam['owner_month'] = dobMonth;
+            dataParam['owner_day'] = dobDay; 
+            dataParam['OwnZipCode'] = ownerZip;
+            dataParam['own_percent'] = ownPercent;
+            dataParam['own_id0'] = '';
+            dataParam['aredyownerdeleteIds'] = '';
+            dataParam['ownerdeleteIds'] = ownerdeleteIds;
+            dataParam['deldbownerids'] = '';
+            dataParam['totownerDiv'] = totownerDiv;
             
             for(var i=1; i<=totownerDiv;i++)
             {
                 if(jQuery.inArray( i, ownerdeleteIds )=== -1)
                 {  
-
-                    dataParam['Owner_FirstName'+i]=viewCModel.get('OwnerFirstName'+i);
-                    dataParam['Owner_FirstName'+i]=viewCModel.get('OwnerLastName'+i);
-                    dataParam['Owner_FirstName'+i]=viewCModel.get('email'+i);
-                    dataParam['Owner_FirstName'+i]=viewCModel.get('OwnJobTitle'+i);
-                    dataParam['Owner_FirstName'+i]=viewCModel.get('OwnerCivic'+i);
-                    dataParam['Owner_FirstName'+i]=viewCModel.get('OwnerStreetAddress'+i);
-                    dataParam['Owner_FirstName'+i]=viewCModel.get('own_state'+i);
-                    dataParam['Owner_FirstName'+i]=viewCModel.get('own_city'+i);
-                    dataParam['Owner_FirstName'+i]=viewCModel.get('OwnZipCode'+i);
-                    dataParam['Owner_FirstName'+i]=viewCModel.get('owner_month'+i);
-                    dataParam['Owner_FirstName'+i]=viewCModel.get('owner_day'+i);
-                    dataParam['Owner_FirstName'+i]=viewCModel.get('owner_year'+i);
-                    dataParam['Owner_FirstName'+i]=viewCModel.get('own_percent'+i);
-                    
-                    
-                    
-                    
+                    dataParam['email'+i]=viewCModel.get('email'+i);
+                    dataParam['OwnJobTitle'+i]=viewCModel.get('OwnJobTitle'+i);
+                    dataParam['OwnerHomePhone'+i] = '';
+                    dataParam['OwnerFirstName'+i]=viewCModel.get('OwnerFirstName'+i);
+                    dataParam['OwnerLastName'+i]=viewCModel.get('OwnerLastName'+i);
+                    dataParam['OwnerCivic'+i]=viewCModel.get('OwnerCivic'+i);
+                    dataParam['OwnerStreetAddress'+i]=viewCModel.get('OwnerStreetAddress'+i);
+                    dataParam['own_state'+i]=viewCModel.get('own_state'+i);
+                    dataParam['own_city'+i]=viewCModel.get('own_city'+i);
+                    dataParam['owner_year'+i]=viewCModel.get('owner_year'+i);
+                    dataParam['owner_month'+i]=viewCModel.get('owner_month'+i);
+                    dataParam['owner_day'+i]=viewCModel.get('owner_day'+i);
+                    dataParam['OwnZipCode'+i]=viewCModel.get('OwnZipCode'+i);
+                    dataParam['own_percent'+i]=viewCModel.get('own_percent'+i);
+                    dataParam['own_id'+i]=viewCModel.get('own_id'+i);
+					
                 }
             }
-            console.log(dataParam);
-          
+           // console.log(dataParam);
+            app.loginService.viewModel.showloder();
+            var dataSource = new kendo.data.DataSource({
+                transport: {
+                read: {
+                    url: "http://sandbox.biz2services.com/mobapp/api/loanapp",
+                    type:"POST",
+                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: dataParam
+            	}
+            },
+            schema: {
+                data: function(data)
+                {
+                	return [data];
+                }
+            },
+            error: function (e) {
+                apps.hideLoading();
+                navigator.notification.alert("Server not responding properly.Please check your internet connection.",
+                function () { }, "Notification", 'OK');
+            },
+
+            });
+            dataSource.fetch(function(){
+
+                var data = this.data();
+                app.loginService.viewModel.hideloder();
+                if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
+                {
+
+                    //$msg= "Personal Information submitted successfully";
+                    //app.loginService.viewModel.mobileNotification($msg,'info');
+       
+                    apps.navigate('views/loanAppPI.html');
+
+                }
+                else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
+                {
+                    $msg= "Personal Information not submitted successfully.";
+                    app.loginService.viewModel.mobileNotification($msg,'info'); 
+                    return;
+                }
+                else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
+                {
+                    $msg= "Please enter all fields.";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
+                    return;
+                }
+                else{
+                    $msg= "Server not responding properly,Please try again";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
+                    return;
+                }            
+
+                });
        },
         addDynamicOwner:function(num)
         {

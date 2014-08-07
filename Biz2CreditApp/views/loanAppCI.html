@@ -1981,7 +1981,7 @@
                 <input type="hidden" id="aredyownerdeleteIds" name="aredyownerdeleteIds" value="">
                 <input type="hidden" id="deldbownerids" name="deldbownerids" value="">
 
-                <input type="hidden" name="fid" id="fid" value="" class="b2cAppfid">
+                <input type="hidden" name="fid" id="fid" value="" class="b2cAppfid" data-bind="value: currentfid">
                 <input type="hidden" name="frmname" id="frmname" value="b2cApp1" class="classfrm">
                 <input type="hidden" name="type" id="type" value="">
                 <input type="hidden" name="cust_id" id="cust_id" value="">
@@ -1991,3 +1991,26 @@
         </section>
     </div>
 </div>
+<script>
+    function createCityCmb(val , NumOfDiv){
+     
+    var str = '';    					  
+        $.ajax({
+            url: "https://www.biz2beta.com/serverexe.php",
+            type: "GET",
+            data: { "statemaster": val},
+             beforeSend: function(){
+                    $('#own_city'+NumOfDiv+'').after('<div id="loader"></div>');
+                    $('#own_city'+NumOfDiv+'').attr("disabled","disabled");
+                    $('#own_state'+NumOfDiv+'').attr("disabled","disabled");
+             },
+             success: function(data) {
+                    str = "<select name='own_city"+NumOfDiv+"' id='own_city"+NumOfDiv+"' class='IN1b ipsm3' original-title='Select City'>"+data+"</select>"; 
+
+                    $('#ownerCity'+NumOfDiv+'').html(str);
+                    $("#loader").remove();
+                    $('#own_city'+NumOfDiv+'').removeAttr("disabled");
+                    $('#own_state'+NumOfDiv+'').removeAttr("disabled");
+            }          
+         });         
+}</script>

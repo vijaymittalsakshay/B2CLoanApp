@@ -58,7 +58,7 @@
 
                                 <div class="rw_lin clearfix">
                                     <p>
-                                        <select class="IN1b ipsm3 valid" name="state"  id="state"  title="Select State"  data-bind="value: select_state" onchange="displayCity_user(this.value, '');" required>
+                                        <select class="IN1b ipsm3 valid" name="state"  id="state"  title="Select State"  data-bind="value: select_state" onchange="createCityCmb(this.value, '');" required>
                                             <option value="" selected="selected">Select State</option>
                                             <option value="1">Alabama</option>
                                             <option value="2">Alaska</option>
@@ -1873,11 +1873,11 @@
                             <div class="rwfil">
                                 <div class="rw_lin clearfix">
                                     <span>
-                                        <input type="radio" class="businf" id="busi_pro_info_type" name="busproInfo" data-bind="value: busproInfo_owned" id="busproInfo" value="2" />
+                                        <input type="radio" class="businf" id="busi_pro_info_type" name="busproInfo" data-bind="value: busproInfo_owned"  value="2" />
                                         <label for="yes">Owned</label>
                                     </span>
                                     <span>
-                                        <input type="radio" class="businf" id="busi_pro_info_type" name="busproInfo" data-bind="value: busproInfo_leased" id="busproInfo" value="1" />
+                                        <input type="radio" class="businf" id="busi_pro_info_type" name="busproInfo" data-bind="value: busproInfo_leased" value="1" />
                                         <label for="no">leased</label>
                                     </span>
                                 </div>
@@ -1957,7 +1957,7 @@
                     <div class="warps">
                           <div class="coln">
                             <!--<input name="" type="submit" data-role="button" value="Next" data-bind="click:loanAppBISubmit" class="BTgry">-->
-                            <!--<input name="next" type="submit" id="next" data-role="button" data-bind ="click:loanAppCIpage" value="Next"  class="BTgren">-->
+                            <input name="" type="submit" value="Save &amp; Exit" data-bind="click: loanAppBISubmitAndSave, visible: currentfid" class="BTgry buicancel">
                               <input name="" type="submit" data-role="button" value="Next" data-bind="click:loanAppBISubmit" class="BTgren">
                         </div>
                     </div>
@@ -1968,3 +1968,44 @@
     </div>
  
 </div>
+<script>
+    function createCityCmb(val , NumOfDiv){
+  					  
+        $.ajax({
+		 url: "https://www.biz2beta.com/serverexe.php",
+		type: "GET",
+		data: { "statemaster": val},
+		 beforeSend: function(){
+			$("#cmbCity").after('<div id="loader"></div>');
+			$('#cmbCity').attr("disabled","disabled");
+			$('#state').attr("disabled","disabled");
+		 },
+		 success: function(data) {
+				$("#cmbCity").html(data);
+				$("#loader").remove();
+				$('#cmbCity').removeAttr("disabled");
+				$('#state').removeAttr("disabled");
+		}          
+		 });
+    }
+    function displayorgCategory(val){
+        $.ajax({
+            url: "https://www.biz2beta.com/serverexe.php",
+            type: "GET",
+            data: { "orgmaster": val},
+            beforeSend: function(){
+                $("#orgcategory").after('<div id="loader"></div>');
+                $('#orgcategory').attr("disabled","disabled");
+                $('#orgtype').attr("disabled","disabled");
+            },
+            success: function(data) {
+                $("#orgcategory").html(data);
+                $("#loader").remove();
+                $('#orgcategory').removeAttr("disabled");
+                $('#orgtype').removeAttr("disabled");
+
+            }          
+        });
+    }
+ 
+</script>

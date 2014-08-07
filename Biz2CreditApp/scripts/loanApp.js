@@ -3,6 +3,8 @@
         app = global.app = global.app || {};
 
     loanViewModal = kendo.data.ObservableObject.extend({
+        currentfid:(localStorage.getItem("fid") !== '') ?  localStorage.getItem("fid") : '',
+        currentfidStatus:false,
         legal_business_name:'',
         dba_name:'',
         street_no:'',
@@ -68,6 +70,11 @@
             }
         },
         show:function() {
+            
+            if(localStorage.getItem("fid") === '')
+            {
+                app.loansetting.viewModel.unsetAllDataBindVar();
+            }
             
             $("#add-form").unbind('.myPlugin');
             $(".outDebt").unbind(".myPlugin");
@@ -305,7 +312,11 @@
                 }
             });
             // outtand dept
-            viewFModel = kendo.observable();
+            if(typeof viewFModel === 'undefined')
+            {
+                viewFModel = kendo.observable();
+            }
+            //viewFModel = kendo.observable();
             var addForm = $("#add-form");
             var index = 0;
             divId = [];
@@ -940,10 +951,10 @@
         },
         	
 		loanAppBISubmit:function(){
-            apps.navigate('views/loanAppCI.html');
-            /*var status = $('#B2cAppForms').valid();
-             if(status === false)
-			 return status;
+            //apps.navigate('views/loanAppCI.html');
+            var status = $('#B2cAppForms').valid();
+            if(status === false)
+            return status;
                 
             var that = this;
             dataParam =  {};
@@ -952,7 +963,7 @@
 			deleteIds = that.get("deleteIds");
 			dataParam['apiaction']='loanappstep2';
 			dataParam['cust_id']=localStorage.getItem("userID");
-            dataParam['fid']='70691';
+            dataParam['fid']=(localStorage.getItem("fid") !== '') ?  localStorage.getItem("fid") : '';
             dataParam['type']='';
             dataParam['frmname']='b2cApp2';
             dataParam['business_act']='Next';
@@ -1287,6 +1298,9 @@
             
             	
 			console.log(dataParam);
+            
+            console.log(viewFModel);
+            
             app.loginService.viewModel.showloder();
             var dataSource = new kendo.data.DataSource({
                 transport: {
@@ -1314,11 +1328,15 @@
 
                 var data = this.data();
                 app.loginService.viewModel.hideloder();
+                console.log(data);
                 if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
                 {
 
                     //$msg= "Business Information submitted successfully";
                     //app.loginService.viewModel.mobileNotification($msg,'info');
+                    localStorage.setItem("fid",data[0]['results']['fid']);
+                    app.loansetting.viewModel.SetCurrentfidStatus();
+       
                     apps.navigate('views/loanAppCI.html');
 
                 }
@@ -1340,7 +1358,7 @@
                     return;
                 }            
 
-                });*/
+                });
 
         
             },
@@ -1406,6 +1424,21 @@
                 delete viewFModel['txtFrequncyTerm'+num];
 
             },
+            loanAppBISubmitAndSave:function()
+            {
+					alert('call');
+            },
+            unsetAllDataBindVar:function()
+            {
+                var that = this;
+                that.set("legal_business_name","");
+                localStorage.setItem("fid" ,"");
+            },
+            SetCurrentfidStatus:function()
+            {
+            	var that = this;
+            	that.set("currentfidStatus",true);
+            }
             
             
         

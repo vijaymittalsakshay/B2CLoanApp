@@ -274,9 +274,10 @@
                 $("#home-call-btn").html("");
                 
                 dHeader='Congratulations '+userName+'!';
-                    dDescription='Please reapply when you need additional funds or would like to refinance.';
-                    dButtonText = "Start an Application";
-                    dButtonLink ="views/loanAppBI.html";
+                localStorage.setItem("fid",'');
+                dDescription='Please reapply when you need additional funds or would like to refinance.';
+                dButtonText = "Start an Application";
+                dButtonLink ="views/loanAppBI.html";
                 if(dButtonLink === "views/matches.html")
                 {
                     var html = '<a class="btngr" href="'+dButtonLink+'" data-role="button">'+dButtonText+'</a>';
