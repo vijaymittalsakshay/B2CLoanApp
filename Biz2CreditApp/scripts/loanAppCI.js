@@ -34,9 +34,45 @@
         ownerdeleteIds:[],
         
         show:function() {
+            
 
 
             $("#add-ownerForm").unbind(".myPlugin");
+            var blegal = app.loansetting.viewModel.select_b_l_s;
+            var str ='';
+            str += '<option value="">Select Job Title</option>';
+
+            if(blegal === 'Sole Proprietorship'){
+            	str += '<option value="Sole Proprietor">Sole Proprietor</option>';
+            }
+            else if(blegal === 'Corporation' || blegal === 'Non Profit Corp'){
+                str += '<option value="Assistant Treasurer">Assistant Treasurer</option>';
+                str += '<option value="Chief Accounting Officer">Chief Accounting Officer</option>';
+                str += '<option value="Chief Executive Officer">Chief Executive Officer</option>';
+                str += '<option value="Chief Financial Officer">Chief Financial Officer</option>';            
+                str += '<option value="Chief Operating Officer">Chief Operating Officer</option>';
+                str += '<option value="Director">Director</option>';
+                str += '<option value="General Manager">General Manager</option>';
+                str += '<option value="Owner">Owner</option>';            
+                str += '<option value="President">President</option>';
+                str += '<option value="Treasurer">Treasurer</option>';
+                str += '<option value="Vice President">Vice President</option>';
+
+            }
+            else if(blegal === 'Partnership'){
+            	str += '<option value="Partner">Partner</option>';
+            }
+            else if(blegal === 'Limited Partnership'){
+            	str += '<option value="General Partner">General Partner</option>';
+            	str += '<option value="Limited Partner">Limited Partner</option>';
+            }
+            else if(blegal === 'Limited Liability Company'){
+            	str += '<option value="Managing Member">Managing Member</option>';
+            	str += '<option value="Member">Member</option>';
+            }        
+
+            $("#OwnJobTitle").html('');
+            $("#OwnJobTitle").append(str);
             
             
             var DateDiff = { 
@@ -452,12 +488,12 @@
             return $('\
             <div class="rw_lin addons  clearfix" id="adddowner'+ index+'"><p class="imp40">'+app.loanAppCI.viewModel.createFormfields(index)+'</p><p><a class="rem_col" href="javascript:void(0);" id="remove-ownerform' + index + '" data-index="' + index + '">Remove</a></p></div>');
 		},
-                createFormfields:function (NumOfDiv) {
+        createFormfields:function (NumOfDiv) {
             
             //var value = $("#divId"+NumOfDiv).val().trim();
            // alert(value);
             
-            var blegal = $('#blegal_struct').val();
+            var blegal = app.loansetting.viewModel.select_b_l_s;
             var str="<div class='rws rw1 clearfix' ><div class='lftit'>Applicant/Owner</div>";
             str += "<p><input type='text' class='IN1' name='OwnerFirstName"+NumOfDiv+"' id='OwnerFirstName"+NumOfDiv+"' data-bind='value:OwnerFirstName"+NumOfDiv+"' orignal-title='First Name' placeholder='First Name' value='' /></p>";
             str += "<p><input type='text' class='IN1' style='width: 312px;' name='OwnerLastName"+NumOfDiv+"' id='OwnerLastName"+NumOfDiv+"' data-bind='value:OwnerLastName"+NumOfDiv+"' orignal-title='Last Name' placeholder='Last Name' value='' />";
@@ -654,8 +690,8 @@
                 that.set("ownerdeleteIds",ids);
         },
         loanAppCISubmit:function(){
-            
-           var status = $("#b2cApp1").valid();
+            apps.navigate('views/loanAppPI.html');
+         /*  var status = $("#b2cApp1").valid();
            
            if(status === false)
            {
@@ -671,7 +707,7 @@
             streetNo   = that.get("Owner_Civic").trim();
             streetName = that.get("Owner_StreetAddress").trim();
             ownerState = that.get("state_user");
-            ownerCity  = that.get("state_user");
+            ownerCity  = that.get("cmbCity");
             dobDay     = that.get("owner_day");
             dobMonth   = that.get("owner_month");
             dobYear    = that.get("owner_year");
@@ -730,7 +766,7 @@
 					
                 }
             }
-           // console.log(dataParam);
+           console.log(dataParam);
             app.loginService.viewModel.showloder();
             var dataSource = new kendo.data.DataSource({
                 transport: {
@@ -785,7 +821,7 @@
                     return;
                 }            
 
-                });
+                });*/
        },
         addDynamicOwner:function(num)
         {

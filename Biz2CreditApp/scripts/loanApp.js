@@ -945,14 +945,14 @@
         },
         setHiddenFieldDeleteIds:function(ids)
         {
-            console.log(ids);
+            //console.log(ids);
                 var that =this;
                 that.set("deleteIds",ids);
         },
         	
 		loanAppBISubmit:function(){
-            //apps.navigate('views/loanAppCI.html');
-            var status = $('#B2cAppForms').valid();
+            apps.navigate('views/loanAppCI.html');
+          /*  var status = $('#B2cAppForms').valid();
             if(status === false)
             return status;
                 
@@ -1297,9 +1297,9 @@
             }
             
             	
-			console.log(dataParam);
+			//console.log(dataParam);
             
-            console.log(viewFModel);
+            //console.log(viewFModel);
             
             app.loginService.viewModel.showloder();
             var dataSource = new kendo.data.DataSource({
@@ -1328,7 +1328,7 @@
 
                 var data = this.data();
                 app.loginService.viewModel.hideloder();
-                console.log(data);
+                //console.log(data);
                 if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
                 {
 
@@ -1358,7 +1358,7 @@
                     return;
                 }            
 
-                });
+                });*/
 
         
             },

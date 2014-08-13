@@ -76,7 +76,7 @@
                                     <br>
 
                                     <p>
-                                        <select class="IN1b ipsm3" name="state_user" data-bind="value:state_user"  id="state_user"  title="Select State"  onchange="displayCity_user(this.value, '');" required>
+                                        <select class="IN1b ipsm3" name="state_user" data-bind="value:state_user"  id="own_state"  title="Select State"  onchange="createCityCmb(this.value, '');" required>
                                             <option value="">Select State</option>
                                             <option value="1">Alabama</option>
                                             <option value="2">Alaska</option>
@@ -135,7 +135,7 @@
                                     </p>
 
                                     <p>
-                                        <select title="Select City" class="IN1b ipsm3" data-bind="value:cmbCity" id="cmbCity_user" name="cmbCity_user" required>
+                                        <select title="Select City" class="IN1b ipsm3" data-bind="value:cmbCity" id="own_city" name="cmbCity_user" required>
                                             <option value="">Select City</option>
                                             <option value="984">Adona</option>
                                             <option value="985">Alexander</option>
@@ -2006,8 +2006,7 @@
              },
              success: function(data) {
                     str = "<select name='own_city"+NumOfDiv+"' id='own_city"+NumOfDiv+"' class='IN1b ipsm3' original-title='Select City'>"+data+"</select>"; 
-
-                    $('#ownerCity'+NumOfDiv+'').html(str);
+                    $('#own_city'+NumOfDiv+'').html(str);
                     $("#loader").remove();
                     $('#own_city'+NumOfDiv+'').removeAttr("disabled");
                     $('#own_state'+NumOfDiv+'').removeAttr("disabled");
