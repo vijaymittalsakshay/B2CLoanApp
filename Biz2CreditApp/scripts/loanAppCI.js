@@ -4,6 +4,7 @@
 
     loanCIViewModal = kendo.data.ObservableObject.extend({
 		currentfid:(localStorage.getItem("fid") !== '') ?  localStorage.getItem("fid") : '',
+        Owner_FirstName:'',
         Owner_LastName:'',
         Owner_email:'',
         Owner_JobTitle:'',
@@ -305,8 +306,11 @@
             
             var addownerForm = $("#add-ownerForm");
             var index = $('#totownerDiv').val(); 
-            OwnerdivId = [];
-			
+            
+			if(typeof OwnerdivId === 'undefined')
+            {
+                OwnerdivId = [];
+            }
             if(typeof viewCModel === 'undefined')
             {
                 viewCModel = kendo.observable();
@@ -690,8 +694,8 @@
                 that.set("ownerdeleteIds",ids);
         },
         loanAppCISubmit:function(){
-            apps.navigate('views/loanAppPI.html');
-         /*  var status = $("#b2cApp1").valid();
+           // apps.navigate('views/loanAppPI.html');
+           var status = $("#b2cApp1").valid();
            
            if(status === false)
            {
@@ -821,7 +825,7 @@
                     return;
                 }            
 
-                });*/
+                });
        },
         addDynamicOwner:function(num)
         {

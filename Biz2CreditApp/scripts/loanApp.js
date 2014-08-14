@@ -951,8 +951,8 @@
         },
         	
 		loanAppBISubmit:function(){
-            apps.navigate('views/loanAppCI.html');
-          /*  var status = $('#B2cAppForms').valid();
+           // apps.navigate('views/loanAppCI.html');
+            var status = $('#B2cAppForms').valid();
             if(status === false)
             return status;
                 
@@ -1358,7 +1358,7 @@
                     return;
                 }            
 
-                });*/
+                });
 
         
             },

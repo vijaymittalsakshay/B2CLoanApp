@@ -52,7 +52,7 @@
 
                         <div class="rws clearfix" id="dynamicDiv">
                             <div class="lftitb">Personal Credit Score</div>
-                            <div class="rwfil">
+                            <!--<div class="rwfil">
                                 <div class="rw_lin clearfix">
                                     <div class="labl_tx">Would you like us to check your credit score for free?*</div>
                                 </div>
@@ -69,7 +69,7 @@
                                 </div>
 
                                 <div class="rwfil">
-                                    <!-- bus info bx-->
+                                    
                                     <div id="crdscrYes" class="showfilds_bx">
                                         <div class="rw_lin clearfix">
                                             <select name="credittype" id="credittype" data-bind="value:personal_credit_score" class="IN3"  title="Select Personal Credit Score">
@@ -510,18 +510,18 @@
                                             </ul>
                                         </div>
                                             
-                                    </div><!-- bus info bx-->
+                                    </div>
                                 </div>
                                     
                                 <div class="rwfil">
-                                    <!-- bus info bx-->
+                                    
                                     <div id="crdscrNo" class="showfilds_bx">
                                         <div class="rw_lin clearfix">
                                             <span class="prg">Check your credit score for free from Transunion. An accurate credit score increases loan approval by 70%, gets lower interest rate and results in
                                                 faster funding. The soft pull will not impact your credit score.
                                                 <a class='inline' href="#credScr">Click here to authorize and pull the credit score</a>.</span>
                                                 
-                                            <!--Credit score-->
+                                           
                                             <div style='display:none'>
                                                 <div id='credScr' style='padding:10px; background:#fff;'>
                                                     <div class="titad">Please fill all rquired Fields:</div>
@@ -547,14 +547,14 @@
                                                     </div>
                                                         
                                                 </div>
-                                            </div><!--Credit score end-->
+                                            </div>
                                                 
                                         </div>
 
-                                    </div><!-- bus info bx-->
+                                    </div>
                                 </div>
                                     
-                            </div>
+                            </div>-->
                         </div>
                             
                     </div>
@@ -574,3 +574,31 @@
         </section>
     </div>
 </div>
+<script>
+    
+    function getCheckcscore(index , sel_value){
+     if(sel_value==='Y'){
+                  $('#crdscorerNo'+index).show();
+                  $('#crdscorerYes'+index).hide();
+                  $('#ifless'+index).removeClass('ifless');
+                }
+                else{
+                   $('#crdscorerNo'+index).hide();
+                   $('#crdscorerYes'+index).show();
+                             //$('.ifless').show();
+                             $('#ifless'+index).addClass('ifless');
+                }
+}
+    function getCscore(index , sel_value){
+                if(sel_value <659) {
+                               $("#ifless"+index).show();
+                               $('#ifless'+index).removeClass('ifless');
+
+               } else {
+                               $("#ifless"+index).hide();
+                               $('#ifless'+index).addClass('ifless');
+               }
+}
+    
+    
+</script>
