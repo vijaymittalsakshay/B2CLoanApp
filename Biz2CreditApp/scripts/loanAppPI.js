@@ -194,6 +194,11 @@
 
             }
         },
+        loanAppFPpage:function()
+        {
+            apps.navigate('views/loanAppFP.html');
+
+        }
         
 
             

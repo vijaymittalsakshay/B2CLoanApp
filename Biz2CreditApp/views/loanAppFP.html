@@ -1,4 +1,4 @@
-<div data-role="view" id="tabstrip-loanapp-fp" data-model="app.loansetting.viewModel" data-show="app.loansetting.viewModel.show">
+<div data-role="view" id="tabstrip-loanapp-fp" data-model="app.loanFP.viewModel" data-show="app.loanFP.viewModel.show">
     <div data-role="header">
         <div data-role="navbar">
             <span data-role="view-title">
@@ -11,7 +11,7 @@
     </div>
     <div  data-role="content">
         <section>
-            <form id="B2cAppForms" class="cmxform" action="dashboard-application4.html" method="post" novalidate="novalidate">
+            <form id="b2cApp4" class="cmxform" action="dashboard-application4.html" method="post" novalidate="novalidate">
                 <article id="aplicn_tp">
                     <div class="warps clearfix">
                         <ul class="app_nav">
@@ -44,10 +44,14 @@
                         <div class="rws clearfix">
                             <div class="lftitb">Funding Priority</div>
                             <div class="rwfil">
-                                <select name="" class="IN1" data-bind="value:funding_priority">
-                                    <option>Select Priority</option>
+                                <select name="priority1" id="priority1" class="IN1" orignal-title="Select Priority" data-bind="value:funding_priority">
+                                    <option value="">Select Priority </option>
+                                    <option value="1">Lowest Interest Rate/processing Fees</option>
+                                    <option value="2">Fastest Procurement Of Funds</option>
+                                    <option value="3">Most Amount Of Funds</option>
+                                    <option value="4">Least Documentation Required</option>
+                                    <option value="5">Longest Term</option>
                                 </select>
-
                             </div>
                         </div>
 
@@ -55,10 +59,10 @@
                             <div class="lftitb">Loan Requirement</div>
                             <div class="rwfil">
                                 <p>
-                                    <input type="text" name="minloanamont" data-bind="value:min_loan_amount" class="IN4" id="minloanamont"  title="Minimum Loan Amount" placeholder="Minimum Loan Amount" required />
+                                    <input type="text" name="ammount" data-bind="value:min_loan_amount" class="IN4" id="ammount"  orignal-title="Minimum Loan Amount" placeholder="Minimum Loan Amount" required />
                                 </p>
                                 <p>
-                                    <input type="text" name="maxloanamont" class="IN4" data-bind="value:max_loan_amount" id="maxloanamont"  title="Maximum Loan Amount" placeholder="Maximum Loan Amount" required />
+                                    <input type="text" name="txtmaxammount" class="IN4" data-bind="value:max_loan_amount" id="txtmaxammount"  orignal-title="Maximum Loan Amount" placeholder="Maximum Loan Amount" required />
                                 </p>
 
                             </div>
@@ -72,25 +76,25 @@
                                 <div class="rw_lin clearfix">
                                     <div class="labl_tx2">Cash Flow Management</div>
                                     <div class="rwfilbc">
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:contractor_orders" value="">
-                                            <label>Fulfilling Contracts/Orders</label>
+                                        <span class="opt2">
+                                            <input name="chkuseplan[]" class="useplan valid" id="chkuseplan" type="checkbox"  value="6">
+                                            <label for="chkuseplan">Fulfilling Contracts/Orders</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:payroll_expense" value="">
-                                            <label>Payroll Expenses</label>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="7">
+                                            <label for="chkuseplan">Payroll Expenses</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:refinance_debt" value="">
-                                            <label>Refinancing Debt</label>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="5">
+                                            <label for="chkuseplan">Refinancing Debt</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:repaire_equipment" value="">
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="4">
                                             <label>Repairing Equipment</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" value="">
-                                            <label>Other Working Capital</label>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="8">
+                                            <label for="chkuseplan">Other Working Capital</label>
                                         </span>
                                     </div>
                                 </div>
@@ -98,25 +102,25 @@
                                 <div class="rw_lin clearfix">
                                     <div class="labl_tx2">Marketing/Advertising</div>
                                     <div class="rwfilbc">
-                                        <span>
-                                            <input name="" type="checkbox" value="">
-                                            <label>Marketing Materials</label>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="20">
+                                            <label for="chkuseplan">Marketing Materials</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:online_advertise" value="">
-                                            <label>Online Advertising</label>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="17">
+                                            <label for="chkuseplan">Online Advertising</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:print_tv_advertise" value="">
-                                            <label>Print/TV Advertising</label>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="19">
+                                            <label for="chkuseplan">Print/TV Advertising</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:webSite_develop" value="">
-                                            <label>Web Site Development</label>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="18">
+                                            <label for="chkuseplan">Web Site Development</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:other_market" value="">
-                                            <label>Other Marketing</label>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="21">
+                                            <label for="chkuseplan">Other Marketing</label>
                                         </span>
                                     </div>
                                 </div>
@@ -124,37 +128,37 @@
                                 <div class="rw_lin clearfix">
                                     <div class="labl_tx2">Expansion Plans</div>
                                     <div class="rwfilbc">
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:expansion_buy_equipment" value="">
-                                            <label>Buying Equipment</label>
+                                        <span class="opt2">
+                                           <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="11">
+                                            <label for="chkuseplan">Buying Equipment</label>
+                                        </span>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="9">
+                                            <label for="chkuseplan">Buying Real-Estate</label>
+                                        </span>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="15">
+                                            <label for="chkuseplan">Hiring More Employees</label>
                                         </span>
                                         <span>
-                                            <input name="" type="checkbox" data-bind="value:expansion_buy_realState" value="">
-                                            <label>Buying Real-Estate</label>
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="14">
+                                            <label for="chkuseplan">License or Certification Fees</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:expansion_hire_employe" value="">
-                                            <label>Hiring More Employees</label>
+                                        <span class="opt2">
+                                           <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="10">
+                                            <label for="chkuseplan">Purchasing a Business</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:expansion_certification_fee" value="">
-                                            <label>License or Certification Fees</label>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="12">
+                                            <label for="chkuseplan">Purchasing Inventory</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:expansion_purchase_business" value="">
-                                            <label>Purchasing a Business</label>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="13">
+                                            <label for="chkuseplan">Renovation/Build Out</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:expansion_purchase_inventory" value="">
-                                            <label>Purchasing Inventory</label>
-                                        </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:expansion_renovation_buildOut" value="">
-                                            <label>Renovation/Build Out</label>
-                                        </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:expansion_expansion_plan" value="">
-                                            <label>Other Expansion Plans</label>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="16">
+                                            <label for="chkuseplan">Other Expansion Plans</label>
                                         </span>
                                     </div>
                                 </div>
@@ -162,58 +166,71 @@
                                 <div class="rw_lin clearfix">
                                     <div class="labl_tx2">Startup Plans</div>
                                     <div class="rwfilbc">
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:startup_buy_equipment" value="">
-                                            <label>Buying Equipmento</label>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="23">
+                                            <label for="chkuseplan">Buying Equipment</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:startup_buy_realState" value="">
-                                            <label>Buying Real-Estate</label>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="24">
+                                            <label for="chkuseplan">Buying Real-Estate</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:startup_hire_employe" value="">
-                                            <label>Hiring More Employees</label>
+                                        <span class="opt2">
+                                           <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="25">
+                                            <label for="chkuseplan">Hiring More Employees</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:startup_certification_fee" value="">
-                                            <label>License or Certification Fees</label>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan" type="checkbox" value="26">
+                                            <label for="chkuseplan">License or Certification Fees</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:startup_purchase_business" value="">
-                                            <label>Purchasing a Business</label>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan" type="checkbox" value="27">
+                                            <label for="chkuseplan">Purchasing a Business</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:startup_purchase_inventory" value="">
-                                            <label>Purchasing Inventory</label>
+                                        <span class="opt2">
+                                           <input class="useplan" name="chkuseplan[]" id="chkuseplan"  type="checkbox" value="28">
+                                            <label for="chkuseplan">Purchasing Inventory</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:startup_renovation_buildOut" value="">
-                                            <label>Renovation/Build Out</label>
+                                        <span class="opt2">
+                                            <input class="useplan" name="chkuseplan[]" id="chkuseplan" type="checkbox" value="29">
+                                            <label for="chkuseplan">Build Out</label>
                                         </span>
-                                        <span>
-                                            <input name="" type="checkbox" data-bind="value:startup_expansion_plan" value="">
-                                            <label>Other Expansion Plans</label>
-                                        </span>
+                                      
                                     </div>
                                 </div>
-
+                                <div class="terms_prv">
+                                    <div class="rw_lin opt clearfix">
+                                        <input type="checkbox" name="agreement" data-bind="checked:agreement" id="agreement" value="1">
+                                        <label for="agreement">I agree to the <a class="blueLink" href="http://www.biz2credit.com/terms-of-use.html" target="_blank"> Terms and Conditions</a> and <a href="https://www.biz2credit.com/privacy-policy.html" target="_blank">Privacy Policy</a>.</label>
+                                    </div>
+                                    <div class="rw_lin opt clearfix">
+                                        <input type="checkbox" name="loanagreement" data-bind="checked:loanagreement" value="1" id="loanagreement">
+                                        <label for="loanagreement">
+                                        	I agree to the <a href="http://www.biz2credit.com/index.php?option=com_content&amp;task=view&amp;id=674&amp;Itemid=435" target="_blank" class="blueLink">Business Finance Services Terms &amp; Conditions</a> and choose to submit my application for further review.
+                                  	  </label>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="task" id="saveapps" value="saveapps" data-bind="value:task">
+                                <input type="hidden" name="fid" id="fid" value="70747" class="b2cAppfid" data-bind="value:fid">
+                                <input type="hidden" name="frmname" id="frmname" value="b2cApp4" data-bind="value:frmname">
+                                <input type="hidden" name="hidacccard" id="hidacccard" value="Yes" data-bind="value:hidacccard">
+                                <input type="hidden" name="hidorgtype" id="hidorgtype" value="" data-bind="value:hidorgtype">
+                                <input type="hidden" name="type" id="type" value="" data-bind="value:type">
+                                <input type="hidden" name="cust_id" id="cust_id" value="94459" data-bind="value:cust_id">
+                                <input type="hidden" name="fownerp" id="fownerp" value="52" data-bind="value:fownerp">
+                                <input type="hidden" name="prefer_act" id="prefer_act" value="" data-bind="value:prefer_act">
+                                
                             </div>
-
                         </div>
-
                     </div>
                 </article>
-
                 <article id="aplicn_btm">
                     <div class="warps">
                         <div class="coln">
                             <input name="" type="submit" data-role="backbutton" value="Back" class="BTgry">
-                            <input name="" type="submit" data-role="button" value="Save &amp; Exit" class="BTgry">
-                            <input name="next" type="submit" id="next" value="Next" data-role="button"  class="BTgren">
+                            <input name="next" type="submit" data-role="button" data-bind ="click:loanFPSubmit" id="next" value="Next"  class="BTgren">
                         </div>
                     </div>
                 </article>
-
             </form>
         </section>
     </div>
