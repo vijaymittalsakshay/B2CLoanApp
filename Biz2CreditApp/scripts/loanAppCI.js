@@ -4,9 +4,9 @@
 
     loanCIViewModal = kendo.data.ObservableObject.extend({
 		currentfid:(localStorage.getItem("fid") !== '') ?  localStorage.getItem("fid") : '',
-        Owner_FirstName:'',
+        Owner_FirstName:(localStorage.getItem("userFName") !== '') ?  localStorage.getItem("userFName") : '',
         Owner_LastName:'',
-        Owner_email:'',
+        Owner_email:(localStorage.getItem("userEmail") !== '') ?  localStorage.getItem("userEmail") : '',
         Owner_JobTitle:'',
         Owner_Civic:'',
         Owner_StreetAddress:'',
@@ -695,7 +695,7 @@
         },
         loanAppCISubmit:function(){
            // apps.navigate('views/loanAppPI.html');
-           var status = $("#b2cApp1").valid();
+           //var status = $("#b2cApp1").valid();
            
            if(status === false)
            {
@@ -770,7 +770,7 @@
 					
                 }
             }
-           console.log(dataParam);
+          // console.log(dataParam);
             app.loginService.viewModel.showloder();
             var dataSource = new kendo.data.DataSource({
                 transport: {
@@ -831,6 +831,10 @@
         {
 
             viewCModel['OwnerFirstName'+num] ='';
+            viewCModel['OwnerLastName'+num] ='';
+            viewCModel['isCheckScore'+num] ='';
+            viewCModel['OwnerLastName'+num] ='';
+            viewCModel['OwnerLastName'+num] ='';
             viewCModel['OwnerLastName'+num] ='';
             viewCModel['email'+num] ='';
             viewCModel['OwnJobTitle'+num] ='';
