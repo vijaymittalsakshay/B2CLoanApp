@@ -10,13 +10,14 @@
             
             totaldivs = app.loanAppCI.viewModel.get("totownerDiv");
             d_divids = app.loanAppCI.viewModel.get("ownerdeleteIds");
+
             for(var c=0;c<=totaldivs;c++) {
                 $("#ownercscore"+c).remove();
             }
 
             for(c=0;c<=totaldivs;c++){
                 
-                if(jQuery.inArray( c, d_divids )=== -1)
+                if(d_divids.indexOf(c.toString()) === -1)
                 {
                     html ='';
                 
@@ -78,7 +79,6 @@
                     html +='<div class="rw_lin clearfix"> <span class="prg">Check your credit score for free from Transunion. An accurate credit score increases loan approval by 70%, gets lower interest rate and results in faster funding. The soft pull will not impact your credit score.';
                     html +='<a  href="<?php echo $mosConfig_live_site;?>/components/com_financialnew/transunion.php?userid=<?php echo $userid;?>&fid=<?php echo $row->fid;?>&cno='+c+'" class="ifr cboxElement">Click here to authorize and pull the credit score</a>.</span> </div>';
                     html +='</div></div></div></div>'; 
-                    //$('#dynamicDiv').html('');
                     
                     $('#dynamicDiv').append(html);
            	 } 
@@ -90,15 +90,10 @@
 
             strdeldivids = "";
             totaldivs = app.loanAppCI.viewModel.get("totownerDiv");
-            newdeldivids = app.loanAppCI.viewModel.get("ownerdeleteIds");
-            deldivids = '';
+            deldivids = app.loanAppCI.viewModel.get("ownerdeleteIds");
+            
             adelids = $("#aredyownerdeleteIds").val();
-            $.each( newdeldivids, function( key, value ) {
-                if($.isNumeric(key))
-                {
-                	deldivids += value+',';
-                }
-            });
+            
 
             if(deldivids !=='' && adelids !==''){
            	 strdeldivids = deldivids+","+adelids;

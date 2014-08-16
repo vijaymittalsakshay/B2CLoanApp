@@ -32,7 +32,11 @@
         own_percent2:'',
         ownercurrntControl:0,
         totownerDiv:0,
-        ownerdeleteIds:[],
+        ownerdeleteIds:'',
+        own_id0:'',
+        isCheckScore0:'',
+        creditScore0:'',
+        reasonlscore0:'',
         
         show:function() {
             
@@ -307,10 +311,7 @@
             var addownerForm = $("#add-ownerForm");
             var index = $('#totownerDiv').val(); 
             
-			if(typeof OwnerdivId === 'undefined')
-            {
-                OwnerdivId = [];
-            }
+			
             if(typeof viewCModel === 'undefined')
             {
                 viewCModel = kendo.observable();
@@ -473,15 +474,16 @@
                 	strdelownids = strdelownids+downid+",";                                            
                 	$("#deldbownerids").val(strdelownids);
                 }
-                var currentIndex = $(this).data( "index" );                    
+                var currentIndex = $(this).data( "index" );                   
                 $("#adddowner" + currentIndex).remove();			
                 $('#ownercurrntControl').val($('#ownercurrntControl').val()-1);
-                OwnerdivId.push(currentIndex);
-                //ar newstrdeldivs = $("#ownerdeleteIds").val(); 
-                //newstrdeldivs = newstrdeldivs+currentIndex+',';                                            
-                //$("#ownerdeleteIds").val(newstrdeldivs);
-                app.loanAppCI.viewModel.setHiddenFieldDeleteIds(OwnerdivId);
+
+                var newstrdeldivs = $("#ownerdeleteIds").val(); 
+                newstrdeldivs = newstrdeldivs+currentIndex+',';                                            
+                $("#ownerdeleteIds").val(newstrdeldivs);
+                app.loanAppCI.viewModel.setHiddenFieldDeleteIds(newstrdeldivs);
                 var ownerFlag = app.loanAppCI.viewModel.checkownerFlag();
+                app.loanAppCI.viewModel.deleteOutDebtVar();
                 
             });
 
@@ -695,7 +697,7 @@
         },
         loanAppCISubmit:function(){
            // apps.navigate('views/loanAppPI.html');
-           //var status = $("#b2cApp1").valid();
+           var status = $("#b2cApp1").valid();
            
            if(status === false)
            {
@@ -721,6 +723,7 @@
             ownerdeleteIds = that.get("ownerdeleteIds");
             aredyownerdeleteIds = that.get("aredyownerdeleteIds");
             deldbownerids = that.get("deldbownerids");
+            own_id0 = that.get("own_id0");
             
             
             dataParam['cust_id'] = localStorage.getItem("userID");
@@ -742,7 +745,7 @@
             dataParam['owner_day'] = dobDay; 
             dataParam['OwnZipCode'] = ownerZip;
             dataParam['own_percent'] = ownPercent;
-            dataParam['own_id0'] = '';
+            dataParam['own_id0'] = own_id0;
             dataParam['aredyownerdeleteIds'] = '';
             dataParam['ownerdeleteIds'] = ownerdeleteIds;
             dataParam['deldbownerids'] = '';
@@ -750,7 +753,7 @@
             
             for(var i=1; i<=totownerDiv;i++)
             {
-                if(jQuery.inArray( i, ownerdeleteIds )=== -1)
+                if(ownerdeleteIds.indexOf(i.toString()) === -1)
                 {  
                     dataParam['email'+i]=viewCModel.get('email'+i);
                     dataParam['OwnJobTitle'+i]=viewCModel.get('OwnJobTitle'+i);
@@ -770,7 +773,6 @@
 					
                 }
             }
-          // console.log(dataParam);
             app.loginService.viewModel.showloder();
             var dataSource = new kendo.data.DataSource({
                 transport: {
@@ -803,25 +805,25 @@
 
                     //$msg= "Personal Information submitted successfully";
                     //app.loginService.viewModel.mobileNotification($msg,'info');
-       
+       			 app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);
                     apps.navigate('views/loanAppPI.html');
 
                 }
                 else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
                 {
-                    $msg= "Personal Information not submitted successfully.";
-                    app.loginService.viewModel.mobileNotification($msg,'info'); 
+                    //$msg= "Personal Information not submitted successfully.";
+                   // app.loginService.viewModel.mobileNotification($msg,'info'); 
                     return;
                 }
                 else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
                 {
-                    $msg= "Please enter all fields.";
-                    app.loginService.viewModel.mobileNotification($msg,'info');
+                    //$msg= "Please enter all fields.";
+                    //app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
                 }
                 else{
-                    $msg= "Server not responding properly,Please try again";
-                    app.loginService.viewModel.mobileNotification($msg,'info');
+                    //$msg= "Server not responding properly,Please try again";
+                    //app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
                 }            
 
@@ -847,6 +849,10 @@
             viewCModel['owner_day'+num] ='';
             viewCModel['owner_year'+num] ='';
             viewCModel['own_percent'+num] ='';
+            viewCModel['own_id'+num] ='';
+            viewCModel['isCheckScore'+num] ='';
+            viewCModel['creditScore'+num] ='';
+            viewCModel['reasonlscore'+num] ='';
 
         },
         addBindDynamicOwner:function(num)
@@ -864,11 +870,47 @@
             kendo.bind($("#owner_day"+num), viewCModel);
             kendo.bind($("#owner_year"+num), viewCModel);
             kendo.bind($("#own_percent"+num), viewCModel);
+            kendo.bind($("#own_id"+num), viewCModel);
+            kendo.bind($("#isCheckScore"+num), viewCModel);
+            kendo.bind($("#creditScore"+num), viewCModel);
+            kendo.bind($("#reasonlscore"+num), viewCModel);
+            
         },
-        
+        deleteOutDebtVar:function(num)
+        {
+            
+            delete viewCModel['OwnerFirstName'+num];
+            delete viewCModel['OwnerLastName'+num];
+            delete viewCModel['email'+num];
+            delete viewCModel['OwnJobTitle'+num];
+            delete viewCModel['OwnerCivic'+num];
+            delete viewCModel['OwnerStreetAddress'+num];
+            delete viewCModel['own_state'+num];
+            delete viewCModel['own_city'+num];
+            delete viewCModel['OwnZipCode'+num];
+            delete viewCModel['owner_month'+num] ;
+            delete viewCModel['owner_day'+num];
+            delete viewCModel['owner_year'+num];
+            delete viewCModel['own_percent'+num];
+            delete viewCModel['own_id'+num];
+            delete viewCModel['isCheckScore'+num];
+            delete viewCModel['creditScore'+num];
+            delete viewCModel['reasonlscore'+num];
+        },
+        manageHiddenField:function(data)
+        {
 
+			app.loanAppCI.viewModel.own_id0=data['0'];
+            $.map( data, function( val, index ) {
+            if(index !== 0)
+            {
+            	viewCModel['own_id'+index]=val;
+            }
+            });
             
             
+        },
+  
         
     });
    
