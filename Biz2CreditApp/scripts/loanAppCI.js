@@ -33,6 +33,8 @@
         ownercurrntControl:0,
         totownerDiv:0,
         ownerdeleteIds:'',
+        aredyownerdeleteIds:'',
+        deldbownerids:'',
         own_id0:'',
         isCheckScore0:'',
         creditScore0:'',
@@ -43,7 +45,10 @@
 
 
             $("#add-ownerForm").unbind(".myPlugin");
-            var blegal = app.loansetting.viewModel.select_b_l_s;
+            blegal;
+            if(blegal === '' || blegal !== app.loansetting.viewModel.select_b_l_s)
+            {
+            blegal = app.loansetting.viewModel.select_b_l_s;
             var str ='';
             str += '<option value="">Select Job Title</option>';
 
@@ -74,10 +79,13 @@
             else if(blegal === 'Limited Liability Company'){
             	str += '<option value="Managing Member">Managing Member</option>';
             	str += '<option value="Member">Member</option>';
-            }        
-
+            }
+            
+			
             $("#OwnJobTitle").html('');
             $("#OwnJobTitle").append(str);
+                }
+            //kendo.bind($("#OwnJobTitle"), app.loanAppCI.viewModel.Owner_JobTitle);
             
             
             var DateDiff = { 
@@ -466,13 +474,24 @@
                
 
             //var totalOutstanding=0;               
-            $("#remove-ownerform"+index).on("click", function() { 
-
+            $("#remove-ownerform"+index).on("click", function(e) { 
+				var clickIndex = e.toElement.dataset.index;
                 var strdelownids = $("#deldbownerids").val(); 
-                var downid = parseInt($("#own_id"+index).val());
+                var aredyodeleteIds = $("#aredyownerdeleteIds").val();
+                var downid = parseInt(viewCModel['own_id'+clickIndex]);
+                console.log('clickIndex'+clickIndex);
+                
+                console.log('aredyodeleteIds'+aredyodeleteIds);
+                console.log('strdelownids'+strdelownids);
+                console.log('downid'+downid);
+                
                 if(downid>0){
-                	strdelownids = strdelownids+downid+",";                                            
+                	strdelownids = strdelownids+downid+","; 
+                    aredyodeleteIds = aredyodeleteIds+index+",";
+                    app.loanAppCI.viewModel.setDeldbownerids(strdelownids);
+                    app.loanAppCI.viewModel.setAredyownerdeleteIds(aredyodeleteIds);
                 	$("#deldbownerids").val(strdelownids);
+                    $("#aredyownerdeleteIds").val(aredyodeleteIds);
                 }
                 var currentIndex = $(this).data( "index" );                   
                 $("#adddowner" + currentIndex).remove();			
@@ -592,6 +611,7 @@
             		str = "<select name='own_state"+NumOfDiv+"' id='own_state"+NumOfDiv+"' class='IN1b ipsm1' data-bind='value:own_state"+NumOfDiv+"' original-title='Select State' onChange='javascript:createCityCmb(this.value, "+NumOfDiv +")'>"+data+"</select>";                    
             		$('#ownerState'+NumOfDiv+'').html(str); 
             		$('#own_city'+NumOfDiv+'').removeAttr("disabled","disabled");
+                    kendo.bind($("#own_state"+NumOfDiv), viewCModel);
             		return str;                
             	}          
             });	
@@ -695,8 +715,18 @@
                 var that =this;
                 that.set("ownerdeleteIds",ids);
         },
+        setDeldbownerids:function(ids)
+        {
+                var that =this;
+                that.set("deldbownerids",ids);
+        },
+        setAredyownerdeleteIds:function(ids)
+        {
+                var that =this;
+                that.set("aredyownerdeleteIds",ids);
+        },
         loanAppCISubmit:function(){
-           // apps.navigate('views/loanAppPI.html');
+           //apps.navigate('views/loanAppPI.html');
            var status = $("#b2cApp1").valid();
            
            if(status === false)
@@ -746,9 +776,9 @@
             dataParam['OwnZipCode'] = ownerZip;
             dataParam['own_percent'] = ownPercent;
             dataParam['own_id0'] = own_id0;
-            dataParam['aredyownerdeleteIds'] = '';
+            dataParam['aredyownerdeleteIds'] = aredyownerdeleteIds;
             dataParam['ownerdeleteIds'] = ownerdeleteIds;
-            dataParam['deldbownerids'] = '';
+            dataParam['deldbownerids'] = deldbownerids;
             dataParam['totownerDiv'] = totownerDiv;
             
             for(var i=1; i<=totownerDiv;i++)
