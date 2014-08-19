@@ -864,10 +864,6 @@
 
             viewCModel['OwnerFirstName'+num] ='';
             viewCModel['OwnerLastName'+num] ='';
-            viewCModel['isCheckScore'+num] ='';
-            viewCModel['OwnerLastName'+num] ='';
-            viewCModel['OwnerLastName'+num] ='';
-            viewCModel['OwnerLastName'+num] ='';
             viewCModel['email'+num] ='';
             viewCModel['OwnJobTitle'+num] ='';
             viewCModel['OwnerCivic'+num] ='';
@@ -929,7 +925,6 @@
         },
         manageHiddenField:function(data)
         {
-
 			app.loanAppCI.viewModel.own_id0=data['0'];
             $.map( data, function( val, index ) {
             if(index !== 0)

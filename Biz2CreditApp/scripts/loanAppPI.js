@@ -7,7 +7,32 @@
         
         
         show:function() {
-            
+            $("#b2cApp3").validate({
+                rules: {
+                    per_income: {
+                    	required:true,
+                    	number: true
+                    },
+                    per_ome: {
+                    	required:true,
+                    	number: true
+                    }
+                },
+                messages: {
+                    per_income: {
+                    	required: "This value is required",
+                    	number: "Please enter digits only"
+                	},
+                	per_ome: {
+                   	 required: "This value is required",
+                   	 number: "Please enter digits only"
+                    }
+                },
+                submitHandler: function(form) {
+                return false;
+                }
+
+            });
             totaldivs = app.loanAppCI.viewModel.get("totownerDiv");
             d_divids = app.loanAppCI.viewModel.get("ownerdeleteIds");
 
@@ -19,6 +44,7 @@
                 
                 if(d_divids.indexOf(c.toString()) === -1)
                 {
+                    app.loanAppPI.viewModel.addDynamicOwner(c);
                     html ='';
                 
     				dstyle = ' style="display:block;" ';
@@ -28,48 +54,47 @@
                     html +='<div  id="creditScoreTextOwn'+c+'" class="labl_tx2">Would you like us to check your credit score for free?*</div></div><div class="rw_lin clearfix opt lblBtM"> <span>';
 
 
-                    html +=   '<input name="check_credit_score'+c+'" onclick="getCheckcscore('+c+',this.value);"  id="check_credit_score'+c+'1" type="radio" value="Y" class="crYes'+c+'" >';
+                    html +=   '<input name="check_credit_score'+c+'" onclick="getCheckcscore('+c+',this.value);"  data-bind="checked:check_credit_score'+c+'"  id="check_credit_score'+c+'" type="radio" value="Y" class="crYes'+c+'" >';
                     html +=   '<label for="crdye">Yes</label></span> <span>';
 
-                    html += '<input name="check_credit_score'+c+'" onclick="getCheckcscore('+c+',this.value);"  id="check_credit_score'+c+'2" type="radio" value="N" class="crYes'+c+'">';
+                    html += '<input name="check_credit_score'+c+'" onclick="getCheckcscore('+c+',this.value);"  data-bind="checked:check_credit_score'+c+'"  id="check_credit_score'+c+'" type="radio" value="N" class="crYes'+c+'">';
                     html +='<label for="crdno">No</label></span>';
 
-                    html +='<input type="hidden" name="hownid'+c+'" id="hownid'+c+'" value=""></div><div class="rwfil"><div id="crdscorerYes'+c+'" class="showfilds_bx" style="display:none"><div class="rw_lin clearfix">';
+                    html +='<input type="hidden" name="hownid'+c+'" data-bind="value:hownid'+c+'" id="hownid'+c+'" value=""></div><div class="rwfil"><div id="crdscorerYes'+c+'" class="showfilds_bx" style="display:none"><div class="rw_lin clearfix">';
 
 
 
 
-                    html +='<select name="credittype'+c+'" onchange="getCscore('+c+',this.value);"  id="credittype'+c+'" class="IN3"  title="Select Personal Credit Score"  >';
+                    html +='<select name="credittype'+c+'" onchange="getCscore('+c+',this.value);" data-bind="value:credittype'+c+'"  id="credittype'+c+'" class="IN3"  title="Select Personal Credit Score"  >';
                     html +='<option value="">Select Personal Credit Score</option>';
 
                     for(var i=500;i<=850;i++) {
                     	html +='<option value="'+i+'">'+i+'</option>';
                     }
-                    html +='</select></div><div id="ifless'+c+'" class="rw_lin  clearfix"><h4>Reason for your low credit score:<span>*</span><em>(Check all that apply)</em></h4>';
+                    html +='</select></div><div id="ifless'+c+'" class="rw_lin  clearfix" style="display:none"><h4>Reason for your low credit score:<span>*</span><em>(Check all that apply)</em></h4>';
 
 
 
                     html +='<ul class="low_creditop">';
 
 
-                    html +='<li class="opt2"><input type="checkbox" name="chk_reason0[]" id="chk_reason0_14" value="14" class="reset chkreason0"><label for="chk_reason0">A lot of inquiries</label></li>';
+                    html +='<li class="opt2"><input type="checkbox" name="chk_reason'+c+'[]" data-bind="" id="chk_reason'+c+'_14" value="14" class="reset chkreason'+c+'"><label for="chk_reason'+c+'">A lot of inquiries</label></li>';
 
 
-                    html +='<li class="opt2"><input type="checkbox" name="chk_reason0[]" id="chk_reason0_4" value="4" class="reset chkreason0"><label for="chk_reason0">High credit card balances due to business expenses</label></li>';
-                    html +='<li class="opt2"><input type="checkbox" name="chk_reason0[]" id="chk_reason0_3" value="3" class="reset chkreason0"><label for="chk_reason0">High credit card balances due to personal expenses</label></li>';
-                    html +='<li class="opt2"><input type="checkbox" name="chk_reason0[]" id="chk_reason0_15" value="15" class="reset chkreason0"><label for="chk_reason0">I dont know</label></li>';
-                    html +='<li class="opt2"><input type="checkbox" name="chk_reason0[]" id="chk_reason0_7" value="7" class="reset chkreason0"><label for="chk_reason0">Incorrect items on credit report</label></li>';
-                    html +='<li class="opt2"><input type="checkbox" name="chk_reason0[]" id="chk_reason0_8" value="8" class="reset chkreason0"><label for="chk_reason0">Judgments</label></li>';
-                    html +='<li class="opt2"><input type="checkbox" name="chk_reason0[]" id="chk_reason0_2" value="2" class="reset chkreason0"><label for="chk_reason0">Late on credit cards</label></li>';
-                    html +='<li class="opt2"><input type="checkbox" name="chk_reason0[]" id="chk_reason0_1" value="1" class="reset chkreason0"><label for="chk_reason0">Late on mortgage</label></li>';
-                    html +='<li class="opt2"><input type="checkbox" name="chk_reason0[]" id="chk_reason0_10" value="10" class="reset chkreason0"><label for="chk_reason0">Late on personal loans</label></li>';
-                    html +='<li class="opt2"><input type="checkbox" name="chk_reason0[]" id="chk_reason0_11" value="11" class="reset chkreason0"><label for="chk_reason0">No credit history</label></li>';
-                    html +='<li class="opt2"><input type="checkbox" name="chk_reason0[]" id="chk_reason0_5" value="5" class="reset chkreason0"><label for="chk_reason0">Personal bankruptcy more than 7 years ago</label></li>';
-                    html +='<li class="opt2"><input type="checkbox" name="chk_reason0[]" id="chk_reason0_9" value="9" class="reset chkreason0"><label for="chk_reason0">Personally guaranteed a loan that defaulted</label></li>';
-                    html +='<li class="opt2"><input type="checkbox" name="chk_reason0[]" id="chk_reason0_13" value="13" class="reset chkreason0"><label for="chk_reason0">Recent foreclosure</label></li>';
-                    html +='<li class="opt2"><input type="checkbox" name="chk_reason0[]" id="chk_reason0_6" value="6" class="reset chkreason0"><label for="chk_reason0">Recent Personal Bankruptcy</label></li>';
-                    html +='<li class="opt2"><input type="checkbox" name="chk_reason0[]" id="chk_reason0_12" value="12" class="reset chkreason0"><label for="chk_reason0">Tax liens</label></li>';
-
+                    html +='<li class="opt2"><input type="checkbox" name="chk_reason'+c+'[]" id="chk_reason'+c+'_4" value="4" class="reset chkreason'+c+'"><label for="chk_reason'+c+'">High credit card balances due to business expenses</label></li>';
+                    html +='<li class="opt2"><input type="checkbox" name="chk_reason'+c+'[]" id="chk_reason'+c+'_3" value="3" class="reset chkreason'+c+'"><label for="chk_reason'+c+'">High credit card balances due to personal expenses</label></li>';
+                    html +='<li class="opt2"><input type="checkbox" name="chk_reason'+c+'[]" id="chk_reason'+c+'_15" value="15" class="reset chkreason'+c+'"><label for="chk_reason'+c+'">I dont know</label></li>';
+                    html +='<li class="opt2"><input type="checkbox" name="chk_reason'+c+'[]" id="chk_reason'+c+'_7" value="7" class="reset chkreason'+c+'"><label for="chk_reason'+c+'">Incorrect items on credit report</label></li>';
+                    html +='<li class="opt2"><input type="checkbox" name="chk_reason'+c+'[]" id="chk_reason'+c+'_8" value="8" class="reset chkreason'+c+'"><label for="chk_reason'+c+'">Judgments</label></li>';
+                    html +='<li class="opt2"><input type="checkbox" name="chk_reason'+c+'[]" id="chk_reason'+c+'_2" value="2" class="reset chkreason'+c+'"><label for="chk_reason'+c+'">Late on credit cards</label></li>';
+                    html +='<li class="opt2"><input type="checkbox" name="chk_reason'+c+'[]" id="chk_reason'+c+'_1" value="1" class="reset chkreason'+c+'"><label for="chk_reason'+c+'">Late on mortgage</label></li>';
+                    html +='<li class="opt2"><input type="checkbox" name="chk_reason'+c+'[]" id="chk_reason'+c+'_10" value="10" class="reset chkreason'+c+'"><label for="chk_reason'+c+'">Late on personal loans</label></li>';
+                    html +='<li class="opt2"><input type="checkbox" name="chk_reason'+c+'[]" id="chk_reason'+c+'_11" value="11" class="reset chkreason'+c+'"><label for="chk_reason'+c+'">No credit history</label></li>';
+                    html +='<li class="opt2"><input type="checkbox" name="chk_reason'+c+'[]" id="chk_reason'+c+'_5" value="5" class="reset chkreason'+c+'"><label for="chk_reason'+c+'">Personal bankruptcy more than 7 years ago</label></li>';
+                    html +='<li class="opt2"><input type="checkbox" name="chk_reason'+c+'[]" id="chk_reason'+c+'_9" value="9" class="reset chkreason'+c+'"><label for="chk_reason'+c+'">Personally guaranteed a loan that defaulted</label></li>';
+                    html +='<li class="opt2"><input type="checkbox" name="chk_reason'+c+'[]" id="chk_reason'+c+'_13" value="13" class="reset chkreason'+c+'"><label for="chk_reason'+c+'">Recent foreclosure</label></li>';
+                    html +='<li class="opt2"><input type="checkbox" name="chk_reason'+c+'[]" id="chk_reason'+c+'_6" value="6" class="reset chkreason'+c+'"><label for="chk_reason'+c+'">Recent Personal Bankruptcy</label></li>';
+                    html +='<li class="opt2"><input type="checkbox" name="chk_reason'+c+'[]" id="chk_reason'+c+'_12" value="12" class="reset chkreason'+c+'"><label for="chk_reason'+c+'">Tax liens</label></li>';
                     html +='</ul></div></div></div><div class="rwfil"><div id="crdscorerNo'+c+'" class="showfilds_bx" style="display:none">';
 
 
@@ -81,9 +106,13 @@
                     html +='</div></div></div></div>'; 
                     
                     $('#dynamicDiv').append(html);
+                    app.loanAppPI.viewModel.addBindDynamicOwner(c); 
+                    
+                    
            	 } 
             }
-			app.loanAppPI.viewModel.getCheckCreditScoreText();  
+			app.loanAppPI.viewModel.getCheckCreditScoreText();
+            
         },
         getCheckCreditScoreText:function()
         { 
@@ -109,8 +138,36 @@
             }
 
             strdivids = '';         
-
+			
             for( var c=0; c<=totaldivs; c++){
+                
+            $(".crYes"+c).rules("add", {
+                    required: true,
+                    messages: {
+                            required: "This value is required",
+                    }
+            });
+            
+            $("#credittype"+c).rules("add", {
+                    required: true,
+                    messages: {
+                            required: "This value is required",
+                    }
+            });
+            
+            $(".chkreason"+c).rules("add", {
+                    required: true,                            
+                    messages: {
+                            required: "This value is required",
+                    }
+            });
+            $(".chkreason"+c).rules("add", {
+                    minlength: 1,                            
+                    messages: {
+                            minlength: "This value is required",
+                    }
+            });
+                
                 if(c === 0 ) {
                     creditScorenodel ="Would you like us to check "+ app.loanAppCI.viewModel.Owner_FirstName +"'s credit score for free?*";
                     $("#creditScoreTextOwn"+c).html(creditScorenodel);
@@ -189,10 +246,161 @@
 
             }
         },
+        addDynamicOwner:function(num)
+        {
+
+            viewCModel['check_credit_score'+num] ='';
+            viewCModel['credittype'+num] ='';
+            viewCModel['chk_reason'+num] =[];
+        },
+        addBindDynamicOwner:function(num)
+        {
+            kendo.bind($(".crYes"+num), viewCModel);
+            kendo.bind($("#credittype"+num), viewCModel);
+
+            
+        },
+        deleteOutDebtVar:function(num)
+        {
+            
+            delete viewCModel['check_credit_score'+num];
+            delete viewCModel['credittype'+num];
+        },
         loanAppFPpage:function()
         {
-            apps.navigate('views/loanAppFP.html');
+                    // apps.navigate('views/loanAppFP.html');
+            var status = $("#b2cApp3").valid();
+           
+           if(status === false)
+           {
+				return false;   
+           }
+            var that = this;
+            dataParam = {};
+            var per_income = that.get("avg_month_income");
+            var per_ome	= that.get("avg_month_expense");
+            dataParam['apiaction']	= 'loanappstep3';
+            dataParam['per_income'] = per_income;
+            dataParam['per_ome']	= per_ome;
+            
+            dataParam['cust_id'] = localStorage.getItem("userID");
+            dataParam['fid'] = localStorage.getItem("fid");
+			dataParam['type'] = '';
+			dataParam['frmname'] = 'b2cApp3';
+			dataParam['personal_act'] = 'Next';
+            //owndivdts:success#0:18967#1:19026
+            
+            totaldivs = app.loanAppCI.viewModel.get("totownerDiv");
+            d_divids = app.loanAppCI.viewModel.get("ownerdeleteIds");
+            owndivdtsStr ='success';
+            	for(var c=0; c<=totaldivs;c++)
+                {
+                    if(d_divids.indexOf(c.toString()) === -1)
+                    {  
+                       if(viewCModel.get('check_credit_score'+c)==='Y')
+                        {
+                            dataParam['check_credit_score'+c] = 'Y';
+                            owndivdtsStr += '#'+c+':'+app.loanAppCI.viewModel.own_id0;
+                        }
+                        else
+                        {
+							dataParam['chk_reason'+c] = check_value;
+                            dataParam['check_credit_score'+c] = 'N';
+                            var check_value = [];
+                            $(".reset:checked").each(function() {
+                            	check_value.push($(this).val());
+                            
+                            });
+                            dataParam['chk_reason'+c] = check_value;
+                            dataParam['credittype'+c] = viewCModel.get('credittype'+c);
+                            owndivdtsStr += '#'+c+':'+viewCModel.get('own_id'+c);
+                        }
+                    }
+                }
+            dataParam['owndivdts'] = owndivdtsStr;
+            console.log(dataParam);
+            app.loginService.viewModel.showloder();
+            var dataSource = new kendo.data.DataSource({
+                transport: {
+                read: {
+                    url: "http://sandbox.biz2services.com/mobapp/api/loanapp",
+                    type:"POST",
+                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: dataParam
+            	}
+            },
+            schema: {
+                data: function(data)
+                {
+                	return [data];
+                }
+            },
+            error: function (e) {
+                apps.hideLoading();
+                navigator.notification.alert("Server not responding properly.Please check your internet connection.",
+                function () { }, "Notification", 'OK');
+            },
 
+            });
+            dataSource.fetch(function(){
+
+                var data = this.data();
+                app.loginService.viewModel.hideloder();
+                if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
+                {
+
+                    //$msg= "Personal Information submitted successfully";
+                    //app.loginService.viewModel.mobileNotification($msg,'info');
+                    app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
+                    apps.navigate('views/loanAppFP.html');
+
+                }
+                else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
+                {
+                    //$msg= "Personal Information not submitted successfully.";
+                   // app.loginService.viewModel.mobileNotification($msg,'info'); 
+                    return;
+                }
+                else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
+                {
+                    //$msg= "Please enter all fields.";
+                    //app.loginService.viewModel.mobileNotification($msg,'info');
+                    return;
+                }
+                else{
+                    //$msg= "Server not responding properly,Please try again";
+                    //app.loginService.viewModel.mobileNotification($msg,'info');
+                    return;
+                }            
+
+                });
+           
+        },
+        ManageOwnerHideenField:function(dataParam)
+        {
+            
+            totaldivs = app.loanAppCI.viewModel.get("totownerDiv");
+            d_divids = app.loanAppCI.viewModel.get("ownerdeleteIds");
+            for(var c=0; c<=totaldivs;c++)
+                {
+                    if(d_divids.indexOf(c.toString()) === -1)
+                    {  
+                        if(c===0)
+                        {
+                        	app.loanAppCI.viewModel.isCheckScore0=dataParam['check_credit_score'+c];
+                        	app.loanAppCI.viewModel.creditScore0=dataParam['credittype'+c];
+                        	app.loanAppCI.viewModel.reasonlscore0=dataParam['chk_reason'+c];
+                        }
+                        else
+                        {
+                            viewCModel['isCheckScore'+c] =dataParam['check_credit_score'+c];
+                            viewCModel['creditScore'+c] =dataParam['credittype'+c];
+                            viewCModel['reasonlscore'+c] =dataParam['chk_reason'+c];
+                        }
+
+                    }
+                }
+             
         }
         
 
