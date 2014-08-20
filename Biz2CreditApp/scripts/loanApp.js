@@ -951,7 +951,7 @@
         },
         	
 		loanAppBISubmit:function(){
-            apps.navigate('views/loanAppCI.html');
+            //apps.navigate('views/loanAppCI.html');
             var status = $('#B2cAppForms').valid();
             if(status === false)
             return status;
@@ -1328,7 +1328,7 @@
 
                 var data = this.data();
                 app.loginService.viewModel.hideloder();
-                //console.log(data);
+                console.log(data);
                 if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
                 {
 

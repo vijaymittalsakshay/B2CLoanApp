@@ -4,6 +4,7 @@
     
     LoanAppFPModel = kendo.data.ObservableObject.extend({
         
+        currentfid:(localStorage.getItem("fid") !== '') ?  localStorage.getItem("fid") : '',
         funding_priority:'',
         min_loan_amount:'',
         max_loan_amount:'',
@@ -97,39 +98,43 @@
             });
         },
         
+       
+        
         loanFPSubmit:function(){
-         /*  var status = $("#b2cApp4").valid();
-            
+            var status = $("#b2cApp4").valid();
+
             if(status === false)
             {
-                return false;
-            }*/
+	            return false;
+            }
           
             var chkuseplan = [];
             var that = this;
             var funProperty 		= that.get("funding_priority"),
-            	minimunLoanAmount   = that.get("min_loan_amount").trim(),
-            	maxLoanAmount	   = that.get("max_loan_amount").trim();
-           
-           var agreement = $('#agreement:checked').val();
-           var loanagreement = $('#loanagreement:checked').val();
-            
-          /*  $("input[type=checkbox]:checked").each(function() {
-            	chkuseplan.push($(this).val());
-                 
-       	 });*/
+            minimunLoanAmount   	= that.get("min_loan_amount").trim(),
+            maxLoanAmount	   	= that.get("max_loan_amount").trim();
+
+            var agreement 		  = $("#agreement").is(':checked') ? 1 : 0;
+            var loanagreement 	  = $("#loanagreement").is(':checked') ? 1 : 0;
             
             $("#chkuseplan:checked").each(function() {
-            	chkuseplan.push($(this).val());
-                 
-       	 });
+           	 chkuseplan.push($(this).val());
+            });
             
-            console.log("chkuseplan[] :"+chkuseplan);
+           
             console.log("Funding property :"+funProperty);
             console.log("Minimunm loan amount :"+minimunLoanAmount);
             console.log("Maximum loan amount :"+maxLoanAmount);
+            for(i=0;i<chkuseplan.length;i++)
+            {
+           	 console.log("chkuseplan[]:"+chkuseplan[i]);
+            }
             console.log("agreement :"+agreement);
             console.log("loanagreement :"+loanagreement);
+            // dataParam['cust_id'] = localStorage.getItem("userID");
+            // dataParam['fid'] = localStorage.getItem("fid");
+            // dataParam['type'] = '';
+            //dataParam['frmname'] = 'b2cApp4';
         }
     });
     
