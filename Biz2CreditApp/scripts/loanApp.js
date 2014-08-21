@@ -951,8 +951,8 @@
         },
         	
 		loanAppBISubmit:function(){
-            //apps.navigate('views/loanAppCI.html');
-            var status = $('#B2cAppForms').valid();
+            apps.navigate('views/loanAppCI.html');
+            /*var status = $('#B2cAppForms').valid();
             if(status === false)
             return status;
                 
@@ -1223,23 +1223,7 @@
             {
                 debttypeNO			  			     = that.get("debttype_no"),
            	 dataParam['debttype']					= debttypeNO;
-                
-                dataParam['debttype'+i]="";
-                dataParam['yeardisbursed'+i]="";
-                dataParam['txtOutCredit'+i]="";
-                dataParam['txtInterestCredit'+i]="";
-                dataParam['txtPerYearCredit'+i]="";
-                dataParam['tpcompany'+i]="";
-                dataParam['ocadvance'+i]="";
-                dataParam['funded_term'+i]="";
-                dataParam['collateraltype'+i]="";
-                dataParam['txtAmountTerm'+i]=""; 
-                dataParam['txtOutAmountTerm'+i]="";
-                dataParam['txtInterestTerm'+i]="";
-                dataParam['txtPaymentModeTerm'+i]="";
-                dataParam['txtYearTerm'+i]="";
-                dataParam['txtTerm'+i]=""; 
-                dataParam['txtFrequncyTerm'+i]="";
+
             }
             dataParam['totbusinessDebtYesDiv']=totbusinessDebtYesDiv; 
             dataParam['deleteIds']=deleteIds;
@@ -1358,7 +1342,7 @@
                     return;
                 }            
 
-                });
+                });*/
 
         
             },

@@ -604,6 +604,17 @@
                                $('#ifless'+index).addClass('ifless');
                }
 }
-    
+function KnownCheckcscore(index , that){
+    if ( that.checked) {
+    	$('#crdscorerYes'+index).show();
+    	$('#ifless'+index).addClass('ifless');
+    }
+    else
+    {
+    	$('#crdscorerYes'+index).hide();
+    	$('#ifless'+index).removeClass('ifless');
+    }
+
+} 
     
 </script>

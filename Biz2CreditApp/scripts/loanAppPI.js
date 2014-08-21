@@ -62,12 +62,13 @@
                         html +='<div class="rw_lin clearfix">';
                         html +='<div  id="creditScoreTextOwn'+c+'" class="labl_tx2">Would you like us to check your credit score for free?*</div></div><div class="rw_lin clearfix opt lblBtM"> <span>';
 
+						html +='<input type="checkbox" name="cscoreknown'+c+'" onclick="KnownCheckcscore('+c+',this);" data-bind="value:cscoreknown'+c+'" id="cscoreknown'+c+'" value="Yes">';
+						html +=   '<label for="crdye">Do you know your credit score?</label>';
+                        html +=   '<input name="check_credit_score'+c+'" onclick="getCheckcscore('+c+',this.value);"  style="display:none" data-bind="checked:check_credit_score'+c+'"  id="check_credit_score'+c+'" type="radio" value="Y" class="crYes'+c+'" >';
+                        html +=   '<label for="crdye" style="display:none">Yes</label></span> <span>';
 
-                        html +=   '<input name="check_credit_score'+c+'" onclick="getCheckcscore('+c+',this.value);"  data-bind="checked:check_credit_score'+c+'"  id="check_credit_score'+c+'" type="radio" value="Y" class="crYes'+c+'" >';
-                        html +=   '<label for="crdye">Yes</label></span> <span>';
-
-                        html += '<input name="check_credit_score'+c+'" onclick="getCheckcscore('+c+',this.value);"  data-bind="checked:check_credit_score'+c+'"  id="check_credit_score'+c+'" type="radio" value="N" class="crYes'+c+'">';
-                        html +='<label for="crdno">No</label></span>';
+                        html += '<input name="check_credit_score'+c+'" style="display:none" onclick="getCheckcscore('+c+',this.value);"  data-bind="checked:check_credit_score'+c+'"  id="check_credit_score'+c+'" type="radio" value="N" class="crYes'+c+'">';
+                        html +='<label for="crdno" style="display:none">No</label></span>';
 
                         html +='<input type="hidden" name="hownid'+c+'" data-bind="value:hownid'+c+'" id="hownid'+c+'" value=""></div><div class="rwfil"><div id="crdscorerYes'+c+'" class="showfilds_bx" style="display:none"><div class="rw_lin clearfix">';
 
@@ -112,7 +113,11 @@
                         $('#dynamicDiv').append(html); 
                         app.loanAppPI.viewModel.addBindDynamicOwner(c);
                     }   
-           	 } 
+           	 } else
+                {
+                    $('#ownercscore'+c).remove();
+                }
+                
             }
 			app.loanAppPI.viewModel.getCheckCreditScoreText();
             
@@ -256,15 +261,17 @@
         },
         addDynamicOwner:function(num)
         {
-
-            viewCModel['check_credit_score'+num] ='';
+			viewCModel['cscoreknown'+num] ='';
+            viewCModel['check_credit_score'+num] ='N';
             viewCModel['credittype'+num] ='';
             viewCModel['chk_reason'+num] =[];
         },
         addBindDynamicOwner:function(num)
         {
+            kendo.bind($("#cscoreknown"+num), viewCModel);
             kendo.bind($(".crYes"+num), viewCModel);
             kendo.bind($("#credittype"+num), viewCModel);
+            
 
             
         },
@@ -313,6 +320,7 @@
                         else
                         {
                             dataParam['check_credit_score'+c] = 'N';
+                            dataParam['cscoreknown'+c] = viewCModel.get('cscoreknown'+c);
                             var check_value = [];
                             $("#ownercscore"+c+" .reset:checked").each(function() {
                             	check_value.push($(this).val());
