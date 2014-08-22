@@ -318,7 +318,11 @@
             }
             //viewFModel = kendo.observable();
             var addForm = $("#add-form");
-            var index = 0;
+            
+            if(typeof index === 'undefined')
+            {
+                 index = 0;
+            }
             addForm.on("click.myPlugin", function() {
             
                 app.loansetting.viewModel.addOutDebtVar(++index);
@@ -960,9 +964,9 @@
         	
 		loanAppBISubmit:function(){
             //apps.navigate('views/loanAppCI.html');
-            var status = $('#B2cAppForms').valid();
-            if(status === false)
-            return status;
+            //var status = $('#B2cAppForms').valid();
+            //if(status === false)
+           // return status;
                 
             var that = this;
             dataParam =  {};
