@@ -57,7 +57,7 @@
         account_rece:'',
         currntControl:0,
         totbusinessDebtYesDiv:'',
-        deleteIds:[],
+        deleteIds:'',
         dnb_dun_no:'',
         busi_out_mort_type_yes:1,
         busi_out_mort_type_no:0,
@@ -319,7 +319,6 @@
             //viewFModel = kendo.observable();
             var addForm = $("#add-form");
             var index = 0;
-            divId = [];
             addForm.on("click.myPlugin", function() {
             
                 app.loansetting.viewModel.addOutDebtVar(++index);
@@ -350,8 +349,8 @@
                     $("#debt" + currentIndex).remove();
                     $("#loan_" + currentIndex).remove();
                     $('#currntControl').val($('#currntControl').val() - 1);
-                    divId.push(currentIndex);
-                    app.loansetting.viewModel.setHiddenFieldDeleteIds(divId);
+                    //divId.push(currentIndex);
+                    app.loansetting.viewModel.setHiddenFieldDeleteIds(currentIndex);
                     //$('#deleteIds').val(divId);
                     if ($('#currntControl').val().trim() === '0' || $('#currntControl').val().trim() === 0) {
                         $(".outDebt").prop("checked", false); 
@@ -945,14 +944,23 @@
         },
         setHiddenFieldDeleteIds:function(ids)
         {
-            //console.log(ids);
-                var that =this;
-                that.set("deleteIds",ids);
+            
+            var that =this;
+            var alreadysavedel = that.get("deleteIds");
+            if(alreadysavedel === '')
+            {
+                 nowsavedel = ids;
+            }
+            else
+            {
+             	nowsavedel = alreadysavedel+','+ids;
+            }
+            that.set("deleteIds",nowsavedel);
         },
         	
 		loanAppBISubmit:function(){
-            apps.navigate('views/loanAppCI.html');
-            /*var status = $('#B2cAppForms').valid();
+            //apps.navigate('views/loanAppCI.html');
+            var status = $('#B2cAppForms').valid();
             if(status === false)
             return status;
                 
@@ -1131,7 +1139,7 @@
             
 				for(var i=1; i<=totbusinessDebtYesDiv;i++)
                 {
-                    if(jQuery.inArray( i, deleteIds )=== -1)
+                    if(deleteIds.indexOf(i.toString()) === -1)
                     {   
 						dataParam['debttype'+i] = viewFModel.get('debttype'+i);
                         dataParam['yeardisbursed'+i]=viewFModel.get('yeardisbursed'+i);
@@ -1342,7 +1350,7 @@
                     return;
                 }            
 
-                });*/
+                });
 
         
             },
