@@ -1051,7 +1051,7 @@
             }
             else
             {
-                dataParam['yettostart']	   = "0";
+                dataParam['yettostart']	   = '';
 
                 select_BSM  				  = that.get("select_buss_s_m").trim(),
                 dataParam['dbs_month']	    = select_BSM;
