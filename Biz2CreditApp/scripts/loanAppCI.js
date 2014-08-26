@@ -503,6 +503,7 @@
                 app.loanAppCI.viewModel.setHiddenFieldDeleteIds(newstrdeldivs);
                 var ownerFlag = app.loanAppCI.viewModel.checkownerFlag();
                 app.loanAppCI.viewModel.deleteOutDebtVar();
+                $("#tabstrip-loanapp-ci").find(".km-scroll-container").css("-webkit-transform", "");
                 
             });
 
