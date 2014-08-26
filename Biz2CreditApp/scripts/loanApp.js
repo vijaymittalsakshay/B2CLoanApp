@@ -1324,7 +1324,6 @@
 
                 var data = this.data();
                 app.loginService.viewModel.hideloder();
-                console.log(data);
                 if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
                 {
 

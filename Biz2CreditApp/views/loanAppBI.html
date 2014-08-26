@@ -58,7 +58,7 @@
 
                                 <div class="rw_lin clearfix">
                                     <p>
-                                        <select class="IN1b ipsm3 valid" name="state"  id="state"  title="Select State"  data-bind="value: select_state" onchange="createCityCmb(this.value, '');" required>
+                                        <select class="IN1b ipsm3 valid" name="state"  id="state"  title="Select State"  data-bind="value: select_state" onchange="createCityCmbFirst(this.value, '');" required>
                                             <option value="" selected="selected">Select State</option>
                                             <option value="1">Alabama</option>
                                             <option value="2">Alaska</option>
@@ -1969,10 +1969,10 @@
  
 </div>
 <script>
-    function createCityCmb(val , NumOfDiv){
-  					  
+    function createCityCmbFirst(val , NumOfDiv){
+  			console.log('call');		  
         $.ajax({
-		 url: "https://www.biz2beta.com/serverexe.php",
+		url: "https://www.biz2beta.com/serverexe.php",
 		type: "GET",
 		data: { "statemaster": val},
 		 beforeSend: function(){
