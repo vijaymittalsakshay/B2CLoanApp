@@ -962,7 +962,11 @@
             that.set("deleteIds",nowsavedel);
         },
         	
-		loanAppBISubmit:function(){
+		loanAppBISubmit:function(e){
+             console.log(app);
+            delete app.loansetting.viewModel;
+            console.log(app);
+            
             //apps.navigate('views/loanAppCI.html');
             var status = $('#B2cAppForms').valid();
             if(status === false)
