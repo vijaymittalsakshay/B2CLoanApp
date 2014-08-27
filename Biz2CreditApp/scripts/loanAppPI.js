@@ -281,7 +281,7 @@
             delete viewCModel['check_credit_score'+num];
             delete viewCModel['credittype'+num];
         },
-        loanAppPIpage:function()
+        loanAppPIpage:function(e)
         {
             dataParam =  {};
 
