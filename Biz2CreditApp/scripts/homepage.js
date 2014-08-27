@@ -274,7 +274,7 @@
                 $("#home-call-btn").html("");
                 
                 dHeader='Congratulations '+userName+'!';
-                localStorage.setItem("fid",'');
+                localStorage.setItem("fid",'70948');
                 dDescription='Please reapply when you need additional funds or would like to refinance.';
                 dButtonText = "Start an Application";
                 dButtonLink ="views/loanAppBI.html";

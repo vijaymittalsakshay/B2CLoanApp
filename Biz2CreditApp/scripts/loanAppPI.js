@@ -281,15 +281,23 @@
             delete viewCModel['check_credit_score'+num];
             delete viewCModel['credittype'+num];
         },
-        loanAppFPpage:function()
+        loanAppPIpage:function()
         {
+            dataParam =  {};
+
+            if(e.sender.context.element.dataset.name === "Next")
+            {
+                var status = $("#b2cApp3").valid();
+                if(status === false)
+                return status;  
+                dataParam['personal_act']='Next';
+            }
+            else
+            {
+            	dataParam['personal_act']='Save & Exit';
+            }
                     // apps.navigate('views/loanAppFP.html');
-            var status = $("#b2cApp3").valid();
-           
-           if(status === false)
-           {
-				return false;   
-           }
+
             var that = this;
             dataParam = {};
             var per_income = that.get("avg_month_income");
@@ -302,7 +310,6 @@
             dataParam['fid'] = localStorage.getItem("fid");
 			dataParam['type'] = '';
 			dataParam['frmname'] = 'b2cApp3';
-			dataParam['personal_act'] = 'Next';
             //owndivdts:success#0:18967#1:19026
             
             totaldivs = app.loanAppCI.viewModel.get("totownerDiv");
@@ -371,11 +378,18 @@
                 app.loginService.viewModel.hideloder();
                 if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
                 {
-
-                    //$msg= "Personal Information submitted successfully";
-                    //app.loginService.viewModel.mobileNotification($msg,'info');
-                    app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
-                    apps.navigate('views/loanAppFP.html');
+                    if(dataParam['personal_act'] === "Next")
+                    {
+                        //$msg= "Personal Information submitted successfully";
+                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
+                        apps.navigate('views/loanAppFP.html');
+                    }
+                    else
+                    {
+                    	app.loansetting.viewModel.unsetAllDataBindVar(); 
+                        apps.navigate('#tabstrip-home');
+                    }
 
                 }
                 else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")

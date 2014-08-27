@@ -963,18 +963,21 @@
         },
         	
 		loanAppBISubmit:function(e){
-             console.log(app);
-            delete app.loansetting.viewModel;
-            console.log(app);
-            
-            //apps.navigate('views/loanAppCI.html');
-            var status = $('#B2cAppForms').valid();
-            if(status === false)
-            return status;
-                
-            var that = this;
             dataParam =  {};
-
+            if(e.sender.element.context.dataset.name === "Next")
+            {
+                var status = $("#B2cAppForms").valid();
+                if(status === false)
+                return status;  
+                dataParam['business_act'] = 'Next';
+            }
+            else
+            {
+            	dataParam['business_act'] ='Save & Exit';
+            }
+            
+            //apps.navigate('views/loanAppCI.html'); 
+            var that = this;
             totbusinessDebtYesDiv = that.get("totbusinessDebtYesDiv");
 			deleteIds = that.get("deleteIds");
 			dataParam['apiaction']='loanappstep2';
@@ -982,7 +985,6 @@
             dataParam['fid']=(localStorage.getItem("fid") !== '') ?  localStorage.getItem("fid") : '';
             dataParam['type']='';
             dataParam['frmname']='b2cApp2';
-            dataParam['business_act']='Next';
             legal_business_name 				 	= that.get("legal_business_name").trim();
             dataParam['orgname']				 	= legal_business_name;
 
@@ -1330,13 +1332,19 @@
                 app.loginService.viewModel.hideloder();
                 if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
                 {
-
-                    //$msg= "Business Information submitted successfully";
-                    //app.loginService.viewModel.mobileNotification($msg,'info');
-                    localStorage.setItem("fid",data[0]['results']['fid']);
-                    app.loansetting.viewModel.SetCurrentfidStatus();
-       
-                    apps.navigate('views/loanAppCI.html');
+                    if(dataParam['business_act'] === "Next")
+                    {
+                        //$msg= "Business Information submitted successfully";
+                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        localStorage.setItem("fid",data[0]['results']['fid']);
+                        app.loansetting.viewModel.SetCurrentfidStatus();
+                        apps.navigate('views/loanAppCI.html');
+                    }
+                    else
+                    {
+                    	app.loansetting.viewModel.unsetAllDataBindVar();
+                        apps.navigate('#tabstrip-home');
+                    }
 
                 }
                 else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")

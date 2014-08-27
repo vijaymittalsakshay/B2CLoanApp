@@ -728,14 +728,20 @@
         },
         loanAppCISubmit:function(){
            //apps.navigate('views/loanAppPI.html');
-           var status = $("#b2cApp1").valid();
-           
-           if(status === false)
-           {
-				return false;   
-           }
-            var that = this;
             dataParam =  {};
+            if(e.sender.element.context.dataset.name === "Next")
+            {
+                var status = $("#b2cApp1").valid();
+                if(status === false)
+                return status;  
+                dataParam['contact_act'] = 'Next';
+            }
+            else
+            {
+           	 dataParam['contact_act'] ='Save & Exit';
+            }
+            
+            var that = this;
             dataParam['apiaction']='loanappstep1';
 			ownerFName = that.get("Owner_FirstName").trim();
 			ownerLName = that.get("Owner_LastName").trim(); 
@@ -761,7 +767,6 @@
             dataParam['fid'] = localStorage.getItem("fid");
 			dataParam['type'] = '';
 			dataParam['frmname'] = 'b2cApp1';
-			dataParam['contact_act'] = 'Next';
             dataParam['email']  = emailAdd;
             dataParam['OwnJobTitle'] = jobTitle;
             dataParam['OwnerHomePhone'] = '';
@@ -833,11 +838,18 @@
                 app.loginService.viewModel.hideloder();
                 if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
                 {
-
-                    //$msg= "Personal Information submitted successfully";
-                    //app.loginService.viewModel.mobileNotification($msg,'info');
-       			 app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);
-                    apps.navigate('views/loanAppPI.html');
+                    if(dataParam['contact_act'] === "Next")
+                    {
+                        //$msg= "Personal Information submitted successfully";
+                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);
+                        apps.navigate('views/loanAppPI.html');
+                    }
+                    else
+                    {
+                    	app.loansetting.viewModel.unsetAllDataBindVar();
+                        apps.navigate('#tabstrip-home');
+                    }
 
                 }
                 else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
