@@ -105,36 +105,85 @@
 
             if(status === false)
             {
-	            return false;
+            	return false;
             }
-          
-            var chkuseplan = [];
+            dataParam =  {};
             var that = this;
-            var funProperty 		= that.get("funding_priority"),
-            minimunLoanAmount   	= that.get("min_loan_amount").trim(),
-            maxLoanAmount	   	= that.get("max_loan_amount").trim();
+            var chkuseplan = [];
 
-            var agreement 		  = $("#agreement").is(':checked') ? 1 : 0;
-            var loanagreement 	  = $("#loanagreement").is(':checked') ? 1 : 0;
-            
+            dataParam['apiaction']='loanappstep4';
+            dataParam['cust_id']=localStorage.getItem("userID");
+            dataParam['fid']=localStorage.getItem("fid");
+            dataParam['type']='';
+            dataParam['frmname']='b2cApp4';
+            dataParam['prefer_act']='Next';    
+            dataParam['priority1']=that.get("funding_priority");
+            dataParam['ammount']=that.get("min_loan_amount").trim();
+            dataParam['txtmaxammount']=that.get("max_loan_amount").trim();
             $("#chkuseplan:checked").each(function() {
-           	 chkuseplan.push($(this).val());
+            	chkuseplan.push($(this).val());
             });
+            dataParam['chkuseplan']=chkuseplan;
+            dataParam['agreement']=$("#agreement").is(':checked') ? 1 : 0;
+            dataParam['loanagreement']=$("#loanagreement").is(':checked') ? 1 : 0;
+
+            dataParam['hidacccard']='';
+            dataParam['orgtype']='';
             
-           
-            console.log("Funding property :"+funProperty);
-            console.log("Minimunm loan amount :"+minimunLoanAmount);
-            console.log("Maximum loan amount :"+maxLoanAmount);
-            for(i=0;i<chkuseplan.length;i++)
-            {
-           	 console.log("chkuseplan[]:"+chkuseplan[i]);
-            }
-            console.log("agreement :"+agreement);
-            console.log("loanagreement :"+loanagreement);
-            // dataParam['cust_id'] = localStorage.getItem("userID");
-            // dataParam['fid'] = localStorage.getItem("fid");
-            // dataParam['type'] = '';
-            //dataParam['frmname'] = 'b2cApp4';
+            console.log(dataParam);
+            app.loginService.viewModel.showloder();
+            var dataSource = new kendo.data.DataSource({
+                transport: {
+                read: {
+                    url: "http://sandbox.biz2services.com/mobapp/api/loanapp",
+                    type:"POST",
+                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: dataParam
+            	}
+            },
+            schema: {
+                data: function(data)
+                {
+                	return [data];
+                }
+            },
+            error: function (e) {
+                apps.hideLoading();
+                navigator.notification.alert("Server not responding properly.Please check your internet connection.",
+                function () { }, "Notification", 'OK');
+            },
+
+            });
+            dataSource.fetch(function(){
+
+                var data = this.data();
+                app.loginService.viewModel.hideloder();
+                if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
+                {
+                    //$msg= "Personal Information submitted successfully";
+                    //app.loginService.viewModel.mobileNotification($msg,'info');
+                    app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
+                    apps.navigate('#tabstrip-home');
+                }
+                else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
+                {
+                    //$msg= "Personal Information not submitted successfully.";
+                   // app.loginService.viewModel.mobileNotification($msg,'info'); 
+                    return;
+                }
+                else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
+                {
+                    //$msg= "Please enter all fields.";
+                    //app.loginService.viewModel.mobileNotification($msg,'info');
+                    return;
+                }
+                else{
+                    //$msg= "Server not responding properly,Please try again";
+                    //app.loginService.viewModel.mobileNotification($msg,'info');
+                    return;
+                }            
+
+                });
         }
     });
     

@@ -69,7 +69,7 @@
             	app.loansetting.viewModel.creditCardValidate();
             }
         },
-        show:function() {
+        show:function() {    
             
             if(localStorage.getItem("fid") === '')
             {
