@@ -284,8 +284,8 @@
         loanAppPIpage:function(e)
         {
             dataParam =  {};
-
-            if(e.sender.context.element.dataset.name === "Next")
+            
+            if(e.sender.element.context.dataset.name === "Next")
             {
                 var status = $("#b2cApp3").valid();
                 if(status === false)
@@ -299,13 +299,11 @@
                     // apps.navigate('views/loanAppFP.html');
 
             var that = this;
-            dataParam = {};
             var per_income = that.get("avg_month_income");
             var per_ome	= that.get("avg_month_expense");
             dataParam['apiaction']	= 'loanappstep3';
             dataParam['per_income'] = per_income;
             dataParam['per_ome']	= per_ome;
-            
             dataParam['cust_id'] = localStorage.getItem("userID");
             dataParam['fid'] = localStorage.getItem("fid");
 			dataParam['type'] = '';

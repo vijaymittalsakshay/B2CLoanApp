@@ -727,6 +727,7 @@
                 that.set("aredyownerdeleteIds",ids);
         },
         loanAppCISubmit:function(e){
+            console.log(e);
            //apps.navigate('views/loanAppPI.html');
             dataParam =  {};
             if(e.sender.element.context.dataset.name === "Next")
