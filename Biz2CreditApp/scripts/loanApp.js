@@ -68,6 +68,43 @@
                 
             	app.loansetting.viewModel.creditCardValidate();
             }
+            $("#state").kendoDropDownList({
+                dataTextField: "state",
+                dataValueField: "id",
+                dataSource: new kendo.data.DataSource({         
+                    transport: {
+                    read: {
+                        url: " data/jos_state.json",
+                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    }
+                    }
+                }),
+                optionLabel: {
+                	state: "Select State",
+                	id: ""
+                },
+  			animation: false
+            });
+
+            $("#cmbCity").kendoDropDownList({
+                cascadeFrom: "state",
+                cascadeFromField: "state_id",
+                dataTextField: "city",
+                dataValueField: "pid",
+                dataSource: new kendo.data.DataSource({         
+                    transport: {
+                    read: {
+                        url: " data/jos_city.json",
+                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    }
+                    }
+                }),
+                optionLabel: {
+                	city: "Select City",
+                	pid: ""
+                },
+                animation: false
+            });
         },
         show:function() {    
             
