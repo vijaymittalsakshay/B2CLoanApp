@@ -123,7 +123,7 @@
                                     </p>
 
                                     <p>
-                                        <input type="text" class="IN1 ipsm1 valid" name="zipcode"  id="zipcode" title="Zip Code" data-bind="value: zip_code" placeholder="Zip Code" required />
+                                        <input type="text" class="IN1 ipsm1 valid" name="zipcode"  id="zipcode" title="Zip Code" data-bind="value: zip_code" placeholder="Zip Code" maxlength="5" required />
                                     </p>
                                     <p class="LargePhone">
                                         <input type="text" placeholder="Mobile Number" id="businessphone" name="businessphone" data-bind="value: mobile_number" class="IN1 ipsm1 smphone valid" original-title="Mobile Number" value="111-111-1111" maxlength="10">
@@ -182,8 +182,6 @@
                                     <p>
                                         <select name="orgcategory" id="orgcategory" class="IN5"    title='Select Sub Industry'   data-bind="value: sub_industry" required>
                                             <option value="">Select Sub Industry</option>
-                                            <option value="3" >Utilities </option>
-                                            <option value="6" >Wholesale Trade</option>
                                         </select>
                                     </p>
                                 </div>
@@ -1365,7 +1363,6 @@
 </div>
 <script>
     function createCityCmbFirst(val , NumOfDiv){	  
-
             $("#cmbCity").after('<div id="loader"></div>');
 			$('#cmbCity').attr("disabled","disabled");
 			$('#state').attr("disabled","disabled");
@@ -1378,14 +1375,12 @@
                 }
             },
             filter: { field: "state_id", operator: "eq", value: val }
-
             });
             dataSource.fetch(function(){
-
                 var view = dataSource.view();
                 var html='<option value="" selected="selected">Select City</option>';
                 $.each(view, function( index, value ) {
-                	html+='<option key="'+value['pid']+'">'+value['city']+'</option>';
+                	html+='<option value="'+value['pid']+'">'+value['city']+'</option>';
                 });
         
                 $("#cmbCity").html(html);
@@ -1396,23 +1391,35 @@
             });
     }
     function displayorgCategory(val){
-        $.ajax({
-            url: "https://www.biz2beta.com/serverexe.php",
-            type: "GET",
-            data: { "orgmaster": val},
-            beforeSend: function(){
-                $("#orgcategory").after('<div id="loader"></div>');
-                $('#orgcategory').attr("disabled","disabled");
-                $('#orgtype').attr("disabled","disabled");
+        console.log(val);
+            $("#orgcategory").after('<div id="loader"></div>');
+            $('#orgcategory').attr("disabled","disabled");
+            $('#orgtype').attr("disabled","disabled");
+            var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "data/jos_subindustry.json",
+                    type:"GET",
+                    dataType: "json",
+                }
             },
-            success: function(data) {
-                $("#orgcategory").html(data);
+            filter: { field: "oid", operator: "eq", value: val }
+            });
+            dataSource.fetch(function(){
+     
+                var view = dataSource.view();
+           console.log(view);
+                var html='<option value="" selected="selected">Select Sub Industry</option>';
+                $.each(view, function( index, value ) {
+                	html+='<option value="'+value['cid']+'">'+value['catname']+'</option>';
+                });
+        
+                $("#orgcategory").html(html);
                 $("#loader").remove();
                 $('#orgcategory').removeAttr("disabled");
                 $('#orgtype').removeAttr("disabled");
-
-            }          
-        });
+          
+            });
     }
  
 </script>

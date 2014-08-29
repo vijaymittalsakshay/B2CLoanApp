@@ -325,14 +325,28 @@
                         else
                         {
                             dataParam['check_credit_score'+c] = 'N';
-                            dataParam['cscoreknown'+c] = viewCModel.get('cscoreknown'+c);
                             var check_value = [];
                             $("#ownercscore"+c+" .reset:checked").each(function() {
                             	check_value.push($(this).val());
                             
                             });
-                            dataParam['chk_reason'+c] = check_value;
-                            dataParam['credittype'+c] = viewCModel.get('credittype'+c);
+                            
+                            if(viewCModel.get('cscoreknown'+c) === '')
+                            {
+                                dataParam['chk_reason'+c] = '';
+                                dataParam['credittype'+c] = 600;
+                            }
+                            else
+                            {
+                                dataParam['chk_reason'+c] = check_value;
+                                dataParam['credittype'+c] = viewCModel.get('credittype'+c);
+                                if(viewCModel.get('credittype'+c)>=659)
+                                {
+                                    dataParam['chk_reason'+c]='';
+                                }
+                                
+                            }
+                            dataParam['cscoreknown'+c] = viewCModel.get('cscoreknown'+c);   
                             
                         }
                         if(c ===0)

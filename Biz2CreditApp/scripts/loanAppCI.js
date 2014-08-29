@@ -574,7 +574,7 @@
             str += "<p id='ownerCity"+NumOfDiv+"'>\
             <select class='IN1b ipsm3' name='own_city"+NumOfDiv+"' id='own_city"+NumOfDiv+"' data-bind='value:own_city"+NumOfDiv+"' original-title='Select City'><option value=''>Select City</option></select></p>";
 
-            str += "<p><input maxlength='5' type='text' class='IN1 ipsm1' name='OwnZipCode"+NumOfDiv+"' data-bind='value:OwnZipCode"+NumOfDiv+"' id='OwnZipCode"+NumOfDiv+"' orignal-title='Zip Code' placeholder='Zip Code' value='' /></p>";
+            str += "<p><input maxlength='5' type='text' class='IN1 ipsm1' name='OwnZipCode"+NumOfDiv+"' data-bind='value:OwnZipCode"+NumOfDiv+"' id='OwnZipCode"+NumOfDiv+"' orignal-title='Zip Code' placeholder='Zip Code' value='' maxlength='5' /></p>";
             str += '</div></div></div>';
 
             str += '<div class="clear"></div>';
@@ -597,25 +597,34 @@
             str += '</div></div>';
             return str;
 		},
-        createStateCmb:function (NumOfDiv) {
-            var str='';        
-            var val= 253;
-            $.ajax({
-            	url: "https://www.biz2beta.com/serverexe.php",
-            	type: "GET",
-            	data: { "cmb_ownstate": val },
-            	beforeSend: function(){
-            		$('#ownerState'+NumOfDiv+'').after('<div id="loader"></div>');
-            		$('#own_city'+NumOfDiv+'').attr("disabled","disabled");                    
-            	},
-            	success: function(data) {                     				
-            		str = "<select name='own_state"+NumOfDiv+"' id='own_state"+NumOfDiv+"' class='IN1b ipsm1' data-bind='value:own_state"+NumOfDiv+"' original-title='Select State' onChange='javascript:createCityCmb(this.value, "+NumOfDiv +")'>"+data+"</select>";                    
-            		$('#ownerState'+NumOfDiv+'').html(str); 
-            		$('#own_city'+NumOfDiv+'').removeAttr("disabled","disabled");
-                    kendo.bind($("#own_state"+NumOfDiv), viewCModel);
-            		return str;                
-            	}          
-            });	
+        createStateCmb:function (NumOfDiv) {       
+           var str='';        
+            $('#ownerState'+NumOfDiv+'').after('<div id="loader"></div>');
+            $('#own_city'+NumOfDiv+'').attr("disabled","disabled"); 
+            var dataSource = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: "data/jos_state.json",
+                        type:"GET",
+                        dataType: "json",
+                    }
+            },
+            filter: { field: "countryid", operator: "eq", value: 253 }
+            });
+            dataSource.fetch(function(){
+                var view = dataSource.view();
+                var html='<option value="" selected="selected">Select State</option>';
+                $.each(view, function( index, value ) {
+                	html+='<option value="'+value['id']+'">'+value['state']+'</option>';
+            	});
+
+                str = "<select name='own_state"+NumOfDiv+"' id='own_state"+NumOfDiv+"' class='IN1b ipsm1' data-bind='value:own_state"+NumOfDiv+"' original-title='Select State' onChange='javascript:createCityCmb(this.value, "+NumOfDiv +")'>"+html+"</select>";                    
+                $('#ownerState'+NumOfDiv+'').html(str); 
+                $('#own_city'+NumOfDiv+'').removeAttr("disabled","disabled");
+                kendo.bind($("#own_state"+NumOfDiv), viewCModel);
+                return str;                
+
+            });
             
             
 		},
