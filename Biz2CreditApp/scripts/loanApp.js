@@ -68,7 +68,7 @@
                 
             	app.loansetting.viewModel.creditCardValidate();
             }
-            $("#state").kendoDropDownList({
+         /*  $("#state").kendoComboBox({
                 dataTextField: "state",
                 dataValueField: "id",
                 dataSource: new kendo.data.DataSource({         
@@ -79,14 +79,12 @@
                     }
                     }
                 }),
-                optionLabel: {
-                	state: "Select State",
-                	id: ""
-                },
+placeholder: "Select State",	
   			animation: false
             });
+            
 
-            $("#cmbCity").kendoDropDownList({
+            $("#cmbCity").kendoComboBox({
                 cascadeFrom: "state",
                 cascadeFromField: "state_id",
                 dataTextField: "city",
@@ -99,12 +97,9 @@
                     }
                     }
                 }),
-                optionLabel: {
-                	city: "Select City",
-                	pid: ""
-                },
+                placeholder: "Select City",
                 animation: false
-            });
+            });*/
         },
         show:function() {    
             

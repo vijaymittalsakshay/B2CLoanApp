@@ -58,8 +58,61 @@
 
                                 <div class="rw_lin clearfix">
                                     <p>
-                                        <select class="IN1b ipsm3 valid" name="state"  id="state"  title="Select State"  data-bind="value: select_state"  required>
+                                        <select class="IN1b ipsm3 valid" name="state"  id="state"  title="Select State"  data-bind="value: select_state"  onchange="createCityCmbFirst(this.value, '');" required>
                                             <option value="" selected="selected">Select State</option>
+                                            <option value="1">Alabama</option>
+                                            <option value="2">Alaska</option>
+                                            <option value="4">Arizona</option>
+                                            <option value="5">Arkansas</option>
+                                            <option value="9">California</option>
+                                            <option value="10">Colorado</option>
+                                            <option value="11">Connecticut</option>
+                                            <option value="12">Delaware</option>
+                                            <option value="13">District of Columbia</option>
+                                            <option value="15">Florida</option>
+                                            <option value="16">Georgia</option>
+                                            <option value="18">Hawaii</option>
+                                            <option value="19">Idaho</option>
+                                            <option value="20">Illinois</option>
+                                            <option value="21">Indiana</option>
+                                            <option value="22">Iowa</option>
+                                            <option value="23">Kansas</option>
+                                            <option value="24">Kentucky</option>
+                                            <option value="25">Louisiana</option>
+                                            <option value="26">Maine</option>
+                                            <option value="28">Maryland</option>
+                                            <option value="29">Massachusetts</option>
+                                            <option value="30">Michigan</option>
+                                            <option value="31">Minnesota</option>
+                                            <option value="32">Mississippi</option>
+                                            <option value="33">Missouri</option>
+                                            <option value="34">Montana</option>
+                                            <option value="35">Nebraska</option>
+                                            <option value="36">Nevada</option>
+                                            <option value="37">New Hampshire</option>
+                                            <option value="38">New Jersey</option>
+                                            <option value="39">New Mexico</option>
+                                            <option value="40">New York</option>
+                                            <option value="41">North Carolina</option>
+                                            <option value="42">North Dakota</option>
+                                            <option value="44">Ohio</option>
+                                            <option value="45">Oklahoma</option>
+                                            <option value="46">Oregon</option>
+                                            <option value="47">Pennsylvania</option>
+                                            <option value="48">Puerto Rico</option>
+                                            <option value="49">Rhode Island</option>
+                                            <option value="50">South Carolina</option>
+                                            <option value="51">South Dakota</option>
+                                            <option value="52">Tennessee</option>
+                                            <option value="53">Texas</option>
+                                            <option value="54">Utah</option>
+                                            <option value="55">Vermont</option>
+                                            <option value="102">Virgin Islands</option>
+                                            <option value="57">Virginia</option>
+                                            <option value="58">Washington</option>
+                                            <option value="60">West Virginia</option>
+                                            <option value="61">Wisconsin</option>
+                                            <option value="62">Wyoming</option>
                                         </select>
                                     </p>
 
@@ -1311,24 +1364,36 @@
  
 </div>
 <script>
-    function createCityCmbFirst(val , NumOfDiv){
-  			console.log('call');		  
-        $.ajax({
-		url: "https://www.biz2beta.com/serverexe.php",
-		type: "GET",
-		data: { "statemaster": val},
-		 beforeSend: function(){
-			$("#cmbCity").after('<div id="loader"></div>');
+    function createCityCmbFirst(val , NumOfDiv){	  
+
+            $("#cmbCity").after('<div id="loader"></div>');
 			$('#cmbCity').attr("disabled","disabled");
 			$('#state').attr("disabled","disabled");
-		 },
-		 success: function(data) {
-				$("#cmbCity").html(data);
-				$("#loader").remove();
-				$('#cmbCity').removeAttr("disabled");
-				$('#state').removeAttr("disabled");
-		}          
-		 });
+            var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "data/jos_city.json",
+                    type:"GET",
+                    dataType: "json",
+                }
+            },
+            filter: { field: "state_id", operator: "eq", value: val }
+
+            });
+            dataSource.fetch(function(){
+
+                var view = dataSource.view();
+                var html='<option value="" selected="selected">Select City</option>';
+                $.each(view, function( index, value ) {
+                	html+='<option key="'+value['pid']+'">'+value['city']+'</option>';
+                });
+        
+                $("#cmbCity").html(html);
+                $("#loader").remove();
+                $('#cmbCity').removeAttr("disabled");
+                $('#state').removeAttr("disabled");
+          
+            });
     }
     function displayorgCategory(val){
         $.ajax({
