@@ -175,7 +175,7 @@
                     	
                         dDescription='Please start your application in order to get matched to pre-qualified funding opportunities';
                         dButtonText = "Start an Application";
-                        dButtonLink ="#tabstrip-mess-one";
+                        dButtonLink ="views/loanAppBI.html";
                     }
                if((cntGetStarted>=1 && loan_total===0) || (loan_total===loan_ended)) {
                    
@@ -190,13 +190,13 @@
                 		
                 		dDescription='Please start your application in order to get matched to pre-qualified funding opportunities';
                 		dButtonText = "Start an Application";
-                		dButtonLink ="#tabstrip-mess-one";
+                		dButtonLink ="views/loanAppBI.html";
                     }
                 if(cntGetStarted===0 && loan_total===0) {
                         dHeader='Hi '+userName+', We have 1200+ lenders to finance your needs';
                         dDescription='Please start your application in order to get matched to pre-qualified funding opportunities';
                         dButtonText = "Start an Application";
-                        dButtonLink ="#tabstrip-mess-one";
+                        dButtonLink ="views/loanAppBI.html";
     				}
                /* if(loan_total === loan_saved && loan_total>0) {
     					dHeader= userName+', your loan application is incomplete.';
@@ -248,7 +248,7 @@
                     dHeader='Congratulations '+userName+'!';
                     dDescription='Please reapply when you need additional funds or would like to refinance.';
                     dButtonText = "Start an Application";
-                    dButtonLink ="#tabstrip-mess-one";
+                    dButtonLink ="views/loanAppBI.html";
                 }
                 
                 $('#stps ul li').removeClass();
@@ -273,11 +273,12 @@
                 
                 $("#home-call-btn").html("");
                 
-                dHeader='Congratulations '+userName+'!';
+                
                 localStorage.setItem("fid",'');
-                dDescription='Please reapply when you need additional funds or would like to refinance.';
-                dButtonText = "Start an Application";
-                dButtonLink ="views/loanAppBI.html";
+                //dHeader='Congratulations '+userName+'!';
+                //dDescription='Please reapply when you need additional funds or would like to refinance.';
+               // dButtonText = "Start an Application";
+                //dButtonLink ="views/loanAppBI.html";
                 if(dButtonLink === "views/matches.html")
                 {
                     var html = '<a class="btngr" href="'+dButtonLink+'" data-role="button">'+dButtonText+'</a>';

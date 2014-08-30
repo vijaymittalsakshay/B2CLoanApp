@@ -184,6 +184,14 @@
                 }            
 
                 });
+        },
+        resetLoanAppFPForm:function()
+        {
+        	var that = this;
+        	that.set("funding_priority"," ");
+        	that.set("min_loan_amount"," ");
+        	that.set("max_loan_amount"," ");
+        	that.set("colateral"," ");
         }
     });
     

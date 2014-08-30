@@ -958,6 +958,33 @@
             
             
         },
+        resetLoanAppCIForm:function()
+        {           
+        	var that = this;
+
+        	that.set("Owner_FirstName"," ");
+        	that.set("Owner_LastName"," ");
+        	that.set("Owner_email"," ");
+        	that.set("Owner_JobTitle"," ");
+        	that.set("Owner_Civic"," ");
+        	that.set("Owner_StreetAddress"," ");
+        	that.set("state_user"," ");
+        	that.set("cmbCity"," ");
+        	that.set("cmbCity"," ");
+        	that.set("OwnZipCode"," ");
+        	that.set("owner_month"," ");
+        	that.set("owner_day"," ");
+        	that.set("owner_year"," ");
+        	that.set("own_percent"," ");
+        	that.set("ownercurrntControl"," ");
+        	that.set("totownerDiv"," ");
+        	that.set("ownerdeleteIds"," ");
+        	that.set("deldbownerids"," ");
+        	that.set("own_id0"," ");
+        	that.set("creditScore0"," ");
+        	that.set("reasonlscore0"," ");
+        	that.set("isCheckScore0"," ");
+        }
   
         
     });

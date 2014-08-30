@@ -68,46 +68,9 @@
                 
             	app.loansetting.viewModel.creditCardValidate();
             }
-         /*  $("#state").kendoComboBox({
-                dataTextField: "state",
-                dataValueField: "id",
-                dataSource: new kendo.data.DataSource({         
-                    transport: {
-                    read: {
-                        url: " data/jos_state.json",
-                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    }
-                    }
-                }),
-placeholder: "Select State",	
-  			animation: false
-            });
-            
-
-            $("#cmbCity").kendoComboBox({
-                cascadeFrom: "state",
-                cascadeFromField: "state_id",
-                dataTextField: "city",
-                dataValueField: "pid",
-                dataSource: new kendo.data.DataSource({         
-                    transport: {
-                    read: {
-                        url: " data/jos_city.json",
-                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    }
-                    }
-                }),
-                placeholder: "Select City",
-                animation: false
-            });*/
         },
-        show:function() {    
-            
-            if(localStorage.getItem("fid") === '')
-            {
-                app.loansetting.viewModel.unsetAllDataBindVar();
-            }
-            
+        show:function() {
+            console.log(app);
             $("#add-form").unbind('.myPlugin');
             $(".outDebt").unbind(".myPlugin");
 
@@ -1467,11 +1430,68 @@ placeholder: "Select State",
             {
 					alert('call');
             },
-            unsetAllDataBindVar:function()
-            {
+            resetLoanAppBIForm:function()
+			{
                 var that = this;
-                that.set("legal_business_name","");
-                localStorage.setItem("fid" ,"");
+                localStorage.setItem("fid"," ");
+                that.set("legal_business_name"," ");
+                that.set("dba_name"," ");
+                that.set("street_no"," ");
+                that.set("street_name"," ");
+                that.set("apt_suite_unit"," ");
+                that.set("select_state"," ");
+                that.set("select_city"," ");
+                that.set("zip_code"," ");
+                that.set("mobile_number"," ");
+                that.set("select_b_l_s"," ");
+                that.set("industry"," ");
+                that.set("sub_industry"," ");
+                that.set("select_buss_s_m"," ");
+                that.set("select_buss_s_y"," ");
+                that.set("yettostart"," ");
+                that.set("average_annual_revenue"," ");
+                that.set("buss_operating_expenses"," "); 
+                $("input[type=radio]" ).attr( "checked",false);
+                that.set("acceptcard_yes"," ");
+                that.set("acceptcard_no"," ");
+                that.set("datefirstProcessed_month"," ");
+                that.set("datefirstProcessed_day"," ");
+                that.set("datefirstProcessed_year"," ");
+                that.set("c_c_card_processor"," ");
+                that.set("merchant_id"," ");
+                that.set("MonthlyVolumeAmountsList1"," ");
+                that.set("MonthlyVolumeTicketsList1"," ");
+                that.set("MonthlyVolumeAmountsList2"," ");
+                that.set("MonthlyVolumeTicketsList2"," ");
+                that.set("MonthlyVolumeAmountsList3"," ");
+                that.set("MonthlyVolumeTicketsList3"," ");
+                that.set("MonthlyVolumeAmountsList4"," ");
+                that.set("MonthlyVolumeTicketsList4"," ");
+                that.set("debttype_yes"," ");
+                that.set("debttype_no"," ");
+                that.set("selectdebttype"," ");
+                that.set("selDisbursed"," ");
+                that.set("busproInfo_owned"," ");
+                that.set("busproInfo_leased"," ");
+                that.set("outstandingMort_yes"," ");
+                that.set("outstandingMort_no"," ");
+                that.set("mortgage_bank"," ");
+                that.set("outs_bal"," ");
+                that.set("month_mort_amount"," ");
+                that.set("monthly_rent"," ");
+                that.set("landlord_name"," ");
+                that.set("contact_number"," ");
+                that.set("real_state"," ");
+                that.set("inventory"," ");
+                that.set("equip_finance"," ");
+                that.set("account_rece"," ");
+                that.set("currntControl"," ");
+                that.set("totbusinessDebtYesDiv"," ");
+                that.set("deleteIds"," ");
+                that.set("dnb_dun_no"," ");
+                that.set("busi_out_mort_type_yes"," ");
+                that.set("busi_out_mort_type_no"," ");
+                that.set("debttype"," ");
             },
             SetCurrentfidStatus:function()
             {

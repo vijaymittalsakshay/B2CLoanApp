@@ -312,8 +312,14 @@
             }
         },
         application: function()
-        {   
-             apps.navigate("views/loanApp.html");
+        {  
+            app.loansetting.viewModel.resetLoanAppBIForm();
+            app.loanAppCI.viewModel.resetLoanAppCIForm();
+            app.loanAppPI.viewModel.resetLoanAppPIForm();
+            app.loanFP.viewModel.resetLoanAppFPForm();
+			apps.navigate("views/loanAppBI.html");
+            
+            
         },
         mydocuments: function()
         {   

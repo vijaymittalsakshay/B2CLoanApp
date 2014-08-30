@@ -450,7 +450,13 @@
                     }
                 }
              
-        } 
+        },
+        resetLoanAppPIForm:function()
+        {
+        	var that=this;
+        	that.set("avg_month_income"," ");
+        	that.set("avg_month_expense"," ");
+        }
     });
    
     app.loanAppPI = {
