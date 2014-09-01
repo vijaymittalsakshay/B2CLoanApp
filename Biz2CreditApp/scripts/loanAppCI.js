@@ -28,10 +28,9 @@
         reasonlscore0:'',
         
         show:function(e) {
+            
             e.sender.reload=false;
             e.view.reload=false; 
-
-
             $("#add-ownerForm").unbind(".myPlugin");
             blegal;
             if(blegal === '' || blegal !== app.loansetting.viewModel.select_b_l_s)
@@ -968,12 +967,6 @@
         	that.set("reasonlscore0","");
         	that.set("isCheckScore0","");
             viewCModel = kendo.observable(); 
-        },
-        backLoanAppCI:function(e)
-        {
-            console.log(e.target.context.dataset.back);
-            //apps.navigate('views/movedocs.html?param='+params.checkstatus);
-            apps.navigate('views/loanAppBI.html?param='+e.target.context.dataset.back);
         }
   
         
