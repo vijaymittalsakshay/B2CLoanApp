@@ -71,7 +71,7 @@
         },
         show:function() {
             console.log(app);
-            console.log(viewFModel);
+            //console.log(viewFModel);
             $("#add-form").unbind('.myPlugin');
             $(".outDebt").unbind(".myPlugin");
 
