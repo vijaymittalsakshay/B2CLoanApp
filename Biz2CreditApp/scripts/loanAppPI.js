@@ -4,7 +4,9 @@
 
     loanPIViewModal = kendo.data.ObservableObject.extend({
 		currentfid:(localStorage.getItem("fid") !== '') ?  localStorage.getItem("fid") : '',
-        show:function() {
+        show:function(e) {
+            e.sender.reload=false;
+            e.view.reload=false; 
             $("#b2cApp3").validate({
                 rules: {
                     per_income: {

@@ -27,8 +27,9 @@
         creditScore0:'',
         reasonlscore0:'',
         
-        show:function() {
-            
+        show:function(e) {
+            e.sender.reload=false;
+            e.view.reload=false; 
 
 
             $("#add-ownerForm").unbind(".myPlugin");
@@ -967,6 +968,12 @@
         	that.set("reasonlscore0","");
         	that.set("isCheckScore0","");
             viewCModel = kendo.observable(); 
+        },
+        backLoanAppCI:function(e)
+        {
+            console.log(e.target.context.dataset.back);
+            //apps.navigate('views/movedocs.html?param='+params.checkstatus);
+            apps.navigate('views/loanAppBI.html?param='+e.target.context.dataset.back);
         }
   
         

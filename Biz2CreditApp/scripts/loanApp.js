@@ -70,7 +70,10 @@
             }
         },
         show:function(e) {
-            console.log(e);
+
+            e.sender.reload=false;
+            e.view.reload=false;  
+
             //console.log(viewFModel);
             $("#add-form").unbind('.myPlugin');
             $(".outDebt").unbind(".myPlugin");

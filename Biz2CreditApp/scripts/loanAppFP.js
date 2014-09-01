@@ -12,7 +12,9 @@
         agreement:0,
         loanagreement:0,
         
-        show:function(){
+        show:function(e){
+            e.sender.reload=false;
+            e.view.reload=false; 
             
             $.validator.addMethod("greaterThan",
                 function (value, element, param) {
