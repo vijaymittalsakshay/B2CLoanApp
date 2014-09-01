@@ -69,8 +69,8 @@
             	app.loansetting.viewModel.creditCardValidate();
             }
         },
-        show:function() {
-            console.log(app);
+        show:function(e) {
+            console.log(e);
             //console.log(viewFModel);
             $("#add-form").unbind('.myPlugin');
             $(".outDebt").unbind(".myPlugin");
