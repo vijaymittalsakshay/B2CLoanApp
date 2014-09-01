@@ -9,6 +9,8 @@
         min_loan_amount:'',
         max_loan_amount:'',
         colateral:[],
+        agreement:0,
+        loanagreement:0,
         
         show:function(){
             
@@ -130,7 +132,6 @@
             dataParam['hidacccard']='';
             dataParam['orgtype']='';
             
-            console.log(dataParam);
             app.loginService.viewModel.showloder();
             var dataSource = new kendo.data.DataSource({
                 transport: {
@@ -160,26 +161,27 @@
                 app.loginService.viewModel.hideloder();
                 if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
                 {
-                    //$msg= "Personal Information submitted successfully";
-                    //app.loginService.viewModel.mobileNotification($msg,'info');
+                    $msg= "Personal Information submitted successfully";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
                     app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
-                    apps.navigate('#tabstrip-home');
+                    app.homesetting.viewModel.homeShow(); 
+                    apps.navigate('views/matches.html');
                 }
                 else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
                 {
-                    //$msg= "Personal Information not submitted successfully.";
-                   // app.loginService.viewModel.mobileNotification($msg,'info'); 
+                    $msg= "Personal Information not submitted successfully.";
+                    app.loginService.viewModel.mobileNotification($msg,'info'); 
                     return;
                 }
                 else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
                 {
-                    //$msg= "Please enter all fields.";
-                    //app.loginService.viewModel.mobileNotification($msg,'info');
+                    $msg= "Please enter all fields.";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
                 }
                 else{
-                    //$msg= "Server not responding properly,Please try again";
-                    //app.loginService.viewModel.mobileNotification($msg,'info');
+                    $msg= "Server not responding properly,Please try again";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
                 }            
 
@@ -188,10 +190,13 @@
         resetLoanAppFPForm:function()
         {
         	var that = this;
-        	that.set("funding_priority"," ");
-        	that.set("min_loan_amount"," ");
-        	that.set("max_loan_amount"," ");
-        	that.set("colateral"," ");
+        	that.set("funding_priority",'');
+        	that.set("min_loan_amount",'');
+        	that.set("max_loan_amount",'');
+            that.set("agreement",0);
+            that.set("loanagreement",0);
+        	that.set("colateral",[]);
+            $("input[type=checkbox]" ).attr( "checked",false);
         }
     });
     

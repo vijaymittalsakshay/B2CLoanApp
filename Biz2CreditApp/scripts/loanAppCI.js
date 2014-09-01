@@ -17,19 +17,6 @@
         owner_day:'',
         owner_year:'',
         own_percent:'',
-        OwnerFirstName2:'',
-        OwnerLastName2:'',
-        OwnerEmail2:'',
-        OwnJobTitle2:'',
-        OwnerCivic2:'',
-        OwnerStreetAddress2:'',
-        state_user2:'',
-        cmbCity_user2:'',
-        OwnZipCode2:'',
-        owner_month2:'',
-        owner_day2:'',
-        owner_year2:'',
-        own_percent2:'',
         ownercurrntControl:0,
         totownerDiv:0,
         ownerdeleteIds:'',
@@ -479,12 +466,7 @@
                 var strdelownids = $("#deldbownerids").val(); 
                 var aredyodeleteIds = $("#aredyownerdeleteIds").val();
                 var downid = parseInt(viewCModel['own_id'+clickIndex]);
-                console.log('clickIndex'+clickIndex);
-                
-                console.log('aredyodeleteIds'+aredyodeleteIds);
-                console.log('strdelownids'+strdelownids);
-                console.log('downid'+downid);
-                
+           
                 if(downid>0){
                 	strdelownids = strdelownids+downid+","; 
                     aredyodeleteIds = aredyodeleteIds+index+",";
@@ -736,7 +718,6 @@
                 that.set("aredyownerdeleteIds",ids);
         },
         loanAppCISubmit:function(e){
-            console.log(e);
            //apps.navigate('views/loanAppPI.html');
             dataParam =  {};
             if(e.sender.element.context.dataset.name === "Next")
@@ -850,37 +831,38 @@
                 {
                     if(dataParam['contact_act'] === "Next")
                     {
-                        //$msg= "Personal Information submitted successfully";
-                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Personal Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);
                         apps.navigate('views/loanAppPI.html');
                     }
                     else
                     {
-                    	app.loansetting.viewModel.unsetAllDataBindVar();
+                    	app.loansetting.viewModel.resetLoanAppBIForm();
+                        app.loanAppCI.viewModel.resetLoanAppCIForm();
                         apps.navigate('#tabstrip-home');
                     }
 
                 }
                 else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
                 {
-                    //$msg= "Personal Information not submitted successfully.";
-                   // app.loginService.viewModel.mobileNotification($msg,'info'); 
+                    $msg= "Personal Information not submitted successfully.";
+                    app.loginService.viewModel.mobileNotification($msg,'info'); 
                     return;
                 }
                 else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
                 {
-                    //$msg= "Please enter all fields.";
-                    //app.loginService.viewModel.mobileNotification($msg,'info');
+                    $msg= "Please enter all fields.";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
                 }
                 else{
-                    //$msg= "Server not responding properly,Please try again";
-                    //app.loginService.viewModel.mobileNotification($msg,'info');
+                    $msg= "Server not responding properly,Please try again";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
-                }            
+                }           
 
-                });
+                }); 
        },
         addDynamicOwner:function(num)
         {
@@ -961,29 +943,30 @@
         resetLoanAppCIForm:function()
         {           
         	var that = this;
-
-        	that.set("Owner_FirstName"," ");
-        	that.set("Owner_LastName"," ");
-        	that.set("Owner_email"," ");
-        	that.set("Owner_JobTitle"," ");
-        	that.set("Owner_Civic"," ");
-        	that.set("Owner_StreetAddress"," ");
-        	that.set("state_user"," ");
-        	that.set("cmbCity"," ");
-        	that.set("cmbCity"," ");
-        	that.set("OwnZipCode"," ");
-        	that.set("owner_month"," ");
-        	that.set("owner_day"," ");
-        	that.set("owner_year"," ");
-        	that.set("own_percent"," ");
-        	that.set("ownercurrntControl"," ");
-        	that.set("totownerDiv"," ");
-        	that.set("ownerdeleteIds"," ");
-        	that.set("deldbownerids"," ");
-        	that.set("own_id0"," ");
-        	that.set("creditScore0"," ");
-        	that.set("reasonlscore0"," ");
-        	that.set("isCheckScore0"," ");
+			localStorage.setItem("fid",'');
+        	that.set("Owner_FirstName",(localStorage.getItem("userFName") !== '') ?  localStorage.getItem("userFName") : '');
+        	that.set("Owner_LastName","");
+        	that.set("Owner_email",(localStorage.getItem("userEmail") !== '') ?  localStorage.getItem("userEmail") : '');
+        	that.set("Owner_JobTitle","");
+        	that.set("Owner_Civic","");
+        	that.set("Owner_StreetAddress","");
+        	that.set("state_user","");
+        	that.set("cmbCity","");
+        	that.set("cmbCity","");
+        	that.set("OwnZipCode","");
+        	that.set("owner_month","");
+        	that.set("owner_day","");
+        	that.set("owner_year","");
+        	that.set("own_percent","");
+        	that.set("ownercurrntControl",0);
+        	that.set("totownerDiv",0);
+        	that.set("ownerdeleteIds","");
+        	that.set("deldbownerids","");
+        	that.set("own_id0","");
+        	that.set("creditScore0","");
+        	that.set("reasonlscore0","");
+        	that.set("isCheckScore0","");
+            viewCModel = kendo.observable(); 
         }
   
         

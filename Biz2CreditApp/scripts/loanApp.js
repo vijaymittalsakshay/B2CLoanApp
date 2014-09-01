@@ -959,6 +959,7 @@
         },
         	
 		loanAppBISubmit:function(e){
+            //apps.navigate('views/loanAppCI.html');
             dataParam =  {};
             if(e.sender.element.context.dataset.name === "Next")
             {
@@ -1338,7 +1339,7 @@
                     }
                     else
                     {
-                    	app.loansetting.viewModel.unsetAllDataBindVar();
+                    	app.loansetting.viewModel.resetLoanAppBIForm();
                         apps.navigate('#tabstrip-home');
                     }
 
@@ -1506,8 +1507,7 @@
                 }
                 $('#currntControl').val('');
                 kendo.unbind($("#outsta_debt"));
-				viewFModel = kendo.observable();
-                
+				viewFModel = kendo.observable();            
             },
             SetCurrentfidStatus:function()
             {

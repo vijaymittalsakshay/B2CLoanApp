@@ -1,4 +1,4 @@
-<div data-role="view" id="tabstrip-loanapp-bi" data-model="app.loansetting.viewModel"  data-show="app.loansetting.viewModel.show" data-after-show="app.loansetting.viewModel.afterShow">
+<div data-role="view" id="tabstrip-loanapp-bi" data-reload="true" data-model="app.loansetting.viewModel"  data-show="app.loansetting.viewModel.show" data-after-show="app.loansetting.viewModel.afterShow">
     <div data-role="header">
         <div data-role="navbar">
             <span data-role="view-title">
@@ -1230,8 +1230,9 @@
 
                         <div class="rws clearfix">
                             <div class="lftitb">Does your business have outstanding debt?</div>
-                            <div class="rw_lin clearfix">
-                                <div class="rwfil">
+                            <div class="rwfil clearfix">
+                            		<div class="rw_lin opt">
+                                
                                     <span>
                                         <input type="radio" class="outDebt" name="debttype" id="debttype" data-bind="value: debttype_yes" value="1" />
                                         <label for="yes">Yes</label>
@@ -1263,8 +1264,8 @@
 
                         <div class="rws clearfix">
                             <div class="lftitb">Business Property Information</div>
-                            <div class="rwfil">
-                                <div class="rw_lin clearfix">
+                            <div class="rwfil clearfix">
+                            		<div class="rw_lin opt">
                                     <span>
                                         <input type="radio" class="businf" id="busi_pro_info_type" name="busproInfo" data-bind="value: busproInfo_owned"  value="2" />
                                         <label for="yes">Owned</label>
