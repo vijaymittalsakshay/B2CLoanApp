@@ -1496,6 +1496,7 @@
                 that.set("busi_out_mort_type_yes",1);
                 that.set("busi_out_mort_type_no",0);
                 that.set("debttype","");
+                that.set("currentfidStatus",false);
                 if(typeof index === 'undefined')
                 {
                 	index = 0;
