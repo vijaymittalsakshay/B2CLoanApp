@@ -314,6 +314,7 @@
         application: function()
         {  
             app.loansetting.viewModel.resetLoanAppBIForm();
+            
             app.loanAppCI.viewModel.resetLoanAppCIForm();
             app.loanAppPI.viewModel.resetLoanAppPIForm();
             app.loanFP.viewModel.resetLoanAppFPForm();
