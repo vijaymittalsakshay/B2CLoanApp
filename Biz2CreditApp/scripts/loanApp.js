@@ -1511,7 +1511,7 @@
                     $('#debt'+index).remove();
                     $('#loan_'+index).remove();
                 }
-                $('#currntControl').val('');
+                $('#currntControl').val(0);
                 kendo.unbind($("#outsta_debt"));
 				viewFModel = kendo.observable();            
             },
