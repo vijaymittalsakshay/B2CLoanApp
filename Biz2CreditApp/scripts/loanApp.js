@@ -216,6 +216,7 @@
             $('.businf').click(function() {
                 var sel_value = $(this).val();
                 if (sel_value==='2') {
+                    $('#busi_out_mort_type.input[type=radio]').attr("checked",true);
                 	$('#busInfobx').show();
                 	$('#busInfobx2').hide();
                 } else {
@@ -960,8 +961,8 @@
         },
         	
 		loanAppBISubmit:function(e){
-           apps.navigate('views/loanAppCI.html');
-           /* dataParam =  {};
+           //apps.navigate('views/loanAppCI.html');
+            dataParam =  {};
             if(e.sender.element.context.dataset.name === "Next")
             {
                 var status = $("#B2cAppForms").valid();
@@ -1363,7 +1364,7 @@
                     return;
                 }            
 
-                });*/
+                });
 
         
             },
@@ -1437,6 +1438,9 @@
 			{
                 var that = this;
                 localStorage.setItem("fid",'');
+                $("#tabstrip-loanapp-bi").find(".km-scroll-container").css("-webkit-transform", "");
+                $("#tabstrip-loanapp-ci").find(".km-scroll-container").css("-webkit-transform", "");
+                
                 $('#credit_show,#outsta_debt,#busInfobx,#busInfobx2').hide();
                 $("input[type=radio]" ).attr( "checked",false);
                 that.set("legal_business_name",'');

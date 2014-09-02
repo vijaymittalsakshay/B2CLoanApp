@@ -271,7 +271,6 @@
                 }
                 
                 $("#home-call-btn").html("");
-                
                 localStorage.setItem("fid",'71108');
                 //dHeader='Congratulations '+userName+'!';
                 //dDescription='Please reapply when you need additional funds or would like to refinance.';

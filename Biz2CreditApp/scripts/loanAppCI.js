@@ -718,8 +718,8 @@
                 that.set("aredyownerdeleteIds",ids);
         },
         loanAppCISubmit:function(e){
-           apps.navigate('views/loanAppPI.html');
-          /*  dataParam =  {};
+           //apps.navigate('views/loanAppPI.html');
+            dataParam =  {};
             if(e.sender.element.context.dataset.name === "Next")
             {
                 var status = $("#b2cApp1").valid();
@@ -862,7 +862,7 @@
                     return;
                 }           
 
-                }); */
+                }); 
        },
         addDynamicOwner:function(num)
         {
