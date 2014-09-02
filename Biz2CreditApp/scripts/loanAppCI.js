@@ -27,10 +27,10 @@
         creditScore0:'',
         reasonlscore0:'',
         
-        show:function(e) {
+        show:function() {
             
-            e.sender.reload=false;
-            e.view.reload=false; 
+
+
             $("#add-ownerForm").unbind(".myPlugin");
             blegal;
             if(blegal === '' || blegal !== app.loansetting.viewModel.select_b_l_s)
@@ -831,8 +831,8 @@
                 {
                     if(dataParam['contact_act'] === "Next")
                     {
-                        //$msg= "Personal Information submitted successfully";
-                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Personal Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);
                         apps.navigate('views/loanAppPI.html');
                     }
@@ -846,19 +846,19 @@
                 }
                 else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
                 {
-                   // $msg= "Personal Information not submitted successfully.";
-                   // app.loginService.viewModel.mobileNotification($msg,'info'); 
+                    $msg= "Personal Information not submitted successfully.";
+                    app.loginService.viewModel.mobileNotification($msg,'info'); 
                     return;
                 }
                 else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
                 {
-                    //$msg= "Please enter all fields.";
-                   // app.loginService.viewModel.mobileNotification($msg,'info');
+                    $msg= "Please enter all fields.";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
                 }
                 else{
-                    //$msg= "Server not responding properly,Please try again";
-                    //app.loginService.viewModel.mobileNotification($msg,'info');
+                    $msg= "Server not responding properly,Please try again";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
                 }           
 
