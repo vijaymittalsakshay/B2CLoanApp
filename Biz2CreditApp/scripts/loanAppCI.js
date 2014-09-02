@@ -962,7 +962,9 @@
             oindex = that.get("totownerDiv");
             for(oindex; oindex>0 ; oindex--){
                     kendo.unbind($('#adddowner'+oindex));
+                	kendo.unbind($('#ownercscore'+oindex));
                     $('#adddowner'+oindex).remove();
+                    $('#ownercscore'+oindex).remove();
                 }
             kendo.unbind($('#ownercscore0'));
             $('#ownercscore0').remove();
