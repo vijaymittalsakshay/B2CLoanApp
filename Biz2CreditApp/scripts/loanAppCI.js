@@ -718,8 +718,8 @@
                 that.set("aredyownerdeleteIds",ids);
         },
         loanAppCISubmit:function(e){
-           //apps.navigate('views/loanAppPI.html');
-            dataParam =  {};
+           apps.navigate('views/loanAppPI.html');
+          /*  dataParam =  {};
             if(e.sender.element.context.dataset.name === "Next")
             {
                 var status = $("#b2cApp1").valid();
@@ -862,7 +862,7 @@
                     return;
                 }           
 
-                }); 
+                }); */
        },
         addDynamicOwner:function(num)
         {
@@ -959,13 +959,20 @@
         	that.set("owner_year","");
         	that.set("own_percent","");
         	that.set("ownercurrntControl",0);
-        	that.set("totownerDiv",0);
+            oindex = that.get("totownerDiv");
+            for(oindex; oindex>0 ; oindex--){
+                    kendo.unbind($('#adddowner'+oindex));
+                    $('#adddowner'+oindex).remove();
+                }
+            kendo.unbind($('#ownercscore0'));
+            $('#ownercscore0').remove();
         	that.set("ownerdeleteIds","");
         	that.set("deldbownerids","");
         	that.set("own_id0","");
         	that.set("creditScore0","");
         	that.set("reasonlscore0","");
         	that.set("isCheckScore0","");
+            that.set("totownerDiv",oindex);
             viewCModel = kendo.observable(); 
         }
   

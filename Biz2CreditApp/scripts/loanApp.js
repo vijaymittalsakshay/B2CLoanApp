@@ -960,8 +960,8 @@
         },
         	
 		loanAppBISubmit:function(e){
-            //apps.navigate('views/loanAppCI.html');
-            dataParam =  {};
+           apps.navigate('views/loanAppCI.html');
+           /* dataParam =  {};
             if(e.sender.element.context.dataset.name === "Next")
             {
                 var status = $("#B2cAppForms").valid();
@@ -1363,7 +1363,7 @@
                     return;
                 }            
 
-                });
+                });*/
 
         
             },

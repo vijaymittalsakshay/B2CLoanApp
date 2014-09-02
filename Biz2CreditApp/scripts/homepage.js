@@ -269,12 +269,10 @@
                 	$('#stps ul li:lt('+(pos-1)+')').addClass('dn');
            		 
                 }
-               
                 
                 $("#home-call-btn").html("");
                 
-                
-                localStorage.setItem("fid",'');
+                localStorage.setItem("fid",'71108');
                 //dHeader='Congratulations '+userName+'!';
                 //dDescription='Please reapply when you need additional funds or would like to refinance.';
                // dButtonText = "Start an Application";
