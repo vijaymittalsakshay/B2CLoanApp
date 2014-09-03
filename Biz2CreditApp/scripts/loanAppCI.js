@@ -30,7 +30,8 @@
         show:function(e) {
             
             e.sender.reload=false;
-            e.view.reload=false; 
+            e.view.reload=false
+			$(".km-scroll-container").css("-webkit-transform", ""); 
             $("#add-ownerForm").unbind(".myPlugin");
             blegal;
             if(blegal === '' || blegal !== app.loansetting.viewModel.select_b_l_s)
@@ -504,7 +505,7 @@
             var blegal = app.loansetting.viewModel.select_b_l_s;
             var str="<div class='rws rw1 clearfix' ><div class='lftit'>Applicant/Owner</div>";
             str += "<p><input type='text' class='IN1' name='OwnerFirstName"+NumOfDiv+"' id='OwnerFirstName"+NumOfDiv+"' data-bind='value:OwnerFirstName"+NumOfDiv+"' orignal-title='First Name' placeholder='First Name' value='' /></p>";
-            str += "<p><input type='text' class='IN1' style='width: 312px;' name='OwnerLastName"+NumOfDiv+"' id='OwnerLastName"+NumOfDiv+"' data-bind='value:OwnerLastName"+NumOfDiv+"' orignal-title='Last Name' placeholder='Last Name' value='' />";
+            str += "<p><input type='text' class='IN1' name='OwnerLastName"+NumOfDiv+"' id='OwnerLastName"+NumOfDiv+"' data-bind='value:OwnerLastName"+NumOfDiv+"' orignal-title='Last Name' placeholder='Last Name' value='' />";
             str += "<input type='hidden'  name='own_id"+NumOfDiv+"' id='own_id"+NumOfDiv+"'  value='' />";
             str += "<input type='hidden'  name='isCheckScore"+NumOfDiv+"' id='isCheckScore"+NumOfDiv+"'  value='' />";
             str += "<input type='hidden'  name='creditScore"+NumOfDiv+"' id='creditScore"+NumOfDiv+"'  value='' />";
@@ -831,13 +832,15 @@
                 {
                     if(dataParam['contact_act'] === "Next")
                     {
-                        //$msg= "Personal Information submitted successfully";
-                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Contact Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);
                         apps.navigate('views/loanAppPI.html');
                     }
                     else
                     {
+                        $msg= "Contact Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                     	app.loansetting.viewModel.resetLoanAppBIForm();
                         app.loanAppCI.viewModel.resetLoanAppCIForm();
                         apps.navigate('#tabstrip-home');
@@ -846,19 +849,19 @@
                 }
                 else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
                 {
-                   // $msg= "Personal Information not submitted successfully.";
-                   // app.loginService.viewModel.mobileNotification($msg,'info'); 
+                    $msg= "Contact Information not submitted successfully.";
+                    app.loginService.viewModel.mobileNotification($msg,'info'); 
                     return;
                 }
                 else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
                 {
-                    //$msg= "Please enter all fields.";
-                   // app.loginService.viewModel.mobileNotification($msg,'info');
+                    $msg= "Please enter all fields.";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
                 }
                 else{
-                    //$msg= "Server not responding properly,Please try again";
-                    //app.loginService.viewModel.mobileNotification($msg,'info');
+                    $msg= "Server not responding properly,Please try again";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
                 }           
 

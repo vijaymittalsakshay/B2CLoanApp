@@ -72,7 +72,8 @@
         show:function(e) {
             
             e.sender.reload=false;
-            e.view.reload=false;  
+            e.view.reload=false;
+            $(".km-scroll-container").css("-webkit-transform", "");
             $("#add-form").unbind('.myPlugin');
             $(".outDebt").unbind(".myPlugin");
 
@@ -1297,11 +1298,6 @@
                 
             }
             
-            	
-			//console.log(dataParam);
-            
-            //console.log(viewFModel);
-            
             app.loginService.viewModel.showloder();
             var dataSource = new kendo.data.DataSource({
                 transport: {
@@ -1333,14 +1329,16 @@
                 {
                     if(dataParam['business_act'] === "Next")
                     {
-                        //$msg= "Business Information submitted successfully";
-                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Business Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         localStorage.setItem("fid",data[0]['results']['fid']);
                         app.loansetting.viewModel.SetCurrentfidStatus();
                         apps.navigate('views/loanAppCI.html');
                     }
                     else
                     {
+                        $msg= "Business Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                     	app.loansetting.viewModel.resetLoanAppBIForm();
                         apps.navigate('#tabstrip-home');
                     }
@@ -1348,19 +1346,19 @@
                 }
                 else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
                 {
-                    //$msg= "Business Information not submitted successfully.";
-                    //app.loginService.viewModel.mobileNotification($msg,'info'); 
+                    $msg= "Business Information not submitted successfully.";
+                    app.loginService.viewModel.mobileNotification($msg,'info'); 
                     return;
                 }
                 else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
                 {
-                    //$msg= "Please enter all fields.";
-                    //app.loginService.viewModel.mobileNotification($msg,'info');
+                    $msg= "Please enter all fields.";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
                 }
                 else{
-                    //$msg= "Server not responding properly,Please try again";
-                    //app.loginService.viewModel.mobileNotification($msg,'info');
+                    $msg= "Server not responding properly,Please try again";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
                 }            
 
@@ -1430,17 +1428,12 @@
                 delete viewFModel['txtFrequncyTerm'+num];
 
             },
-            loanAppBISubmitAndSave:function()
-            {
-					alert('call');
-            },
             resetLoanAppBIForm:function()
 			{
                 var that = this;
                 localStorage.setItem("fid",'');
                 $("#tabstrip-loanapp-bi").find(".km-scroll-container").css("-webkit-transform", "");
                 $("#tabstrip-loanapp-ci").find(".km-scroll-container").css("-webkit-transform", "");
-                
                 $('#credit_show,#outsta_debt,#busInfobx,#busInfobx2').hide();
                 $("input[type=radio]" ).attr( "checked",false);
                 that.set("legal_business_name",'');
@@ -1520,9 +1513,7 @@
             	var that = this;
             	that.set("currentfidStatus",true);
             }
-            
-            
-        
+
     });
    
     app.loansetting = {

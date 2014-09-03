@@ -19,7 +19,8 @@
         dButtonLink:(window.localStorage.getItem("dButtonLink") !== null) ?  localStorage.getItem("dButtonLink") : '',
         repaymentStatus:false,
         
-        homeShow: function (e) { 
+        homeShow: function (e) {
+            $(".km-scroll-container").css("-webkit-transform", "");
             $("[data-role=\"popover\"][id =\"popover-people\"]").each(function() {
             	$(this).parent().attr('id', 'dynamicCl');
                 

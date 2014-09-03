@@ -1381,7 +1381,7 @@
                 var view = dataSource.view();
                 var html='<option value="" selected="selected">Select City</option>';
                 $.each(view, function( index, value ) {
-                	html+='<option value="'+value['pid']+'">'+value['city']+'</option>';
+                	html+='<option value="'+value['pid']+'">'+value['city'].toLowerCase()+'</option>';
                 });
         
                 $("#cmbCity").html(html);
@@ -1392,7 +1392,6 @@
             });
     }
     function displayorgCategory(val){
-        console.log(val);
             $("#orgcategory").after('<div id="loader"></div>');
             $('#orgcategory').attr("disabled","disabled");
             $('#orgtype').attr("disabled","disabled");
@@ -1409,7 +1408,6 @@
             dataSource.fetch(function(){
      
                 var view = dataSource.view();
-           console.log(view);
                 var html='<option value="" selected="selected">Select Sub Industry</option>';
                 $.each(view, function( index, value ) {
                 	html+='<option value="'+value['cid']+'">'+value['catname']+'</option>';
@@ -1422,5 +1420,6 @@
           
             });
     }
+    
  
 </script>

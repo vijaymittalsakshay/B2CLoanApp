@@ -14,6 +14,7 @@
         fileExt:'',
         documentBeforeShow:function()
         {
+            $(".km-scroll-container").css("-webkit-transform", "");
           //$("[data-role=\"popover\"][id =\"popover-docs\"]").each(function() {
            //     $(this).parent().attr('id', 'dynamicCl');
           //  });
