@@ -316,7 +316,7 @@ footer a{ color:#FFF}
 #aplicn_frm .rws select.error{ border:1px solid #ffc000}
 #aplicn_frm label.error{ display:block; color:#fd3608 !important; font-size:11px; }
 #aplicn_frm input[type="text"]:focus{     background-color: #f6ffea;     color:#000000;    border:1px solid #bfe885 }
-#aplicn_frm .rws select { font-family:'OpenSansReg', Arial, Helvetica, sans-serif; font-size:12px; color:#333; padding:6px 7px 6px 7px; border:1px solid #CCC;  -webkit-border-radius:5px; border-radius: 5px; }
+#aplicn_frm .rws select { text-transform:lowercase; font-family:'OpenSansReg', Arial, Helvetica, sans-serif; font-size:12px; color:#333; padding:6px 7px 6px 7px; border:1px solid #CCC;  -webkit-border-radius:5px; border-radius: 5px; }
 #aplicn_frm .rws select option { font-family:'OpenSansReg', Arial, Helvetica, sans-serif; font-size:12px; color:#333; padding:1px 4px; }
 #aplicn_frm  .onwonwr{ padding:50px 0px; margin-bottom:40px; border-top:1px solid #CCC;}
 #aplicn_frm .que_hint{ width:25px; height:19px; margin-left:-4px; margin-right:14px; background-image:url(../styles/layout/quest_hint.png); background-repeat:no-repeat; display:inline-block;}
@@ -345,8 +345,8 @@ footer a{ color:#FFF}
 #aplicn_frm .showfilds_bx{ padding:10px 10px 6px 10px; margin-bottom:20px; background-color:#fffef2; border:1px solid #edd3aa;  -webkit-border-radius:5px; border-radius: 5px;  }
 #aplicn_frm .labl_tx{ padding:0px 0px 10px 0px; font-size:12px; font-family:'OpenSansBol', Arial, Helvetica, sans-serif; color:#333 }
 #aplicn_frm .labl_tx2{ padding:0px 0px 16px 0px; font-size:13px; font-family:'OpenSansReg', Arial, Helvetica, sans-serif; color:#333 }
-#aplicn_frm .rem_col{background-color: #999; background-image: none;border-radius: 3px; color: #fff;font-size: 14px;font-weight: bold;line-height: normal; margin-top: -30px; padding: 6px 10px !important; } 
-#aplicn_frm .add_oth{ background-image:url(../styles/layout/ic_add.png); background-repeat:no-repeat; padding:10px 18px 10px 25px; margin-top:20px; background-position:7px 10px; background-color:#99cc00; color:#fff; font-size:16px; line-height:12px; text-decoration:none;border-radius: 4px; font-family:'OpenSansBol', Arial, Helvetica, sans-serif; font-weight:normal; display:inline-block } 
+#aplicn_frm .rem_col{background-image: url("../styles/layout/ic_rem.png"); background-repeat: no-repeat; color: #f00;display: inline-block; float: right;font-family: 'open_sansbold',Arial,Helvetica,sans-serif; font-size: 12px;line-height: 12px;margin-top: 7px !important;padding: 0 0 0 19px;}
+#aplicn_frm .add_oth{ background-image: url("../styles/layout/ic_add-grn.png"); background-repeat: no-repeat; color: #63a308;display: inline-block; font-family: 'open_sansbold',Arial,Helvetica,sans-serif; font-size: 12px;line-height: 12px; margin-top: 8px;padding: 1px 0 2px 19px;} 
 #aplicn_frm .montrnt{ margin-top:10px; padding:25px; background-color:#f5f5f5; border:1px solid #cccccc; }
 #aplicn_frm .montrnt .artp{ height:1px; position:absolute; margin:-39px 0px 0px -25px; width:417px;}
 #aplicn_frm .montrnt.yes .artp{width:312px;}
@@ -379,7 +379,26 @@ html body #aplicn_frm .opt {padding-bottom: 11px; position: relative;}
 #row_owners .rw_lin.addons p a { text-decoration:none;}
 #debtwrapper .rem_col {margin: 2px 0;float: left;text-decoration: none;}
 .terms_prv {padding: 10px 10px 6px 10px;margin-bottom: 20px;background-color: #fffef2;border: 1px solid #edd3aa;-webkit-border-radius: 5px;border-radius: 5px;}
-.terms_prv a.blueLink, .terms_prv a.km-button {background-color: #99cc00;font-family: 'OpenSansBol', Arial, Helvetica, sans-serif;font-size:11px;color: #FFF;padding: 1px 14px 3px 14px;margin-left: 5px;-webkit-border-radius: 2px;border-radius: 2px;}
+.terms_prv a.blueLink, .terms_prv a.km-button {background-color: transparent;font-family: 'OpenSansBol', Arial, Helvetica, sans-serif;font-size:11px;color: #99cc33; border:0;padding:0 3px;}
+
+#B2cAppForms select { background-image: url(images/select-arrow.png); background-position: right center; background-repeat:no-repeat; background-size:5%; background-color: #fff;
+width: 99%;font-size: 0.8em;position: inherit;margin-top: 0;border: 1px solid #dcdcdc;border-radius: 3px;outline: 0;}
+.rwfilbc .terms_prv {background-color: #f5fae5; border: 1px solid #cada98;  color: #666; font-size: 13px; margin-bottom: 8px;padding: 16px 10px 10px 14px;}
+.k-tooltip {overflow:hidden;box-shadow: 1px 3px 0px #acacac; text-align:left; padding:10px 5px 5px; background-color:#fff !important; border:1px solid #ccc; position:absolute; border-radius:2px; z-index:50; width:210px;}
+.k-tooltip .k-tooltip-button { display:none;}
+.k-tooltip .k-tooltip-content { display:block; padding:0 10px 10px;}
+.k-tooltip .k-tooltip-content h6 {margin:0;color: #333; display: block;font-family: 'OpenSansLgt',Arial,Helvetica,sans-serif;font-size: 15px;font-weight: normal; padding-bottom: 10px;}
+.k-tooltip .k-tooltip-content p { padding:0;color: #515151; font-family: 'open_sansregular',Arial,Helvetica,sans-serif; margin:0;font-size: 11px;line-height: 14px;}
+#debtwrapper .rw_lin.addons {background-color: #eef9cc; border: 1px solid #cada98;margin:10px 0 0;padding: 10px 10px 0px 8px;}
+.rw_lin.cash_advns, .rw_lin.debt_crecrd, .rw_lin.lineofcred {margin-bottom: 8px;background-color: #f5fae5; padding: 10px 10px 0px 8px;border: 1px solid #cada98; border-top:0;}
+#outsta_debt.showfilds_bx { padding-top:0px;}
+#aplicn_frm .rw_lin #add-ownerForm.add_oth { background-image:url(../styles/layout/ic_add.png); background-repeat:no-repeat; padding:10px 18px 10px 25px; margin-top:20px; background-position:7px 10px; background-color:#99cc00; color:#fff; font-size:16px; line-height:12px; text-decoration:none;border-radius: 4px; font-family:'OpenSansBol', Arial, Helvetica, sans-serif; font-weight:normal; display:inline-block;}
+#aplicn_frm .row_owner p a.rem_col {background-color: #999; background-image: none;border-radius: 3px; color: #fff;font-size: 14px;font-weight: bold;line-height: normal; margin-top: -30px; padding: 6px 10px !important;}
+div.rwfilbc span.opt2 label.error {position:absolute;}
+#crdscorerYes0 h4 { margin:0; padding:0; color:#333; font-family:'OpenSansBol', Arial, Helvetica, sans-serif; font-size:12px;}
+html body #aplicn_frm ul.low_creditop li.opt2 label.error { left: 3px;position: absolute;top: 18px;}
+#aplicn_frm ul.low_creditop li.opt2 {position:relative; }
+
 
 @media screen and (min-width: 1024px){ 
 #aplicn_frm .rws .rwfil label{font-size: 0.7em; padding:0 10px 0 2px;}
@@ -559,15 +578,6 @@ ul.mobile li a:hover{ display:block; font-size:14px;  background-color:#000; col
 #aplicn_frm  .IN1b { width:295px; margin-right:0px;}
 #aplicn_frm .IN2 {width:267px; margin-right:0px;}
 }
-
-#B2cAppForms select { background-image: url(images/select-arrow.png); background-position: right center; background-repeat:no-repeat; background-size:5%; background-color: #fff;
-width: 99%;font-size: 0.8em;position: inherit;margin-top: 0;border: 1px solid #dcdcdc;border-radius: 3px;outline: 0;}
-.rwfilbc .terms_prv {background-color: #f5fae5; border: 1px solid #cada98;  color: #666; font-size: 13px; margin-bottom: 8px;padding: 16px 10px 10px 14px;}
-.k-tooltip {overflow:hidden;box-shadow: 1px 3px 0px #acacac; text-align:left; padding:10px 5px 5px; background-color:#fff !important; border:1px solid #ccc; position:absolute; border-radius:2px; z-index:50; width:210px;}
-.k-tooltip .k-tooltip-button { display:none;}
-.k-tooltip .k-tooltip-content { display:block; padding:0 10px 10px;}
-.k-tooltip .k-tooltip-content h6 {margin:0;color: #333; display: block;font-family: 'OpenSansLgt',Arial,Helvetica,sans-serif;font-size: 15px;font-weight: normal; padding-bottom: 10px;}
-.k-tooltip .k-tooltip-content p { padding:0;color: #515151; font-family: 'open_sansregular',Arial,Helvetica,sans-serif; margin:0;font-size: 11px;line-height: 14px;}
 
 
 
