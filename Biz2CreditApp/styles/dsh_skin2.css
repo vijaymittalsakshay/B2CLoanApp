@@ -382,7 +382,7 @@ html body #aplicn_frm .opt {padding-bottom: 11px; position: relative;}
 .terms_prv a.blueLink, .terms_prv a.km-button {background-color: transparent;font-family: 'OpenSansBol', Arial, Helvetica, sans-serif;font-size:11px;color: #99cc33; border:0;padding:0 3px;}
 
 #B2cAppForms select { background-image: url(images/select-arrow.png); background-position: right center; background-repeat:no-repeat; background-size:5%; background-color: #fff;
-width: 99%;font-size: 0.8em;position: inherit;margin-top: 0;border: 1px solid #dcdcdc;border-radius: 3px;outline: 0;}
+width: 99%;font-size: 0.8em;position: inherit;margin-top: 0;border: 1px solid #dcdcdc;border-radius: 3px;outline: 0;height:35px;}
 .rwfilbc .terms_prv {background-color: #f5fae5; border: 1px solid #cada98;  color: #666; font-size: 13px; margin-bottom: 8px;padding: 16px 10px 10px 14px;}
 .k-tooltip {overflow:hidden;box-shadow: 1px 3px 0px #acacac; text-align:left; padding:10px 5px 5px; background-color:#fff !important; border:1px solid #ccc; position:absolute; border-radius:2px; z-index:50; width:210px;}
 .k-tooltip .k-tooltip-button { display:none;}
