@@ -10,6 +10,10 @@
         email:"",
         name:"",
         forgotmail:"",
+        show:function()
+        {
+            app.loginService.viewModel.formValidateReset();
+        },
         validateUser:function()
         {
             var that = this,
@@ -324,6 +328,28 @@
         {   
              apps.navigate("views/documents.html");
         },
+        formValidateReset:function()
+        {
+            
+            if($('#B2cAppForms').data('validator') !== null)
+            {
+                $('#B2cAppForms').data('validator').resetForm(); 
+            }
+            if($('#b2cApp1').data('validator') !== null)
+            {
+                $('#b2cApp1').data('validator').resetForm(); 
+            }
+            if($('#b2cApp3').data('validator') !== null)
+            {
+                $('#b2cApp3').data('validator').resetForm(); 
+            }
+            if($('#b2cApp4').data('validator') !== null)
+            {
+                $('#b2cApp4').data('validator').resetForm(); 
+            }
+
+        }
+
         
     });
     
