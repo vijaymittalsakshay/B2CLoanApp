@@ -39,7 +39,7 @@ body { margin: 0px; padding: 0px;  font-family:'OpenSansReg', Arial, Helvetica, 
 .btnblck:hover{ background-color:#1b1b1b;   color:#FFF; }
 #wrapper{min-width:320px; width:100%;}
 section{  width:100%; margin:0px auto; padding-top:0px;}
-.warps{ max-width:960px; width:100%; margin:0px auto}
+.warps{ /*max-width:960px;*/ width:100%; margin:0px auto}
 #log_BX, #socl_BX, #srch_BX{z-index:99999;}
 .full{ width:100%; display:none; background-color:#fff; border-bottom:1px solid #CCC; -webkit-box-shadow: 0px 5px 15px -10px #666666;
 box-shadow: 0px 5px 15px -13px #333;   position:fixed; z-index:12;  top:45px; }
@@ -271,8 +271,8 @@ footer a{ color:#FFF}
 #aplicn_tp  ul.app_nav li:nth-child(2){ background-image:url(../styles/layout/ap_ic2.png)}
 #aplicn_tp ul.app_nav li:nth-child(3){ background-image:url(../styles/layout/ap_ic3.png)}
 #aplicn_tp ul.app_nav li:nth-child(4){ background-image:url(../styles/layout/ap_ic4.png)}
-#aplicn_tp ul.app_nav li span{ display:block;  padding:35px 0px 39px 30px; margin-right:70px;}
-#aplicn_tp ul.app_nav li{display:inline-block; opacity:0.5; font-family:'OpenSansReg', Arial, Helvetica, sans-serif; color:#666; font-size:15px; background-image:url(../styles/layout/ap_ic1.png); background-repeat:no-repeat; background-position:center left;}
+#aplicn_tp ul.app_nav li span{ display:block;  padding:35px 0px 39px 30px; margin-right:50px; margin-left:20px;}
+#aplicn_tp ul.app_nav li{display:inline-block; opacity:0.5; font-family:'OpenSansReg', Arial, Helvetica, sans-serif; color:#666; font-size:15px; background-image:url(../styles/layout/ap_ic1.png); background-repeat:no-repeat; background-position:20px center;}
 #aplicn_tp ul.app_nav li.activ{font-family:'OpenSansBol', Arial, Helvetica, sans-serif; opacity:1.0 }
 #aplicn_tp ul.app_nav li.dn a{color:#99cc33;}
 #aplicn_tp ul.app_nav li.activ span{ background-image:url(../styles/layout/ap_ar_up.png); background-repeat:no-repeat; background-position:bottom center}
@@ -297,7 +297,7 @@ footer a{ color:#FFF}
 #aplicn_frm  .IN6 {width:234px; margin-right:8px; margin-bottom:10px;}
 #aplicn_frm  .IN4b { width:200px; margin-right:8px; margin-bottom:10px;}
 #aplicn_frm .rws .rwfil.aut{ float:left; width:auto; }
-#aplicn_frm .rws .rwfil{ float:right; width:658px; }
+#aplicn_frm .rws .rwfil{ float:right; width:680px; }
 #aplicn_frm .ipsm1{ width:100px}
 #aplicn_frm .ipsm2{ width:150px}
 #aplicn_frm .ipsm3{ width:209px}
@@ -307,7 +307,7 @@ footer a{ color:#FFF}
 #aplicn_frm .rws .rwfil label{ padding-right:20px; padding-left:6px; color:#666;font-size:0.9em; }
 #aplicn_frm .rws .rwfilb{ padding-top:10px;}
 #aplicn_frm .rws .rwfilb span{ width:100px; display:inline-block }
-#aplicn_frm .rws .rwfilbc{ padding-top:10px; float:left; width:620px; padding-bottom:10px;}
+#aplicn_frm .rws .rwfilbc{ padding-top:10px; float:left; width:680px; padding-bottom:10px;}
 #aplicn_frm .rws .rwfilbc span{ width:200px; padding-bottom:20px; display:inline-block }
 #aplicn_frm .rws .rwfilbc label{ padding-right:20px; color:#666; font-size:12px;  padding-left:6px; }
 #aplicn_frm .rws .rwfilb label{ padding-right:20px;  padding-left:6px; }
@@ -398,11 +398,12 @@ div.rwfilbc span.opt2 label.error {position:absolute;}
 #crdscorerYes0 h4 { margin:0; padding:0; color:#333; font-family:'OpenSansBol', Arial, Helvetica, sans-serif; font-size:12px;}
 html body #aplicn_frm ul.low_creditop li.opt2 label.error { left: 3px;position: absolute;top: 18px;}
 #aplicn_frm ul.low_creditop li.opt2 {position:relative; }
-#terms_condition h4 {color: #666; font-family: 'GandhiSans',Arial; font-size: 15px; padding: 10px 0;}
-#terms_condition .onecolumnfull { padding:0 20px;}
-#terms_condition .onecolumnfull p {color: #666666;font-family: 'GandhiSans',Arial;font-size: 13px; font-weight: normal; margin:0;line-height: 21px;padding-bottom: 20px;}
-#terms_condition .onecolumnfull ul { list-style: none outside none; margin-bottom: 10px; padding: 0 0 0 10px;}
-#terms_condition .onecolumnfull ul li { background-image: url("../styles/layout/bullet.png");background-position: 2px 6px;background-repeat: no-repeat; color: #666;font-family: 'GandhiSans',Arial;font-size: 13px;line-height: 20px;margin: 0; padding: 0 0 5px 20px;}
+#terms_condition h4, #bus_fin_serv_trm_a_cond h4, #privacy_policy h4 {color: #666; font-family: 'GandhiSans',Arial; font-size: 15px; padding: 10px 0;}
+#terms_condition .onecolumnfull,  #bus_fin_serv_trm_a_cond .onecolumnfull, #privacy_policy .onecolumnfull{ padding:0 20px;}
+ #privacy_policy .onecolumnfull h2 { font-size:14px; color:#666; margin:0 0 10px; padding:0;}
+#terms_condition .onecolumnfull p, #bus_fin_serv_trm_a_cond .onecolumnfull p, #privacy_policy .onecolumnfull p {color: #666666;font-family: 'GandhiSans',Arial;font-size: 14px; font-weight: normal; margin:0;line-height: 21px;padding-bottom: 20px;}
+#terms_condition .onecolumnfull ul, #bus_fin_serv_trm_a_cond .onecolumnfull ul, #privacy_policy .onecolumnfull ul { list-style: none outside none; margin-bottom: 10px; padding: 0 0 0 10px;}
+#terms_condition .onecolumnfull ul li, #bus_fin_serv_trm_a_cond .onecolumnfull ul li, #privacy_policy .onecolumnfull ul li { background-image: url("../styles/layout/bullet.png");background-position: 2px 6px;background-repeat: no-repeat; color: #666;font-family: 'GandhiSans',Arial;font-size: 13px;line-height: 20px;margin: 0; padding: 0 0 5px 20px;}
 
 @media screen and (min-width: 1024px){ 
 #aplicn_frm .rws .rwfil label{font-size: 0.7em; padding:0 10px 0 2px;}

@@ -69,6 +69,9 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 .documentContent .km-listview-wrapper ul li table td:nth-child(2) {height:60px;}
 .documentContent .km-listview-wrapper ul li table td:nth-child(3) a.docs-popup, .documentContent .km-listview-wrapper ul li table td:nth-child(3) a.k-state-border-down { background-size:55%;background-position: center 6px;}
 #aplicn_frm {padding: 30px 2%;}
+#aplicn_frm .rws .lftitb, #aplicn_frm .rws .rwfil label, #aplicn_frm .rws .rwfilbc label, #aplicn_frm .labl_tx2 { font-size:1em;}
+#aplicn_frm .rws select, #aplicn_frm input[type="text"] { font-size:14px;}
+#blackBlk { margin:0 1%; width:98%;}
 }
 @media (min-width:0px) and (max-width:1024px) {
 #tabstrip-download-file {padding:2%; height:47%; background-color:#fff;}
@@ -126,6 +129,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #tabstrip-Setting .docs-docu {padding: 2% 0 0;font-size: 1.2em;}
 #tabstrip-Setting .Setting-ac, #tabstrip-Setting ul#settingpage li{padding:3% 0 2% 10%;background-size: 5%;background-position: 22px 10px;}
 #blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:9%;display: block;padding:3% 11% 4%;color: #fff;font-size: 1.5em;}
+#aplicn_frm .rws .lftitb, #aplicn_frm .rws .rwfil label, #aplicn_frm .rws .rwfilbc label,#aplicn_frm .labl_tx2 { font-size:0.85em;}
 }
 @media (min-width:0px) and (max-width:800px) {
 .documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder {}
@@ -163,6 +167,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #aplicn_frm .rws.rw2 p {padding-right:0px;}
 #aplicn_frm input[type="text"], #aplicn_frm .rws.rw2 .ipsm3{ width:100%}
 #aplicn_frm .rw_lin.hlp p .IN6 {width: 100%;}
+#aplicn_frm .rws select, #aplicn_frm input[type="text"] { font-size:13px;}
+#blackBlk { margin:0 2%; width:96%;}
 }
 @media (min-width:0px) and (max-width:768px) {
 .logLogo {margin: 34% auto 10%;}
@@ -182,6 +188,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #repypm.repaydetail ul li { width:33%;}
 #repypm ul li span.tx {height:30px;}
 #newuser ul.km-listinset li select {background-size:8%;}
+#aplicn_frm .rws .lftitb, #aplicn_frm .rws .rwfil label, #aplicn_frm .rws .rwfilbc label, #aplicn_frm .labl_tx2 { font-size:0.8em;}
 }
 @media (min-width:0px) and (max-width:640px) { 
 .logo { margin:3% auto;}
