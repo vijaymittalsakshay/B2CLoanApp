@@ -298,6 +298,7 @@ footer a{ color:#FFF}
 #aplicn_frm  .IN4b { width:200px; margin-right:8px; margin-bottom:10px;}
 #aplicn_frm .rws .rwfil.aut{ float:left; width:auto; }
 #aplicn_frm .rws .rwfil{ float:right; width:70%; }
+#aplicn_frm .rws .rwfil.lft { float:left;}
 #aplicn_frm .ipsm1{ width:100px}
 #aplicn_frm .ipsm2{ width:150px}
 #aplicn_frm .ipsm3{ width:209px}
@@ -314,7 +315,7 @@ footer a{ color:#FFF}
 #aplicn_frm input[type="text"] { font-family:'OpenSansReg', Arial, Helvetica, sans-serif; font-size:12px; color:#333; padding:8px 12px; border:1px solid #CCC;  -webkit-border-radius:5px; border-radius: 5px; }
 #aplicn_frm input.error{ border:1px solid #ffc000}
 #aplicn_frm .rws select.error{ border:1px solid #ffc000}
-#aplicn_frm label.error{ display:block; color:#fd3608 !important; font-size:11px; }
+#aplicn_frm label.error{ display:block; color:#fd3608 !important; font-size:0.8em; }
 #aplicn_frm input[type="text"]:focus{     background-color: #f6ffea;     color:#000000;    border:1px solid #bfe885 }
 #aplicn_frm .rws select { height:38px; text-transform:capitalize;font-family:'OpenSansReg', Arial, Helvetica, sans-serif; font-size:12px; color:#333; padding:6px 7px 6px 7px; border:1px solid #CCC;  -webkit-border-radius:5px; border-radius: 5px; }
 #aplicn_frm .rws select option { font-family:'OpenSansReg', Arial, Helvetica, sans-serif; font-size:12px; color:#333; padding:1px 4px; }
@@ -369,7 +370,7 @@ footer a{ color:#FFF}
 #credit_show{display:none} #outsta_debt{display:none}  #busInfobx{ display:none} #busInfobx2{ display:none}  #crdscrYes{ display:none} #crdscrNo{ display:none}
 
 /* application btm   6 March */
-#aplicn_btm .BTgry{ background-color:#999999; font-family:'OpenSansBol', Arial, Helvetica, sans-serif; font-size:16px; color:#FFF; padding:1px 14px 3px 14px; margin-left:5px;  -webkit-border-radius: 4px; border-radius: 4px; }
+#aplicn_btm .BTgry{ background-color:#999999; font-family:'OpenSansBol', Arial, Helvetica, sans-serif; font-size:16px; color:#FFF; padding:1px 12px 3px 12px; margin-left:5px;  -webkit-border-radius: 4px; border-radius: 4px; }
 #aplicn_btm .BTgren{ background-color:#99cc00; font-family:'OpenSansBol', Arial, Helvetica, sans-serif; font-size:16px; color:#FFF; padding:1px 14px 3px 14px; margin-left:5px;  -webkit-border-radius: 4px; border-radius: 4px;margin-right: 25px;}
 html body .opt label.error { bottom: -3px; left: 0px; position: absolute;}
 html body #aplicn_frm .opt {padding-bottom: 11px; position: relative;}
@@ -461,10 +462,16 @@ background-position:center 10px ;  text-align:center; width:22.5%; margin-right:
 #aplicn_frm .admr { display:inline-block}
 #aplicn_frm .montrnt .artp{ display:none}
 #aplicn_frm .rws .rwfil.aut { float:none;}
-
+#aplicn_frm .rws p {padding:0;}
+.rw_lin.cngopt { padding-bottom:15px!important;}
+.rw_lin.cngopt > p { width:38% !important; float:left!important;}    
+#aplicn_frm .rws p.imp40 {width: 35%!important;padding-right: 3%;float: left!important;}
 }
-
-
+@media (max-width: 800px) and (min-width: 0px){
+#aplicn_frm .rws p {display: block;float: none;width: 100%;}
+#aplicn_frm .rws p.imp40 .IN5{ width:92%}
+#aplicn_frm .rws .rwfilbc span { width:210px;}
+}
 @media screen and (max-width: 768px){ 
 ul.mobile li.subnv a{ background-image:url(../styles/layout/downar.png); background-repeat:no-repeat; background-position:right 16px;}
 ul.mobile li.subnv.act a{ background-image:url(../styles/layout/downar.png); background-repeat:no-repeat; background-position:right -16px;}
@@ -533,7 +540,7 @@ ul.mobile li a:hover{ display:block; font-size:14px;  background-color:#000; col
 #aplicn_frm .rw_lin.hlp p .IN6 {width:91%;}
 #aplicn_frm .rws p.imp33{ width:32%; padding-right:1%; float:left}
 #aplicn_frm .rws p.imp33 .ipsm1{ width:94%}
-#aplicn_frm .rws p.imp50{ width:42%; padding-right:8%; float:left}
+#aplicn_frm .rws p.imp50{ width:48%; padding-right:2%; float:left}
 #aplicn_frm .rws p.imp50 .ipsm3{ width:95%}
 #aplicn_frm .rws p.imp40{ width:35%; padding-right:3%; float:left}
 #aplicn_frm .rws p.imp40 .IN5{ width:92%}
@@ -566,9 +573,11 @@ ul.mobile li a:hover{ display:block; font-size:14px;  background-color:#000; col
 #aplicn_frm .montrnt .IN2 {    width: 90%; margin-bottom:10px;}
 #aplicn_frm .IN1{ width:280px; margin-right:8px; margin-bottom:10px;}
 #aplicn_frm .IN1b { width:305px; margin-right:8px; margin-bottom:10px;}
-#aplicn_frm .rws p.imp40 {width:100%;}
+#aplicn_frm .rws p.imp40 {width:100% !important;}
 #debtwrapper p a.rem_col { float:right; margin-bottom:7px;}
-#aplicn_frm .rws.rw2 .ipsm4, #aplicn_frm select.IN1b.ipsm1, #aplicn_frm .rws.rw2 select.ipsm3, #aplicn_frm .IN1 {width:92%;}
+#aplicn_frm .rws.rw2 .ipsm4, #aplicn_frm select.IN1b.ipsm1, #aplicn_frm .rws.rw2 select.ipsm3, #aplicn_frm .IN1 {width:100%;}
+#aplicn_frm select.IN1b.ipsm3 {width:100%;}
+html body #aplicn_frm ul.low_creditop li.opt2 label.error {font-size:11px;}
 }
 @media screen and (max-width: 360px){ 
 #wrapper{min-width:320px; width:100%;}
@@ -578,6 +587,7 @@ ul.mobile li a:hover{ display:block; font-size:14px;  background-color:#000; col
 
 /* 6 mar */
 #aplicn_tp ul.app_nav li{ font-size:11px; margin-right:1%;}
+.rw_lin.cngopt > p { width:65% !important; float:left!important;}
 }
 @media screen and (max-width: 360px){ 
 
@@ -585,8 +595,9 @@ ul.mobile li a:hover{ display:block; font-size:14px;  background-color:#000; col
 #aplicn_frm  .IN1 { width:270px; margin-right:0px;}
 #aplicn_frm  .IN1b { width:295px; margin-right:0px;}
 #aplicn_frm .IN2 {width:267px; margin-right:0px;}
-#aplicn_frm ul.low_creditop li { width:48%;}
-#aplicn_frm .IN1 {width:92%;}
+
+#aplicn_frm .IN1 {width:100%;}
+
 }
 
 
