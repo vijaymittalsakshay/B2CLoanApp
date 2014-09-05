@@ -169,6 +169,15 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #aplicn_frm .rw_lin.hlp p .IN6 {width: 100%;}
 #aplicn_frm .rws select, #aplicn_frm input[type="text"] { font-size:13px;}
 #blackBlk { margin:0 2%; width:96%;}
+#aplicn_frm .rws p {display: block;float: none;width: 100%;}
+#aplicn_frm .rw_lin.hlp p {width: 60%;padding-right: 3%;float: left;}
+#aplicn_frm .rw_lin.hlp p .IN5 {width: 100%;}
+#aplicn_frm .IN3 {width: 94%;}
+#aplicn_frm .rws.rw1 p {display: block;float: none;width: 100%;}
+#aplicn_frm .rws.rw2 .ipsm4 {width: 95%;}
+#B2cAppForms select {background-image:none; background-color:#fff;}
+#aplicn_frm .rws.rw1 .IN1 {width: 100%;margin-bottom: 10px;float: none;}
+#aplicn_frm select.IN1b.ipsm1 {width: 90%;}
 }
 @media (min-width:0px) and (max-width:768px) {
 .logLogo {margin: 34% auto 10%;}
@@ -333,6 +342,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #newuser ul.km-listinset li input[type=text], #newuser ul.km-listinset li select{ padding:1.1em !important;}
 #newuser {margin: 1.5em 0;}
 #newuser .buttonArea input[type=submit] { padding:0.6em !important;}
+ #dynamicCl.km-popup-wrapper { height:225px !important;}
 }
 
 @media (min-width:0px) and (max-width:533px) { 
@@ -432,7 +442,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 #blackBlk .desbrdIcon .span span { float:left; padding:2.2% 0 0;}
 #blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:17%;display: block;padding:1% 17% 1%;color: #fff;font-size: 1.2em;}
 #stps ul li span{ font-size:11px;}
-.stpsumry h2 { font-size:1.1em; margin:0 1% 1%; line-height:18px;}
+.stpsumry h2 { font-size:1em; margin:0 1% 1%; line-height:18px;}
 #stpSumAc { padding:12px 2% 2px;}
 #stps ul li.activ span.dnar { height:20px; background-size:45%;}
 .stpsumry p { font-size:12px; margin:0 3%; height:28px; overflow:auto;}
