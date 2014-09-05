@@ -370,7 +370,7 @@ footer a{ color:#FFF}
 
 /* application btm   6 March */
 #aplicn_btm .BTgry{ background-color:#999999; font-family:'OpenSansBol', Arial, Helvetica, sans-serif; font-size:16px; color:#FFF; padding:1px 14px 3px 14px; margin-left:5px;  -webkit-border-radius: 4px; border-radius: 4px; }
-#aplicn_btm .BTgren{ background-color:#99cc00; font-family:'OpenSansBol', Arial, Helvetica, sans-serif; font-size:16px; color:#FFF; padding:1px 14px 3px 14px; margin-left:5px;  -webkit-border-radius: 4px; border-radius: 4px;}
+#aplicn_btm .BTgren{ background-color:#99cc00; font-family:'OpenSansBol', Arial, Helvetica, sans-serif; font-size:16px; color:#FFF; padding:1px 14px 3px 14px; margin-left:5px;  -webkit-border-radius: 4px; border-radius: 4px;margin-right: 25px;}
 html body .opt label.error { bottom: -3px; left: 0px; position: absolute;}
 html body #aplicn_frm .opt {padding-bottom: 11px; position: relative;}
 /****2-sep-14********/
@@ -441,7 +441,7 @@ section{ width:100%; margin:0px auto; }
 #aplicn_frm .rws .lftit { padding-bottom:10px; float:none;}
 #aplicn_tp ul.app_nav{ margin:0px; padding:0px; }
 #aplicn_tp ul.app_nav li{display:inline-block; opacity:0.5; text-align:center; font-family:'OpenSansReg', Arial, Helvetica, sans-serif; color:#666; font-size:14px; background-image:url(../styles/layout/ap_ic1.png); background-repeat:no-repeat;  
-background-position:center 10px ;  text-align:center; width:23%; margin-right:2%;}
+background-position:center 10px ;  text-align:center; width:22.5%; margin-right:2%;}
 #aplicn_tp  ul.app_nav li:last-child{ margin-right:0px;}
 #aplicn_tp  ul.app_nav li span{ display:inline-block; margin:0px auto;  padding:35px 0px 45px 0px;  text-align:center; }
 #aplicn_tp  ul.app_nav li.activ{font-family:'OpenSansBol', Arial, Helvetica, sans-serif; opacity:1.0 }
