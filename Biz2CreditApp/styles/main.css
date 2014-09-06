@@ -177,7 +177,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 /********25-03-14*************/
 /*********27-03-14*************/
 .modal-mess-one .closeBt {border-bottom:2px solid #99cc00; padding:1px 0 5px 0 !important;}
-.modal-mess-one .closeBt a {background-image: url(images/cross.png); background-repeat:no-repeat; background-size:50%; border-radius:2px; float:right; margin:5px 5px 0 0; height:30px; width:30px; border:0; text-indent:-9000px; background-position:center 8px; background-color:#ddd; text-shadow:0;}
+.modal-mess-one .closeBt a, #privacy_policy .view-content .km-widget.km-button, #terms_condition .view-content .km-widget.km-button, #bus_fin_serv_trm_a_cond .view-content .km-widget.km-button {background-image: url(images/cross.png); background-repeat:no-repeat; background-size:50%; border-radius:2px; float:right; margin:5px 5px 0 0; height:30px; width:30px; border:0; text-indent:-9000px; background-position:center 8px; background-color:#ddd; text-shadow:0;}
 .modal-mess-one .closeBt a:focus { background-color:#bdbdbd;}
 .modal-mess-one .closeBt .k-button:focus:active:not(.k-state-disabled):not([disabled]) {-webkit-box-shadow:inset 0 0 3px 4px #bdbdbd;box-shadow:inset 0 0 3px 4px #bdbdbd}
 .modal-mess-one p {color:#333; line-height:1.8em; font-size:1.2em; text-align:center; margin:8px 15px;}
@@ -260,6 +260,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .documentContent .km-listview-wrapper ul li a { text-decoration:none; }
 .documentContent .km-listview-wrapper ul li span {padding:5px 10px 5px 65px; display:block;}
 .documentContent .km-listview-wrapper ul li span span { padding:0;display:table-cell; vertical-align: middle; line-height: normal; height:43px;}
+
 .documentContent .km-listview-wrapper ul li .sharedfolder {background-image: url(images/single-share-folder.png); background-repeat:no-repeat; background-size:60%; background-position:5px 7px;}
 .documentContent .km-listview-wrapper ul li .Folder {background-image: url(images/folder.png); background-repeat:no-repeat; background-size:60%; background-position:5px 7px;}
 .documentContent .km-listview-wrapper ul li .default-icon {background-image: url(images/unknown.png); background-repeat:no-repeat; background-size:43%; background-position:13px 7px;}

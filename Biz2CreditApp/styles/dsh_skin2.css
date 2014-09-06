@@ -319,6 +319,7 @@ footer a{ color:#FFF}
 #aplicn_frm input[type="text"]:focus{     background-color: #f6ffea;     color:#000000;    border:1px solid #bfe885 }
 #aplicn_frm .rws select { height:38px; text-transform:capitalize;font-family:'OpenSansReg', Arial, Helvetica, sans-serif; font-size:12px; color:#333; padding:6px 7px 6px 7px; border:1px solid #CCC;  -webkit-border-radius:5px; border-radius: 5px; }
 #aplicn_frm .rws select option { font-family:'OpenSansReg', Arial, Helvetica, sans-serif; font-size:12px; color:#333; padding:1px 4px; }
+
 #aplicn_frm  .onwonwr{ padding:50px 0px; margin-bottom:40px; border-top:1px solid #CCC;}
 #aplicn_frm .que_hint{ width:25px; height:19px; margin-left:-4px; margin-right:14px; background-image:url(../styles/layout/quest_hint.png); background-repeat:no-repeat; display:inline-block;}
 #aplicn_frm .que_hint.flf{ float:left; margin-left:-1px; margin-top:6px}
@@ -405,6 +406,9 @@ html body #aplicn_frm ul.low_creditop li.opt2 label.error { left: 3px;position: 
 #terms_condition .onecolumnfull p, #bus_fin_serv_trm_a_cond .onecolumnfull p, #privacy_policy .onecolumnfull p {color: #666666;font-family: 'GandhiSans',Arial;font-size: 14px; font-weight: normal; margin:0;line-height: 21px;padding-bottom: 20px;}
 #terms_condition .onecolumnfull ul, #bus_fin_serv_trm_a_cond .onecolumnfull ul, #privacy_policy .onecolumnfull ul { list-style: none outside none; margin-bottom: 10px; padding: 0 0 0 10px;}
 #terms_condition .onecolumnfull ul li, #bus_fin_serv_trm_a_cond .onecolumnfull ul li, #privacy_policy .onecolumnfull ul li { background-image: url("../styles/layout/bullet.png");background-position: 2px 6px;background-repeat: no-repeat; color: #666;font-family: 'GandhiSans',Arial;font-size: 13px;line-height: 20px;margin: 0; padding: 0 0 5px 20px;}
+
+#privacy_policy .view-content, #terms_condition .view-content, #bus_fin_serv_trm_a_cond .view-content{ position:relative;}
+
 
 @media screen and (min-width: 1024px){ 
 #aplicn_frm .rws .rwfil label{font-size: 0.7em; padding:0 10px 0 2px;}
@@ -510,7 +514,7 @@ ul.mobile li a:hover{ display:block; font-size:14px;  background-color:#000; col
 #aplicn_frm .rws.rw1 .IN1 {    width: 87%;}
 #aplicn_frm .rws .lftitb{ padding-bottom:15px;}
 #aplicn_frm .rws .rwfilbc { width:auto}
-#aplicn_frm .rws .rwfilbc span { width:auto}
+#aplicn_frm .rws .rwfilbc span { width:230px}
 #aplicn_tp .coln{ width:100%; float:none; margin-bottom:20px; text-align:left}
 #aplicn_tp .coln:nth-child(even){ float:none;  text-align:left; margin-bottom:10px;}
 #aplicn_tp .BTgry{margin-right:5px; margin-left:0px; }
@@ -573,7 +577,6 @@ ul.mobile li a:hover{ display:block; font-size:14px;  background-color:#000; col
 #aplicn_frm .montrnt .IN2 {    width: 90%; margin-bottom:10px;}
 #aplicn_frm .IN1{ width:280px; margin-right:8px; margin-bottom:10px;}
 #aplicn_frm .IN1b { width:305px; margin-right:8px; margin-bottom:10px;}
-#aplicn_frm .rws p.imp40 {width:100% !important;}
 #debtwrapper p a.rem_col { float:right; margin-bottom:7px;}
 #aplicn_frm .rws.rw2 .ipsm4, #aplicn_frm select.IN1b.ipsm1, #aplicn_frm .rws.rw2 select.ipsm3, #aplicn_frm .IN1 {width:100%;}
 #aplicn_frm select.IN1b.ipsm3 {width:100%;}

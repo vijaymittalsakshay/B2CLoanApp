@@ -75,7 +75,7 @@
                                         <input type="text" class="IN1 ipsm1"  name="OwnerCivic" data-bind="value:Owner_Civic"  id="OwnerCivic" title="Street No."  placeholder="Street No." required />
                                     </p>
                                     <p>
-                                        <input type="text" class="IN1 ipsm4" name="OwnerStreetAddress" id="OwnerStreetAddress" placeholder="Street Name/Apt/Suite/Unit" data-bind="value:Owner_StreetAddress" original-title="Street Name/Apt/Suite/Unit">
+                                        <input type="text" class="IN1 ipsm1" name="OwnerStreetAddress" id="OwnerStreetAddress" placeholder="Street Name/Apt/Suite/Unit" data-bind="value:Owner_StreetAddress" original-title="Street Name/Apt/Suite/Unit">
                                     </p>
                                     <br>
 
@@ -446,7 +446,7 @@
             var view = dataSource.view();
             var html='<option value="" selected="selected">Select City</option>';
             $.each(view, function( index, value ) {
-            	html+='<option value="'+value['pid']+'">'+value['city']+'</option>';
+            	html+='<option value="'+value['pid']+'">'+value['city'].toLowerCase()+'</option>';
         	});
 
             $('#own_city'+NumOfDiv+'').html(html);

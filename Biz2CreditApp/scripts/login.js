@@ -155,9 +155,8 @@
         {
             apps.hideLoading();
         },
-        refreshHome:function()
+        refreshHome:function(e)
         {
-           apps.navigate('#tabstrip-home');
            
             if(!window.connectionInfo.checkConnection()){
                
@@ -170,8 +169,15 @@
             	}, 'Connection Error?', 'Retry,Cancel');
             }
             else
-            { 
-               app.homesetting.viewModel.homeShow(); 
+            {
+                if(apps.view()['element']['0']['id'] === 'tabstrip-home'){
+                    app.homesetting.viewModel.homeShow();
+                }
+                else
+                {
+                     apps.navigate('#tabstrip-home');
+                }
+                  
             }
              app.homesetting.viewModel.closeParentPopover();
         },

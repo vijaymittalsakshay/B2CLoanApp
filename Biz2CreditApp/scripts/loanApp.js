@@ -546,7 +546,7 @@
                     <input type="text" name="txtInterestTerm'+NumOfDiv+'" id="txtInterestTerm'+NumOfDiv+'" data-bind="value: txtInterestTerm'+NumOfDiv+'" maxlength="5" placeholder="Interest Rate (%)" class="IN5 mb15" original-title="Interest Rate (%)">\
                     </p>\
                     <p class="imp40">\
-                    <select name="txtYearTerm'+NumOfDiv+'" id="txtYearTerm'+NumOfDiv+'" data-bind="value: txtYearTerm'+NumOfDiv+'" class="IN5B" title="Interest Rate Year(s)">\
+                    <select name="txtYearTerm'+NumOfDiv+'" id="txtYearTerm'+NumOfDiv+'" data-bind="value: txtYearTerm'+NumOfDiv+'" class="IN5" title="Interest Rate Year(s)">\
                     <option value="1" selected="">Year(s)</option>\
                     <option value="2">Half-year</option>\
                     <option value="4">Quarter</option>\
@@ -1357,8 +1357,8 @@
                     return;
                 }
                 else{
-                    $msg= "Server not responding properly,Please try again";
-                    app.loginService.viewModel.mobileNotification($msg,'info');
+					$msg= "Server not responding properly,Please try again";
+					app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
                 }            
 

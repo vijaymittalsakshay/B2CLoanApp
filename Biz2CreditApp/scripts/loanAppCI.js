@@ -5,7 +5,7 @@
     loanCIViewModal = kendo.data.ObservableObject.extend({
 		currentfid:(localStorage.getItem("fid") !== '') ?  localStorage.getItem("fid") : '',
         Owner_FirstName:(localStorage.getItem("userFName") !== '') ?  localStorage.getItem("userFName") : '',
-        Owner_LastName:'',
+        Owner_LastName:(localStorage.getItem("userLName") !== '') ?  localStorage.getItem("userLName") : '',
         Owner_email:(localStorage.getItem("userEmail") !== '') ?  localStorage.getItem("userEmail") : '',
         Owner_JobTitle:'',
         Owner_Civic:'',
@@ -548,7 +548,7 @@
 
             str += '<div class="rws rw2 clearfix"><div class="lftit">Home Address</div><div class="rwfil aut clearfix"><div class="rw_lin clearfix">'; 
             str += "<p><input maxlength='15' type='text' class='IN1 ipsm1' name='OwnerCivic"+NumOfDiv+"' id='OwnerCivic"+NumOfDiv+"' data-bind='value:OwnerCivic"+NumOfDiv+"' orignal-title='Street No.' placeholder='Street No.' value='' /></p>";
-            str += "<p><input type='text' class='IN1 ipsm4' name='OwnerStreetAddress"+NumOfDiv+"' id='OwnerStreetAddress"+NumOfDiv+"' data-bind='value:OwnerStreetAddress"+NumOfDiv+"' orignal-title='Street Name/Apt/Suite/Unit' placeholder='Street Name/Apt/Suite/Unit' value='' /></p>";
+            str += "<p><input type='text' class='IN1 ipsm1' name='OwnerStreetAddress"+NumOfDiv+"' id='OwnerStreetAddress"+NumOfDiv+"' data-bind='value:OwnerStreetAddress"+NumOfDiv+"' orignal-title='Street Name/Apt/Suite/Unit' placeholder='Street Name/Apt/Suite/Unit' value='' /></p>";
             str += '<div class="clear"></div></div>';
 
             str += "<div class='rw_lin clearfix'><p id='ownerState"+NumOfDiv+"'>\
@@ -849,8 +849,8 @@
                 }
                 else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
                 {
-                    $msg= "Contact Information not submitted successfully.";
-                    app.loginService.viewModel.mobileNotification($msg,'info'); 
+                     $msg= "Contact Information not submitted successfully.";
+                     app.loginService.viewModel.mobileNotification($msg,'info'); 
                     return;
                 }
                 else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
@@ -860,6 +860,7 @@
                     return;
                 }
                 else{
+                    
                     $msg= "Server not responding properly,Please try again";
                     app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
@@ -948,7 +949,7 @@
         	var that = this;
 			localStorage.setItem("fid",'');
         	that.set("Owner_FirstName",(localStorage.getItem("userFName") !== '') ?  localStorage.getItem("userFName") : '');
-        	that.set("Owner_LastName","");
+        	that.set("Owner_LastName",(localStorage.getItem("userLName") !== '') ?  localStorage.getItem("userLName") : '');
         	that.set("Owner_email",(localStorage.getItem("userEmail") !== '') ?  localStorage.getItem("userEmail") : '');
         	that.set("Owner_JobTitle","");
         	that.set("Owner_Civic","");
