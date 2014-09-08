@@ -407,6 +407,7 @@ html body #aplicn_frm ul.low_creditop li.opt2 label.error { left: 3px;position: 
 #terms_condition .onecolumnfull ul, #bus_fin_serv_trm_a_cond .onecolumnfull ul, #privacy_policy .onecolumnfull ul { list-style: none outside none; margin-bottom: 10px; padding: 0 0 0 10px;}
 #terms_condition .onecolumnfull ul li, #bus_fin_serv_trm_a_cond .onecolumnfull ul li, #privacy_policy .onecolumnfull ul li { background-image: url("../styles/layout/bullet.png");background-position: 2px 6px;background-repeat: no-repeat; color: #666;font-family: 'GandhiSans',Arial;font-size: 13px;line-height: 20px;margin: 0; padding: 0 0 5px 20px;}
 
+
 #privacy_policy .view-content, #terms_condition .view-content, #bus_fin_serv_trm_a_cond .view-content{ position:relative;}
 
 
