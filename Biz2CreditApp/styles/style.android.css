@@ -135,7 +135,55 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:9%;display: block;padding:3% 11% 4%;color: #fff;font-size: 1.5em;}
 #aplicn_frm .rws .lftitb, #aplicn_frm .rws .rwfil label, #aplicn_frm .rws .rwfilbc label,#aplicn_frm .labl_tx2 { font-size:0.85em;}
 #aplicn_frm select.IN1b.ipsm3 {width:190px;}
+#aplicn_frm .rws .rwfil label{font-size: 0.7em; padding:0 10px 0 2px;}
 }
+
+@media screen and (max-width: 960px){ 
+.tp-menu{ display:none}
+section{ width:100%; margin:0px auto; }
+#dashview .warps{ width:100%; }
+#articls .warps{ width:100%; }
+#blghelp .warps{ width:100%; }
+#dasbdnav{ padding-left:4%;}
+#fullheds.dashboard .fixdlogo{ margin-left:4%;}
+#menumobile{ 	position:absolute; top: 0;  left:0; padding-left:3%; padding-right:3%; z-index: 100; 	color: #000; margin-top:0px; 	width: 20px; 	height: 45px;  cursor:pointer; 	background-image:url(styles/menu.png); background-repeat:no-repeat; background-position: center 14px;  padding-top:0px; text-transform:uppercase; font-size:20px; }
+
+
+/* 6 March */
+#aplicn_frm .rws.rw1 p{ width:50%; padding:0px;}
+#aplicn_frm .rws.rw1 .IN1 {    width: 90%;}
+#aplicn_frm .rws.rw2 p{ width:auto; padding-right:15px;}
+#aplicn_frm .rws.rw2 .ipsm3 {  width: 87%;}
+#aplicn_frm .rws .rwfil { width:100%; float:none; }
+#aplicn_frm .addbtns{ padding-left:0px;}
+#aplicn_frm .rws .rwfilbc { padding-top:0px;}
+#aplicn_frm .rws { padding-bottom:10px;}
+#aplicn_frm .montrnt .IN2 {    width: 26.2%;}
+#aplicn_frm .rws .lftitb { padding-bottom:15px; font-family:'OpenSansBol', Arial, Helvetica, sans-serif;}
+#aplicn_frm .rws .lftit {font-family:'OpenSansBol', Arial, Helvetica, sans-serif; padding-bottom:15px;}
+#aplicn_frm .rws .lftit { padding-bottom:10px; float:none;}
+#aplicn_tp ul.app_nav{ margin:0px; padding:0px; }
+#aplicn_tp ul.app_nav li{display:inline-block; opacity:0.5; text-align:center; font-family:'OpenSansReg', Arial, Helvetica, sans-serif; color:#666; font-size:14px; background-image:url(../styles/layout/ap_ic1.png); background-repeat:no-repeat;  
+background-position:center 10px ;  text-align:center; width:22.5%; margin-right:2%;}
+#aplicn_tp  ul.app_nav li:last-child{ margin-right:0px;}
+#aplicn_tp  ul.app_nav li span{ display:inline-block; margin:0px auto;  padding:35px 0px 45px 0px;  text-align:center; }
+#aplicn_tp  ul.app_nav li.activ{font-family:'OpenSansBol', Arial, Helvetica, sans-serif; opacity:1.0 }
+#aplicn_tp  ul.app_nav li.activ span{ background-image:url(../styles/layout/ap_ar_up.png); background-repeat:no-repeat; background-position:bottom center}
+#aplicn_tp  ul.app_nav li.dn{font-family:'OpenSansReg', Arial, Helvetica, sans-serif; color:#99cc33; opacity:1.0; background-image:url(../styles/layout/ap_ic1b.png) }
+#aplicn_tp  ul.app_nav li.dn span{ background-image:url(../styles/layout/ap_ar_dn.png); background-repeat:no-repeat; background-position:center 60px }
+#aplicn_frm .rws.rw2 .ipsm4 {  width: 400px;}
+#aplicn_frm .rws .lftitb { float:none; width:100%;}
+#aplicn_frm .rws .rwfil { width:100%; float:none; }
+#aplicn_frm  .IN1b {width:46.7%;}
+#aplicn_frm .admr { display:inline-block}
+#aplicn_frm .montrnt .artp{ display:none}
+#aplicn_frm .rws .rwfil.aut { float:none;}
+#aplicn_frm .rws p {padding:0;}
+.rw_lin.cngopt { padding-bottom:15px!important;}
+.rw_lin.cngopt > p { width:38% !important; float:left!important;}    
+#aplicn_frm .rws p.imp40 {width: 35%!important;padding-right: 3%;float: left!important;}
+}
+
 @media (min-width:0px) and (max-width:800px) {
 .documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder {}
 .documentContent .km-listview-wrapper ul li span{ padding:12px 10px 12px 13%;}
@@ -174,16 +222,20 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #aplicn_frm .rw_lin.hlp p .IN6 {width: 100%;}
 #aplicn_frm .rws select, #aplicn_frm input[type="text"] { font-size:13px;}
 #blackBlk { margin:0 2%; width:96%;}
-#aplicn_frm .rws p {display: block;float: none;width: 100%;}
-#aplicn_frm .rw_lin.hlp p {width: 60%;padding-right: 3%;float: left;}
+#aplicn_frm .rw_lin.hlp p {width:85%;padding-right: 3%;float: left;}
 #aplicn_frm .rw_lin.hlp p .IN5 {width: 100%;}
-#aplicn_frm .IN3 {width: 94%;}
+#aplicn_frm .IN3 {width:100%;}
 #aplicn_frm .rws.rw1 p {display: block;float: none;width: 100%;}
 #aplicn_frm .rws.rw2 .ipsm4 {width: 95%;}
 #B2cAppForms select {background-image:none; background-color:#fff;}
 #aplicn_frm .rws.rw1 .IN1 {width: 100%;margin-bottom: 10px;float: none;}
 #aplicn_frm select.IN1b.ipsm1 {width: 90%;}
 #row_owners .rw_lin.addons p{ text-align:left;}
+#aplicn_frm .rws p {display: block;float: none;width: 100%;}
+    
+#aplicn_frm #credit_show .rw_lin p.imp33{ width:32%; padding-right:1%; float:left}
+#aplicn_frm .rws p.imp40 .IN5{ width:92%}
+#aplicn_frm .rws .rwfilbc span { width:210px;}
 }
 @media (min-width:0px) and (max-width:768px) {
 .logLogo {margin: 34% auto 10%;}
@@ -204,6 +256,52 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #repypm ul li span.tx {height:30px;}
 #newuser ul.km-listinset li select {background-size:8%;}
 #aplicn_frm .rws .lftitb, #aplicn_frm .rws .rwfil label, #aplicn_frm .rws .rwfilbc label, #aplicn_frm .labl_tx2 { font-size:0.8em;}
+#menumobile{display:none}
+.mobile{display:none}
+ul.mobile li.subnv a{ background-image:url(../styles/layout/downar.png); background-repeat:no-repeat; background-position:right 16px;}
+ul.mobile li.subnv.act a{ background-image:url(../styles/layout/downar.png); background-repeat:no-repeat; background-position:right -16px;}
+.subms li a{ background-image:none !important}
+#dasbdnav{ display:none}
+.nav-menu{ display:none}
+#fullheds.dashboard .fixdlogo{ width:120px; height:34px; float:left}
+#fullheds.dashboard .fixdlogo a{ display:block;  height:34px; background-image:url(../styles/layout/b2c.png); background-position:22px -53px; font-size:0px;}
+#wrapper{margin:0 auto; background-color:#FFF; 	width:100%;  	position:relative; overflow-x:hidden; 	z-index:50;}
+.mobile{margin:0; padding:0; position:absolute; height:100%; width:230px; overflow:hidden; left:0px; background:#262626; display:block; overflow:auto; z-index:25; top:0}
+.menu{display:none;}
+header{ width:100%; background-color:#faf8e9; border-bottom:1px solid #E1E1E1; margin-bottom:20px}
+ ul.mobile li{ 	float:none; 	display:block; 	border-bottom:1px solid #111111; overflow:hidden; 	border-top:1px solid #333333; }
+ul.mobile li a {   font-family:'OpenSansBol',Arial, Helvetica, sans-serif;  background-color: #1E1E1E;     background-position: 178px 16px;     border-left: 0 none;     border-right: 0 none;     color: #CCCCCC;     display: block;     font-size: 14px;     font-weight: bold;     margin-right: 0;     padding: 8px 10px 8px 15px; }
+ul.mobile li span { background-color: #666;     background-position: 178px 16px;     border-left: 0 none;     border-right: 0 none;     color: #000;     display: block;     font-size: 14px;     font-weight: bold;     margin-right: 0;     padding: 4px 10px 4px 15px; display:block }
+ul.mobile li a.activ:hover{ background-color:#FFF; color:#333}
+ul.mobile li a span{ opacity:1.0}
+ul.mobile li a:hover{ display:block; font-size:14px;  background-color:#000; color:#aee518 }
+#help{ padding-bottom:10px;}
+.helnum { padding-top: 40px; padding-bottom:0px; }
+.helnum h2{ color:#999}
+.helpcont{width:127px; float:right; position:absolute; top:7px; right:3%;}
+#help h1{ font-size:24px; color:#333333; float:none; padding-bottom:10px; width:100%; display:block}
+#stps ul li span { line-height:14px; } 
+#stps ul li strong {   height: 38px; }
+.stpsumry{ width:100%; float:none; text-align:center}
+.stpcurrntAc{ width:100%; padding-top:10px; float:none; text-align:center}
+.helpnv{ background-color:#666;}
+.helpnv.act{background-color:#333;}
+.helpcontain ul{ background-color:#333;}
+.titcl {font-size: 19px}
+/* 6 March */
+#aplicn_frm .rws.rw2 .ipsm4 {  width:300px;}
+#aplicn_frm .rws .lftitb{ padding-bottom:15px;}
+#aplicn_frm .rws .rwfilbc { width:auto}
+#aplicn_frm .rws .rwfilbc span { width:230px}
+#aplicn_tp .coln{ width:100%; float:none; margin-bottom:20px; text-align:left}
+#aplicn_tp .coln:nth-child(even){ float:none;  text-align:left; margin-bottom:10px;}
+#aplicn_tp .BTgry{margin-right:5px; margin-left:0px; }
+#aplicn_tp .BTgren{ margin-right:5px; margin-left:0px; }
+#aplicn_btm .BTgry{margin-right:5px; margin-left:5px; }
+#aplicn_btm .BTgren{ margin-right:5px; margin-left:5px; }
+#aplicn_btm{ text-align:left}
+#aplicn_frm .rws { padding-bottom:10px;}
+#aplicn_frm .rws .rwfil label{font-size: 0.75em; padding-left: 2px;}
 }
 @media (min-width:0px) and (max-width:640px) { 
 .logo { margin:3% auto;}
@@ -252,6 +350,37 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #aplicn_frm #debtwrapper .addons_det p.imp40 .IN5 {width:100%;}
 #aplicn_frm select.IN1b.ipsm3, #aplicn_frm .IN4 {width:100%;}
 #aplicn_frm select.IN1b.ipsm1 {width: 100%;}
+.srh_men{ display:none}
+#wrapper{ min-width:320px; width:100%;}
+.colLf{ width:100%; float:none;  clear:left; padding-bottom:50px;}
+.colRg{ width:100%; float:none; clear:left; padding-bottom:10px;}
+.colRg.helpful{ width:94%; float:none; padding:2.8%;}
+.helpcont{width:100%; float:none}
+.helpcontain{height:1px; padding-top:2px; float:right; display:block;}
+.helpcontain ul{ margin:0px 0px 0px -215px;}
+#top_rh .myacc {    width: 110px;}
+
+#aplicn_frm .rw_lin.hlp .tooltip p{width:100%; padding-right:0; float:none}
+#aplicn_frm .rw_lin.hlp p .IN5 { width:100%;}
+#aplicn_frm .rw_lin.hlp p .IN6 {width:91%;}
+#aplicn_frm .rws p.imp33 .ipsm1{ width:94%}
+#aplicn_frm .rws p.imp50{ width:48%; padding-right:2%; float:left}
+#aplicn_frm .rws p.imp50 .ipsm3{ width:95%}
+#aplicn_frm .rws p.imp40{ width:35%; padding-right:3%; float:left}
+#aplicn_frm .rws p.imp40 .IN5{ width:92%}
+#aplicn_frm .IN1 { width:100%}
+#aplicn_frm .rws.rw1 p{ display:block; float:none; width:100%; }
+#aplicn_frm .rws.rw3 p{ width:33%; float:left}
+#aplicn_frm .rws.rw2 select.ipsm3 {    width: 100%;}
+#credScr .IN1, #credScr .inp2, #credScr .IN3, #aplicn_frm .ipsm1  { width:95%; margin-bottom:10px; float:none}
+#aplicn_frm .rws .lftitb { width:auto; padding-right:20px;}
+#aplicn_frm .rws.rw2 .ipsm4 {  width:95%; }
+#aplicn_frm .rws .rwfilb span { width:auto}
+#aplicn_frm .montrnt .IN2 {    width: 23%;}
+#aplicn_tp ul.app_nav li span{padding:35px 0px 30px 0px;  }
+#aplicn_tp ul.app_nav li{ font-size:13px; margin-right:1%;}
+#aplicn_frm  .IN2 { width:65%;}
+
 }
 
 @media (min-width:0px) and (max-width:600px) { 
@@ -296,8 +425,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #dashview .tooltip { width:230px;}
 #newuser {margin:12em 0;}
 .documentContent .km-listview-wrapper ul li table td:nth-child(3) a.docs-popup, .documentContent .km-listview-wrapper ul li table td:nth-child(3) a.k-state-border-down{background-size: 90%;}
-#aplicn_frm .IN3{ width:94%;}
-    
+#aplicn_tp ul.app_nav li.dn span{background-position: center 73px;}
 }
 @media (min-width:0px) and (max-width:599px) { 
 .docs-header .km-widget .docs-search { width:8%; margin:0;}
@@ -430,6 +558,20 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #tabstrip-forgot-pass .view-content { margin-top:2em;}
 #aplicn_frm .rw_lin.hlp p {width: 89%;}
 #aplicn_frm ul.low_creditop li { width:50%; padding:0px 0% 10px 0px;}
+#stps ul li span {line-height: 12px;  color: #CCCCCC;    display: block;    font-size: 12px;    height: 32px;}
+.stpsumry h2 {color: #333333;    font-size: 15px;} 
+.stpsumry p {color: #333333;    font-size: 15px;}
+
+/* 6 March */
+#aplicn_frm .rws.rw1 p{ display:block; float:none; width:100%; }
+#aplicn_frm .rws.rw1 .IN1 {    width: 92%;}
+#aplicn_frm .montrnt .IN2 {    width: 90%; margin-bottom:10px;}
+#aplicn_frm .IN1{ width:280px; margin-right:8px; margin-bottom:10px;}
+#aplicn_frm .IN1b { width:305px; margin-right:8px; margin-bottom:10px;}
+#debtwrapper p a.rem_col { float:right; margin-bottom:7px;}
+#aplicn_frm .rws.rw2 .ipsm4, #aplicn_frm select.IN1b.ipsm1, #aplicn_frm .rws.rw2 select.ipsm3, #aplicn_frm .IN1 {width:100%;}
+#aplicn_frm select.IN1b.ipsm3 {width:100%;}
+html body #aplicn_frm ul.low_creditop li.opt2 label.error {font-size:11px;}
 }
 @media (min-width:0px) and (max-width:410px) { 
 .logLogo {margin: 17% auto;}
@@ -515,6 +657,20 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 #newuser {margin: 1.5em 0;}
 .documentContent .km-listview-wrapper ul li table td:nth-child(3) a.docs-popup, .documentContent .km-listview-wrapper ul li table td:nth-child(3) a.k-state-border-down { background-size:76%;}
 #aplicn_frm ul.low_creditop li, #aplicn_frm .rws .rwfilbc span  {width:100%;}
+#wrapper{min-width:320px; width:100%;}
+#menutops {min-width: 320px;}
+#top_rh .myacc {width: 99px;}
+#top_rh .myacc a { background-position: -366px -174px;     padding-left: 25px; }
+
+/* 6 mar */
+#aplicn_tp ul.app_nav li{ font-size:11px; margin-right:1%;}
+.rw_lin.cngopt > p { width:65% !important; float:left!important;}
+/* 6 mar */
+#aplicn_frm  .IN1 { width:270px; margin-right:0px;}
+#aplicn_frm  .IN1b { width:295px; margin-right:0px;}
+#aplicn_frm .IN2 {width:267px; margin-right:0px;}
+
+#aplicn_frm .IN1 {width:100%;}
 }
 
 @media (min-width:0px) and (max-width:320px) { 

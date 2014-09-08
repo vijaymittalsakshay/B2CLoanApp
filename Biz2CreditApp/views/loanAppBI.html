@@ -136,7 +136,7 @@
                             <div class="lftitb">Company Information</div>
                             <div class="rwfil">
                                 <div class="rw_lin clearfix">
-                                    <p>
+                                    <p class="sixtPrst">
                                         <select class="IN3 smOn" id="blegal" name="blegal" title="Select Business Legal Structure"  data-bind="value: select_b_l_s" required>
                                             <option value="" selected="selected">Select Business Legal Structure</option>
                                             <option value="Sole Proprietorship">Sole Proprietorship</option>
@@ -151,7 +151,7 @@
                                 </div>
 
                                 <div class="rw_lin hlp clearfix">
-                                    <p>
+                                    <p class="sixtPrst">
                                         <select name="orgtype" id="orgtype" class="IN5 input_boxreg" onChange="displayorgCategory(this.value);"  data-bind="value: industry" title='Select Industry'  required>
                                             <option value="" selected="selected">Select Industry</option>
                                             <option value="17" >Accommodation and Food Services</option>
@@ -179,7 +179,7 @@
                                     </p>
                                     <a class="que_hint flf">&nbsp;</a>
 									<div class='tooltip'><span class='tpar'></span><div><h6>Industry</h6><p>Find the industry and sub-industry that best describe your business. Classification is based on the North American Industry Classification System</p></div></div>
-                                    <p>
+                                    <p class="sixtPrst">
                                         <select name="orgcategory" id="orgcategory" class="IN5"    title='Select Sub Industry'   data-bind="value: sub_industry" required>
                                             <option value="">Select Sub Industry</option>
                                         </select>
@@ -188,7 +188,7 @@
 
                                 <div class="rw_lin hlp clearfix">
 
-                                    <p>
+                                    <p class="sixtPrst">
                                         <select id="dbs_month" name="dbs_month" class="IN5" data-bind="value: select_buss_s_m" original-title="Select Date Business Started (Month)">
                                             <option value="" selected="selected">Select Date Business Started (Month)</option>
                                             <option value="1">Jan</option>
@@ -215,7 +215,7 @@
                                         </div>
                                     </div>
 
-                                    <p>
+                                    <p class="sixtPrst">
                                         <select class="IN5" id="dbs_year" name="dbs_year" data-bind="value: select_buss_s_y" original-title="Select Date Business Started (Year)">
                                             <option value="" selected="selected">Select Date Business Started (Year)</option>
                                             <option value="2014">2014</option>
@@ -337,7 +337,7 @@
                                 </div>
 
                                 <div class="rw_lin cngopt clearfix">
-                                    <p>
+                                    <p class="fotPrst">
                                         <input type="checkbox" name="yettostart" value="1" data-bind="value: yettostart" id="yettostart">
                                         <label for="newckbx">About to start a business</label>
                                     </p>
@@ -352,7 +352,7 @@
                                 </div>
 
                                 <div class="rw_lin hlp clearfix">
-                                    <p>
+                                    <p class="sixtPrst">
                                         <input type="text"  class="IN6" title="Average Annual Revenue ($)" placeholder="Average Annual Revenue ($)" data-bind="value: average_annual_revenue" name="revenue" id="revenue" required />
                                     </p>
                                     <a class="que_hint flf">&nbsp;</a>
@@ -365,7 +365,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <p>
+                                    <p class="sixtPrst">
                                         <input type="text"  class="IN6" title="Business Operating Expenses ($)" placeholder="Business Operating Expenses ($)" data-bind="value: buss_operating_expenses" name="operatingexp" id="operatingexp" required />
                                     </p>
                                     <a class="que_hint flf">&nbsp;</a>
@@ -1311,6 +1311,7 @@
                                 <!-- bus info bx-->
                                 <div id="busInfobx2" class="showfilds_bx">
                                     <div class="rw_lin clearfix">
+
                                         <input type="text" name="busi_month_rent" id="busi_month_rent" class="IN4c number" title="Monthly Rent($)" data-bind="value: monthly_rent" placeholder="Monthly Rent($)" />
                                         <input type="text" name="busi_landlord" id="busi_landlord"  class="IN4c"  title="Landlord Name" data-bind="value: landlord_name" placeholder="Landlord Name" />
                                         <input type="text" name="busi_cont_number" id="busi_cont_number" class="IN4c"  title="Contact Number" data-bind="value: contact_number" placeholder="Contact Number" maxlength="10" />

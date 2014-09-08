@@ -30,18 +30,20 @@
         show:function(e) {
             
             e.sender.reload=false;
-            e.view.reload=false
+            e.view.reload=false;
+            $("select#own_state option[value='"+app.loansetting.viewModel.select_state+"']").prop('selected',true);
+            createCityCmb(app.loansetting.viewModel.select_state , '');
 			$(".km-scroll-container").css("-webkit-transform", ""); 
             $("#add-ownerForm").unbind(".myPlugin");
             blegal;
             if(blegal === '' || blegal !== app.loansetting.viewModel.select_b_l_s)
             {
-            blegal = app.loansetting.viewModel.select_b_l_s;
-            var str ='';
-            str += '<option value="">Select Job Title</option>';
+                blegal = app.loansetting.viewModel.select_b_l_s;
+                var str ='';
+                str += '<option value="">Select Job Title</option>';
 
-            if(blegal === 'Sole Proprietorship'){
-            	str += '<option value="Sole Proprietor">Sole Proprietor</option>';
+                if(blegal === 'Sole Proprietorship'){
+                	str += '<option value="Sole Proprietor">Sole Proprietor</option>';
             }
             else if(blegal === 'Corporation' || blegal === 'Non Profit Corp'){
                 str += '<option value="Assistant Treasurer">Assistant Treasurer</option>';
@@ -557,7 +559,7 @@
             str += "<p id='ownerCity"+NumOfDiv+"'>\
             <select class='IN1b ipsm3' name='own_city"+NumOfDiv+"' id='own_city"+NumOfDiv+"' data-bind='value:own_city"+NumOfDiv+"' original-title='Select City'><option value=''>Select City</option></select></p>";
 
-            str += "<p><input maxlength='5' type='text' class='IN1 ipsm1' name='OwnZipCode"+NumOfDiv+"' data-bind='value:OwnZipCode"+NumOfDiv+"' id='OwnZipCode"+NumOfDiv+"' orignal-title='Zip Code' placeholder='Zip Code' value='' maxlength='5' /></p>";
+            str += "<p><input maxlength='5' type='text' class='IN1 ipsm1 zipcod' name='OwnZipCode"+NumOfDiv+"' data-bind='value:OwnZipCode"+NumOfDiv+"' id='OwnZipCode"+NumOfDiv+"' orignal-title='Zip Code' placeholder='Zip Code' value='' maxlength='5' /></p>";
             str += '</div></div></div>';
 
             str += '<div class="clear"></div>';
