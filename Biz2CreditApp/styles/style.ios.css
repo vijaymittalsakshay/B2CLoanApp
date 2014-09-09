@@ -179,7 +179,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #aplicn_tp ul.app_nav li.dn span{ background-position:center 85px;}
 #aplicn_frm .rws .rwfil {width:100% !important; float:none !important;}
 #aplicn_frm .IN1.zipcod {width:100%;}
-    #aplicn_tp ul.app_nav li.dn {font-weight:bold;}
+#aplicn_tp ul.app_nav li.dn {font-weight:bold;}
 }
 @media (min-width:0px) and (max-width:600px) { 
 #tabstrip-files-events.modal-mess-Popup {height:50%;}
@@ -237,6 +237,14 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #repypm.repaydetail ul li span.tx{ font-size:1em;}   
 #repypm.repaydetail ul li { width:33%;}
 .documentContent .km-listview-wrapper ul li table td:nth-child(2) {width:80%;}
+    
+#homePage .testimonials h2 { font-size:1.3em; background-size:6%;margin: 0 0 25px;padding: 2% 0 2% 8%;}
+#homePage .testimonials .test-content .test-r p {font-size:1em; text-align:justify; margin:15px 0;}
+#homePage .testimonials .test-content .test-l {float:none; margin:0 0 20px; width:100%;text-align:center;}
+#homePage .testimonials .test-content .test-r { width:100%; float:none; }
+#homePage .testimonials .test-content .test-l img { max-width:40%; margin:0 auto;}
+#homePage .testimonials .test-content .test-r span { text-align:center; font-size:1.1em;}
+#homePage .testimonials { padding:2% 3% 5%; }
 }
 @media (min-width:0px) and (max-width:533px) { 
 #blackBlk .desbrdIcon {padding: 2%;display: block;}
@@ -358,7 +366,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 .documentContent .km-listview-wrapper ul li table td:nth-child(2) {width:58%;height: 50px;}
 #aplicn_tp ul.app_nav li span { font-size:11px;}
 #aplicn_frm ul.low_creditop li {width:98%;}
-    #aplicn_frm .rws p.fotPrst {width:66%;}
+#aplicn_frm .rws p.fotPrst {width:66%;}
+#homePage .testimonials h2 { font-size:1.3em; background-size:8%;margin: 0 0 25px;padding: 2% 0 2% 10%;}
 }
 
 @media (min-width:0px) and (max-width:320px) { 

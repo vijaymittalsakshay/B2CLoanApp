@@ -97,7 +97,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */
 .warps {margin: 0 auto; width: 100%;}
 .clearfix:after { clear: both; content: " "; display: block; font-size: 0; height: 0; visibility: hidden;}
-#blackBlk { padding:1% 0% 4%; display:block; width:96%; margin:0 2%;}
+#blackBlk { padding:1% 0% 0%; display:block; width:96%; margin:0 2%;}
 #blackBlk .desbrdIcon { padding:3%; display:block;}
 #blackBlk .desbrdIcon .dasimg { width:13%; padding:0 2% 0 0 !important; }
 #blackBlk .desbrdIcon .dasimg img {max-width:100%; width:100%; height:auto; display:block;}
@@ -261,6 +261,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .documentContent .km-listview-wrapper ul li span {padding:5px 10px 5px 65px; display:block;}
 .documentContent .km-listview-wrapper ul li span span { padding:0;display:table-cell; vertical-align: middle; line-height: normal; height:43px;}
 
+
 .documentContent .km-listview-wrapper ul li .sharedfolder {background-image: url(images/single-share-folder.png); background-repeat:no-repeat; background-size:60%; background-position:5px 7px;}
 .documentContent .km-listview-wrapper ul li .Folder {background-image: url(images/folder.png); background-repeat:no-repeat; background-size:60%; background-position:5px 7px;}
 .documentContent .km-listview-wrapper ul li .default-icon {background-image: url(images/unknown.png); background-repeat:no-repeat; background-size:43%; background-position:13px 7px;}
@@ -380,3 +381,13 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #dashview .tooltip span span { color:rgb(36, 36, 36);padding:0 0 0 5px;display:inline-block; text-align:left; width:52%;}
 #popoverId .km-popup-arrow {background-image: url(images/pop-arow-top.png); background-repeat:no-repeat; background-position:0px 0px; width:20px;margin: 0 0 0 4px; border-color:#363940;}
 #tabstrip-Setting .km-header {border-bottom: 1px solid #99cc00;}
+
+/****09-09-14*************/
+#homePage .testimonials { padding:2% 2% 5%; width:100%; background:#fff; margin:0;}
+#homePage .testimonials h2 { font-size:1.8em; background-image: url(images/testmonial-icon.png); background-position: 0 center; background-repeat:no-repeat; background-size:7%; margin:0 0 30px; padding:2% 0 2% 10%; color:#333; }
+#homePage .testimonials .test-content { display:inline-block; width:100%;}
+#homePage .testimonials .test-content .test-l {width:23%; margin:0 4% 0 0; float:left; }
+#homePage .testimonials .test-content .test-l img {border-radius:50%; border:#ccc 5px solid; max-width:100%;width:100%; overflow:hidden;}
+#homePage .testimonials .test-content .test-r {float:right; width:73%; margin:0;}
+#homePage .testimonials .test-content .test-r p {color:#666; margin:15px 0 25px; font-style:italic; font-size:1.4em;}
+#homePage .testimonials .test-content .test-r span { font-size:1.5em; display:block; color:#333;}
