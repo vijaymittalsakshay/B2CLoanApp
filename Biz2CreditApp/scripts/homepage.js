@@ -273,7 +273,7 @@
                 }
                 
                 $("#home-call-btn").html("");
-                localStorage.setItem("fid",'');
+                localStorage.setItem("fid",'71469');
                 //dHeader='Congratulations '+userName+'!';
                 //dDescription='Please reapply when you need additional funds or would like to refinance.';
                // dButtonText = "Start an Application";

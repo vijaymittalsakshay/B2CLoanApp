@@ -77,7 +77,7 @@
                                     <p>
                                         <input type="text" class="IN1 ipsm1" name="OwnerStreetAddress" id="OwnerStreetAddress" placeholder="Street Name/Apt/Suite/Unit" data-bind="value:Owner_StreetAddress" original-title="Street Name/Apt/Suite/Unit">
                                     </p>
-                                    <div class="clear"></div>
+                                    <br>
 
                                     <p>
                                         <select class="IN1b ipsm3" name="state_user" data-bind="value:state_user"  id="own_state"  title="Select State"  onchange="createCityCmb(this.value, '');" required>
@@ -145,7 +145,7 @@
                                     </p>
 
                                     <p>
-                                        <input type="text" class="IN1 ipsm1 zipcod" name="OwnZipCode" data-bind="value:OwnZipCode"  id="OwnZipCode" title="Zip Code" placeholder="Zip Code" maxlength="5" required />
+                                        <input type="text" class="IN1 ipsm1" name="OwnZipCode" data-bind="value:OwnZipCode"  id="OwnZipCode" title="Zip Code" placeholder="Zip Code" maxlength="5" required />
                                     </p>
 
                                 </div>
@@ -453,6 +453,12 @@
             $("#loader").remove();
             $('#own_city'+NumOfDiv+'').removeAttr("disabled");
             $('#own_state'+NumOfDiv+'').removeAttr("disabled");
+            if(NumOfDiv ==='')
+            {
+                $("select#own_city option[value='"+app.loansetting.viewModel.select_city+"']").prop('selected',true);
+                $('#own_city'+NumOfDiv+'').attr("disabled","disabled");
+				$('#own_state'+NumOfDiv+'').attr("disabled","disabled");
+            }
 
         });
     }
