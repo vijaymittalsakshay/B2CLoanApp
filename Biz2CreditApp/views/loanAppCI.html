@@ -458,6 +458,8 @@
                 $("select#own_city option[value='"+app.loansetting.viewModel.select_city+"']").prop('selected',true);
                 $('#own_city'+NumOfDiv+'').attr("disabled","disabled");
 				$('#own_state'+NumOfDiv+'').attr("disabled","disabled");
+                app.loanAppCI.viewModel.state_user=app.loansetting.viewModel.select_state;
+            	app.loanAppCI.viewModel.cmbCity=app.loansetting.viewModel.select_city;
             }
 
         });
