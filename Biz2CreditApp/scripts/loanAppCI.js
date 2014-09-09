@@ -206,6 +206,37 @@
                    return false;
                 }     
         	});
+            $.validator.addMethod("ownerUemail", function(value, element) {
+                var totaldivs = parseInt($('#totownerDiv').val());                
+                var emails = new Array();   
+                var stremails = "";                
+                
+                for(var c=0; c<=totaldivs; c++){ 
+                    if(c===0) {
+                        var index='';
+                    } else {
+                        var index = c;
+                    }            
+                    if($("#email"+index).length) {
+                        var cemail = $("#email"+index).val();
+                        var ctname = element.name;
+                        var ctid      = "email"+index;                       
+                        if(cemail !== '' && ctname !== ctid){                            
+                            stremails+= cemail+",";
+                        }
+                    }       
+                }
+                
+                var strlength = parseInt(stremails.length)-1;                
+                stremails = stremails.substring(0,strlength);
+                var no_occ = stremails.indexOf(value); 
+
+                if(no_occ>=0){
+                    return false;
+                }else {
+                    return true;
+                }
+       	 });
             
             $("#b2cApp1").validate({
                 rules: {
@@ -219,10 +250,10 @@
                     },
                     email: { 
                     	email: true, 
+                        ownerUemail: true,
                     	required: true 
                     },
-                    OwnJobTitle: { 
-                    	loginRegex: true, 
+                    OwnJobTitle: {  
                     	required: true 
                     },
                     OwnerCivic: { 
@@ -267,6 +298,15 @@
                     	loginRegex: "Letters, numbers,space or underscores only please",
                     	required: "This value is required"
 
+                    },
+                    email: {
+                        email: "Please enter valid email",
+                        required: "This value is required",
+                        ownerUemail: "Please enter unique email for each owner"
+                    },
+
+                    OwnJobTitle: {
+                   	 required: "This value is required"
                     },
                     OwnerCivic: {
                     	required: "This value is required",
@@ -361,6 +401,12 @@
                 email: true,
                 messages: {
                 email: "Please enter valid email"
+                }
+                });
+                $("#email"+index).rules("add", {
+                ownerUemail: true,
+                messages: {
+                ownerUemail: "Please enter unique email for each owner"
                 }
                 });
 

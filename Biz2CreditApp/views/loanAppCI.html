@@ -61,7 +61,7 @@
                                     <input type="text" data-bind="value:Owner_email" placeholder="Email Address" id="email" name="email" class="IN1" original-title="Email Address">
                                 </p>
                                 <p>
-                                    <select class="IN1" name="OwnJobTitle" id="OwnJobTitle" data-bind="value:Owner_JobTitle" original-title="Job Title">
+                                    <select class="IN1" name="OwnJobTitle" id="OwnJobTitle" data-bind="value:Owner_JobTitle" original-title="Job Title" required>
                                         <option value="">Select Job Title</option>
                                         <option value="Sole Proprietor">Sole Proprietor</option>
                                     </select>
@@ -77,7 +77,7 @@
                                     <p>
                                         <input type="text" class="IN1 ipsm1" name="OwnerStreetAddress" id="OwnerStreetAddress" placeholder="Street Name/Apt/Suite/Unit" data-bind="value:Owner_StreetAddress" original-title="Street Name/Apt/Suite/Unit">
                                     </p>
-                                    <br>
+                                    <div class="clear"></div>
 
                                     <p>
                                         <select class="IN1b ipsm3" name="state_user" data-bind="value:state_user"  id="own_state"  title="Select State"  onchange="createCityCmb(this.value, '');" required>
@@ -145,7 +145,7 @@
                                     </p>
 
                                     <p>
-                                        <input type="text" class="IN1 ipsm1" name="OwnZipCode" data-bind="value:OwnZipCode"  id="OwnZipCode" title="Zip Code" placeholder="Zip Code" maxlength="5" required />
+                                        <input type="text" class="IN1 ipsm1 zipcod" name="OwnZipCode" data-bind="value:OwnZipCode"  id="OwnZipCode" title="Zip Code" placeholder="Zip Code" maxlength="5" required />
                                     </p>
 
                                 </div>

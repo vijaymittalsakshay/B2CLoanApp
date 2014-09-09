@@ -41,7 +41,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #aplicn_frm .IN3 {width:335px;}
 #aplicn_frm .ipsm1 {width: 150px;}
 #row_owners .rw_lin.addons p {text-align: left;}
-#aplicn_frm .rws .rwfil label {font-size:0.8em;}
+#aplicn_frm .rws .rwfil label {font-size:11px;}
 #aplicn_frm .IN4 {width:168px;}
 }
 @media (min-width:0px) and (max-width:1024px) {
@@ -140,6 +140,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #aplicn_frm .rws .lftit {width:100%;}
 #aplicn_frm .IN1.zipcod {width:200px;}
 #aplicn_frm .IN1.fund {width:345px;}
+#aplicn_frm .IN3.smOn {width:321px;}
 }
 @media (min-width:0px) and (max-width:768px) {
 .logLogo {margin: 34% auto 10%;}

@@ -171,19 +171,19 @@
                 }
                 else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
                 {
-                    $msg= "Finacial Preference not submitted successfully.";
-                    app.loginService.viewModel.mobileNotification($msg,'info'); 
+                   // $msg= "Finacial Preference not submitted successfully.";
+                   // app.loginService.viewModel.mobileNotification($msg,'info'); 
                     return;
                 }
                 else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
                 {
-                    $msg= "Please enter all fields.";
-                    app.loginService.viewModel.mobileNotification($msg,'info');
+                   // $msg= "Please enter all fields.";
+                   // app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
                 }
                 else{
-                    $msg= "Server not responding properly,Please try again";
-                    app.loginService.viewModel.mobileNotification($msg,'info');
+                  //  $msg= "Server not responding properly,Please try again";
+                  //  app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
                 }            
 

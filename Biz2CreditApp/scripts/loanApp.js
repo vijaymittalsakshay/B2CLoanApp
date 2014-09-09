@@ -457,7 +457,7 @@
         			},
         			businessphone: {
         				required: "This value is required",
-        				phoneUS: "Please enter us phone number"
+        				phoneUS: "US phone number required"
         			},
         			blegal: {
         				required: "This value is required"
