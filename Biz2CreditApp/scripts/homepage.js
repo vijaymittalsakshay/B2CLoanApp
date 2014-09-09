@@ -18,7 +18,17 @@
         dButtonText :(window.localStorage.getItem("dButtonText") !== null) ?  localStorage.getItem("dButtonText") : '',
         dButtonLink:(window.localStorage.getItem("dButtonLink") !== null) ?  localStorage.getItem("dButtonLink") : '',
         repaymentStatus:false,
-        
+        matchShow:function()
+        { 
+			var latestMatches = app.homesetting.viewModel.Matches;
+
+            if(latestMatches.length===0)
+            {
+                mHtml = '<div class="bmatches"><p>Unfortunately, we don not have any options for you at this time.</p>';
+                mHtml += '<p>But dont worry, call our toll free number <span>(800-200-5678)</span> to speak with a loan specialist to discuss other options or how to improve your credit. Also, we are constantly adding new lenders and products and will notify you once there is a  new match </p>';
+                $("#MatchesList").html(mHtml);
+            }
+        },
         homeShow: function (e) {
             app.loginService.viewModel.formValidateReset();
             $(".km-scroll-container").css("-webkit-transform", "");
@@ -274,10 +284,10 @@
                 
                 $("#home-call-btn").html("");
                 localStorage.setItem("fid",'');
-                //dHeader='Congratulations '+userName+'!';
-                //dDescription='Please reapply when you need additional funds or would like to refinance.';
-               // dButtonText = "Start an Application";
-                //dButtonLink ="views/loanAppBI.html";
+                dHeader='Congratulations '+userName+'!';
+                dDescription='Please reapply when you need additional funds or would like to refinance.';
+               dButtonText = "Start an Application";
+                dButtonLink ="views/matches.html";
                 if(dButtonLink === "views/matches.html")
                 {
                     var html = '<a class="btngr" href="'+dButtonLink+'" data-role="button">'+dButtonText+'</a>';
@@ -295,7 +305,7 @@
                  app.homesetting.viewModel.setcache(dHeader,dDescription,dButtonText,dButtonLink);
                
             });
-        },       
+        },
 		setcache:function(dHeader,dDescription,dButtonText,dButtonLink)
         {
             var that = this; 
@@ -358,6 +368,11 @@
         { 
                var that = this;
                that.set("Matches", data);
+        },
+        getMatches: function()
+        { 
+               var that = this;
+               that.get("Matches");
         },
         reqDocuments: function(e)
         {

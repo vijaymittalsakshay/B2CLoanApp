@@ -1,4 +1,4 @@
-<div data-role="view" id="tabstrip-matches" data-model="app.homesetting.viewModel">
+<div data-role="view" id="tabstrip-matches" data-model="app.homesetting.viewModel" data-after-show="app.homesetting.viewModel.matchShow">
     <div data-role="header">
         <div data-role="navbar">
             <span data-role="view-title">
@@ -15,7 +15,6 @@
 
 <!-- Matches page template -->
         <script type="text/x-kendo-template" id="matches-template">
-            
                 <li class="clearfix">
             	<div class="row1">
                 		<p>#if(typeof pro_display_name  !== "undefined"){#
@@ -109,7 +108,6 @@
                 #}else{#
 					<a class="pending" href="\#tabstrip-mess-third" data-rel="modalview" data-role="button">#: status_name #</a>
                 #}#
-	
 				</div>
            	 </li>
             
