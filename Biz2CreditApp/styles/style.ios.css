@@ -368,6 +368,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 #aplicn_frm ul.low_creditop li {width:98%;}
 #aplicn_frm .rws p.fotPrst {width:66%;}
 #homePage .testimonials h2 { font-size:1.3em; background-size:8%;margin: 0 0 25px;padding: 2% 0 2% 10%;}
+#aplicn_frm .rws p.sixtPrst {width: 81%;}
+#aplicn_frm .IN3.smOn {width:100%;}
 }
 
 @media (min-width:0px) and (max-width:320px) { 

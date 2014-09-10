@@ -262,6 +262,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .documentContent .km-listview-wrapper ul li span span { padding:0;display:table-cell; vertical-align: middle; line-height: normal; height:43px;}
 
 
+
 .documentContent .km-listview-wrapper ul li .sharedfolder {background-image: url(images/single-share-folder.png); background-repeat:no-repeat; background-size:60%; background-position:5px 7px;}
 .documentContent .km-listview-wrapper ul li .Folder {background-image: url(images/folder.png); background-repeat:no-repeat; background-size:60%; background-position:5px 7px;}
 .documentContent .km-listview-wrapper ul li .default-icon {background-image: url(images/unknown.png); background-repeat:no-repeat; background-size:43%; background-position:13px 7px;}
@@ -391,3 +392,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #homePage .testimonials .test-content .test-r {float:right; width:73%; margin:0;}
 #homePage .testimonials .test-content .test-r p {color:#666; margin:15px 0 25px; font-style:italic; font-size:1.4em;}
 #homePage .testimonials .test-content .test-r span { font-size:1.5em; display:block; color:#333;}
+
+#MatchesList .bmatches {display:block;}
+#MatchesList .bmatches p { font-size:1em; color:#333; line-height: 1.4em;text-align: justify;}
+#MatchesList .bmatches p span { color:#8ab514;font-weight: bold;}
