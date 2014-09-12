@@ -13,7 +13,7 @@
         select_state:'',
         select_city:'',
         zip_code:'',
-        mobile_number:'',
+        mobile_number:(localStorage.getItem("userMobile") !== '') ?  localStorage.getItem("userMobile") : '',
         select_b_l_s:'',
         industry:'',
         sub_industry:'',
@@ -962,7 +962,7 @@
         },
         	
 		loanAppBISubmit:function(e){
-           //apps.navigate('views/loanAppCI.html');
+          //apps.navigate('views/loanAppCI.html');
             dataParam =  {};
             if(e.sender.element.context.dataset.name === "Next")
             {
@@ -1297,7 +1297,7 @@
                 dataParam['busi_month_mort_amount']	=	"";
                 
             }
-            
+             console.log(dataParam);
             app.loginService.viewModel.showloder();
             var dataSource = new kendo.data.DataSource({
                 transport: {
@@ -1329,15 +1329,16 @@
                 {
                     if(dataParam['business_act'] === "Next")
                     {
-                        $msg= "Business Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                        //$msg= "Business Information submitted successfully";
+                       // app.loginService.viewModel.mobileNotification($msg,'info');
+                        sessionStorage.setItem("setprefilStatus",'true');
                         localStorage.setItem("fid",data[0]['results']['fid']);
                         app.loansetting.viewModel.SetCurrentfidStatus();
                         apps.navigate('views/loanAppCI.html');
                     }
                     else
                     {
-                        $msg= "Business Information submitted successfully";
+                        //$msg= "Business Information submitted successfully";
                         app.loginService.viewModel.mobileNotification($msg,'info');
                     	app.loansetting.viewModel.resetLoanAppBIForm();
                         apps.navigate('#tabstrip-home');
@@ -1432,6 +1433,7 @@
 			{
                 var that = this;
                 localStorage.setItem("fid",'');
+                sessionStorage.setItem("setprefilStatus",false);
                 $("#tabstrip-loanapp-bi").find(".km-scroll-container").css("-webkit-transform", "");
                 $("#tabstrip-loanapp-ci").find(".km-scroll-container").css("-webkit-transform", "");
                 $('#credit_show,#outsta_debt,#busInfobx,#busInfobx2').hide();
@@ -1444,7 +1446,7 @@
                 that.set("select_state",'');
                 that.set("select_city",'');
                 that.set("zip_code","");
-                that.set("mobile_number","");
+                that.set("mobile_number",(localStorage.getItem("userMobile") !== '') ?  localStorage.getItem("userMobile") : '');
                 that.set("select_b_l_s","");
                 that.set("industry","");
                 that.set("sub_industry","");

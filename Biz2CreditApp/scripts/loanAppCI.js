@@ -31,8 +31,12 @@
             
             e.sender.reload=false;
             e.view.reload=false;
-            $("select#own_state option[value='"+app.loansetting.viewModel.select_state+"']").prop('selected',true);
-            createCityCmb(app.loansetting.viewModel.select_state , '');
+            if(sessionStorage.getItem("setprefilStatus").trim()==='true')
+            {
+                createCityCmb(app.loansetting.viewModel.select_state , '');
+            }
+            // alert(app.loansetting.viewModel.actualown);
+           // alert(app.loansetting.viewModel.zip_code);
 			$(".km-scroll-container").css("-webkit-transform", ""); 
             $("#add-ownerForm").unbind(".myPlugin");
             blegal;
@@ -274,8 +278,7 @@
                     	zipcodeUS: true
                     },
                     owner_year: {
-                    	required: true,
-                    	dobminor: true
+                    	required: true
                     },
                     owner_month: {
                     	required: true
@@ -284,7 +287,8 @@
                     	required: true
                     },                        
                     own_percent: {
-                    	required: true
+                    	required: true,
+                        ownerPercent: true
                     }
 
                 },
@@ -327,8 +331,7 @@
 
                     },
                     owner_year: {
-                    	required:  "This value is required",
-                   	 dobminor: "Owner age should be greater than 18 years"
+                    	required:  "This value is required"
                     },
                     owner_month: {
                     	required: "This value is required"                                        
@@ -337,7 +340,8 @@
                     	required: "This value is required"                                        
                     },
                     own_percent: {
-                    	required: "This value is required"
+                    	required: "This value is required",
+                         ownerPercent: "Ownership % should be less than or equal to 100"
                     }
                 },
                 submitHandler: function(form) {
@@ -345,6 +349,8 @@
                 	return false;
                 }
             });
+            
+           
             
             var addownerForm = $("#add-ownerForm");
             var index = $('#totownerDiv').val(); 
@@ -469,7 +475,7 @@
                 $("#OwnZipCode"+index).rules("add", {
                 number : true,
                 messages: {
-                required: "Please enter digits only"
+                required: "This value is required"
                 }
                 });
 
@@ -704,7 +710,7 @@
         },
         createOwnership:function (NumOfDiv){
             var str='';
-            str ="<select name='own_percent"+NumOfDiv+"' id='own_percent"+NumOfDiv+"' data-bind='value:own_percent"+NumOfDiv+"' original-title='Ownership Percentage' class='IN1b ipsm3'>";
+            str ="<select name='own_percent"+NumOfDiv+"' id='own_percent"+NumOfDiv+"' onchange='javascript:ownerpValidate()'  data-bind='value:own_percent"+NumOfDiv+"' original-title='Ownership Percentage' class='IN1b ipsm3'>";
             str +='<option value="">Ownership Percentage</option>';        
             for(i=100; i>=1;i--){          
             str +='<option value="'+i+'">'+i+'</option>';
@@ -741,11 +747,13 @@
             }      
             //alert(totdivs+" : "+adivs+" : "+newdivs+"   ="+actualown);
             if(actualown >= 6){
+                alert(actualown);
             	$('#add-ownerForm').hide();
             }else {
             	$('#add-ownerForm').show();
             }
 		},
+       
         setHiddenField:function(index)
         {
                 var that =this;
@@ -794,7 +802,8 @@
             dobDay     = that.get("owner_day");
             dobMonth   = that.get("owner_month");
             dobYear    = that.get("owner_year");
-            ownerZip   = that.get("OwnZipCode").trim();
+            ownerZip   = that.get("OwnZipCode");
+            alert("zipcode "+ownerZip);
             ownPercent = that.get("own_percent");
             totownerDiv = that.get("totownerDiv");
             ownerdeleteIds = that.get("ownerdeleteIds");
@@ -880,15 +889,16 @@
                 {
                     if(dataParam['contact_act'] === "Next")
                     {
-                        $msg= "Contact Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                        //$msg= "Contact Information submitted successfully";
+                       // app.loginService.viewModel.mobileNotification($msg,'info');
                         app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);
                         apps.navigate('views/loanAppPI.html');
                     }
                     else
                     {
-                        $msg= "Contact Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                       // $msg= "Contact Information submitted successfully";
+                       // app.loginService.viewModel.mobileNotification($msg,'info');
+                         sessionStorage.setItem("setprefilStatus",false);
                     	app.loansetting.viewModel.resetLoanAppBIForm();
                         app.loanAppCI.viewModel.resetLoanAppCIForm();
                         apps.navigate('#tabstrip-home');

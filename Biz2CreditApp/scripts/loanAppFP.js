@@ -133,7 +133,7 @@
 
             dataParam['hidacccard']='';
             dataParam['orgtype']='';
-            
+            console.log(dataParam);
             app.loginService.viewModel.showloder();
             var dataSource = new kendo.data.DataSource({
                 transport: {
@@ -160,19 +160,20 @@
             dataSource.fetch(function(){
 
                 var data = this.data();
+                console.log(data);
                 app.loginService.viewModel.hideloder();
                 if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
                 {
-                    $msg= "Finacial Preference submitted successfully";
-                    app.loginService.viewModel.mobileNotification($msg,'info');
+                   // $msg= "Finacial Preference submitted successfully";
+                   // app.loginService.viewModel.mobileNotification($msg,'info');
                     app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
                     app.homesetting.viewModel.homeShow(); 
                     apps.navigate('views/matches.html');
                 }
                 else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
                 {
-                    $msg= "Finacial Preference not submitted successfully.";
-                    app.loginService.viewModel.mobileNotification($msg,'info'); 
+                   // $msg= "Finacial Preference not submitted successfully.";
+                   // app.loginService.viewModel.mobileNotification($msg,'info'); 
                     return;
                 }
                 else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
