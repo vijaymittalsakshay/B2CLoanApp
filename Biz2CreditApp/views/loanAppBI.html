@@ -1381,10 +1381,20 @@
             });
             dataSource.fetch(function(){
                 var view = dataSource.view();
+       // console.log(view.sort());
                 var html='<option value="" selected="selected">Select City</option>';
                 $.each(view, function( index, value ) {
+        console.log(index);
+        console.log(value);
                 	html+='<option value="'+value['pid']+'">'+value['city'].toLowerCase()+'</option>';
                 });
+        console.log(view);
+        for(var i=0;i<10;i++)
+        {
+           
+            a = view[i]['city'];
+        console.log(a);
+        }
         
                 $("#cmbCity").html(html);
                 $("#loader").remove();
